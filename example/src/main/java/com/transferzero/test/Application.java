@@ -173,7 +173,7 @@ public class Application {
 
         Map<String, String> webhookHeaders = new HashMap<String, String>();
 
-        webhookHeaders.put("Authorization-Nonce", "<noncs from webhook headers>");
+        webhookHeaders.put("Authorization-Nonce", "<nonce from webhook headers>");
         webhookHeaders.put("Authorization-Key", "<key from webhook headers>");
         webhookHeaders.put("Authorization-Signature", "<signature from webhook headers>");
 
