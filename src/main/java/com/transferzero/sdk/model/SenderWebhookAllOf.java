@@ -20,39 +20,36 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.Sender;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * FieldSelectValidation
+ * SenderWebhookAllOf
  */
 
-public class FieldSelectValidation {
-  public static final String SERIALIZED_NAME_IN = "in";
-  @SerializedName(SERIALIZED_NAME_IN)
-  private Object in = null;
+public class SenderWebhookAllOf {
+  public static final String SERIALIZED_NAME_OBJECT = "object";
+  @SerializedName(SERIALIZED_NAME_OBJECT)
+  private Sender _object = null;
 
-  public static final String SERIALIZED_NAME_ALLOW_BLANK = "allow_blank";
-  @SerializedName(SERIALIZED_NAME_ALLOW_BLANK)
-  private Boolean allowBlank;
-
-   /**
-   * Describes the valid options for this selectbox
-   * @return in
-  **/
-  @ApiModelProperty(example = "{\"20\":\"Current\",\"10\":\"Savings\"}", value = "Describes the valid options for this selectbox")
-  public Object getIn() {
-    return in;
+  public SenderWebhookAllOf _object(Sender _object) {
+    this._object = _object;
+    return this;
   }
 
    /**
-   * Describes whether the field is optional or not
-   * @return allowBlank
+   * Get _object
+   * @return _object
   **/
-  @ApiModelProperty(example = "false", value = "Describes whether the field is optional or not")
-  public Boolean getAllowBlank() {
-    return allowBlank;
+  @ApiModelProperty(value = "")
+  public Sender getObject() {
+    return _object;
+  }
+
+  public void setObject(Sender _object) {
+    this._object = _object;
   }
 
 
@@ -64,23 +61,21 @@ public class FieldSelectValidation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FieldSelectValidation fieldSelectValidation = (FieldSelectValidation) o;
-    return Objects.equals(this.in, fieldSelectValidation.in) &&
-        Objects.equals(this.allowBlank, fieldSelectValidation.allowBlank);
+    SenderWebhookAllOf senderWebhookAllOf = (SenderWebhookAllOf) o;
+    return Objects.equals(this._object, senderWebhookAllOf._object);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(in, allowBlank);
+    return Objects.hash(_object);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FieldSelectValidation {\n");
-    sb.append("    in: ").append(toIndentedString(in)).append("\n");
-    sb.append("    allowBlank: ").append(toIndentedString(allowBlank)).append("\n");
+    sb.append("class SenderWebhookAllOf {\n");
+    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("}");
     return sb.toString();
   }

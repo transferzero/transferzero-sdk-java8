@@ -20,39 +20,29 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.CurrencyOpposite;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * FieldSelectValidation
+ * CurrencyExchangeAllOf
  */
 
-public class FieldSelectValidation {
-  public static final String SERIALIZED_NAME_IN = "in";
-  @SerializedName(SERIALIZED_NAME_IN)
-  private Object in = null;
-
-  public static final String SERIALIZED_NAME_ALLOW_BLANK = "allow_blank";
-  @SerializedName(SERIALIZED_NAME_ALLOW_BLANK)
-  private Boolean allowBlank;
+public class CurrencyExchangeAllOf {
+  public static final String SERIALIZED_NAME_OPPOSITES = "opposites";
+  @SerializedName(SERIALIZED_NAME_OPPOSITES)
+  private List<CurrencyOpposite> opposites = new ArrayList<>();
 
    /**
-   * Describes the valid options for this selectbox
-   * @return in
+   * Lists the currencies where you can exchange from this one
+   * @return opposites
   **/
-  @ApiModelProperty(example = "{\"20\":\"Current\",\"10\":\"Savings\"}", value = "Describes the valid options for this selectbox")
-  public Object getIn() {
-    return in;
-  }
-
-   /**
-   * Describes whether the field is optional or not
-   * @return allowBlank
-  **/
-  @ApiModelProperty(example = "false", value = "Describes whether the field is optional or not")
-  public Boolean getAllowBlank() {
-    return allowBlank;
+  @ApiModelProperty(value = "Lists the currencies where you can exchange from this one")
+  public List<CurrencyOpposite> getOpposites() {
+    return opposites;
   }
 
 
@@ -64,23 +54,21 @@ public class FieldSelectValidation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FieldSelectValidation fieldSelectValidation = (FieldSelectValidation) o;
-    return Objects.equals(this.in, fieldSelectValidation.in) &&
-        Objects.equals(this.allowBlank, fieldSelectValidation.allowBlank);
+    CurrencyExchangeAllOf currencyExchangeAllOf = (CurrencyExchangeAllOf) o;
+    return Objects.equals(this.opposites, currencyExchangeAllOf.opposites);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(in, allowBlank);
+    return Objects.hash(opposites);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FieldSelectValidation {\n");
-    sb.append("    in: ").append(toIndentedString(in)).append("\n");
-    sb.append("    allowBlank: ").append(toIndentedString(allowBlank)).append("\n");
+    sb.append("class CurrencyExchangeAllOf {\n");
+    sb.append("    opposites: ").append(toIndentedString(opposites)).append("\n");
     sb.append("}");
     return sb.toString();
   }

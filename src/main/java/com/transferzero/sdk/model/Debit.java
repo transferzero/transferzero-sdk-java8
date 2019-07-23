@@ -82,10 +82,10 @@ public class Debit {
   }
 
    /**
-   * The amount to be debited from your account.  The “amount” parameter is optional - - if included, it must equal the amount required to fund the transaction. - if omitted, it will default to the amount required to fund the transaction. 
+   * The amount to be debited from your account.  The \&quot;amount\&quot; parameter is optional - - if included, it must equal the amount required to fund the transaction. - if omitted, it will default to the amount required to fund the transaction. 
    * @return amount
   **/
-  @ApiModelProperty(example = "10000", value = "The amount to be debited from your account.  The “amount” parameter is optional - - if included, it must equal the amount required to fund the transaction. - if omitted, it will default to the amount required to fund the transaction. ")
+  @ApiModelProperty(example = "10000", value = "The amount to be debited from your account.  The \"amount\" parameter is optional - - if included, it must equal the amount required to fund the transaction. - if omitted, it will default to the amount required to fund the transaction. ")
   public Double getAmount() {
     return amount;
   }
@@ -100,10 +100,10 @@ public class Debit {
   }
 
    /**
-   * The currency of the amount in 3-character alpha ISO 4217 currency format
+   * The currency of the amount in 3-character alpha ISO 4217 currency format.  The \&quot;currency\&quot; parameter is optional - if omitted, it will default to the payin currency of the transaction. - it can be added in as an additional check to ensure that the expected currency is used. (an error will be given back if it does not match up with the payin currency of the transaction) 
    * @return currency
   **/
-  @ApiModelProperty(example = "NGN", required = true, value = "The currency of the amount in 3-character alpha ISO 4217 currency format")
+  @ApiModelProperty(example = "NGN", value = "The currency of the amount in 3-character alpha ISO 4217 currency format.  The \"currency\" parameter is optional - if omitted, it will default to the payin currency of the transaction. - it can be added in as an additional check to ensure that the expected currency is used. (an error will be given back if it does not match up with the payin currency of the transaction) ")
   public String getCurrency() {
     return currency;
   }

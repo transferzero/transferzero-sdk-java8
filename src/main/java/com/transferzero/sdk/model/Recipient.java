@@ -64,6 +64,10 @@ public class Recipient {
   @SerializedName(SERIALIZED_NAME_EDITABLE)
   private Boolean editable;
 
+  public static final String SERIALIZED_NAME_RETRIABLE = "retriable";
+  @SerializedName(SERIALIZED_NAME_RETRIABLE)
+  private Boolean retriable;
+
   public static final String SERIALIZED_NAME_INPUT_USD_AMOUNT = "input_usd_amount";
   @SerializedName(SERIALIZED_NAME_INPUT_USD_AMOUNT)
   private BigDecimal inputUsdAmount;
@@ -205,9 +209,18 @@ public class Recipient {
    * Shows whether the recipient can be edited using the PATCH /v1/recipients/{id} endpoint or not
    * @return editable
   **/
-  @ApiModelProperty(value = "Shows whether the recipient can be edited using the PATCH /v1/recipients/{id} endpoint or not")
+  @ApiModelProperty(example = "true", value = "Shows whether the recipient can be edited using the PATCH /v1/recipients/{id} endpoint or not")
   public Boolean getEditable() {
     return editable;
+  }
+
+   /**
+   * Shows whether the transaction made to the recipient can be retried or not
+   * @return retriable
+  **/
+  @ApiModelProperty(example = "true", value = "Shows whether the transaction made to the recipient can be retried or not")
+  public Boolean getRetriable() {
+    return retriable;
   }
 
    /**
@@ -223,7 +236,7 @@ public class Recipient {
    * Shows whether the payment can be cancelled using the DELETE /v1/recipients/{id} endpoint or not. The payment can not be cancelled if the payout is pending.
    * @return mayCancel
   **/
-  @ApiModelProperty(value = "Shows whether the payment can be cancelled using the DELETE /v1/recipients/{id} endpoint or not. The payment can not be cancelled if the payout is pending.")
+  @ApiModelProperty(example = "true", value = "Shows whether the payment can be cancelled using the DELETE /v1/recipients/{id} endpoint or not. The payment can not be cancelled if the payout is pending.")
   public Boolean getMayCancel() {
     return mayCancel;
   }
@@ -370,6 +383,7 @@ public class Recipient {
         Objects.equals(this.metadata, recipient.metadata) &&
         Objects.equals(this.createdAt, recipient.createdAt) &&
         Objects.equals(this.editable, recipient.editable) &&
+        Objects.equals(this.retriable, recipient.retriable) &&
         Objects.equals(this.inputUsdAmount, recipient.inputUsdAmount) &&
         Objects.equals(this.mayCancel, recipient.mayCancel) &&
         Objects.equals(this.stateReason, recipient.stateReason) &&
@@ -388,7 +402,7 @@ public class Recipient {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestedAmount, requestedCurrency, payoutMethod, metadata, createdAt, editable, inputUsdAmount, mayCancel, stateReason, state, transactionId, transactionState, exchangeRate, feeFractional, inputAmount, inputCurrency, outputAmount, outputCurrency, id, errors);
+    return Objects.hash(requestedAmount, requestedCurrency, payoutMethod, metadata, createdAt, editable, retriable, inputUsdAmount, mayCancel, stateReason, state, transactionId, transactionState, exchangeRate, feeFractional, inputAmount, inputCurrency, outputAmount, outputCurrency, id, errors);
   }
 
 
@@ -402,6 +416,7 @@ public class Recipient {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    editable: ").append(toIndentedString(editable)).append("\n");
+    sb.append("    retriable: ").append(toIndentedString(retriable)).append("\n");
     sb.append("    inputUsdAmount: ").append(toIndentedString(inputUsdAmount)).append("\n");
     sb.append("    mayCancel: ").append(toIndentedString(mayCancel)).append("\n");
     sb.append("    stateReason: ").append(toIndentedString(stateReason)).append("\n");

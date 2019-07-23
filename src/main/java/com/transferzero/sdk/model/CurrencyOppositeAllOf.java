@@ -23,36 +23,24 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
- * FieldSelectValidation
+ * CurrencyOppositeAllOf
  */
 
-public class FieldSelectValidation {
-  public static final String SERIALIZED_NAME_IN = "in";
-  @SerializedName(SERIALIZED_NAME_IN)
-  private Object in = null;
-
-  public static final String SERIALIZED_NAME_ALLOW_BLANK = "allow_blank";
-  @SerializedName(SERIALIZED_NAME_ALLOW_BLANK)
-  private Boolean allowBlank;
+public class CurrencyOppositeAllOf {
+  public static final String SERIALIZED_NAME_RATE = "rate";
+  @SerializedName(SERIALIZED_NAME_RATE)
+  private BigDecimal rate;
 
    /**
-   * Describes the valid options for this selectbox
-   * @return in
+   * The rate of this particular currency with the base one
+   * @return rate
   **/
-  @ApiModelProperty(example = "{\"20\":\"Current\",\"10\":\"Savings\"}", value = "Describes the valid options for this selectbox")
-  public Object getIn() {
-    return in;
-  }
-
-   /**
-   * Describes whether the field is optional or not
-   * @return allowBlank
-  **/
-  @ApiModelProperty(example = "false", value = "Describes whether the field is optional or not")
-  public Boolean getAllowBlank() {
-    return allowBlank;
+  @ApiModelProperty(value = "The rate of this particular currency with the base one")
+  public BigDecimal getRate() {
+    return rate;
   }
 
 
@@ -64,23 +52,21 @@ public class FieldSelectValidation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FieldSelectValidation fieldSelectValidation = (FieldSelectValidation) o;
-    return Objects.equals(this.in, fieldSelectValidation.in) &&
-        Objects.equals(this.allowBlank, fieldSelectValidation.allowBlank);
+    CurrencyOppositeAllOf currencyOppositeAllOf = (CurrencyOppositeAllOf) o;
+    return Objects.equals(this.rate, currencyOppositeAllOf.rate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(in, allowBlank);
+    return Objects.hash(rate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FieldSelectValidation {\n");
-    sb.append("    in: ").append(toIndentedString(in)).append("\n");
-    sb.append("    allowBlank: ").append(toIndentedString(allowBlank)).append("\n");
+    sb.append("class CurrencyOppositeAllOf {\n");
+    sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
     sb.append("}");
     return sb.toString();
   }
