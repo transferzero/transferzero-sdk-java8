@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import com.transferzero.sdk.model.CurrencyExchangeListResponse;
 import com.transferzero.sdk.model.CurrencyListResponse;
+import java.util.UUID;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -137,11 +138,12 @@ public class CurrencyInfoApi {
     }
     /**
      * Build call for infoCurrenciesIn
+     * @param senderId Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/in?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call infoCurrenciesInCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call infoCurrenciesInCall(UUID senderId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -149,6 +151,10 @@ public class CurrencyInfoApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (senderId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sender_id", senderId));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
@@ -170,10 +176,10 @@ public class CurrencyInfoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call infoCurrenciesInValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call infoCurrenciesInValidateBeforeCall(UUID senderId, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = infoCurrenciesInCall(_callback);
+        okhttp3.Call localVarCall = infoCurrenciesInCall(senderId, _callback);
         return localVarCall;
 
     }
@@ -181,22 +187,24 @@ public class CurrencyInfoApi {
     /**
      * Getting a list of possible input currencies
      * Fetches a list of currencies available to use as the input currency in other API requests. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. Use this endpoint to determine the current exchange rate from a specific input currency to any output currency that&#39;s available. 
+     * @param senderId Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/in?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
      * @return CurrencyExchangeListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CurrencyExchangeListResponse infoCurrenciesIn() throws ApiException {
-        ApiResponse<CurrencyExchangeListResponse> localVarResp = infoCurrenciesInWithHttpInfo();
+    public CurrencyExchangeListResponse infoCurrenciesIn(UUID senderId) throws ApiException {
+        ApiResponse<CurrencyExchangeListResponse> localVarResp = infoCurrenciesInWithHttpInfo(senderId);
         return localVarResp.getData();
     }
 
     /**
      * Getting a list of possible input currencies
      * Fetches a list of currencies available to use as the input currency in other API requests. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. Use this endpoint to determine the current exchange rate from a specific input currency to any output currency that&#39;s available. 
+     * @param senderId Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/in?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
      * @return ApiResponse&lt;CurrencyExchangeListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CurrencyExchangeListResponse> infoCurrenciesInWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = infoCurrenciesInValidateBeforeCall(null);
+    public ApiResponse<CurrencyExchangeListResponse> infoCurrenciesInWithHttpInfo(UUID senderId) throws ApiException {
+        okhttp3.Call localVarCall = infoCurrenciesInValidateBeforeCall(senderId, null);
         Type localVarReturnType = new TypeToken<CurrencyExchangeListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -204,24 +212,26 @@ public class CurrencyInfoApi {
     /**
      * Getting a list of possible input currencies (asynchronously)
      * Fetches a list of currencies available to use as the input currency in other API requests. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. Use this endpoint to determine the current exchange rate from a specific input currency to any output currency that&#39;s available. 
+     * @param senderId Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/in?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call infoCurrenciesInAsync(final ApiCallback<CurrencyExchangeListResponse> _callback) throws ApiException {
+    public okhttp3.Call infoCurrenciesInAsync(UUID senderId, final ApiCallback<CurrencyExchangeListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = infoCurrenciesInValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = infoCurrenciesInValidateBeforeCall(senderId, _callback);
         Type localVarReturnType = new TypeToken<CurrencyExchangeListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for infoCurrenciesOut
+     * @param senderId Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/out?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call infoCurrenciesOutCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call infoCurrenciesOutCall(UUID senderId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -229,6 +239,10 @@ public class CurrencyInfoApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (senderId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sender_id", senderId));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
@@ -250,10 +264,10 @@ public class CurrencyInfoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call infoCurrenciesOutValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call infoCurrenciesOutValidateBeforeCall(UUID senderId, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = infoCurrenciesOutCall(_callback);
+        okhttp3.Call localVarCall = infoCurrenciesOutCall(senderId, _callback);
         return localVarCall;
 
     }
@@ -261,22 +275,24 @@ public class CurrencyInfoApi {
     /**
      * Getting a list of possible output currencies
      * Fetches a list of currencies available to use as the output currency and their exchange rates against the available input currencies. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. 
+     * @param senderId Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/out?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
      * @return CurrencyExchangeListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CurrencyExchangeListResponse infoCurrenciesOut() throws ApiException {
-        ApiResponse<CurrencyExchangeListResponse> localVarResp = infoCurrenciesOutWithHttpInfo();
+    public CurrencyExchangeListResponse infoCurrenciesOut(UUID senderId) throws ApiException {
+        ApiResponse<CurrencyExchangeListResponse> localVarResp = infoCurrenciesOutWithHttpInfo(senderId);
         return localVarResp.getData();
     }
 
     /**
      * Getting a list of possible output currencies
      * Fetches a list of currencies available to use as the output currency and their exchange rates against the available input currencies. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. 
+     * @param senderId Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/out?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
      * @return ApiResponse&lt;CurrencyExchangeListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CurrencyExchangeListResponse> infoCurrenciesOutWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = infoCurrenciesOutValidateBeforeCall(null);
+    public ApiResponse<CurrencyExchangeListResponse> infoCurrenciesOutWithHttpInfo(UUID senderId) throws ApiException {
+        okhttp3.Call localVarCall = infoCurrenciesOutValidateBeforeCall(senderId, null);
         Type localVarReturnType = new TypeToken<CurrencyExchangeListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -284,13 +300,14 @@ public class CurrencyInfoApi {
     /**
      * Getting a list of possible output currencies (asynchronously)
      * Fetches a list of currencies available to use as the output currency and their exchange rates against the available input currencies. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. 
+     * @param senderId Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/out?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call infoCurrenciesOutAsync(final ApiCallback<CurrencyExchangeListResponse> _callback) throws ApiException {
+    public okhttp3.Call infoCurrenciesOutAsync(UUID senderId, final ApiCallback<CurrencyExchangeListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = infoCurrenciesOutValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = infoCurrenciesOutValidateBeforeCall(senderId, _callback);
         Type localVarReturnType = new TypeToken<CurrencyExchangeListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

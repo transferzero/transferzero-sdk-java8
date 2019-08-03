@@ -21,7 +21,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.Currency;
-import com.transferzero.sdk.model.CurrencyOppositeAllOf;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -76,6 +75,10 @@ public class CurrencyOpposite {
   @SerializedName(SERIALIZED_NAME_RATE)
   private BigDecimal rate;
 
+  public static final String SERIALIZED_NAME_MTM_RATE = "mtm_rate";
+  @SerializedName(SERIALIZED_NAME_MTM_RATE)
+  private BigDecimal mtmRate;
+
    /**
    * The currency code in 3-character alpha ISO 4217 currency format
    * @return code
@@ -125,7 +128,7 @@ public class CurrencyOpposite {
    * Is this a primary currency?
    * @return primary
   **/
-  @ApiModelProperty(example = "true", value = "Is this a primary currency?")
+  @ApiModelProperty(value = "Is this a primary currency?")
   public Boolean getPrimary() {
     return primary;
   }
@@ -175,6 +178,15 @@ public class CurrencyOpposite {
     return rate;
   }
 
+   /**
+   * Mark to market rate of this particular currency against the base one with the margin factored in
+   * @return mtmRate
+  **/
+  @ApiModelProperty(value = "Mark to market rate of this particular currency against the base one with the margin factored in")
+  public BigDecimal getMtmRate() {
+    return mtmRate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -195,12 +207,13 @@ public class CurrencyOpposite {
         Objects.equals(this.max, currencyOpposite.max) &&
         Objects.equals(this.margin, currencyOpposite.margin) &&
         Objects.equals(this.usdEquivalent, currencyOpposite.usdEquivalent) &&
-        Objects.equals(this.rate, currencyOpposite.rate);
+        Objects.equals(this.rate, currencyOpposite.rate) &&
+        Objects.equals(this.mtmRate, currencyOpposite.mtmRate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, name, symbol, decimals, subunitToUnit, primary, min, max, margin, usdEquivalent, rate);
+    return Objects.hash(code, name, symbol, decimals, subunitToUnit, primary, min, max, margin, usdEquivalent, rate, mtmRate);
   }
 
 
@@ -219,6 +232,7 @@ public class CurrencyOpposite {
     sb.append("    margin: ").append(toIndentedString(margin)).append("\n");
     sb.append("    usdEquivalent: ").append(toIndentedString(usdEquivalent)).append("\n");
     sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
+    sb.append("    mtmRate: ").append(toIndentedString(mtmRate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

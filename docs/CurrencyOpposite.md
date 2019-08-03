@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **margin** | **String** | The margin set for transactions in this currency |  [optional]
 **usdEquivalent** | **String** | The equivalent of the currency to 1 USD |  [optional]
 **rate** | [**BigDecimal**](BigDecimal.md) | The rate of this particular currency with the base one |  [optional]
+**mtmRate** | [**BigDecimal**](BigDecimal.md) | Mark to market rate of this particular currency against the base one with the margin factored in |  [optional]
 
 
 
