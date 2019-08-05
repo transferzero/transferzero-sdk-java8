@@ -16,6 +16,7 @@ package com.transferzero.sdk.api;
 import com.transferzero.sdk.ApiException;
 import com.transferzero.sdk.model.CurrencyExchangeListResponse;
 import com.transferzero.sdk.model.CurrencyListResponse;
+import java.util.UUID;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -58,7 +59,8 @@ public class CurrencyInfoApiTest {
      */
     @Test
     public void infoCurrenciesInTest() throws ApiException {
-        CurrencyExchangeListResponse response = api.infoCurrenciesIn();
+        UUID senderID = null;
+        CurrencyExchangeListResponse response = api.infoCurrenciesIn(senderID);
 
         // TODO: test validations
     }
@@ -73,7 +75,8 @@ public class CurrencyInfoApiTest {
      */
     @Test
     public void infoCurrenciesOutTest() throws ApiException {
-        CurrencyExchangeListResponse response = api.infoCurrenciesOut();
+        UUID senderID = null;
+        CurrencyExchangeListResponse response = api.infoCurrenciesOut(senderID);
 
         // TODO: test validations
     }
