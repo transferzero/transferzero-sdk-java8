@@ -34,6 +34,10 @@ public class CurrencyOppositeAllOf {
   @SerializedName(SERIALIZED_NAME_RATE)
   private BigDecimal rate;
 
+  public static final String SERIALIZED_NAME_MTM_RATE = "mtm_rate";
+  @SerializedName(SERIALIZED_NAME_MTM_RATE)
+  private BigDecimal mtmRate;
+
    /**
    * The rate of this particular currency with the base one
    * @return rate
@@ -41,6 +45,15 @@ public class CurrencyOppositeAllOf {
   @ApiModelProperty(value = "The rate of this particular currency with the base one")
   public BigDecimal getRate() {
     return rate;
+  }
+
+   /**
+   * Mark to market rate of this particular currency against the base one with the margin factored in
+   * @return mtmRate
+  **/
+  @ApiModelProperty(value = "Mark to market rate of this particular currency against the base one with the margin factored in")
+  public BigDecimal getMtmRate() {
+    return mtmRate;
   }
 
 
@@ -53,12 +66,13 @@ public class CurrencyOppositeAllOf {
       return false;
     }
     CurrencyOppositeAllOf currencyOppositeAllOf = (CurrencyOppositeAllOf) o;
-    return Objects.equals(this.rate, currencyOppositeAllOf.rate);
+    return Objects.equals(this.rate, currencyOppositeAllOf.rate) &&
+        Objects.equals(this.mtmRate, currencyOppositeAllOf.mtmRate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rate);
+    return Objects.hash(rate, mtmRate);
   }
 
 
@@ -67,6 +81,7 @@ public class CurrencyOppositeAllOf {
     StringBuilder sb = new StringBuilder();
     sb.append("class CurrencyOppositeAllOf {\n");
     sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
+    sb.append("    mtmRate: ").append(toIndentedString(mtmRate)).append("\n");
     sb.append("}");
     return sb.toString();
   }
