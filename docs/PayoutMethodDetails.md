@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **phoneNumber** | **String** |  | 
 **mobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
 **bankName** | **String** |  | 
+**bankCountry** | **String** |  | 
 **iban** | **String** |  | 
 **bic** | **String** |  |  [optional]
 **senderIdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 

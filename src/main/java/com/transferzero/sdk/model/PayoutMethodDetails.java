@@ -27,6 +27,7 @@ import com.transferzero.sdk.model.PayoutMethodDetailsIBAN;
 import com.transferzero.sdk.model.PayoutMethodDetailsMADCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsNGNBank;
+import com.transferzero.sdk.model.PayoutMethodDetailsXOFBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFMobile;
 import com.transferzero.sdk.model.PayoutMethodGenderEnum;
 import com.transferzero.sdk.model.PayoutMethodIdentityCardTypeEnum;
@@ -71,6 +72,10 @@ public class PayoutMethodDetails {
   public static final String SERIALIZED_NAME_BANK_NAME = "bank_name";
   @SerializedName(SERIALIZED_NAME_BANK_NAME)
   private String bankName;
+
+  public static final String SERIALIZED_NAME_BANK_COUNTRY = "bank_country";
+  @SerializedName(SERIALIZED_NAME_BANK_COUNTRY)
+  private String bankCountry;
 
   public static final String SERIALIZED_NAME_IBAN = "iban";
   @SerializedName(SERIALIZED_NAME_IBAN)
@@ -258,6 +263,24 @@ public class PayoutMethodDetails {
 
   public void setBankName(String bankName) {
     this.bankName = bankName;
+  }
+
+  public PayoutMethodDetails bankCountry(String bankCountry) {
+    this.bankCountry = bankCountry;
+    return this;
+  }
+
+   /**
+   * Get bankCountry
+   * @return bankCountry
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getBankCountry() {
+    return bankCountry;
+  }
+
+  public void setBankCountry(String bankCountry) {
+    this.bankCountry = bankCountry;
   }
 
   public PayoutMethodDetails iban(String iban) {
@@ -476,6 +499,7 @@ public class PayoutMethodDetails {
         Objects.equals(this.phoneNumber, payoutMethodDetails.phoneNumber) &&
         Objects.equals(this.mobileProvider, payoutMethodDetails.mobileProvider) &&
         Objects.equals(this.bankName, payoutMethodDetails.bankName) &&
+        Objects.equals(this.bankCountry, payoutMethodDetails.bankCountry) &&
         Objects.equals(this.iban, payoutMethodDetails.iban) &&
         Objects.equals(this.bic, payoutMethodDetails.bic) &&
         Objects.equals(this.senderIdentityCardType, payoutMethodDetails.senderIdentityCardType) &&
@@ -491,7 +515,7 @@ public class PayoutMethodDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, bankName, iban, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, bankName, bankCountry, iban, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference);
   }
 
 
@@ -507,6 +531,7 @@ public class PayoutMethodDetails {
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
     sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
+    sb.append("    bankCountry: ").append(toIndentedString(bankCountry)).append("\n");
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
     sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
     sb.append("    senderIdentityCardType: ").append(toIndentedString(senderIdentityCardType)).append("\n");
