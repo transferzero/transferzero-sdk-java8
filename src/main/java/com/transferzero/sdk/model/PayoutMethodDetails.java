@@ -69,6 +69,10 @@ public class PayoutMethodDetails {
   @SerializedName(SERIALIZED_NAME_MOBILE_PROVIDER)
   private PayoutMethodMobileProviderEnum mobileProvider;
 
+  public static final String SERIALIZED_NAME_IBAN = "iban";
+  @SerializedName(SERIALIZED_NAME_IBAN)
+  private String iban;
+
   public static final String SERIALIZED_NAME_BANK_NAME = "bank_name";
   @SerializedName(SERIALIZED_NAME_BANK_NAME)
   private String bankName;
@@ -76,10 +80,6 @@ public class PayoutMethodDetails {
   public static final String SERIALIZED_NAME_BANK_COUNTRY = "bank_country";
   @SerializedName(SERIALIZED_NAME_BANK_COUNTRY)
   private String bankCountry;
-
-  public static final String SERIALIZED_NAME_IBAN = "iban";
-  @SerializedName(SERIALIZED_NAME_IBAN)
-  private String iban;
 
   public static final String SERIALIZED_NAME_BIC = "bic";
   @SerializedName(SERIALIZED_NAME_BIC)
@@ -247,6 +247,24 @@ public class PayoutMethodDetails {
     this.mobileProvider = mobileProvider;
   }
 
+  public PayoutMethodDetails iban(String iban) {
+    this.iban = iban;
+    return this;
+  }
+
+   /**
+   * Get iban
+   * @return iban
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getIban() {
+    return iban;
+  }
+
+  public void setIban(String iban) {
+    this.iban = iban;
+  }
+
   public PayoutMethodDetails bankName(String bankName) {
     this.bankName = bankName;
     return this;
@@ -281,24 +299,6 @@ public class PayoutMethodDetails {
 
   public void setBankCountry(String bankCountry) {
     this.bankCountry = bankCountry;
-  }
-
-  public PayoutMethodDetails iban(String iban) {
-    this.iban = iban;
-    return this;
-  }
-
-   /**
-   * Get iban
-   * @return iban
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public String getIban() {
-    return iban;
-  }
-
-  public void setIban(String iban) {
-    this.iban = iban;
   }
 
   public PayoutMethodDetails bic(String bic) {
@@ -498,9 +498,9 @@ public class PayoutMethodDetails {
         Objects.equals(this.bankAccountType, payoutMethodDetails.bankAccountType) &&
         Objects.equals(this.phoneNumber, payoutMethodDetails.phoneNumber) &&
         Objects.equals(this.mobileProvider, payoutMethodDetails.mobileProvider) &&
+        Objects.equals(this.iban, payoutMethodDetails.iban) &&
         Objects.equals(this.bankName, payoutMethodDetails.bankName) &&
         Objects.equals(this.bankCountry, payoutMethodDetails.bankCountry) &&
-        Objects.equals(this.iban, payoutMethodDetails.iban) &&
         Objects.equals(this.bic, payoutMethodDetails.bic) &&
         Objects.equals(this.senderIdentityCardType, payoutMethodDetails.senderIdentityCardType) &&
         Objects.equals(this.senderIdentityCardId, payoutMethodDetails.senderIdentityCardId) &&
@@ -515,7 +515,7 @@ public class PayoutMethodDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, bankName, bankCountry, iban, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, iban, bankName, bankCountry, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference);
   }
 
 
@@ -530,9 +530,9 @@ public class PayoutMethodDetails {
     sb.append("    bankAccountType: ").append(toIndentedString(bankAccountType)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
+    sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
     sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
     sb.append("    bankCountry: ").append(toIndentedString(bankCountry)).append("\n");
-    sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
     sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
     sb.append("    senderIdentityCardType: ").append(toIndentedString(senderIdentityCardType)).append("\n");
     sb.append("    senderIdentityCardId: ").append(toIndentedString(senderIdentityCardId)).append("\n");
