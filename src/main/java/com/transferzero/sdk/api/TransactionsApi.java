@@ -148,14 +148,7 @@ public class TransactionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-    /**
-     * Build call for getTransaction
-     * @param transactionID ID of the transaction.  Example: &#x60;/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getTransactionCall(UUID transactionID, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTransactionCall(UUID transactionID, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -198,57 +191,78 @@ public class TransactionsApi {
 
     }
 
-    /**
-     * Fetch a single transaction
-     * Finds and returns a Transaction created by the requesting API key, using the provided Transaction ID.
-     * @param transactionID ID of the transaction.  Example: &#x60;/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
-     * @return TransactionResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public TransactionResponse getTransaction(UUID transactionID) throws ApiException {
-        ApiResponse<TransactionResponse> localVarResp = getTransactionWithHttpInfo(transactionID);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Fetch a single transaction
-     * Finds and returns a Transaction created by the requesting API key, using the provided Transaction ID.
-     * @param transactionID ID of the transaction.  Example: &#x60;/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
-     * @return ApiResponse&lt;TransactionResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<TransactionResponse> getTransactionWithHttpInfo(UUID transactionID) throws ApiException {
+    private ApiResponse<TransactionResponse> getTransactionWithHttpInfo(UUID transactionID) throws ApiException {
         okhttp3.Call localVarCall = getTransactionValidateBeforeCall(transactionID, null);
         Type localVarReturnType = new TypeToken<TransactionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Fetch a single transaction (asynchronously)
-     * Finds and returns a Transaction created by the requesting API key, using the provided Transaction ID.
-     * @param transactionID ID of the transaction.  Example: &#x60;/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getTransactionAsync(UUID transactionID, final ApiCallback<TransactionResponse> _callback) throws ApiException {
+    private okhttp3.Call getTransactionAsync(UUID transactionID, final ApiCallback<TransactionResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTransactionValidateBeforeCall(transactionID, _callback);
         Type localVarReturnType = new TypeToken<TransactionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetTransactionRequest {
+        private final UUID transactionID;
+
+        private APIgetTransactionRequest(UUID transactionID) {
+            this.transactionID = transactionID;
+        }
+
+        /**
+         * Build call for getTransaction
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getTransactionCall(transactionID, _callback);
+        }
+
+        /**
+         * Execute getTransaction request
+         * @return TransactionResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public TransactionResponse execute() throws ApiException {
+            ApiResponse<TransactionResponse> localVarResp = getTransactionWithHttpInfo(transactionID);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getTransaction request with HTTP info returned
+         * @return ApiResponse&lt;TransactionResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<TransactionResponse> executeWithHttpInfo() throws ApiException {
+            return getTransactionWithHttpInfo(transactionID);
+        }
+
+        /**
+         * Execute getTransaction request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<TransactionResponse> _callback) throws ApiException {
+            return getTransactionAsync(transactionID, _callback);
+        }
+    }
+
     /**
-     * Build call for getTransactions
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param externalId Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
-     * @param senderId Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Fetch a single transaction
+     * Finds and returns a Transaction created by the requesting API key, using the provided Transaction ID.
+     * @param transactionID ID of the transaction.  Example: &#x60;/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
+     * @return APIgetTransactionRequest
      */
-    public okhttp3.Call getTransactionsCall(Integer page, Integer per, String externalId, String senderId, final ApiCallback _callback) throws ApiException {
+    public APIgetTransactionRequest getTransaction(UUID transactionID) {
+        return new APIgetTransactionRequest(transactionID);
+    }
+    private okhttp3.Call getTransactionsCall(Integer page, Integer per, String externalId, String senderId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -301,54 +315,117 @@ public class TransactionsApi {
 
     }
 
-    /**
-     * Get a list of transactions
-     * Retrieves a paginated list of the Transactions created by your API key.
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param externalId Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
-     * @param senderId Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)
-     * @return TransactionListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public TransactionListResponse getTransactions(Integer page, Integer per, String externalId, String senderId) throws ApiException {
-        ApiResponse<TransactionListResponse> localVarResp = getTransactionsWithHttpInfo(page, per, externalId, senderId);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Get a list of transactions
-     * Retrieves a paginated list of the Transactions created by your API key.
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param externalId Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
-     * @param senderId Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)
-     * @return ApiResponse&lt;TransactionListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<TransactionListResponse> getTransactionsWithHttpInfo(Integer page, Integer per, String externalId, String senderId) throws ApiException {
+    private ApiResponse<TransactionListResponse> getTransactionsWithHttpInfo(Integer page, Integer per, String externalId, String senderId) throws ApiException {
         okhttp3.Call localVarCall = getTransactionsValidateBeforeCall(page, per, externalId, senderId, null);
         Type localVarReturnType = new TypeToken<TransactionListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get a list of transactions (asynchronously)
-     * Retrieves a paginated list of the Transactions created by your API key.
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param externalId Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
-     * @param senderId Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getTransactionsAsync(Integer page, Integer per, String externalId, String senderId, final ApiCallback<TransactionListResponse> _callback) throws ApiException {
+    private okhttp3.Call getTransactionsAsync(Integer page, Integer per, String externalId, String senderId, final ApiCallback<TransactionListResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTransactionsValidateBeforeCall(page, per, externalId, senderId, _callback);
         Type localVarReturnType = new TypeToken<TransactionListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIgetTransactionsRequest {
+        private Integer page;
+        private Integer per;
+        private String externalId;
+        private String senderId;
+
+        private APIgetTransactionsRequest() {
+        }
+
+        /**
+         * Set page
+         * @param page The page number to request (defaults to 1) (optional)
+         * @return APIgetTransactionsRequest
+         */
+        public APIgetTransactionsRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set per
+         * @param per The number of results to load per page (defaults to 10) (optional)
+         * @return APIgetTransactionsRequest
+         */
+        public APIgetTransactionsRequest per(Integer per) {
+            this.per = per;
+            return this;
+        }
+
+        /**
+         * Set externalId
+         * @param externalId Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
+         * @return APIgetTransactionsRequest
+         */
+        public APIgetTransactionsRequest externalId(String externalId) {
+            this.externalId = externalId;
+            return this;
+        }
+
+        /**
+         * Set senderId
+         * @param senderId Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)
+         * @return APIgetTransactionsRequest
+         */
+        public APIgetTransactionsRequest senderId(String senderId) {
+            this.senderId = senderId;
+            return this;
+        }
+
+        /**
+         * Build call for getTransactions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getTransactionsCall(page, per, externalId, senderId, _callback);
+        }
+
+        /**
+         * Execute getTransactions request
+         * @return TransactionListResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public TransactionListResponse execute() throws ApiException {
+            ApiResponse<TransactionListResponse> localVarResp = getTransactionsWithHttpInfo(page, per, externalId, senderId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getTransactions request with HTTP info returned
+         * @return ApiResponse&lt;TransactionListResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<TransactionListResponse> executeWithHttpInfo() throws ApiException {
+            return getTransactionsWithHttpInfo(page, per, externalId, senderId);
+        }
+
+        /**
+         * Execute getTransactions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<TransactionListResponse> _callback) throws ApiException {
+            return getTransactionsAsync(page, per, externalId, senderId, _callback);
+        }
+    }
+
+    /**
+     * Get a list of transactions
+     * Retrieves a paginated list of the Transactions created by your API key.
+     * @return APIgetTransactionsRequest
+     */
+    public APIgetTransactionsRequest getTransactions() {
+        return new APIgetTransactionsRequest();
     }
     /**
      * Build call for payinTransaction

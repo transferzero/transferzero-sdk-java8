@@ -75,7 +75,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="getRecipients"></a>
 # **getRecipients**
-> RecipientListResponse getRecipients(page, per, createdAtFrom, createdAtTo, amountFrom, amountTo, state, currency)
+> RecipientListResponse getRecipients().page(page).per(per).createdAtFrom(createdAtFrom).createdAtTo(createdAtTo).amountFrom(amountFrom).amountTo(amountTo).state(state).currency(currency).execute();
 
 Getting a list of recipients with filtering
 
@@ -105,7 +105,16 @@ String amountTo = "amountTo_example"; // String | Max amount to filter recipient
 List<String> state = Arrays.asList(); // List<String> | Allows filtering results by `state` of recipient. See [API Documentation - Recipient state](https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#state-1) for possible states.  Example: `/v1/recipients?state[]=error&state[]=initial`
 List<String> currency = Arrays.asList(); // List<String> | Allows filtering results by `input_currency`.  Additionally required when filtering by an amount range Example: `/v1/recipients?currency[]=KES&currency[]=NGN`
 try {
-    RecipientListResponse result = apiInstance.getRecipients(page, per, createdAtFrom, createdAtTo, amountFrom, amountTo, state, currency);
+    RecipientListResponse result = apiInstance.getRecipients()
+            .page(page)
+            .per(per)
+            .createdAtFrom(createdAtFrom)
+            .createdAtTo(createdAtTo)
+            .amountFrom(amountFrom)
+            .amountTo(amountTo)
+            .state(state)
+            .currency(currency)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {

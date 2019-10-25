@@ -148,14 +148,7 @@ public class WebhooksApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-    /**
-     * Build call for getWebhook
-     * @param webhookID The ID of the Webhook to look up  Example: &#x60;/v1/webhooks/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60; (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getWebhookCall(UUID webhookID, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getWebhookCall(UUID webhookID, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -198,53 +191,78 @@ public class WebhooksApi {
 
     }
 
-    /**
-     * Find a webhook&#39;s details
-     * Look up a webhook&#39;s details with its ID
-     * @param webhookID The ID of the Webhook to look up  Example: &#x60;/v1/webhooks/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60; (required)
-     * @return WebhookDefinitionResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public WebhookDefinitionResponse getWebhook(UUID webhookID) throws ApiException {
-        ApiResponse<WebhookDefinitionResponse> localVarResp = getWebhookWithHttpInfo(webhookID);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Find a webhook&#39;s details
-     * Look up a webhook&#39;s details with its ID
-     * @param webhookID The ID of the Webhook to look up  Example: &#x60;/v1/webhooks/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60; (required)
-     * @return ApiResponse&lt;WebhookDefinitionResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<WebhookDefinitionResponse> getWebhookWithHttpInfo(UUID webhookID) throws ApiException {
+    private ApiResponse<WebhookDefinitionResponse> getWebhookWithHttpInfo(UUID webhookID) throws ApiException {
         okhttp3.Call localVarCall = getWebhookValidateBeforeCall(webhookID, null);
         Type localVarReturnType = new TypeToken<WebhookDefinitionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Find a webhook&#39;s details (asynchronously)
-     * Look up a webhook&#39;s details with its ID
-     * @param webhookID The ID of the Webhook to look up  Example: &#x60;/v1/webhooks/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60; (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getWebhookAsync(UUID webhookID, final ApiCallback<WebhookDefinitionResponse> _callback) throws ApiException {
+    private okhttp3.Call getWebhookAsync(UUID webhookID, final ApiCallback<WebhookDefinitionResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getWebhookValidateBeforeCall(webhookID, _callback);
         Type localVarReturnType = new TypeToken<WebhookDefinitionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetWebhookRequest {
+        private final UUID webhookID;
+
+        private APIgetWebhookRequest(UUID webhookID) {
+            this.webhookID = webhookID;
+        }
+
+        /**
+         * Build call for getWebhook
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getWebhookCall(webhookID, _callback);
+        }
+
+        /**
+         * Execute getWebhook request
+         * @return WebhookDefinitionResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public WebhookDefinitionResponse execute() throws ApiException {
+            ApiResponse<WebhookDefinitionResponse> localVarResp = getWebhookWithHttpInfo(webhookID);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getWebhook request with HTTP info returned
+         * @return ApiResponse&lt;WebhookDefinitionResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<WebhookDefinitionResponse> executeWithHttpInfo() throws ApiException {
+            return getWebhookWithHttpInfo(webhookID);
+        }
+
+        /**
+         * Execute getWebhook request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<WebhookDefinitionResponse> _callback) throws ApiException {
+            return getWebhookAsync(webhookID, _callback);
+        }
+    }
+
     /**
-     * Build call for getWebhookEvents
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Find a webhook&#39;s details
+     * Look up a webhook&#39;s details with its ID
+     * @param webhookID The ID of the Webhook to look up  Example: &#x60;/v1/webhooks/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60; (required)
+     * @return APIgetWebhookRequest
      */
-    public okhttp3.Call getWebhookEventsCall(final ApiCallback _callback) throws ApiException {
+    public APIgetWebhookRequest getWebhook(UUID webhookID) {
+        return new APIgetWebhookRequest(webhookID);
+    }
+    private okhttp3.Call getWebhookEventsCall(final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -281,52 +299,75 @@ public class WebhooksApi {
 
     }
 
-    /**
-     * Find possible webhook events
-     * Fetching possible webhook events
-     * @return WebhookDefinitionEventListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public WebhookDefinitionEventListResponse getWebhookEvents() throws ApiException {
-        ApiResponse<WebhookDefinitionEventListResponse> localVarResp = getWebhookEventsWithHttpInfo();
-        return localVarResp.getData();
-    }
 
-    /**
-     * Find possible webhook events
-     * Fetching possible webhook events
-     * @return ApiResponse&lt;WebhookDefinitionEventListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<WebhookDefinitionEventListResponse> getWebhookEventsWithHttpInfo() throws ApiException {
+    private ApiResponse<WebhookDefinitionEventListResponse> getWebhookEventsWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getWebhookEventsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<WebhookDefinitionEventListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Find possible webhook events (asynchronously)
-     * Fetching possible webhook events
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getWebhookEventsAsync(final ApiCallback<WebhookDefinitionEventListResponse> _callback) throws ApiException {
+    private okhttp3.Call getWebhookEventsAsync(final ApiCallback<WebhookDefinitionEventListResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getWebhookEventsValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<WebhookDefinitionEventListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetWebhookEventsRequest {
+
+        private APIgetWebhookEventsRequest() {
+        }
+
+        /**
+         * Build call for getWebhookEvents
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getWebhookEventsCall(_callback);
+        }
+
+        /**
+         * Execute getWebhookEvents request
+         * @return WebhookDefinitionEventListResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public WebhookDefinitionEventListResponse execute() throws ApiException {
+            ApiResponse<WebhookDefinitionEventListResponse> localVarResp = getWebhookEventsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getWebhookEvents request with HTTP info returned
+         * @return ApiResponse&lt;WebhookDefinitionEventListResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<WebhookDefinitionEventListResponse> executeWithHttpInfo() throws ApiException {
+            return getWebhookEventsWithHttpInfo();
+        }
+
+        /**
+         * Execute getWebhookEvents request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<WebhookDefinitionEventListResponse> _callback) throws ApiException {
+            return getWebhookEventsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for getWebhooks
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Find possible webhook events
+     * Fetching possible webhook events
+     * @return APIgetWebhookEventsRequest
      */
-    public okhttp3.Call getWebhooksCall(Integer page, Integer per, final ApiCallback _callback) throws ApiException {
+    public APIgetWebhookEventsRequest getWebhookEvents() {
+        return new APIgetWebhookEventsRequest();
+    }
+    private okhttp3.Call getWebhooksCall(Integer page, Integer per, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -371,48 +412,95 @@ public class WebhooksApi {
 
     }
 
-    /**
-     * Listing webhooks
-     * Get a list of created webhooks
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @return WebhookDefinitionListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public WebhookDefinitionListResponse getWebhooks(Integer page, Integer per) throws ApiException {
-        ApiResponse<WebhookDefinitionListResponse> localVarResp = getWebhooksWithHttpInfo(page, per);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Listing webhooks
-     * Get a list of created webhooks
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @return ApiResponse&lt;WebhookDefinitionListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<WebhookDefinitionListResponse> getWebhooksWithHttpInfo(Integer page, Integer per) throws ApiException {
+    private ApiResponse<WebhookDefinitionListResponse> getWebhooksWithHttpInfo(Integer page, Integer per) throws ApiException {
         okhttp3.Call localVarCall = getWebhooksValidateBeforeCall(page, per, null);
         Type localVarReturnType = new TypeToken<WebhookDefinitionListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Listing webhooks (asynchronously)
-     * Get a list of created webhooks
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getWebhooksAsync(Integer page, Integer per, final ApiCallback<WebhookDefinitionListResponse> _callback) throws ApiException {
+    private okhttp3.Call getWebhooksAsync(Integer page, Integer per, final ApiCallback<WebhookDefinitionListResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getWebhooksValidateBeforeCall(page, per, _callback);
         Type localVarReturnType = new TypeToken<WebhookDefinitionListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIgetWebhooksRequest {
+        private Integer page;
+        private Integer per;
+
+        private APIgetWebhooksRequest() {
+        }
+
+        /**
+         * Set page
+         * @param page The page number to request (defaults to 1) (optional)
+         * @return APIgetWebhooksRequest
+         */
+        public APIgetWebhooksRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set per
+         * @param per The number of results to load per page (defaults to 10) (optional)
+         * @return APIgetWebhooksRequest
+         */
+        public APIgetWebhooksRequest per(Integer per) {
+            this.per = per;
+            return this;
+        }
+
+        /**
+         * Build call for getWebhooks
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getWebhooksCall(page, per, _callback);
+        }
+
+        /**
+         * Execute getWebhooks request
+         * @return WebhookDefinitionListResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public WebhookDefinitionListResponse execute() throws ApiException {
+            ApiResponse<WebhookDefinitionListResponse> localVarResp = getWebhooksWithHttpInfo(page, per);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getWebhooks request with HTTP info returned
+         * @return ApiResponse&lt;WebhookDefinitionListResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<WebhookDefinitionListResponse> executeWithHttpInfo() throws ApiException {
+            return getWebhooksWithHttpInfo(page, per);
+        }
+
+        /**
+         * Execute getWebhooks request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<WebhookDefinitionListResponse> _callback) throws ApiException {
+            return getWebhooksAsync(page, per, _callback);
+        }
+    }
+
+    /**
+     * Listing webhooks
+     * Get a list of created webhooks
+     * @return APIgetWebhooksRequest
+     */
+    public APIgetWebhooksRequest getWebhooks() {
+        return new APIgetWebhooksRequest();
     }
     /**
      * Build call for postWebhooks

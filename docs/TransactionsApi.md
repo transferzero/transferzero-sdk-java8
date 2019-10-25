@@ -79,7 +79,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="getTransaction"></a>
 # **getTransaction**
-> TransactionResponse getTransaction(transactionID)
+> TransactionResponse getTransaction(transactionID).execute();
 
 Fetch a single transaction
 
@@ -102,7 +102,8 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 TransactionsApi apiInstance = new TransactionsApi(apiClient);
 UUID transactionID = new UUID(); // UUID | ID of the transaction.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670`
 try {
-    TransactionResponse result = apiInstance.getTransaction(transactionID);
+    TransactionResponse result = apiInstance.getTransaction(transactionID)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {
@@ -143,7 +144,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="getTransactions"></a>
 # **getTransactions**
-> TransactionListResponse getTransactions(page, per, externalId, senderId)
+> TransactionListResponse getTransactions().page(page).per(per).externalId(externalId).senderId(senderId).execute();
 
 Get a list of transactions
 
@@ -169,7 +170,12 @@ Integer per = 10; // Integer | The number of results to load per page (defaults 
 String externalId = "externalId_example"; // String | Allows filtering results by `external_id`.  Example: `/v1/senders?external_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87`
 String senderId = "senderId_example"; // String | Allows filtering results by `sender_id`.  Example: `/v1/transactions?sender_id=b41d3cb7-6c54-4245-85fc-8e30690eb0f7`
 try {
-    TransactionListResponse result = apiInstance.getTransactions(page, per, externalId, senderId);
+    TransactionListResponse result = apiInstance.getTransactions()
+            .page(page)
+            .per(per)
+            .externalId(externalId)
+            .senderId(senderId)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {

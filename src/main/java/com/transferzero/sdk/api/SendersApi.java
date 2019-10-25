@@ -147,14 +147,7 @@ public class SendersApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-    /**
-     * Build call for getSender
-     * @param senderID ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getSenderCall(UUID senderID, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSenderCall(UUID senderID, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -197,58 +190,78 @@ public class SendersApi {
 
     }
 
-    /**
-     * Fetching a sender
-     * Returns a single sender by the Sender ID
-     * @param senderID ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
-     * @return SenderResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public SenderResponse getSender(UUID senderID) throws ApiException {
-        ApiResponse<SenderResponse> localVarResp = getSenderWithHttpInfo(senderID);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Fetching a sender
-     * Returns a single sender by the Sender ID
-     * @param senderID ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
-     * @return ApiResponse&lt;SenderResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<SenderResponse> getSenderWithHttpInfo(UUID senderID) throws ApiException {
+    private ApiResponse<SenderResponse> getSenderWithHttpInfo(UUID senderID) throws ApiException {
         okhttp3.Call localVarCall = getSenderValidateBeforeCall(senderID, null);
         Type localVarReturnType = new TypeToken<SenderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Fetching a sender (asynchronously)
-     * Returns a single sender by the Sender ID
-     * @param senderID ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getSenderAsync(UUID senderID, final ApiCallback<SenderResponse> _callback) throws ApiException {
+    private okhttp3.Call getSenderAsync(UUID senderID, final ApiCallback<SenderResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getSenderValidateBeforeCall(senderID, _callback);
         Type localVarReturnType = new TypeToken<SenderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetSenderRequest {
+        private final UUID senderID;
+
+        private APIgetSenderRequest(UUID senderID) {
+            this.senderID = senderID;
+        }
+
+        /**
+         * Build call for getSender
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getSenderCall(senderID, _callback);
+        }
+
+        /**
+         * Execute getSender request
+         * @return SenderResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public SenderResponse execute() throws ApiException {
+            ApiResponse<SenderResponse> localVarResp = getSenderWithHttpInfo(senderID);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getSender request with HTTP info returned
+         * @return ApiResponse&lt;SenderResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<SenderResponse> executeWithHttpInfo() throws ApiException {
+            return getSenderWithHttpInfo(senderID);
+        }
+
+        /**
+         * Execute getSender request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SenderResponse> _callback) throws ApiException {
+            return getSenderAsync(senderID, _callback);
+        }
+    }
+
     /**
-     * Build call for getSenders
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param externalId Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Fetching a sender
+     * Returns a single sender by the Sender ID
+     * @param senderID ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
+     * @return APIgetSenderRequest
      */
-    public okhttp3.Call getSendersCall(Integer page, Integer per, String createdAtFrom, String createdAtTo, String externalId, final ApiCallback _callback) throws ApiException {
+    public APIgetSenderRequest getSender(UUID senderID) {
+        return new APIgetSenderRequest(senderID);
+    }
+    private okhttp3.Call getSendersCall(Integer page, Integer per, String createdAtFrom, String createdAtTo, String externalId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -305,57 +318,128 @@ public class SendersApi {
 
     }
 
-    /**
-     * Listing senders
-     * Get a list of available senders
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param externalId Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
-     * @return SenderListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public SenderListResponse getSenders(Integer page, Integer per, String createdAtFrom, String createdAtTo, String externalId) throws ApiException {
-        ApiResponse<SenderListResponse> localVarResp = getSendersWithHttpInfo(page, per, createdAtFrom, createdAtTo, externalId);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Listing senders
-     * Get a list of available senders
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param externalId Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
-     * @return ApiResponse&lt;SenderListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<SenderListResponse> getSendersWithHttpInfo(Integer page, Integer per, String createdAtFrom, String createdAtTo, String externalId) throws ApiException {
+    private ApiResponse<SenderListResponse> getSendersWithHttpInfo(Integer page, Integer per, String createdAtFrom, String createdAtTo, String externalId) throws ApiException {
         okhttp3.Call localVarCall = getSendersValidateBeforeCall(page, per, createdAtFrom, createdAtTo, externalId, null);
         Type localVarReturnType = new TypeToken<SenderListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Listing senders (asynchronously)
-     * Get a list of available senders
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param externalId Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getSendersAsync(Integer page, Integer per, String createdAtFrom, String createdAtTo, String externalId, final ApiCallback<SenderListResponse> _callback) throws ApiException {
+    private okhttp3.Call getSendersAsync(Integer page, Integer per, String createdAtFrom, String createdAtTo, String externalId, final ApiCallback<SenderListResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getSendersValidateBeforeCall(page, per, createdAtFrom, createdAtTo, externalId, _callback);
         Type localVarReturnType = new TypeToken<SenderListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIgetSendersRequest {
+        private Integer page;
+        private Integer per;
+        private String createdAtFrom;
+        private String createdAtTo;
+        private String externalId;
+
+        private APIgetSendersRequest() {
+        }
+
+        /**
+         * Set page
+         * @param page The page number to request (defaults to 1) (optional)
+         * @return APIgetSendersRequest
+         */
+        public APIgetSendersRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set per
+         * @param per The number of results to load per page (defaults to 10) (optional)
+         * @return APIgetSendersRequest
+         */
+        public APIgetSendersRequest per(Integer per) {
+            this.per = per;
+            return this;
+        }
+
+        /**
+         * Set createdAtFrom
+         * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
+         * @return APIgetSendersRequest
+         */
+        public APIgetSendersRequest createdAtFrom(String createdAtFrom) {
+            this.createdAtFrom = createdAtFrom;
+            return this;
+        }
+
+        /**
+         * Set createdAtTo
+         * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
+         * @return APIgetSendersRequest
+         */
+        public APIgetSendersRequest createdAtTo(String createdAtTo) {
+            this.createdAtTo = createdAtTo;
+            return this;
+        }
+
+        /**
+         * Set externalId
+         * @param externalId Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)
+         * @return APIgetSendersRequest
+         */
+        public APIgetSendersRequest externalId(String externalId) {
+            this.externalId = externalId;
+            return this;
+        }
+
+        /**
+         * Build call for getSenders
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getSendersCall(page, per, createdAtFrom, createdAtTo, externalId, _callback);
+        }
+
+        /**
+         * Execute getSenders request
+         * @return SenderListResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public SenderListResponse execute() throws ApiException {
+            ApiResponse<SenderListResponse> localVarResp = getSendersWithHttpInfo(page, per, createdAtFrom, createdAtTo, externalId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getSenders request with HTTP info returned
+         * @return ApiResponse&lt;SenderListResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<SenderListResponse> executeWithHttpInfo() throws ApiException {
+            return getSendersWithHttpInfo(page, per, createdAtFrom, createdAtTo, externalId);
+        }
+
+        /**
+         * Execute getSenders request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SenderListResponse> _callback) throws ApiException {
+            return getSendersAsync(page, per, createdAtFrom, createdAtTo, externalId, _callback);
+        }
+    }
+
+    /**
+     * Listing senders
+     * Get a list of available senders
+     * @return APIgetSendersRequest
+     */
+    public APIgetSendersRequest getSenders() {
+        return new APIgetSendersRequest();
     }
     /**
      * Build call for patchSender

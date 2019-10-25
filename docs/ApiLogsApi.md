@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getApiLog"></a>
 # **getApiLog**
-> ApiLogResponse getApiLog(apILogID)
+> ApiLogResponse getApiLog(apILogID).execute();
 
 Fetch an individual API log
 
@@ -33,7 +33,8 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 ApiLogsApi apiInstance = new ApiLogsApi(apiClient);
 UUID apILogID = new UUID(); // UUID | ID of the API log to retrieve  Example: `/v1/api_logs/00485ce9-532b-45e7-8518-7e5582242407`
 try {
-    ApiLogResponse result = apiInstance.getApiLog(apILogID);
+    ApiLogResponse result = apiInstance.getApiLog(apILogID)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {
@@ -74,7 +75,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="getApiLogs"></a>
 # **getApiLogs**
-> ApiLogListResponse getApiLogs(page, per, createdAtFrom, createdAtTo)
+> ApiLogListResponse getApiLogs().page(page).per(per).createdAtFrom(createdAtFrom).createdAtTo(createdAtTo).execute();
 
 Fetch a list of API logs
 
@@ -100,7 +101,12 @@ Integer per = 10; // Integer | The number of results to load per page (defaults 
 String createdAtFrom = "createdAtFrom_example"; // String | Start date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08`
 String createdAtTo = "createdAtTo_example"; // String | End date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08`
 try {
-    ApiLogListResponse result = apiInstance.getApiLogs(page, per, createdAtFrom, createdAtTo);
+    ApiLogListResponse result = apiInstance.getApiLogs()
+            .page(page)
+            .per(per)
+            .createdAtFrom(createdAtFrom)
+            .createdAtTo(createdAtTo)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {
