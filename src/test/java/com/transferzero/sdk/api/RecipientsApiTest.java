@@ -69,7 +69,16 @@ public class RecipientsApiTest {
         String amountTo = null;
         List<String> state = null;
         List<String> currency = null;
-        RecipientListResponse response = api.getRecipients(page, per, createdAtFrom, createdAtTo, amountFrom, amountTo, state, currency);
+        RecipientListResponse response = api.getRecipients()
+                .page(page)
+                .per(per)
+                .createdAtFrom(createdAtFrom)
+                .createdAtTo(createdAtTo)
+                .amountFrom(amountFrom)
+                .amountTo(amountTo)
+                .state(state)
+                .currency(currency)
+                .execute();
 
         // TODO: test validations
     }

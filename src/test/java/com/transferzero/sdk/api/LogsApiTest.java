@@ -45,7 +45,8 @@ public class LogsApiTest {
     @Test
     public void getWebhookLogTest() throws ApiException {
         UUID webhookLogID = null;
-        WebhookLogResponse response = api.getWebhookLog(webhookLogID);
+        WebhookLogResponse response = api.getWebhookLog(webhookLogID)
+                .execute();
 
         // TODO: test validations
     }
@@ -64,7 +65,12 @@ public class LogsApiTest {
         Integer per = null;
         String createdAtFrom = null;
         String createdAtTo = null;
-        WebhookLogListResponse response = api.getWebhookLogs(page, per, createdAtFrom, createdAtTo);
+        WebhookLogListResponse response = api.getWebhookLogs()
+                .page(page)
+                .per(per)
+                .createdAtFrom(createdAtFrom)
+                .createdAtTo(createdAtTo)
+                .execute();
 
         // TODO: test validations
     }

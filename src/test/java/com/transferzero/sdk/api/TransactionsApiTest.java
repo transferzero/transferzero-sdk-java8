@@ -64,7 +64,8 @@ public class TransactionsApiTest {
     @Test
     public void getTransactionTest() throws ApiException {
         UUID transactionID = null;
-        TransactionResponse response = api.getTransaction(transactionID);
+        TransactionResponse response = api.getTransaction(transactionID)
+                .execute();
 
         // TODO: test validations
     }
@@ -82,7 +83,13 @@ public class TransactionsApiTest {
         Integer page = null;
         Integer per = null;
         String externalId = null;
-        TransactionListResponse response = api.getTransactions(page, per, externalId);
+        String senderId = null;
+        TransactionListResponse response = api.getTransactions()
+                .page(page)
+                .per(per)
+                .externalId(externalId)
+                .senderId(senderId)
+                .execute();
 
         // TODO: test validations
     }
