@@ -42,7 +42,8 @@ public class PaymentMethodsApiTest {
      */
     @Test
     public void paymentMethodsInTest() throws ApiException {
-        PaymentMethodListResponse response = api.paymentMethodsIn();
+        PaymentMethodListResponse response = api.paymentMethodsIn()
+                .execute();
 
         // TODO: test validations
     }
@@ -57,7 +58,8 @@ public class PaymentMethodsApiTest {
      */
     @Test
     public void paymentMethodsOutTest() throws ApiException {
-        PaymentMethodListResponse response = api.paymentMethodsOut();
+        PaymentMethodListResponse response = api.paymentMethodsOut()
+                .execute();
 
         // TODO: test validations
     }

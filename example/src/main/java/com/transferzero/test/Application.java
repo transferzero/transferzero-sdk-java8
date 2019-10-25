@@ -142,7 +142,9 @@ public class Application {
         TransactionsApi transactionsApi = new TransactionsApi(apiClient);
         String externalId = "TRANSACTION-1f834ady";
         try {
-            TransactionListResponse transactionListResponse = transactionsApi.getTransactions(null, null, externalId);
+            TransactionListResponse transactionListResponse = transactionsApi.getTransactions()
+                    .externalId(externalId)
+                    .execute();
             System.out.println(transactionListResponse);
         } catch (ApiException e) {
             if (e.isValidationError()) {
@@ -163,7 +165,7 @@ public class Application {
         UUID transactionId = UUID.fromString("990b9203-ffff-ffff-ffff-897f20eaefa8");
 
         TransactionsApi transactionsApi = new TransactionsApi(apiClient);
-        TransactionResponse transaction = transactionsApi.getTransaction(transactionId);
+        TransactionResponse transaction = transactionsApi.getTransaction(transactionId).execute();
         System.out.println("Get recipient's state error message: "+ transaction.getObject().getRecipients().get(0).getStateReason());
     }
 
@@ -411,7 +413,9 @@ public class Application {
         SendersApi sendersApi = new SendersApi(apiClient);
         String externalId = "SENDER-2b59defy";
         try {
-            SenderListResponse senderListResponse = sendersApi.getSenders(null, null, null, null, externalId);
+            SenderListResponse senderListResponse = sendersApi.getSenders()
+                    .externalId(externalId)
+                    .execute();
             System.out.println(senderListResponse);
         } catch (ApiException e) {
             if (e.isValidationError()) {

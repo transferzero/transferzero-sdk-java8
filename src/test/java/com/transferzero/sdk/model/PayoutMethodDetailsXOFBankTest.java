@@ -57,11 +57,11 @@ public class PayoutMethodDetailsXOFBankTest {
     }
 
     /**
-     * Test the property 'bankAccount'
+     * Test the property 'iban'
      */
     @Test
-    public void bankAccountTest() {
-        // TODO: test bankAccount
+    public void ibanTest() {
+        // TODO: test iban
     }
 
     /**

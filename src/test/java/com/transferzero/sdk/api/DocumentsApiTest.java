@@ -46,7 +46,8 @@ public class DocumentsApiTest {
     @Test
     public void getDocumentTest() throws ApiException {
         UUID documentID = null;
-        DocumentResponse response = api.getDocument(documentID);
+        DocumentResponse response = api.getDocument(documentID)
+                .execute();
 
         // TODO: test validations
     }
@@ -63,7 +64,10 @@ public class DocumentsApiTest {
     public void getDocumentsTest() throws ApiException {
         Integer page = null;
         Integer per = null;
-        DocumentListResponse response = api.getDocuments(page, per);
+        DocumentListResponse response = api.getDocuments()
+                .page(page)
+                .per(per)
+                .execute();
 
         // TODO: test validations
     }

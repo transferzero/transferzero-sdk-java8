@@ -25,6 +25,7 @@ import com.transferzero.sdk.model.PayoutMethodDetailsIBAN;
 import com.transferzero.sdk.model.PayoutMethodDetailsMADCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsNGNBank;
+import com.transferzero.sdk.model.PayoutMethodDetailsXOFBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFMobile;
 import com.transferzero.sdk.model.PayoutMethodGenderEnum;
 import com.transferzero.sdk.model.PayoutMethodIdentityCardTypeEnum;

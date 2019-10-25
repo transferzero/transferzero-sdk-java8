@@ -99,6 +99,14 @@ public class RecipientTest {
     }
 
     /**
+     * Test the property 'retriable'
+     */
+    @Test
+    public void retriableTest() {
+        // TODO: test retriable
+    }
+
+    /**
      * Test the property 'inputUsdAmount'
      */
     @Test

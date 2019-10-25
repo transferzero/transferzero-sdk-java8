@@ -210,6 +210,22 @@ public class SenderTest {
     }
 
     /**
+     * Test the property 'identificationNumber'
+     */
+    @Test
+    public void identificationNumberTest() {
+        // TODO: test identificationNumber
+    }
+
+    /**
+     * Test the property 'identificationType'
+     */
+    @Test
+    public void identificationTypeTest() {
+        // TODO: test identificationType
+    }
+
+    /**
      * Test the property 'documents'
      */
     @Test
