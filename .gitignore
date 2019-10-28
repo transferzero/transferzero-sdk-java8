@@ -22,3 +22,10 @@ hs_err_pid*
 target
 .gradle
 build
+gradlew
+*.bat
+.project
+project
+.DS_Store
+.settings
+example/gradle
