@@ -7,12 +7,15 @@ import com.transferzero.sdk.api.AccountValidationApi;
 import com.transferzero.sdk.api.SendersApi;
 import com.transferzero.sdk.api.TransactionsApi;
 import com.transferzero.sdk.model.*;
-import java.time.LocalDate;
+import okhttp3.Request;
+import okhttp3.Response;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
-import java.util.*;
 
 // Please see our documentation at https://github.com/transferzero/api-documentation
 // and the API specification at http://api.transferzero.com/documentation/
@@ -142,7 +145,9 @@ public class Application {
         TransactionsApi transactionsApi = new TransactionsApi(apiClient);
         String externalId = "TRANSACTION-1f834ady";
         try {
-            TransactionListResponse transactionListResponse = transactionsApi.getTransactions(null, null, externalId);
+            TransactionListResponse transactionListResponse = transactionsApi.getTransactions()
+                    .externalId(externalId)
+                    .execute();
             System.out.println(transactionListResponse);
         } catch (ApiException e) {
             if (e.isValidationError()) {
@@ -156,6 +161,26 @@ public class Application {
         }
     }
 
+    public static void apiInterceptorExample(ApiClient apiClient) throws ApiException {
+
+        class ApiInterceptorImpl implements ApiClient.ApiInterceptor {
+            public Request handlePreRequest(Request request) {
+                System.out.println(request.body());
+                return request;
+            }
+
+            public Response handlePostResponse(Response response) {
+                System.out.println(response.body());
+                return response;
+            }
+        }
+
+        ApiInterceptorImpl ApiIntImpl = new ApiInterceptorImpl();
+        apiClient.setApiInterceptor(ApiIntImpl);
+        SendersApi api = new SendersApi(apiClient);
+        api.getSenders().externalId("1234567890").execute();
+    }
+
     public static void getTransactionErrorMessageExample(ApiClient apiClient) throws ApiException {
         // Please see https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#receiving-error-messages
         // on details about error messages
@@ -163,7 +188,7 @@ public class Application {
         UUID transactionId = UUID.fromString("990b9203-ffff-ffff-ffff-897f20eaefa8");
 
         TransactionsApi transactionsApi = new TransactionsApi(apiClient);
-        TransactionResponse transaction = transactionsApi.getTransaction(transactionId);
+        TransactionResponse transaction = transactionsApi.getTransaction(transactionId).execute();
         System.out.println("Get recipient's state error message: "+ transaction.getObject().getRecipients().get(0).getStateReason());
     }
 
@@ -345,23 +370,23 @@ public class Application {
         // - the authentication headers you have received on your webhook endpoint - as an object
 
         if (apiClient.validateWebhookRequest(webhookUrl, webhookBody, webhookHeaders)) {
-          Webhook webhook = apiClient.parseResponseString(webhookBody, Webhook.class);
-          if (webhook.getEvent().startsWith("transaction")) {
-              TransactionWebhook transactionWebhook = apiClient.parseResponseString(webhookBody, TransactionWebhook.class);
-              System.out.println(transactionWebhook);
-          } else if (webhook.getEvent().startsWith("recipient")) {
-              RecipientWebhook recipientWebhook = apiClient.parseResponseString(webhookBody, RecipientWebhook.class);
-              System.out.println(recipientWebhook);
-          } else if (webhook.getEvent().startsWith("payout_method")) {
-              PayoutMethodWebhook payoutMethodWebhook = apiClient.parseResponseString(webhookBody, PayoutMethodWebhook.class);
-              System.out.println(payoutMethodWebhook);
-          } else if (webhook.getEvent().startsWith("sender")) {
-              SenderWebhook senderWebhook = apiClient.parseResponseString(webhookBody, SenderWebhook.class);
-              System.out.println(senderWebhook);
-          } else if (webhook.getEvent().startsWith("document")) {
-              DocumentWebhook documentWebhook = apiClient.parseResponseString(webhookBody, DocumentWebhook.class);
-              System.out.println(documentWebhook);
-          }
+            Webhook webhook = apiClient.parseResponseString(webhookBody, Webhook.class);
+            if (webhook.getEvent().startsWith("transaction")) {
+                TransactionWebhook transactionWebhook = apiClient.parseResponseString(webhookBody, TransactionWebhook.class);
+                System.out.println(transactionWebhook);
+            } else if (webhook.getEvent().startsWith("recipient")) {
+                RecipientWebhook recipientWebhook = apiClient.parseResponseString(webhookBody, RecipientWebhook.class);
+                System.out.println(recipientWebhook);
+            } else if (webhook.getEvent().startsWith("payout_method")) {
+                PayoutMethodWebhook payoutMethodWebhook = apiClient.parseResponseString(webhookBody, PayoutMethodWebhook.class);
+                System.out.println(payoutMethodWebhook);
+            } else if (webhook.getEvent().startsWith("sender")) {
+                SenderWebhook senderWebhook = apiClient.parseResponseString(webhookBody, SenderWebhook.class);
+                System.out.println(senderWebhook);
+            } else if (webhook.getEvent().startsWith("document")) {
+                DocumentWebhook documentWebhook = apiClient.parseResponseString(webhookBody, DocumentWebhook.class);
+                System.out.println(documentWebhook);
+            }
         }
     }
 
@@ -411,7 +436,9 @@ public class Application {
         SendersApi sendersApi = new SendersApi(apiClient);
         String externalId = "SENDER-2b59defy";
         try {
-            SenderListResponse senderListResponse = sendersApi.getSenders(null, null, null, null, externalId);
+            SenderListResponse senderListResponse = sendersApi.getSenders()
+                    .externalId(externalId)
+                    .execute();
             System.out.println(senderListResponse);
         } catch (ApiException e) {
             if (e.isValidationError()) {
@@ -457,14 +484,15 @@ public class Application {
         apiClient.setApiSecret("<secret>");
         apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
-        //accountValidationExample(apiClient);
-        //createTransactionExample(apiClient);
-        //createAndFundTransactionExample(apiClient);
-        //getTransactionByExternalId(apiClient);
-        //getTransactionErrorMessageExample(apiClient);
-        //webhookParseExample(apiClient);
-        //createSender(apiClient);
-        //getSenderByExternalId(apiClient);
-        //updateSender(apiClient);
+//        accountValidationExample(apiClient);
+//        createTransactionExample(apiClient);
+//        createAndFundTransactionExample(apiClient);
+//        getTransactionByExternalId(apiClient);
+//        getTransactionErrorMessageExample(apiClient);
+//        webhookParseExample(apiClient);
+//        createSender(apiClient);
+//        getSenderByExternalId(apiClient);
+//        updateSender(apiClient);
+//        apiInterceptorExample(apiClient);
     }
 }
