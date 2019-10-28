@@ -132,7 +132,7 @@ public class PayoutMethodDetailsNGNBank {
    * Get bankAccountType
    * @return bankAccountType
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public PayoutMethodBankAccountTypeEnum getBankAccountType() {
     return bankAccountType;
   }

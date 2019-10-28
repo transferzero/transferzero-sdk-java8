@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getDocument"></a>
 # **getDocument**
-> DocumentResponse getDocument(documentID)
+> DocumentResponse getDocument(documentID).execute();
 
 Fetching a document
 
@@ -34,7 +34,8 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 DocumentsApi apiInstance = new DocumentsApi(apiClient);
 UUID documentID = new UUID(); // UUID | ID of the document to get.  Example: `/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670`
 try {
-    DocumentResponse result = apiInstance.getDocument(documentID);
+    DocumentResponse result = apiInstance.getDocument(documentID)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {
@@ -75,7 +76,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="getDocuments"></a>
 # **getDocuments**
-> DocumentListResponse getDocuments(page, per)
+> DocumentListResponse getDocuments().page(page).per(per).execute();
 
 Getting a list of documents
 
@@ -99,7 +100,10 @@ DocumentsApi apiInstance = new DocumentsApi(apiClient);
 Integer page = 1; // Integer | The page number to request (defaults to 1)
 Integer per = 10; // Integer | The number of results to load per page (defaults to 10)
 try {
-    DocumentListResponse result = apiInstance.getDocuments(page, per);
+    DocumentListResponse result = apiInstance.getDocuments()
+            .page(page)
+            .per(per)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {

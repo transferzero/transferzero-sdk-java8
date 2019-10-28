@@ -148,14 +148,7 @@ public class PayoutMethodsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-    /**
-     * Build call for getPayoutMethod
-     * @param payoutMethodID ID of the payout method to get.  Example: &#x60;/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getPayoutMethodCall(UUID payoutMethodID, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPayoutMethodCall(UUID payoutMethodID, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -198,60 +191,78 @@ public class PayoutMethodsApi {
 
     }
 
-    /**
-     * Fetching a payout method
-     * Show a payout method by id
-     * @param payoutMethodID ID of the payout method to get.  Example: &#x60;/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
-     * @return PayoutMethodResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public PayoutMethodResponse getPayoutMethod(UUID payoutMethodID) throws ApiException {
-        ApiResponse<PayoutMethodResponse> localVarResp = getPayoutMethodWithHttpInfo(payoutMethodID);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Fetching a payout method
-     * Show a payout method by id
-     * @param payoutMethodID ID of the payout method to get.  Example: &#x60;/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
-     * @return ApiResponse&lt;PayoutMethodResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<PayoutMethodResponse> getPayoutMethodWithHttpInfo(UUID payoutMethodID) throws ApiException {
+    private ApiResponse<PayoutMethodResponse> getPayoutMethodWithHttpInfo(UUID payoutMethodID) throws ApiException {
         okhttp3.Call localVarCall = getPayoutMethodValidateBeforeCall(payoutMethodID, null);
         Type localVarReturnType = new TypeToken<PayoutMethodResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Fetching a payout method (asynchronously)
-     * Show a payout method by id
-     * @param payoutMethodID ID of the payout method to get.  Example: &#x60;/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getPayoutMethodAsync(UUID payoutMethodID, final ApiCallback<PayoutMethodResponse> _callback) throws ApiException {
+    private okhttp3.Call getPayoutMethodAsync(UUID payoutMethodID, final ApiCallback<PayoutMethodResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getPayoutMethodValidateBeforeCall(payoutMethodID, _callback);
         Type localVarReturnType = new TypeToken<PayoutMethodResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetPayoutMethodRequest {
+        private final UUID payoutMethodID;
+
+        private APIgetPayoutMethodRequest(UUID payoutMethodID) {
+            this.payoutMethodID = payoutMethodID;
+        }
+
+        /**
+         * Build call for getPayoutMethod
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getPayoutMethodCall(payoutMethodID, _callback);
+        }
+
+        /**
+         * Execute getPayoutMethod request
+         * @return PayoutMethodResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public PayoutMethodResponse execute() throws ApiException {
+            ApiResponse<PayoutMethodResponse> localVarResp = getPayoutMethodWithHttpInfo(payoutMethodID);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getPayoutMethod request with HTTP info returned
+         * @return ApiResponse&lt;PayoutMethodResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<PayoutMethodResponse> executeWithHttpInfo() throws ApiException {
+            return getPayoutMethodWithHttpInfo(payoutMethodID);
+        }
+
+        /**
+         * Execute getPayoutMethod request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PayoutMethodResponse> _callback) throws ApiException {
+            return getPayoutMethodAsync(payoutMethodID, _callback);
+        }
+    }
+
     /**
-     * Build call for getPayoutMethods
-     * @param state Allows filtering results by &#x60;state&#x60; of the payout method.  Example: &#x60;/v1/payout_methods?state[]&#x3D;enabled&#x60; (optional)
-     * @param type Allows filtering results by the specified type.  Example: &#x60;/v1/payout_methods?type[]&#x3D;NGN::Bank&#x60; (optional)
-     * @param senderId Allows filtering results by the specified sender id.  Example: &#x60;/v1/payout_methods?sender_id&#x3D;bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (optional)
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Fetching a payout method
+     * Show a payout method by id
+     * @param payoutMethodID ID of the payout method to get.  Example: &#x60;/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
+     * @return APIgetPayoutMethodRequest
      */
-    public okhttp3.Call getPayoutMethodsCall(List<String> state, List<String> type, String senderId, Integer page, Integer per, String createdAtFrom, String createdAtTo, final ApiCallback _callback) throws ApiException {
+    public APIgetPayoutMethodRequest getPayoutMethod(UUID payoutMethodID) {
+        return new APIgetPayoutMethodRequest(payoutMethodID);
+    }
+    private okhttp3.Call getPayoutMethodsCall(List<String> state, List<String> type, String senderId, Integer page, Integer per, String createdAtFrom, String createdAtTo, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -316,63 +327,150 @@ public class PayoutMethodsApi {
 
     }
 
-    /**
-     * Listing payout methods
-     * List available payout methods
-     * @param state Allows filtering results by &#x60;state&#x60; of the payout method.  Example: &#x60;/v1/payout_methods?state[]&#x3D;enabled&#x60; (optional)
-     * @param type Allows filtering results by the specified type.  Example: &#x60;/v1/payout_methods?type[]&#x3D;NGN::Bank&#x60; (optional)
-     * @param senderId Allows filtering results by the specified sender id.  Example: &#x60;/v1/payout_methods?sender_id&#x3D;bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (optional)
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @return PayoutMethodListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public PayoutMethodListResponse getPayoutMethods(List<String> state, List<String> type, String senderId, Integer page, Integer per, String createdAtFrom, String createdAtTo) throws ApiException {
-        ApiResponse<PayoutMethodListResponse> localVarResp = getPayoutMethodsWithHttpInfo(state, type, senderId, page, per, createdAtFrom, createdAtTo);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Listing payout methods
-     * List available payout methods
-     * @param state Allows filtering results by &#x60;state&#x60; of the payout method.  Example: &#x60;/v1/payout_methods?state[]&#x3D;enabled&#x60; (optional)
-     * @param type Allows filtering results by the specified type.  Example: &#x60;/v1/payout_methods?type[]&#x3D;NGN::Bank&#x60; (optional)
-     * @param senderId Allows filtering results by the specified sender id.  Example: &#x60;/v1/payout_methods?sender_id&#x3D;bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (optional)
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @return ApiResponse&lt;PayoutMethodListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<PayoutMethodListResponse> getPayoutMethodsWithHttpInfo(List<String> state, List<String> type, String senderId, Integer page, Integer per, String createdAtFrom, String createdAtTo) throws ApiException {
+    private ApiResponse<PayoutMethodListResponse> getPayoutMethodsWithHttpInfo(List<String> state, List<String> type, String senderId, Integer page, Integer per, String createdAtFrom, String createdAtTo) throws ApiException {
         okhttp3.Call localVarCall = getPayoutMethodsValidateBeforeCall(state, type, senderId, page, per, createdAtFrom, createdAtTo, null);
         Type localVarReturnType = new TypeToken<PayoutMethodListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Listing payout methods (asynchronously)
-     * List available payout methods
-     * @param state Allows filtering results by &#x60;state&#x60; of the payout method.  Example: &#x60;/v1/payout_methods?state[]&#x3D;enabled&#x60; (optional)
-     * @param type Allows filtering results by the specified type.  Example: &#x60;/v1/payout_methods?type[]&#x3D;NGN::Bank&#x60; (optional)
-     * @param senderId Allows filtering results by the specified sender id.  Example: &#x60;/v1/payout_methods?sender_id&#x3D;bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (optional)
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getPayoutMethodsAsync(List<String> state, List<String> type, String senderId, Integer page, Integer per, String createdAtFrom, String createdAtTo, final ApiCallback<PayoutMethodListResponse> _callback) throws ApiException {
+    private okhttp3.Call getPayoutMethodsAsync(List<String> state, List<String> type, String senderId, Integer page, Integer per, String createdAtFrom, String createdAtTo, final ApiCallback<PayoutMethodListResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getPayoutMethodsValidateBeforeCall(state, type, senderId, page, per, createdAtFrom, createdAtTo, _callback);
         Type localVarReturnType = new TypeToken<PayoutMethodListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIgetPayoutMethodsRequest {
+        private List<String> state;
+        private List<String> type;
+        private String senderId;
+        private Integer page;
+        private Integer per;
+        private String createdAtFrom;
+        private String createdAtTo;
+
+        private APIgetPayoutMethodsRequest() {
+        }
+
+        /**
+         * Set state
+         * @param state Allows filtering results by &#x60;state&#x60; of the payout method.  Example: &#x60;/v1/payout_methods?state[]&#x3D;enabled&#x60; (optional)
+         * @return APIgetPayoutMethodsRequest
+         */
+        public APIgetPayoutMethodsRequest state(List<String> state) {
+            this.state = state;
+            return this;
+        }
+
+        /**
+         * Set type
+         * @param type Allows filtering results by the specified type.  Example: &#x60;/v1/payout_methods?type[]&#x3D;NGN::Bank&#x60; (optional)
+         * @return APIgetPayoutMethodsRequest
+         */
+        public APIgetPayoutMethodsRequest type(List<String> type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * Set senderId
+         * @param senderId Allows filtering results by the specified sender id.  Example: &#x60;/v1/payout_methods?sender_id&#x3D;bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (optional)
+         * @return APIgetPayoutMethodsRequest
+         */
+        public APIgetPayoutMethodsRequest senderId(String senderId) {
+            this.senderId = senderId;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page The page number to request (defaults to 1) (optional)
+         * @return APIgetPayoutMethodsRequest
+         */
+        public APIgetPayoutMethodsRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set per
+         * @param per The number of results to load per page (defaults to 10) (optional)
+         * @return APIgetPayoutMethodsRequest
+         */
+        public APIgetPayoutMethodsRequest per(Integer per) {
+            this.per = per;
+            return this;
+        }
+
+        /**
+         * Set createdAtFrom
+         * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
+         * @return APIgetPayoutMethodsRequest
+         */
+        public APIgetPayoutMethodsRequest createdAtFrom(String createdAtFrom) {
+            this.createdAtFrom = createdAtFrom;
+            return this;
+        }
+
+        /**
+         * Set createdAtTo
+         * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
+         * @return APIgetPayoutMethodsRequest
+         */
+        public APIgetPayoutMethodsRequest createdAtTo(String createdAtTo) {
+            this.createdAtTo = createdAtTo;
+            return this;
+        }
+
+        /**
+         * Build call for getPayoutMethods
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getPayoutMethodsCall(state, type, senderId, page, per, createdAtFrom, createdAtTo, _callback);
+        }
+
+        /**
+         * Execute getPayoutMethods request
+         * @return PayoutMethodListResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public PayoutMethodListResponse execute() throws ApiException {
+            ApiResponse<PayoutMethodListResponse> localVarResp = getPayoutMethodsWithHttpInfo(state, type, senderId, page, per, createdAtFrom, createdAtTo);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getPayoutMethods request with HTTP info returned
+         * @return ApiResponse&lt;PayoutMethodListResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<PayoutMethodListResponse> executeWithHttpInfo() throws ApiException {
+            return getPayoutMethodsWithHttpInfo(state, type, senderId, page, per, createdAtFrom, createdAtTo);
+        }
+
+        /**
+         * Execute getPayoutMethods request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PayoutMethodListResponse> _callback) throws ApiException {
+            return getPayoutMethodsAsync(state, type, senderId, page, per, createdAtFrom, createdAtTo, _callback);
+        }
+    }
+
+    /**
+     * Listing payout methods
+     * List available payout methods
+     * @return APIgetPayoutMethodsRequest
+     */
+    public APIgetPayoutMethodsRequest getPayoutMethods() {
+        return new APIgetPayoutMethodsRequest();
     }
     /**
      * Build call for patchPayoutMethod

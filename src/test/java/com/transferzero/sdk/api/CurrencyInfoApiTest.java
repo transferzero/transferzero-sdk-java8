@@ -44,7 +44,8 @@ public class CurrencyInfoApiTest {
      */
     @Test
     public void infoCurrenciesTest() throws ApiException {
-        CurrencyListResponse response = api.infoCurrencies();
+        CurrencyListResponse response = api.infoCurrencies()
+                .execute();
 
         // TODO: test validations
     }
@@ -59,8 +60,10 @@ public class CurrencyInfoApiTest {
      */
     @Test
     public void infoCurrenciesInTest() throws ApiException {
-        UUID senderID = null;
-        CurrencyExchangeListResponse response = api.infoCurrenciesIn(senderID);
+        UUID senderId = null;
+        CurrencyExchangeListResponse response = api.infoCurrenciesIn()
+                .senderId(senderId)
+                .execute();
 
         // TODO: test validations
     }
@@ -75,8 +78,10 @@ public class CurrencyInfoApiTest {
      */
     @Test
     public void infoCurrenciesOutTest() throws ApiException {
-        UUID senderID = null;
-        CurrencyExchangeListResponse response = api.infoCurrenciesOut(senderID);
+        UUID senderId = null;
+        CurrencyExchangeListResponse response = api.infoCurrenciesOut()
+                .senderId(senderId)
+                .execute();
 
         // TODO: test validations
     }

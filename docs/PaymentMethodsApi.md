@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="paymentMethodsIn"></a>
 # **paymentMethodsIn**
-> PaymentMethodListResponse paymentMethodsIn()
+> PaymentMethodListResponse paymentMethodsIn().execute();
 
 This method returns possible payin methods.
 
@@ -32,7 +32,8 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 PaymentMethodsApi apiInstance = new PaymentMethodsApi(apiClient);
 try {
-    PaymentMethodListResponse result = apiInstance.paymentMethodsIn();
+    PaymentMethodListResponse result = apiInstance.paymentMethodsIn()
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {
@@ -70,7 +71,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="paymentMethodsOut"></a>
 # **paymentMethodsOut**
-> PaymentMethodListResponse paymentMethodsOut()
+> PaymentMethodListResponse paymentMethodsOut().execute();
 
 This method returns possible payout methods.
 
@@ -92,7 +93,8 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 PaymentMethodsApi apiInstance = new PaymentMethodsApi(apiClient);
 try {
-    PaymentMethodListResponse result = apiInstance.paymentMethodsOut();
+    PaymentMethodListResponse result = apiInstance.paymentMethodsOut()
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {

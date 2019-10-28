@@ -56,14 +56,7 @@ public class ApiLogsApi {
         this.localVarApiClient = apiClient;
     }
 
-    /**
-     * Build call for getApiLog
-     * @param apILogID ID of the API log to retrieve  Example: &#x60;/v1/api_logs/00485ce9-532b-45e7-8518-7e5582242407&#x60; (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getApiLogCall(UUID apILogID, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApiLogCall(UUID apILogID, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -106,57 +99,78 @@ public class ApiLogsApi {
 
     }
 
-    /**
-     * Fetch an individual API log
-     * Returns a single API log based on the API log ID.
-     * @param apILogID ID of the API log to retrieve  Example: &#x60;/v1/api_logs/00485ce9-532b-45e7-8518-7e5582242407&#x60; (required)
-     * @return ApiLogResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiLogResponse getApiLog(UUID apILogID) throws ApiException {
-        ApiResponse<ApiLogResponse> localVarResp = getApiLogWithHttpInfo(apILogID);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Fetch an individual API log
-     * Returns a single API log based on the API log ID.
-     * @param apILogID ID of the API log to retrieve  Example: &#x60;/v1/api_logs/00485ce9-532b-45e7-8518-7e5582242407&#x60; (required)
-     * @return ApiResponse&lt;ApiLogResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ApiLogResponse> getApiLogWithHttpInfo(UUID apILogID) throws ApiException {
+    private ApiResponse<ApiLogResponse> getApiLogWithHttpInfo(UUID apILogID) throws ApiException {
         okhttp3.Call localVarCall = getApiLogValidateBeforeCall(apILogID, null);
         Type localVarReturnType = new TypeToken<ApiLogResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Fetch an individual API log (asynchronously)
-     * Returns a single API log based on the API log ID.
-     * @param apILogID ID of the API log to retrieve  Example: &#x60;/v1/api_logs/00485ce9-532b-45e7-8518-7e5582242407&#x60; (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getApiLogAsync(UUID apILogID, final ApiCallback<ApiLogResponse> _callback) throws ApiException {
+    private okhttp3.Call getApiLogAsync(UUID apILogID, final ApiCallback<ApiLogResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApiLogValidateBeforeCall(apILogID, _callback);
         Type localVarReturnType = new TypeToken<ApiLogResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetApiLogRequest {
+        private final UUID apILogID;
+
+        private APIgetApiLogRequest(UUID apILogID) {
+            this.apILogID = apILogID;
+        }
+
+        /**
+         * Build call for getApiLog
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getApiLogCall(apILogID, _callback);
+        }
+
+        /**
+         * Execute getApiLog request
+         * @return ApiLogResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiLogResponse execute() throws ApiException {
+            ApiResponse<ApiLogResponse> localVarResp = getApiLogWithHttpInfo(apILogID);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getApiLog request with HTTP info returned
+         * @return ApiResponse&lt;ApiLogResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<ApiLogResponse> executeWithHttpInfo() throws ApiException {
+            return getApiLogWithHttpInfo(apILogID);
+        }
+
+        /**
+         * Execute getApiLog request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ApiLogResponse> _callback) throws ApiException {
+            return getApiLogAsync(apILogID, _callback);
+        }
+    }
+
     /**
-     * Build call for getApiLogs
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Fetch an individual API log
+     * Returns a single API log based on the API log ID.
+     * @param apILogID ID of the API log to retrieve  Example: &#x60;/v1/api_logs/00485ce9-532b-45e7-8518-7e5582242407&#x60; (required)
+     * @return APIgetApiLogRequest
      */
-    public okhttp3.Call getApiLogsCall(Integer page, Integer per, String createdAtFrom, String createdAtTo, final ApiCallback _callback) throws ApiException {
+    public APIgetApiLogRequest getApiLog(UUID apILogID) {
+        return new APIgetApiLogRequest(apILogID);
+    }
+    private okhttp3.Call getApiLogsCall(Integer page, Integer per, String createdAtFrom, String createdAtTo, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -209,53 +223,116 @@ public class ApiLogsApi {
 
     }
 
-    /**
-     * Fetch a list of API logs
-     * Returns a list of API logs. Also includes information relating to the original request.
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @return ApiLogListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiLogListResponse getApiLogs(Integer page, Integer per, String createdAtFrom, String createdAtTo) throws ApiException {
-        ApiResponse<ApiLogListResponse> localVarResp = getApiLogsWithHttpInfo(page, per, createdAtFrom, createdAtTo);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Fetch a list of API logs
-     * Returns a list of API logs. Also includes information relating to the original request.
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @return ApiResponse&lt;ApiLogListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ApiLogListResponse> getApiLogsWithHttpInfo(Integer page, Integer per, String createdAtFrom, String createdAtTo) throws ApiException {
+    private ApiResponse<ApiLogListResponse> getApiLogsWithHttpInfo(Integer page, Integer per, String createdAtFrom, String createdAtTo) throws ApiException {
         okhttp3.Call localVarCall = getApiLogsValidateBeforeCall(page, per, createdAtFrom, createdAtTo, null);
         Type localVarReturnType = new TypeToken<ApiLogListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Fetch a list of API logs (asynchronously)
-     * Returns a list of API logs. Also includes information relating to the original request.
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getApiLogsAsync(Integer page, Integer per, String createdAtFrom, String createdAtTo, final ApiCallback<ApiLogListResponse> _callback) throws ApiException {
+    private okhttp3.Call getApiLogsAsync(Integer page, Integer per, String createdAtFrom, String createdAtTo, final ApiCallback<ApiLogListResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApiLogsValidateBeforeCall(page, per, createdAtFrom, createdAtTo, _callback);
         Type localVarReturnType = new TypeToken<ApiLogListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIgetApiLogsRequest {
+        private Integer page;
+        private Integer per;
+        private String createdAtFrom;
+        private String createdAtTo;
+
+        private APIgetApiLogsRequest() {
+        }
+
+        /**
+         * Set page
+         * @param page The page number to request (defaults to 1) (optional)
+         * @return APIgetApiLogsRequest
+         */
+        public APIgetApiLogsRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set per
+         * @param per The number of results to load per page (defaults to 10) (optional)
+         * @return APIgetApiLogsRequest
+         */
+        public APIgetApiLogsRequest per(Integer per) {
+            this.per = per;
+            return this;
+        }
+
+        /**
+         * Set createdAtFrom
+         * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
+         * @return APIgetApiLogsRequest
+         */
+        public APIgetApiLogsRequest createdAtFrom(String createdAtFrom) {
+            this.createdAtFrom = createdAtFrom;
+            return this;
+        }
+
+        /**
+         * Set createdAtTo
+         * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
+         * @return APIgetApiLogsRequest
+         */
+        public APIgetApiLogsRequest createdAtTo(String createdAtTo) {
+            this.createdAtTo = createdAtTo;
+            return this;
+        }
+
+        /**
+         * Build call for getApiLogs
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getApiLogsCall(page, per, createdAtFrom, createdAtTo, _callback);
+        }
+
+        /**
+         * Execute getApiLogs request
+         * @return ApiLogListResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiLogListResponse execute() throws ApiException {
+            ApiResponse<ApiLogListResponse> localVarResp = getApiLogsWithHttpInfo(page, per, createdAtFrom, createdAtTo);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getApiLogs request with HTTP info returned
+         * @return ApiResponse&lt;ApiLogListResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<ApiLogListResponse> executeWithHttpInfo() throws ApiException {
+            return getApiLogsWithHttpInfo(page, per, createdAtFrom, createdAtTo);
+        }
+
+        /**
+         * Execute getApiLogs request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ApiLogListResponse> _callback) throws ApiException {
+            return getApiLogsAsync(page, per, createdAtFrom, createdAtTo, _callback);
+        }
+    }
+
+    /**
+     * Fetch a list of API logs
+     * Returns a list of API logs. Also includes information relating to the original request.
+     * @return APIgetApiLogsRequest
+     */
+    public APIgetApiLogsRequest getApiLogs() {
+        return new APIgetApiLogsRequest();
     }
 }

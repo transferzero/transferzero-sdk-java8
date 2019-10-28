@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getWebhookLog"></a>
 # **getWebhookLog**
-> WebhookLogResponse getWebhookLog(webhookLogID)
+> WebhookLogResponse getWebhookLog(webhookLogID).execute();
 
 Fetch an individual webhook log
 
@@ -33,7 +33,8 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 LogsApi apiInstance = new LogsApi(apiClient);
 UUID webhookLogID = new UUID(); // UUID | ID of the webhook log to retrieve  Example: `/v1/logs/9d1ad631-f34a-4cff-9a7e-2c83e3a556df`
 try {
-    WebhookLogResponse result = apiInstance.getWebhookLog(webhookLogID);
+    WebhookLogResponse result = apiInstance.getWebhookLog(webhookLogID)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {
@@ -74,7 +75,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="getWebhookLogs"></a>
 # **getWebhookLogs**
-> WebhookLogListResponse getWebhookLogs(page, per, createdAtFrom, createdAtTo)
+> WebhookLogListResponse getWebhookLogs().page(page).per(per).createdAtFrom(createdAtFrom).createdAtTo(createdAtTo).execute();
 
 Fetch a list of webhook logs
 
@@ -100,7 +101,12 @@ Integer per = 10; // Integer | The number of results to load per page (defaults 
 String createdAtFrom = "createdAtFrom_example"; // String | Start date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08`
 String createdAtTo = "createdAtTo_example"; // String | End date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08`
 try {
-    WebhookLogListResponse result = apiInstance.getWebhookLogs(page, per, createdAtFrom, createdAtTo);
+    WebhookLogListResponse result = apiInstance.getWebhookLogs()
+            .page(page)
+            .per(per)
+            .createdAtFrom(createdAtFrom)
+            .createdAtTo(createdAtTo)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {

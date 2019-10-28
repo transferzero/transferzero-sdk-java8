@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getAccountsDebit"></a>
 # **getAccountsDebit**
-> DebitResponse getAccountsDebit(accountDebitID)
+> DebitResponse getAccountsDebit(accountDebitID).execute();
 
 Fetching an account debit
 
@@ -34,7 +34,8 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 AccountDebitsApi apiInstance = new AccountDebitsApi(apiClient);
 UUID accountDebitID = new UUID(); // UUID | ID of the account debit to get.  Example: `/v1/accounts/debits/9170c890-1a45-46bd-9b79-3deeb8b4ff3d`
 try {
-    DebitResponse result = apiInstance.getAccountsDebit(accountDebitID);
+    DebitResponse result = apiInstance.getAccountsDebit(accountDebitID)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {
@@ -75,7 +76,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="getAccountsDebits"></a>
 # **getAccountsDebits**
-> DebitListResponse getAccountsDebits(page, per)
+> DebitListResponse getAccountsDebits().page(page).per(per).execute();
 
 Listing Accounts debits
 
@@ -99,7 +100,10 @@ AccountDebitsApi apiInstance = new AccountDebitsApi(apiClient);
 Integer page = 1; // Integer | The page number to request (defaults to 1)
 Integer per = 10; // Integer | The number of results to load per page (defaults to 10)
 try {
-    DebitListResponse result = apiInstance.getAccountsDebits(page, per);
+    DebitListResponse result = apiInstance.getAccountsDebits()
+            .page(page)
+            .per(per)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {

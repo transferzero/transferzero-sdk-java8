@@ -46,7 +46,8 @@ public class AccountDebitsApiTest {
     @Test
     public void getAccountsDebitTest() throws ApiException {
         UUID accountDebitID = null;
-        DebitResponse response = api.getAccountsDebit(accountDebitID);
+        DebitResponse response = api.getAccountsDebit(accountDebitID)
+                .execute();
 
         // TODO: test validations
     }
@@ -63,7 +64,10 @@ public class AccountDebitsApiTest {
     public void getAccountsDebitsTest() throws ApiException {
         Integer page = null;
         Integer per = null;
-        DebitListResponse response = api.getAccountsDebits(page, per);
+        DebitListResponse response = api.getAccountsDebits()
+                .page(page)
+                .per(per)
+                .execute();
 
         // TODO: test validations
     }

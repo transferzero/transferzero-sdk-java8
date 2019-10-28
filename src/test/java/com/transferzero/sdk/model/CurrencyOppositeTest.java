@@ -50,4 +50,12 @@ public class CurrencyOppositeTest {
         // TODO: test rate
     }
 
+    /**
+     * Test the property 'mtmRate'
+     */
+    @Test
+    public void mtmRateTest() {
+        // TODO: test mtmRate
+    }
+
 }

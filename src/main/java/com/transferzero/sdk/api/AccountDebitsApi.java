@@ -57,14 +57,7 @@ public class AccountDebitsApi {
         this.localVarApiClient = apiClient;
     }
 
-    /**
-     * Build call for getAccountsDebit
-     * @param accountDebitID ID of the account debit to get.  Example: &#x60;/v1/accounts/debits/9170c890-1a45-46bd-9b79-3deeb8b4ff3d&#x60; (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getAccountsDebitCall(UUID accountDebitID, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAccountsDebitCall(UUID accountDebitID, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -107,55 +100,78 @@ public class AccountDebitsApi {
 
     }
 
-    /**
-     * Fetching an account debit
-     * Returns a single account debit by the account debit ID
-     * @param accountDebitID ID of the account debit to get.  Example: &#x60;/v1/accounts/debits/9170c890-1a45-46bd-9b79-3deeb8b4ff3d&#x60; (required)
-     * @return DebitResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DebitResponse getAccountsDebit(UUID accountDebitID) throws ApiException {
-        ApiResponse<DebitResponse> localVarResp = getAccountsDebitWithHttpInfo(accountDebitID);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Fetching an account debit
-     * Returns a single account debit by the account debit ID
-     * @param accountDebitID ID of the account debit to get.  Example: &#x60;/v1/accounts/debits/9170c890-1a45-46bd-9b79-3deeb8b4ff3d&#x60; (required)
-     * @return ApiResponse&lt;DebitResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<DebitResponse> getAccountsDebitWithHttpInfo(UUID accountDebitID) throws ApiException {
+    private ApiResponse<DebitResponse> getAccountsDebitWithHttpInfo(UUID accountDebitID) throws ApiException {
         okhttp3.Call localVarCall = getAccountsDebitValidateBeforeCall(accountDebitID, null);
         Type localVarReturnType = new TypeToken<DebitResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Fetching an account debit (asynchronously)
-     * Returns a single account debit by the account debit ID
-     * @param accountDebitID ID of the account debit to get.  Example: &#x60;/v1/accounts/debits/9170c890-1a45-46bd-9b79-3deeb8b4ff3d&#x60; (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getAccountsDebitAsync(UUID accountDebitID, final ApiCallback<DebitResponse> _callback) throws ApiException {
+    private okhttp3.Call getAccountsDebitAsync(UUID accountDebitID, final ApiCallback<DebitResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAccountsDebitValidateBeforeCall(accountDebitID, _callback);
         Type localVarReturnType = new TypeToken<DebitResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetAccountsDebitRequest {
+        private final UUID accountDebitID;
+
+        private APIgetAccountsDebitRequest(UUID accountDebitID) {
+            this.accountDebitID = accountDebitID;
+        }
+
+        /**
+         * Build call for getAccountsDebit
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAccountsDebitCall(accountDebitID, _callback);
+        }
+
+        /**
+         * Execute getAccountsDebit request
+         * @return DebitResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public DebitResponse execute() throws ApiException {
+            ApiResponse<DebitResponse> localVarResp = getAccountsDebitWithHttpInfo(accountDebitID);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAccountsDebit request with HTTP info returned
+         * @return ApiResponse&lt;DebitResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<DebitResponse> executeWithHttpInfo() throws ApiException {
+            return getAccountsDebitWithHttpInfo(accountDebitID);
+        }
+
+        /**
+         * Execute getAccountsDebit request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DebitResponse> _callback) throws ApiException {
+            return getAccountsDebitAsync(accountDebitID, _callback);
+        }
+    }
+
     /**
-     * Build call for getAccountsDebits
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Fetching an account debit
+     * Returns a single account debit by the account debit ID
+     * @param accountDebitID ID of the account debit to get.  Example: &#x60;/v1/accounts/debits/9170c890-1a45-46bd-9b79-3deeb8b4ff3d&#x60; (required)
+     * @return APIgetAccountsDebitRequest
      */
-    public okhttp3.Call getAccountsDebitsCall(Integer page, Integer per, final ApiCallback _callback) throws ApiException {
+    public APIgetAccountsDebitRequest getAccountsDebit(UUID accountDebitID) {
+        return new APIgetAccountsDebitRequest(accountDebitID);
+    }
+    private okhttp3.Call getAccountsDebitsCall(Integer page, Integer per, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -200,48 +216,95 @@ public class AccountDebitsApi {
 
     }
 
-    /**
-     * Listing Accounts debits
-     * Get a list of accounts debits
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @return DebitListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DebitListResponse getAccountsDebits(Integer page, Integer per) throws ApiException {
-        ApiResponse<DebitListResponse> localVarResp = getAccountsDebitsWithHttpInfo(page, per);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Listing Accounts debits
-     * Get a list of accounts debits
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @return ApiResponse&lt;DebitListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<DebitListResponse> getAccountsDebitsWithHttpInfo(Integer page, Integer per) throws ApiException {
+    private ApiResponse<DebitListResponse> getAccountsDebitsWithHttpInfo(Integer page, Integer per) throws ApiException {
         okhttp3.Call localVarCall = getAccountsDebitsValidateBeforeCall(page, per, null);
         Type localVarReturnType = new TypeToken<DebitListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Listing Accounts debits (asynchronously)
-     * Get a list of accounts debits
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getAccountsDebitsAsync(Integer page, Integer per, final ApiCallback<DebitListResponse> _callback) throws ApiException {
+    private okhttp3.Call getAccountsDebitsAsync(Integer page, Integer per, final ApiCallback<DebitListResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAccountsDebitsValidateBeforeCall(page, per, _callback);
         Type localVarReturnType = new TypeToken<DebitListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIgetAccountsDebitsRequest {
+        private Integer page;
+        private Integer per;
+
+        private APIgetAccountsDebitsRequest() {
+        }
+
+        /**
+         * Set page
+         * @param page The page number to request (defaults to 1) (optional)
+         * @return APIgetAccountsDebitsRequest
+         */
+        public APIgetAccountsDebitsRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set per
+         * @param per The number of results to load per page (defaults to 10) (optional)
+         * @return APIgetAccountsDebitsRequest
+         */
+        public APIgetAccountsDebitsRequest per(Integer per) {
+            this.per = per;
+            return this;
+        }
+
+        /**
+         * Build call for getAccountsDebits
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAccountsDebitsCall(page, per, _callback);
+        }
+
+        /**
+         * Execute getAccountsDebits request
+         * @return DebitListResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public DebitListResponse execute() throws ApiException {
+            ApiResponse<DebitListResponse> localVarResp = getAccountsDebitsWithHttpInfo(page, per);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAccountsDebits request with HTTP info returned
+         * @return ApiResponse&lt;DebitListResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<DebitListResponse> executeWithHttpInfo() throws ApiException {
+            return getAccountsDebitsWithHttpInfo(page, per);
+        }
+
+        /**
+         * Execute getAccountsDebits request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DebitListResponse> _callback) throws ApiException {
+            return getAccountsDebitsAsync(page, per, _callback);
+        }
+    }
+
+    /**
+     * Listing Accounts debits
+     * Get a list of accounts debits
+     * @return APIgetAccountsDebitsRequest
+     */
+    public APIgetAccountsDebitsRequest getAccountsDebits() {
+        return new APIgetAccountsDebitsRequest();
     }
     /**
      * Build call for postAccountsDebits

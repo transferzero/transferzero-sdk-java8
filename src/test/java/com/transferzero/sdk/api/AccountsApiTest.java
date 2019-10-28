@@ -44,7 +44,8 @@ public class AccountsApiTest {
     @Test
     public void getAccountTest() throws ApiException {
         String currency = null;
-        AccountResponse response = api.getAccount(currency);
+        AccountResponse response = api.getAccount(currency)
+                .execute();
 
         // TODO: test validations
     }
@@ -59,7 +60,8 @@ public class AccountsApiTest {
      */
     @Test
     public void getAccountsTest() throws ApiException {
-        AccountListResponse response = api.getAccounts();
+        AccountListResponse response = api.getAccounts()
+                .execute();
 
         // TODO: test validations
     }

@@ -54,13 +54,7 @@ public class PaymentMethodsApi {
         this.localVarApiClient = apiClient;
     }
 
-    /**
-     * Build call for paymentMethodsIn
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call paymentMethodsInCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call paymentMethodsInCall(final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -97,50 +91,75 @@ public class PaymentMethodsApi {
 
     }
 
-    /**
-     * This method returns possible payin methods.
-     * Fetching possible payin methods. 
-     * @return PaymentMethodListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public PaymentMethodListResponse paymentMethodsIn() throws ApiException {
-        ApiResponse<PaymentMethodListResponse> localVarResp = paymentMethodsInWithHttpInfo();
-        return localVarResp.getData();
-    }
 
-    /**
-     * This method returns possible payin methods.
-     * Fetching possible payin methods. 
-     * @return ApiResponse&lt;PaymentMethodListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<PaymentMethodListResponse> paymentMethodsInWithHttpInfo() throws ApiException {
+    private ApiResponse<PaymentMethodListResponse> paymentMethodsInWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = paymentMethodsInValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<PaymentMethodListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * This method returns possible payin methods. (asynchronously)
-     * Fetching possible payin methods. 
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call paymentMethodsInAsync(final ApiCallback<PaymentMethodListResponse> _callback) throws ApiException {
+    private okhttp3.Call paymentMethodsInAsync(final ApiCallback<PaymentMethodListResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = paymentMethodsInValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<PaymentMethodListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIpaymentMethodsInRequest {
+
+        private APIpaymentMethodsInRequest() {
+        }
+
+        /**
+         * Build call for paymentMethodsIn
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return paymentMethodsInCall(_callback);
+        }
+
+        /**
+         * Execute paymentMethodsIn request
+         * @return PaymentMethodListResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public PaymentMethodListResponse execute() throws ApiException {
+            ApiResponse<PaymentMethodListResponse> localVarResp = paymentMethodsInWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute paymentMethodsIn request with HTTP info returned
+         * @return ApiResponse&lt;PaymentMethodListResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<PaymentMethodListResponse> executeWithHttpInfo() throws ApiException {
+            return paymentMethodsInWithHttpInfo();
+        }
+
+        /**
+         * Execute paymentMethodsIn request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PaymentMethodListResponse> _callback) throws ApiException {
+            return paymentMethodsInAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for paymentMethodsOut
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * This method returns possible payin methods.
+     * Fetching possible payin methods. 
+     * @return APIpaymentMethodsInRequest
      */
-    public okhttp3.Call paymentMethodsOutCall(final ApiCallback _callback) throws ApiException {
+    public APIpaymentMethodsInRequest paymentMethodsIn() {
+        return new APIpaymentMethodsInRequest();
+    }
+    private okhttp3.Call paymentMethodsOutCall(final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -177,41 +196,72 @@ public class PaymentMethodsApi {
 
     }
 
-    /**
-     * This method returns possible payout methods.
-     * Fetching possible payout methods. 
-     * @return PaymentMethodListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public PaymentMethodListResponse paymentMethodsOut() throws ApiException {
-        ApiResponse<PaymentMethodListResponse> localVarResp = paymentMethodsOutWithHttpInfo();
-        return localVarResp.getData();
-    }
 
-    /**
-     * This method returns possible payout methods.
-     * Fetching possible payout methods. 
-     * @return ApiResponse&lt;PaymentMethodListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<PaymentMethodListResponse> paymentMethodsOutWithHttpInfo() throws ApiException {
+    private ApiResponse<PaymentMethodListResponse> paymentMethodsOutWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = paymentMethodsOutValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<PaymentMethodListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * This method returns possible payout methods. (asynchronously)
-     * Fetching possible payout methods. 
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call paymentMethodsOutAsync(final ApiCallback<PaymentMethodListResponse> _callback) throws ApiException {
+    private okhttp3.Call paymentMethodsOutAsync(final ApiCallback<PaymentMethodListResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = paymentMethodsOutValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<PaymentMethodListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIpaymentMethodsOutRequest {
+
+        private APIpaymentMethodsOutRequest() {
+        }
+
+        /**
+         * Build call for paymentMethodsOut
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return paymentMethodsOutCall(_callback);
+        }
+
+        /**
+         * Execute paymentMethodsOut request
+         * @return PaymentMethodListResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public PaymentMethodListResponse execute() throws ApiException {
+            ApiResponse<PaymentMethodListResponse> localVarResp = paymentMethodsOutWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute paymentMethodsOut request with HTTP info returned
+         * @return ApiResponse&lt;PaymentMethodListResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<PaymentMethodListResponse> executeWithHttpInfo() throws ApiException {
+            return paymentMethodsOutWithHttpInfo();
+        }
+
+        /**
+         * Execute paymentMethodsOut request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PaymentMethodListResponse> _callback) throws ApiException {
+            return paymentMethodsOutAsync(_callback);
+        }
+    }
+
+    /**
+     * This method returns possible payout methods.
+     * Fetching possible payout methods. 
+     * @return APIpaymentMethodsOutRequest
+     */
+    public APIpaymentMethodsOutRequest paymentMethodsOut() {
+        return new APIpaymentMethodsOutRequest();
     }
 }
