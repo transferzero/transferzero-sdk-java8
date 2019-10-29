@@ -12,10 +12,7 @@ import okhttp3.Response;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 // Please see our documentation at https://github.com/transferzero/api-documentation
 // and the API specification at http://api.transferzero.com/documentation/
@@ -484,15 +481,15 @@ public class Application {
         apiClient.setApiSecret("<secret>");
         apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
-//        accountValidationExample(apiClient);
-//        createTransactionExample(apiClient);
-//        createAndFundTransactionExample(apiClient);
-//        getTransactionByExternalId(apiClient);
-//        getTransactionErrorMessageExample(apiClient);
-//        webhookParseExample(apiClient);
-//        createSender(apiClient);
-//        getSenderByExternalId(apiClient);
-//        updateSender(apiClient);
-//        apiInterceptorExample(apiClient);
+        //accountValidationExample(apiClient);
+        //createTransactionExample(apiClient);
+        //createAndFundTransactionExample(apiClient);
+        //getTransactionByExternalId(apiClient);
+        //getTransactionErrorMessageExample(apiClient);
+        //webhookParseExample(apiClient);
+        //createSender(apiClient);
+        //getSenderByExternalId(apiClient);
+        //updateSender(apiClient);
+        //apiInterceptorExample(apiClient);
     }
 }
