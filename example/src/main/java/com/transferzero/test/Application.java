@@ -7,7 +7,7 @@ import com.transferzero.sdk.api.AccountValidationApi;
 import com.transferzero.sdk.api.SendersApi;
 import com.transferzero.sdk.api.TransactionsApi;
 import com.transferzero.sdk.model.*;
-import org.joda.time.LocalDate;
+import java.time.LocalDate;
 
 import okhttp3.Request;
 import okhttp3.Response;
