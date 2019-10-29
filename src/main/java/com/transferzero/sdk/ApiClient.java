@@ -51,6 +51,11 @@ import java.util.regex.Pattern;
 import com.google.gson.JsonParseException;
 
 public class ApiClient {
+    // Interface responsible for intercepting and handling Api requests and responses.
+    public interface ApiInterceptor {
+        Request handlePreRequest(Request request);
+        Response handlePostResponse(Response response);
+    }
 
     private String basePath = "https://api-sandbox.transferzero.com/v1";
     private boolean debugging = false;
@@ -73,6 +78,8 @@ public class ApiClient {
     private String apiSecret;
 
     private HttpLoggingInterceptor loggingInterceptor;
+
+    public ApiInterceptor apiInterceptor;
 
     public ApiClient() {
         init();
@@ -97,6 +104,17 @@ public class ApiClient {
 
         // Set default User-Agent.
         setUserAgent("TransferZero-SDK/Java8/1.3.0-SNAPSHOT");
+    }
+
+    /**
+     * Set api interceptor
+     *
+     * @param apiInterceptor
+     * @return ApiClient
+     */
+    public ApiClient setApiInterceptor(ApiInterceptor apiInterceptor) {
+        this.apiInterceptor = apiInterceptor;
+        return this;
     }
 
     /**
@@ -952,6 +970,13 @@ public class ApiClient {
      *                      fail to deserialize the response body
      */
     public <T> T handleResponse(Response response, Type returnType) throws ApiException {
+        if (apiInterceptor != null) {
+            response = apiInterceptor.handlePostResponse(response);
+            if (response == null) {
+               throw new ApiException();
+            }
+        }
+
         if (response.isSuccessful()) {
             if (returnType == null || response.code() == 204) {
                 // returning null if the returnType is not defined,
@@ -993,6 +1018,13 @@ public class ApiClient {
      */
     public Call buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ApiCallback callback) throws ApiException {
         Request request = buildRequest(path, method, queryParams, collectionQueryParams, body, headerParams, formParams, authNames, callback);
+
+        if (apiInterceptor != null) {
+             request = apiInterceptor.handlePreRequest(request);
+             if (request == null) {
+                 throw new ApiException();
+             }
+        }
 
         return httpClient.newCall(request);
     }
