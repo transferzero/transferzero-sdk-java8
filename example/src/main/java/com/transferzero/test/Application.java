@@ -9,9 +9,10 @@ import com.transferzero.sdk.api.TransactionsApi;
 import com.transferzero.sdk.model.*;
 import java.time.LocalDate;
 
+import okhttp3.Request;
+import okhttp3.Response;
+
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.UUID;
 import java.util.*;
 
 // Please see our documentation at https://github.com/transferzero/api-documentation
@@ -156,6 +157,26 @@ public class Application {
                 throw e;
             }
         }
+    }
+
+    public static void apiInterceptorExample(ApiClient apiClient) throws ApiException {
+
+        class ApiInterceptorImpl implements ApiClient.ApiInterceptor {
+            public Request handlePreRequest(Request request) {
+                System.out.println(request.body());
+                return request;
+            }
+
+            public Response handlePostResponse(Response response) {
+                System.out.println(response.body());
+                return response;
+            }
+        }
+
+        ApiInterceptorImpl ApiIntImpl = new ApiInterceptorImpl();
+        apiClient.setApiInterceptor(ApiIntImpl);
+        SendersApi api = new SendersApi(apiClient);
+        api.getSenders().externalId("SENDER-2b59defy").execute();
     }
 
     public static void getTransactionErrorMessageExample(ApiClient apiClient) throws ApiException {
@@ -347,23 +368,23 @@ public class Application {
         // - the authentication headers you have received on your webhook endpoint - as an object
 
         if (apiClient.validateWebhookRequest(webhookUrl, webhookBody, webhookHeaders)) {
-          Webhook webhook = apiClient.parseResponseString(webhookBody, Webhook.class);
-          if (webhook.getEvent().startsWith("transaction")) {
-              TransactionWebhook transactionWebhook = apiClient.parseResponseString(webhookBody, TransactionWebhook.class);
-              System.out.println(transactionWebhook);
-          } else if (webhook.getEvent().startsWith("recipient")) {
-              RecipientWebhook recipientWebhook = apiClient.parseResponseString(webhookBody, RecipientWebhook.class);
-              System.out.println(recipientWebhook);
-          } else if (webhook.getEvent().startsWith("payout_method")) {
-              PayoutMethodWebhook payoutMethodWebhook = apiClient.parseResponseString(webhookBody, PayoutMethodWebhook.class);
-              System.out.println(payoutMethodWebhook);
-          } else if (webhook.getEvent().startsWith("sender")) {
-              SenderWebhook senderWebhook = apiClient.parseResponseString(webhookBody, SenderWebhook.class);
-              System.out.println(senderWebhook);
-          } else if (webhook.getEvent().startsWith("document")) {
-              DocumentWebhook documentWebhook = apiClient.parseResponseString(webhookBody, DocumentWebhook.class);
-              System.out.println(documentWebhook);
-          }
+            Webhook webhook = apiClient.parseResponseString(webhookBody, Webhook.class);
+            if (webhook.getEvent().startsWith("transaction")) {
+                TransactionWebhook transactionWebhook = apiClient.parseResponseString(webhookBody, TransactionWebhook.class);
+                System.out.println(transactionWebhook);
+            } else if (webhook.getEvent().startsWith("recipient")) {
+                RecipientWebhook recipientWebhook = apiClient.parseResponseString(webhookBody, RecipientWebhook.class);
+                System.out.println(recipientWebhook);
+            } else if (webhook.getEvent().startsWith("payout_method")) {
+                PayoutMethodWebhook payoutMethodWebhook = apiClient.parseResponseString(webhookBody, PayoutMethodWebhook.class);
+                System.out.println(payoutMethodWebhook);
+            } else if (webhook.getEvent().startsWith("sender")) {
+                SenderWebhook senderWebhook = apiClient.parseResponseString(webhookBody, SenderWebhook.class);
+                System.out.println(senderWebhook);
+            } else if (webhook.getEvent().startsWith("document")) {
+                DocumentWebhook documentWebhook = apiClient.parseResponseString(webhookBody, DocumentWebhook.class);
+                System.out.println(documentWebhook);
+            }
         }
     }
 
@@ -470,5 +491,6 @@ public class Application {
         //createSender(apiClient);
         //getSenderByExternalId(apiClient);
         //updateSender(apiClient);
+        //apiInterceptorExample(apiClient);
     }
 }
