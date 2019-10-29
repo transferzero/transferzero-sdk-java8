@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="infoCurrencies"></a>
 # **infoCurrencies**
-> CurrencyListResponse infoCurrencies()
+> CurrencyListResponse infoCurrencies().execute();
 
 Getting a list of possible requested currencies
 
@@ -33,7 +33,8 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 CurrencyInfoApi apiInstance = new CurrencyInfoApi(apiClient);
 try {
-    CurrencyListResponse result = apiInstance.infoCurrencies();
+    CurrencyListResponse result = apiInstance.infoCurrencies()
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {
@@ -71,7 +72,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="infoCurrenciesIn"></a>
 # **infoCurrenciesIn**
-> CurrencyExchangeListResponse infoCurrenciesIn(senderId)
+> CurrencyExchangeListResponse infoCurrenciesIn().senderId(senderId).execute();
 
 Getting a list of possible input currencies
 
@@ -94,7 +95,9 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 CurrencyInfoApi apiInstance = new CurrencyInfoApi(apiClient);
 UUID senderId = new UUID(); // UUID | Allows the scoping of the results by `sender_id` (optional).  Example: `/v1/info/currencies/in?sender_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87`
 try {
-    CurrencyExchangeListResponse result = apiInstance.infoCurrenciesIn(senderId);
+    CurrencyExchangeListResponse result = apiInstance.infoCurrenciesIn()
+            .senderId(senderId)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {
@@ -135,7 +138,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="infoCurrenciesOut"></a>
 # **infoCurrenciesOut**
-> CurrencyExchangeListResponse infoCurrenciesOut(senderId)
+> CurrencyExchangeListResponse infoCurrenciesOut().senderId(senderId).execute();
 
 Getting a list of possible output currencies
 
@@ -158,7 +161,9 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 CurrencyInfoApi apiInstance = new CurrencyInfoApi(apiClient);
 UUID senderId = new UUID(); // UUID | Allows the scoping of the results by `sender_id` (optional).  Example: `/v1/info/currencies/out?sender_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87`
 try {
-    CurrencyExchangeListResponse result = apiInstance.infoCurrenciesOut(senderId);
+    CurrencyExchangeListResponse result = apiInstance.infoCurrenciesOut()
+            .senderId(senderId)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {

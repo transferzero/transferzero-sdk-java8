@@ -77,7 +77,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="getWebhook"></a>
 # **getWebhook**
-> WebhookDefinitionResponse getWebhook(webhookID)
+> WebhookDefinitionResponse getWebhook(webhookID).execute();
 
 Find a webhook&#39;s details
 
@@ -100,7 +100,8 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 WebhooksApi apiInstance = new WebhooksApi(apiClient);
 UUID webhookID = new UUID(); // UUID | The ID of the Webhook to look up  Example: `/v1/webhooks/9d4d7b73-a94c-4979-ab57-09074fd55d33`
 try {
-    WebhookDefinitionResponse result = apiInstance.getWebhook(webhookID);
+    WebhookDefinitionResponse result = apiInstance.getWebhook(webhookID)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {
@@ -141,7 +142,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="getWebhookEvents"></a>
 # **getWebhookEvents**
-> WebhookDefinitionEventListResponse getWebhookEvents()
+> WebhookDefinitionEventListResponse getWebhookEvents().execute();
 
 Find possible webhook events
 
@@ -163,7 +164,8 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 WebhooksApi apiInstance = new WebhooksApi(apiClient);
 try {
-    WebhookDefinitionEventListResponse result = apiInstance.getWebhookEvents();
+    WebhookDefinitionEventListResponse result = apiInstance.getWebhookEvents()
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {
@@ -201,7 +203,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="getWebhooks"></a>
 # **getWebhooks**
-> WebhookDefinitionListResponse getWebhooks(page, per)
+> WebhookDefinitionListResponse getWebhooks().page(page).per(per).execute();
 
 Listing webhooks
 
@@ -225,7 +227,10 @@ WebhooksApi apiInstance = new WebhooksApi(apiClient);
 Integer page = 1; // Integer | The page number to request (defaults to 1)
 Integer per = 10; // Integer | The number of results to load per page (defaults to 10)
 try {
-    WebhookDefinitionListResponse result = apiInstance.getWebhooks(page, per);
+    WebhookDefinitionListResponse result = apiInstance.getWebhooks()
+            .page(page)
+            .per(per)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {

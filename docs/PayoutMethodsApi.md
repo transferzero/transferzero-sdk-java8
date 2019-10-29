@@ -77,7 +77,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="getPayoutMethod"></a>
 # **getPayoutMethod**
-> PayoutMethodResponse getPayoutMethod(payoutMethodID)
+> PayoutMethodResponse getPayoutMethod(payoutMethodID).execute();
 
 Fetching a payout method
 
@@ -100,7 +100,8 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 PayoutMethodsApi apiInstance = new PayoutMethodsApi(apiClient);
 UUID payoutMethodID = new UUID(); // UUID | ID of the payout method to get.  Example: `/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
 try {
-    PayoutMethodResponse result = apiInstance.getPayoutMethod(payoutMethodID);
+    PayoutMethodResponse result = apiInstance.getPayoutMethod(payoutMethodID)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {
@@ -141,7 +142,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="getPayoutMethods"></a>
 # **getPayoutMethods**
-> PayoutMethodListResponse getPayoutMethods(state, type, senderId, page, per, createdAtFrom, createdAtTo)
+> PayoutMethodListResponse getPayoutMethods().state(state).type(type).senderId(senderId).page(page).per(per).createdAtFrom(createdAtFrom).createdAtTo(createdAtTo).execute();
 
 Listing payout methods
 
@@ -170,7 +171,15 @@ Integer per = 10; // Integer | The number of results to load per page (defaults 
 String createdAtFrom = "createdAtFrom_example"; // String | Start date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08`
 String createdAtTo = "createdAtTo_example"; // String | End date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08`
 try {
-    PayoutMethodListResponse result = apiInstance.getPayoutMethods(state, type, senderId, page, per, createdAtFrom, createdAtTo);
+    PayoutMethodListResponse result = apiInstance.getPayoutMethods()
+            .state(state)
+            .type(type)
+            .senderId(senderId)
+            .page(page)
+            .per(per)
+            .createdAtFrom(createdAtFrom)
+            .createdAtTo(createdAtTo)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {

@@ -45,7 +45,8 @@ public class ApiLogsApiTest {
     @Test
     public void getApiLogTest() throws ApiException {
         UUID apILogID = null;
-        ApiLogResponse response = api.getApiLog(apILogID);
+        ApiLogResponse response = api.getApiLog(apILogID)
+                .execute();
 
         // TODO: test validations
     }
@@ -64,7 +65,12 @@ public class ApiLogsApiTest {
         Integer per = null;
         String createdAtFrom = null;
         String createdAtTo = null;
-        ApiLogListResponse response = api.getApiLogs(page, per, createdAtFrom, createdAtTo);
+        ApiLogListResponse response = api.getApiLogs()
+                .page(page)
+                .per(per)
+                .createdAtFrom(createdAtFrom)
+                .createdAtTo(createdAtTo)
+                .execute();
 
         // TODO: test validations
     }

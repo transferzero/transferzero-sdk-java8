@@ -155,21 +155,7 @@ public class RecipientsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-    /**
-     * Build call for getRecipients
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param amountFrom Minimum amount to filter recipients by amount range.  Allows filtering results by the specified &#x60;amount&#x60; range. When using this filter, the &#x60;currency&#x60; should also be specified.  Example: &#x60;/v1/recipients?currency&#x3D;NGN&amp;amount_from&#x3D;83.76672339&amp;amount_to&#x3D;83.76672339&#x60; (optional)
-     * @param amountTo Max amount to filter recipients by amount range.  Allows filtering results by the specified &#x60;amount&#x60; range. When using this filter, the &#x60;currency&#x60; should also be specified.  Example: &#x60;/v1/recipients?currency&#x3D;NGN&amp;amount_from&#x3D;83.76672339&amp;amount_to&#x3D;83.76672339&#x60; (optional)
-     * @param state Allows filtering results by &#x60;state&#x60; of recipient. See [API Documentation - Recipient state](https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#state-1) for possible states.  Example: &#x60;/v1/recipients?state[]&#x3D;error&amp;state[]&#x3D;initial&#x60; (optional)
-     * @param currency Allows filtering results by &#x60;input_currency&#x60;.  Additionally required when filtering by an amount range Example: &#x60;/v1/recipients?currency[]&#x3D;KES&amp;currency[]&#x3D;NGN&#x60; (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getRecipientsCall(Integer page, Integer per, String createdAtFrom, String createdAtTo, String amountFrom, String amountTo, List<String> state, List<String> currency, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRecipientsCall(Integer page, Integer per, String createdAtFrom, String createdAtTo, String amountFrom, String amountTo, List<String> state, List<String> currency, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -238,66 +224,161 @@ public class RecipientsApi {
 
     }
 
-    /**
-     * Getting a list of recipients with filtering
-     * Fetches details of all recipients.
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param amountFrom Minimum amount to filter recipients by amount range.  Allows filtering results by the specified &#x60;amount&#x60; range. When using this filter, the &#x60;currency&#x60; should also be specified.  Example: &#x60;/v1/recipients?currency&#x3D;NGN&amp;amount_from&#x3D;83.76672339&amp;amount_to&#x3D;83.76672339&#x60; (optional)
-     * @param amountTo Max amount to filter recipients by amount range.  Allows filtering results by the specified &#x60;amount&#x60; range. When using this filter, the &#x60;currency&#x60; should also be specified.  Example: &#x60;/v1/recipients?currency&#x3D;NGN&amp;amount_from&#x3D;83.76672339&amp;amount_to&#x3D;83.76672339&#x60; (optional)
-     * @param state Allows filtering results by &#x60;state&#x60; of recipient. See [API Documentation - Recipient state](https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#state-1) for possible states.  Example: &#x60;/v1/recipients?state[]&#x3D;error&amp;state[]&#x3D;initial&#x60; (optional)
-     * @param currency Allows filtering results by &#x60;input_currency&#x60;.  Additionally required when filtering by an amount range Example: &#x60;/v1/recipients?currency[]&#x3D;KES&amp;currency[]&#x3D;NGN&#x60; (optional)
-     * @return RecipientListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public RecipientListResponse getRecipients(Integer page, Integer per, String createdAtFrom, String createdAtTo, String amountFrom, String amountTo, List<String> state, List<String> currency) throws ApiException {
-        ApiResponse<RecipientListResponse> localVarResp = getRecipientsWithHttpInfo(page, per, createdAtFrom, createdAtTo, amountFrom, amountTo, state, currency);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Getting a list of recipients with filtering
-     * Fetches details of all recipients.
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param amountFrom Minimum amount to filter recipients by amount range.  Allows filtering results by the specified &#x60;amount&#x60; range. When using this filter, the &#x60;currency&#x60; should also be specified.  Example: &#x60;/v1/recipients?currency&#x3D;NGN&amp;amount_from&#x3D;83.76672339&amp;amount_to&#x3D;83.76672339&#x60; (optional)
-     * @param amountTo Max amount to filter recipients by amount range.  Allows filtering results by the specified &#x60;amount&#x60; range. When using this filter, the &#x60;currency&#x60; should also be specified.  Example: &#x60;/v1/recipients?currency&#x3D;NGN&amp;amount_from&#x3D;83.76672339&amp;amount_to&#x3D;83.76672339&#x60; (optional)
-     * @param state Allows filtering results by &#x60;state&#x60; of recipient. See [API Documentation - Recipient state](https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#state-1) for possible states.  Example: &#x60;/v1/recipients?state[]&#x3D;error&amp;state[]&#x3D;initial&#x60; (optional)
-     * @param currency Allows filtering results by &#x60;input_currency&#x60;.  Additionally required when filtering by an amount range Example: &#x60;/v1/recipients?currency[]&#x3D;KES&amp;currency[]&#x3D;NGN&#x60; (optional)
-     * @return ApiResponse&lt;RecipientListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<RecipientListResponse> getRecipientsWithHttpInfo(Integer page, Integer per, String createdAtFrom, String createdAtTo, String amountFrom, String amountTo, List<String> state, List<String> currency) throws ApiException {
+    private ApiResponse<RecipientListResponse> getRecipientsWithHttpInfo(Integer page, Integer per, String createdAtFrom, String createdAtTo, String amountFrom, String amountTo, List<String> state, List<String> currency) throws ApiException {
         okhttp3.Call localVarCall = getRecipientsValidateBeforeCall(page, per, createdAtFrom, createdAtTo, amountFrom, amountTo, state, currency, null);
         Type localVarReturnType = new TypeToken<RecipientListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Getting a list of recipients with filtering (asynchronously)
-     * Fetches details of all recipients.
-     * @param page The page number to request (defaults to 1) (optional)
-     * @param per The number of results to load per page (defaults to 10) (optional)
-     * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
-     * @param amountFrom Minimum amount to filter recipients by amount range.  Allows filtering results by the specified &#x60;amount&#x60; range. When using this filter, the &#x60;currency&#x60; should also be specified.  Example: &#x60;/v1/recipients?currency&#x3D;NGN&amp;amount_from&#x3D;83.76672339&amp;amount_to&#x3D;83.76672339&#x60; (optional)
-     * @param amountTo Max amount to filter recipients by amount range.  Allows filtering results by the specified &#x60;amount&#x60; range. When using this filter, the &#x60;currency&#x60; should also be specified.  Example: &#x60;/v1/recipients?currency&#x3D;NGN&amp;amount_from&#x3D;83.76672339&amp;amount_to&#x3D;83.76672339&#x60; (optional)
-     * @param state Allows filtering results by &#x60;state&#x60; of recipient. See [API Documentation - Recipient state](https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#state-1) for possible states.  Example: &#x60;/v1/recipients?state[]&#x3D;error&amp;state[]&#x3D;initial&#x60; (optional)
-     * @param currency Allows filtering results by &#x60;input_currency&#x60;.  Additionally required when filtering by an amount range Example: &#x60;/v1/recipients?currency[]&#x3D;KES&amp;currency[]&#x3D;NGN&#x60; (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getRecipientsAsync(Integer page, Integer per, String createdAtFrom, String createdAtTo, String amountFrom, String amountTo, List<String> state, List<String> currency, final ApiCallback<RecipientListResponse> _callback) throws ApiException {
+    private okhttp3.Call getRecipientsAsync(Integer page, Integer per, String createdAtFrom, String createdAtTo, String amountFrom, String amountTo, List<String> state, List<String> currency, final ApiCallback<RecipientListResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getRecipientsValidateBeforeCall(page, per, createdAtFrom, createdAtTo, amountFrom, amountTo, state, currency, _callback);
         Type localVarReturnType = new TypeToken<RecipientListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIgetRecipientsRequest {
+        private Integer page;
+        private Integer per;
+        private String createdAtFrom;
+        private String createdAtTo;
+        private String amountFrom;
+        private String amountTo;
+        private List<String> state;
+        private List<String> currency;
+
+        private APIgetRecipientsRequest() {
+        }
+
+        /**
+         * Set page
+         * @param page The page number to request (defaults to 1) (optional)
+         * @return APIgetRecipientsRequest
+         */
+        public APIgetRecipientsRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set per
+         * @param per The number of results to load per page (defaults to 10) (optional)
+         * @return APIgetRecipientsRequest
+         */
+        public APIgetRecipientsRequest per(Integer per) {
+            this.per = per;
+            return this;
+        }
+
+        /**
+         * Set createdAtFrom
+         * @param createdAtFrom Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
+         * @return APIgetRecipientsRequest
+         */
+        public APIgetRecipientsRequest createdAtFrom(String createdAtFrom) {
+            this.createdAtFrom = createdAtFrom;
+            return this;
+        }
+
+        /**
+         * Set createdAtTo
+         * @param createdAtTo End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; (optional)
+         * @return APIgetRecipientsRequest
+         */
+        public APIgetRecipientsRequest createdAtTo(String createdAtTo) {
+            this.createdAtTo = createdAtTo;
+            return this;
+        }
+
+        /**
+         * Set amountFrom
+         * @param amountFrom Minimum amount to filter recipients by amount range.  Allows filtering results by the specified &#x60;amount&#x60; range. When using this filter, the &#x60;currency&#x60; should also be specified.  Example: &#x60;/v1/recipients?currency&#x3D;NGN&amp;amount_from&#x3D;83.76672339&amp;amount_to&#x3D;83.76672339&#x60; (optional)
+         * @return APIgetRecipientsRequest
+         */
+        public APIgetRecipientsRequest amountFrom(String amountFrom) {
+            this.amountFrom = amountFrom;
+            return this;
+        }
+
+        /**
+         * Set amountTo
+         * @param amountTo Max amount to filter recipients by amount range.  Allows filtering results by the specified &#x60;amount&#x60; range. When using this filter, the &#x60;currency&#x60; should also be specified.  Example: &#x60;/v1/recipients?currency&#x3D;NGN&amp;amount_from&#x3D;83.76672339&amp;amount_to&#x3D;83.76672339&#x60; (optional)
+         * @return APIgetRecipientsRequest
+         */
+        public APIgetRecipientsRequest amountTo(String amountTo) {
+            this.amountTo = amountTo;
+            return this;
+        }
+
+        /**
+         * Set state
+         * @param state Allows filtering results by &#x60;state&#x60; of recipient. See [API Documentation - Recipient state](https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#state-1) for possible states.  Example: &#x60;/v1/recipients?state[]&#x3D;error&amp;state[]&#x3D;initial&#x60; (optional)
+         * @return APIgetRecipientsRequest
+         */
+        public APIgetRecipientsRequest state(List<String> state) {
+            this.state = state;
+            return this;
+        }
+
+        /**
+         * Set currency
+         * @param currency Allows filtering results by &#x60;input_currency&#x60;.  Additionally required when filtering by an amount range Example: &#x60;/v1/recipients?currency[]&#x3D;KES&amp;currency[]&#x3D;NGN&#x60; (optional)
+         * @return APIgetRecipientsRequest
+         */
+        public APIgetRecipientsRequest currency(List<String> currency) {
+            this.currency = currency;
+            return this;
+        }
+
+        /**
+         * Build call for getRecipients
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getRecipientsCall(page, per, createdAtFrom, createdAtTo, amountFrom, amountTo, state, currency, _callback);
+        }
+
+        /**
+         * Execute getRecipients request
+         * @return RecipientListResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public RecipientListResponse execute() throws ApiException {
+            ApiResponse<RecipientListResponse> localVarResp = getRecipientsWithHttpInfo(page, per, createdAtFrom, createdAtTo, amountFrom, amountTo, state, currency);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getRecipients request with HTTP info returned
+         * @return ApiResponse&lt;RecipientListResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<RecipientListResponse> executeWithHttpInfo() throws ApiException {
+            return getRecipientsWithHttpInfo(page, per, createdAtFrom, createdAtTo, amountFrom, amountTo, state, currency);
+        }
+
+        /**
+         * Execute getRecipients request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<RecipientListResponse> _callback) throws ApiException {
+            return getRecipientsAsync(page, per, createdAtFrom, createdAtTo, amountFrom, amountTo, state, currency, _callback);
+        }
+    }
+
+    /**
+     * Getting a list of recipients with filtering
+     * Fetches details of all recipients.
+     * @return APIgetRecipientsRequest
+     */
+    public APIgetRecipientsRequest getRecipients() {
+        return new APIgetRecipientsRequest();
     }
     /**
      * Build call for patchRecipient

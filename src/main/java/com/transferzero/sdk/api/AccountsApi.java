@@ -55,14 +55,7 @@ public class AccountsApi {
         this.localVarApiClient = apiClient;
     }
 
-    /**
-     * Build call for getAccount
-     * @param currency Currency code of account balance to fetch  Example: &#x60;/v1/accounts/USD&#x60; (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getAccountCall(String currency, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAccountCall(String currency, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -105,53 +98,78 @@ public class AccountsApi {
 
     }
 
-    /**
-     * Fetches account balance for specified currrency
-     * Fetches account balance for specified currrency, and returns current balance and associated currency code
-     * @param currency Currency code of account balance to fetch  Example: &#x60;/v1/accounts/USD&#x60; (required)
-     * @return AccountResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public AccountResponse getAccount(String currency) throws ApiException {
-        ApiResponse<AccountResponse> localVarResp = getAccountWithHttpInfo(currency);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Fetches account balance for specified currrency
-     * Fetches account balance for specified currrency, and returns current balance and associated currency code
-     * @param currency Currency code of account balance to fetch  Example: &#x60;/v1/accounts/USD&#x60; (required)
-     * @return ApiResponse&lt;AccountResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<AccountResponse> getAccountWithHttpInfo(String currency) throws ApiException {
+    private ApiResponse<AccountResponse> getAccountWithHttpInfo(String currency) throws ApiException {
         okhttp3.Call localVarCall = getAccountValidateBeforeCall(currency, null);
         Type localVarReturnType = new TypeToken<AccountResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Fetches account balance for specified currrency (asynchronously)
-     * Fetches account balance for specified currrency, and returns current balance and associated currency code
-     * @param currency Currency code of account balance to fetch  Example: &#x60;/v1/accounts/USD&#x60; (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getAccountAsync(String currency, final ApiCallback<AccountResponse> _callback) throws ApiException {
+    private okhttp3.Call getAccountAsync(String currency, final ApiCallback<AccountResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAccountValidateBeforeCall(currency, _callback);
         Type localVarReturnType = new TypeToken<AccountResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetAccountRequest {
+        private final String currency;
+
+        private APIgetAccountRequest(String currency) {
+            this.currency = currency;
+        }
+
+        /**
+         * Build call for getAccount
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAccountCall(currency, _callback);
+        }
+
+        /**
+         * Execute getAccount request
+         * @return AccountResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public AccountResponse execute() throws ApiException {
+            ApiResponse<AccountResponse> localVarResp = getAccountWithHttpInfo(currency);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAccount request with HTTP info returned
+         * @return ApiResponse&lt;AccountResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<AccountResponse> executeWithHttpInfo() throws ApiException {
+            return getAccountWithHttpInfo(currency);
+        }
+
+        /**
+         * Execute getAccount request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AccountResponse> _callback) throws ApiException {
+            return getAccountAsync(currency, _callback);
+        }
+    }
+
     /**
-     * Build call for getAccounts
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Fetches account balance for specified currrency
+     * Fetches account balance for specified currrency, and returns current balance and associated currency code
+     * @param currency Currency code of account balance to fetch  Example: &#x60;/v1/accounts/USD&#x60; (required)
+     * @return APIgetAccountRequest
      */
-    public okhttp3.Call getAccountsCall(final ApiCallback _callback) throws ApiException {
+    public APIgetAccountRequest getAccount(String currency) {
+        return new APIgetAccountRequest(currency);
+    }
+    private okhttp3.Call getAccountsCall(final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -188,41 +206,72 @@ public class AccountsApi {
 
     }
 
-    /**
-     * Fetches account balances for all currencies
-     * Fetches account balances for all currencies, and returns an array of the current balances and associated currency codes.
-     * @return AccountListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public AccountListResponse getAccounts() throws ApiException {
-        ApiResponse<AccountListResponse> localVarResp = getAccountsWithHttpInfo();
-        return localVarResp.getData();
-    }
 
-    /**
-     * Fetches account balances for all currencies
-     * Fetches account balances for all currencies, and returns an array of the current balances and associated currency codes.
-     * @return ApiResponse&lt;AccountListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<AccountListResponse> getAccountsWithHttpInfo() throws ApiException {
+    private ApiResponse<AccountListResponse> getAccountsWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getAccountsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<AccountListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Fetches account balances for all currencies (asynchronously)
-     * Fetches account balances for all currencies, and returns an array of the current balances and associated currency codes.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getAccountsAsync(final ApiCallback<AccountListResponse> _callback) throws ApiException {
+    private okhttp3.Call getAccountsAsync(final ApiCallback<AccountListResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAccountsValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<AccountListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIgetAccountsRequest {
+
+        private APIgetAccountsRequest() {
+        }
+
+        /**
+         * Build call for getAccounts
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAccountsCall(_callback);
+        }
+
+        /**
+         * Execute getAccounts request
+         * @return AccountListResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public AccountListResponse execute() throws ApiException {
+            ApiResponse<AccountListResponse> localVarResp = getAccountsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAccounts request with HTTP info returned
+         * @return ApiResponse&lt;AccountListResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         */
+        public ApiResponse<AccountListResponse> executeWithHttpInfo() throws ApiException {
+            return getAccountsWithHttpInfo();
+        }
+
+        /**
+         * Execute getAccounts request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AccountListResponse> _callback) throws ApiException {
+            return getAccountsAsync(_callback);
+        }
+    }
+
+    /**
+     * Fetches account balances for all currencies
+     * Fetches account balances for all currencies, and returns an array of the current balances and associated currency codes.
+     * @return APIgetAccountsRequest
+     */
+    public APIgetAccountsRequest getAccounts() {
+        return new APIgetAccountsRequest();
     }
 }

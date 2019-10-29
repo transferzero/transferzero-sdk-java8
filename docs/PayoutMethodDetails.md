@@ -10,11 +10,12 @@ Name | Type | Description | Notes
 **lastName** | **String** |  | 
 **bankCode** | **String** |  | 
 **bankAccount** | **String** |  | 
-**bankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  | 
+**bankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  |  [optional]
 **phoneNumber** | **String** |  | 
 **mobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
-**bankName** | **String** |  | 
 **iban** | **String** |  | 
+**bankName** | **String** |  | 
+**bankCountry** | **String** |  | 
 **bic** | **String** |  |  [optional]
 **senderIdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **senderIdentityCardId** | **String** |  | 

@@ -63,7 +63,8 @@ public class PayoutMethodsApiTest {
     @Test
     public void getPayoutMethodTest() throws ApiException {
         UUID payoutMethodID = null;
-        PayoutMethodResponse response = api.getPayoutMethod(payoutMethodID);
+        PayoutMethodResponse response = api.getPayoutMethod(payoutMethodID)
+                .execute();
 
         // TODO: test validations
     }
@@ -85,7 +86,15 @@ public class PayoutMethodsApiTest {
         Integer per = null;
         String createdAtFrom = null;
         String createdAtTo = null;
-        PayoutMethodListResponse response = api.getPayoutMethods(state, type, senderId, page, per, createdAtFrom, createdAtTo);
+        PayoutMethodListResponse response = api.getPayoutMethods()
+                .state(state)
+                .type(type)
+                .senderId(senderId)
+                .page(page)
+                .per(per)
+                .createdAtFrom(createdAtFrom)
+                .createdAtTo(createdAtTo)
+                .execute();
 
         // TODO: test validations
     }

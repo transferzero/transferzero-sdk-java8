@@ -63,7 +63,8 @@ public class WebhooksApiTest {
     @Test
     public void getWebhookTest() throws ApiException {
         UUID webhookID = null;
-        WebhookDefinitionResponse response = api.getWebhook(webhookID);
+        WebhookDefinitionResponse response = api.getWebhook(webhookID)
+                .execute();
 
         // TODO: test validations
     }
@@ -78,7 +79,8 @@ public class WebhooksApiTest {
      */
     @Test
     public void getWebhookEventsTest() throws ApiException {
-        WebhookDefinitionEventListResponse response = api.getWebhookEvents();
+        WebhookDefinitionEventListResponse response = api.getWebhookEvents()
+                .execute();
 
         // TODO: test validations
     }
@@ -95,7 +97,10 @@ public class WebhooksApiTest {
     public void getWebhooksTest() throws ApiException {
         Integer page = null;
         Integer per = null;
-        WebhookDefinitionListResponse response = api.getWebhooks(page, per);
+        WebhookDefinitionListResponse response = api.getWebhooks()
+                .page(page)
+                .per(per)
+                .execute();
 
         // TODO: test validations
     }

@@ -62,7 +62,8 @@ public class SendersApiTest {
     @Test
     public void getSenderTest() throws ApiException {
         UUID senderID = null;
-        SenderResponse response = api.getSender(senderID);
+        SenderResponse response = api.getSender(senderID)
+                .execute();
 
         // TODO: test validations
     }
@@ -82,7 +83,13 @@ public class SendersApiTest {
         String createdAtFrom = null;
         String createdAtTo = null;
         String externalId = null;
-        SenderListResponse response = api.getSenders(page, per, createdAtFrom, createdAtTo, externalId);
+        SenderListResponse response = api.getSenders()
+                .page(page)
+                .per(per)
+                .createdAtFrom(createdAtFrom)
+                .createdAtTo(createdAtTo)
+                .externalId(externalId)
+                .execute();
 
         // TODO: test validations
     }

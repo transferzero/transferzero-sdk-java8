@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getAccount"></a>
 # **getAccount**
-> AccountResponse getAccount(currency)
+> AccountResponse getAccount(currency).execute();
 
 Fetches account balance for specified currrency
 
@@ -33,7 +33,8 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 AccountsApi apiInstance = new AccountsApi(apiClient);
 String currency = "currency_example"; // String | Currency code of account balance to fetch  Example: `/v1/accounts/USD`
 try {
-    AccountResponse result = apiInstance.getAccount(currency);
+    AccountResponse result = apiInstance.getAccount(currency)
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {
@@ -74,7 +75,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="getAccounts"></a>
 # **getAccounts**
-> AccountListResponse getAccounts()
+> AccountListResponse getAccounts().execute();
 
 Fetches account balances for all currencies
 
@@ -96,7 +97,8 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 AccountsApi apiInstance = new AccountsApi(apiClient);
 try {
-    AccountListResponse result = apiInstance.getAccounts();
+    AccountListResponse result = apiInstance.getAccounts()
+            .execute();
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {
