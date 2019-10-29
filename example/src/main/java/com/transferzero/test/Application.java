@@ -175,7 +175,7 @@ public class Application {
         ApiInterceptorImpl ApiIntImpl = new ApiInterceptorImpl();
         apiClient.setApiInterceptor(ApiIntImpl);
         SendersApi api = new SendersApi(apiClient);
-        api.getSenders().externalId("1234567890").execute();
+        api.getSenders().externalId("SENDER-2b59defy").execute();
     }
 
     public static void getTransactionErrorMessageExample(ApiClient apiClient) throws ApiException {
