@@ -23,6 +23,8 @@
 
 * `REFUNDED` (value: `"refunded"`)
 
+* `PROCESSING` (value: `"processing"`)
+
 * `EXCEPTION` (value: `"exception"`)
 
 
