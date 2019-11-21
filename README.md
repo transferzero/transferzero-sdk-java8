@@ -154,6 +154,7 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**payinTransaction**](docs/TransactionsApi.md#payinTransaction) | **POST** /transactions/{Transaction ID}/payin | Creates a fake payin for transaction
 *TransactionsApi* | [**payoutTransaction**](docs/TransactionsApi.md#payoutTransaction) | **POST** /transactions/{Transaction ID}/payout | Creates a fake payout for transaction
 *TransactionsApi* | [**postTransactions**](docs/TransactionsApi.md#postTransactions) | **POST** /transactions | Creates a new transaction
+*TransactionsApi* | [**createAndFundTransactions**](docs/TransactionsApi.md#createAndFundTransactions) | **POST** /transactions | Creates and funds a new transaction
 *TransactionsApi* | [**validateTransactions**](docs/TransactionsApi.md#validateTransactions) | **POST** /transactions/validate | Validates a transaction payload
 *WebhooksApi* | [**deleteWebhook**](docs/WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{Webhook ID} | Unsubscribing from a webhook
 *WebhooksApi* | [**getWebhook**](docs/WebhooksApi.md#getWebhook) | **GET** /webhooks/{Webhook ID} | Find a webhook&#39;s details
@@ -272,6 +273,3 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
 ## Author
-
-
-
