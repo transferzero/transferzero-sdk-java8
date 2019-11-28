@@ -128,7 +128,7 @@ public class CurrencyOpposite {
    * Is this a primary currency?
    * @return primary
   **/
-  @ApiModelProperty(example = "true", value = "Is this a primary currency?")
+  @ApiModelProperty(value = "Is this a primary currency?")
   public Boolean getPrimary() {
     return primary;
   }
