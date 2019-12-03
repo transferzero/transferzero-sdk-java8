@@ -148,6 +148,95 @@ public class TransactionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+    /**
+     * Build call for createAndFundTransaction
+     * @param transactionRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call createAndFundTransactionCall(TransactionRequest transactionRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = transactionRequest;
+
+        // create path and map variables
+        String localVarPath = "/transactions/create_and_fund";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "AuthorizationKey", "AuthorizationNonce", "AuthorizationSecret", "AuthorizationSignature" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createAndFundTransactionValidateBeforeCall(TransactionRequest transactionRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'transactionRequest' is set
+        if (transactionRequest == null) {
+            throw new ApiException("Missing the required parameter 'transactionRequest' when calling createAndFundTransaction(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createAndFundTransactionCall(transactionRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Creates a new transaction and funds it from account balance
+     * This endpoint creates a transaction and funds it from an account balance. You must ensure that you have established an account with us in the pay-in currency of the transactions you wish to create, and that this account is sufficently funded, before calling this endpoint.  Note that the &lt;pre&gt;external_id&lt;/pre&gt; field is required for requests to this endpoint.
+     * @param transactionRequest  (required)
+     * @return TransactionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TransactionResponse createAndFundTransaction(TransactionRequest transactionRequest) throws ApiException {
+        ApiResponse<TransactionResponse> localVarResp = createAndFundTransactionWithHttpInfo(transactionRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Creates a new transaction and funds it from account balance
+     * This endpoint creates a transaction and funds it from an account balance. You must ensure that you have established an account with us in the pay-in currency of the transactions you wish to create, and that this account is sufficently funded, before calling this endpoint.  Note that the &lt;pre&gt;external_id&lt;/pre&gt; field is required for requests to this endpoint.
+     * @param transactionRequest  (required)
+     * @return ApiResponse&lt;TransactionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TransactionResponse> createAndFundTransactionWithHttpInfo(TransactionRequest transactionRequest) throws ApiException {
+        okhttp3.Call localVarCall = createAndFundTransactionValidateBeforeCall(transactionRequest, null);
+        Type localVarReturnType = new TypeToken<TransactionResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Creates a new transaction and funds it from account balance (asynchronously)
+     * This endpoint creates a transaction and funds it from an account balance. You must ensure that you have established an account with us in the pay-in currency of the transactions you wish to create, and that this account is sufficently funded, before calling this endpoint.  Note that the &lt;pre&gt;external_id&lt;/pre&gt; field is required for requests to this endpoint.
+     * @param transactionRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call createAndFundTransactionAsync(TransactionRequest transactionRequest, final ApiCallback<TransactionResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createAndFundTransactionValidateBeforeCall(transactionRequest, _callback);
+        Type localVarReturnType = new TypeToken<TransactionResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     private okhttp3.Call getTransactionCall(UUID transactionID, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 

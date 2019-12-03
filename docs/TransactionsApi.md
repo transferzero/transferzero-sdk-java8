@@ -5,6 +5,7 @@ All URIs are relative to *https://api-sandbox.transferzero.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**calculateTransactions**](TransactionsApi.md#calculateTransactions) | **POST** /transactions/calculate | Calculates transaction amounts for a transaction payload
+[**createAndFundTransaction**](TransactionsApi.md#createAndFundTransaction) | **POST** /transactions/create_and_fund | Creates a new transaction and funds it from account balance
 [**getTransaction**](TransactionsApi.md#getTransaction) | **GET** /transactions/{Transaction ID} | Fetch a single transaction
 [**getTransactions**](TransactionsApi.md#getTransactions) | **GET** /transactions | Get a list of transactions
 [**payinTransaction**](TransactionsApi.md#payinTransaction) | **POST** /transactions/{Transaction ID}/payin | Creates a fake payin for transaction
@@ -47,6 +48,70 @@ try {
         System.err.println("WARN: Validation error occurred when calling the endpoint");
     } else {
         System.err.println("Exception when calling TransactionsApi#calculateTransactions");
+        e.printStackTrace();
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **transactionRequest** | [**TransactionRequest**](TransactionRequest.md)|  |
+
+### Return type
+
+[**TransactionResponse**](TransactionResponse.md)
+
+## Authorization
+
+You can set the API Key and Secret on the ApiClient object for authentication:
+
+```java
+ApiClient apiClient = new ApiClient();
+apiClient.setApiKey("<key>");
+apiClient.setApiSecret("<secret>");
+apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+```
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="createAndFundTransaction"></a>
+# **createAndFundTransaction**
+> TransactionResponse createAndFundTransaction(transactionRequest)
+
+Creates a new transaction and funds it from account balance
+
+This endpoint creates a transaction and funds it from an account balance. You must ensure that you have established an account with us in the pay-in currency of the transactions you wish to create, and that this account is sufficently funded, before calling this endpoint.  Note that the &lt;pre&gt;external_id&lt;/pre&gt; field is required for requests to this endpoint.
+
+### Example
+```java
+// Import classes:
+//import com.transferzero.sdk.ApiClient;
+//import com.transferzero.sdk.ApiException;
+//import com.transferzero.sdk.Configuration;
+//import com.transferzero.sdk.auth.*;
+//import com.transferzero.sdk.api.TransactionsApi;
+
+ApiClient apiClient = new ApiClient();
+apiClient.setApiKey("<key>");
+apiClient.setApiSecret("<secret>");
+apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+
+TransactionsApi apiInstance = new TransactionsApi(apiClient);
+TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest | 
+try {
+    TransactionResponse result = apiInstance.createAndFundTransaction(transactionRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    if (e.isValidationError()) {
+        TransactionResponse result = e.getResponseObject(TransactionResponse.class);
+        System.out.println(result);
+        System.err.println("WARN: Validation error occurred when calling the endpoint");
+    } else {
+        System.err.println("Exception when calling TransactionsApi#createAndFundTransaction");
         e.printStackTrace();
     }
 }

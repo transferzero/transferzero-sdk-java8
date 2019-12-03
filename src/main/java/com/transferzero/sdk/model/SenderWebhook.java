@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.Sender;
+import com.transferzero.sdk.model.SenderWebhookAllOf;
 import com.transferzero.sdk.model.Webhook;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
