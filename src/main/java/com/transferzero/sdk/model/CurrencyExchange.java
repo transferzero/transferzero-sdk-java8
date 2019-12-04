@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.Currency;
+import com.transferzero.sdk.model.CurrencyExchangeAllOf;
 import com.transferzero.sdk.model.CurrencyOpposite;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

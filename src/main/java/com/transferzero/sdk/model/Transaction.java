@@ -306,10 +306,10 @@ public class Transaction {
   }
 
    /**
-   * Optional ID that is supplied by partner linking it to the partner&#39;s own Sender ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not.
+   * Optional ID that is supplied by partner linking it to the partner&#39;s own Transaction ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not.
    * @return externalId
   **/
-  @ApiModelProperty(example = "806ec63a-a5a7-43cc-9d75-1ee74fbcc026", value = "Optional ID that is supplied by partner linking it to the partner's own Sender ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not.")
+  @ApiModelProperty(example = "806ec63a-a5a7-43cc-9d75-1ee74fbcc026", value = "Optional ID that is supplied by partner linking it to the partner's own Transaction ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not.")
   public String getExternalId() {
     return externalId;
   }
