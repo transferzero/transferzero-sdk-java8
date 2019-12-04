@@ -102,7 +102,7 @@ apiClient.setApiSecret("<secret>");
 apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 TransactionsApi apiInstance = new TransactionsApi(apiClient);
-TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest | 
+TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest |
 try {
     TransactionResponse result = apiInstance.createAndFundTransaction(transactionRequest);
     System.out.println(result);
@@ -502,7 +502,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 TransactionsApi apiInstance = new TransactionsApi(apiClient);
 TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest |
 try {
-    TransactionResponse result = apiInstance.createAndFundTransactions(transactionRequest);
+    TransactionResponse result = apiInstance.createAndFundTransaction(transactionRequest);
     System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {
@@ -510,7 +510,7 @@ try {
         System.out.println(result);
         System.err.println("WARN: Validation error occurred when calling the endpoint");
     } else {
-       System.err.println("Exception when calling TransactionsApi#createAndFundTransactions");
+       System.err.println("Exception when calling TransactionsApi#createAndFundTransaction");
        e.printStackTrace();
     }
 }
