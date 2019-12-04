@@ -11,7 +11,6 @@ Method | HTTP request | Description
 [**payinTransaction**](TransactionsApi.md#payinTransaction) | **POST** /transactions/{Transaction ID}/payin | Creates a fake payin for transaction
 [**payoutTransaction**](TransactionsApi.md#payoutTransaction) | **POST** /transactions/{Transaction ID}/payout | Creates a fake payout for transaction
 [**postTransactions**](TransactionsApi.md#postTransactions) | **POST** /transactions | Creates a new transaction
-[**createAndFundTransaction**](TransactionsApi.md#createAndFundTransaction) | **POST** /transactions/create_and_fund | Creates and funds a new transaction
 [**validateTransactions**](TransactionsApi.md#validateTransactions) | **POST** /transactions/validate | Validates a transaction payload
 
 
@@ -38,7 +37,7 @@ apiClient.setApiSecret("<secret>");
 apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 TransactionsApi apiInstance = new TransactionsApi(apiClient);
-TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest |
+TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest | 
 try {
     TransactionResponse result = apiInstance.calculateTransactions(transactionRequest);
     System.out.println(result);
@@ -102,7 +101,7 @@ apiClient.setApiSecret("<secret>");
 apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 TransactionsApi apiInstance = new TransactionsApi(apiClient);
-TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest |
+TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest | 
 try {
     TransactionResponse result = apiInstance.createAndFundTransaction(transactionRequest);
     System.out.println(result);
@@ -289,7 +288,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 Creates a fake payin for transaction
 
-This method is available only in sandbox environment and is supposed to be used only for testing integration. It allows you to emulate a payin without paying actual money.
+This method is available only in sandbox environment and is supposed to be used only for testing integration. It allows you to emulate a payin without paying actual money. 
 
 ### Example
 ```java
@@ -307,7 +306,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 TransactionsApi apiInstance = new TransactionsApi(apiClient);
 UUID transactionID = new UUID(); // UUID | ID of the transaction to payin.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670/payin`
-PayinMethodRequest payinMethodRequest = new PayinMethodRequest(); // PayinMethodRequest |
+PayinMethodRequest payinMethodRequest = new PayinMethodRequest(); // PayinMethodRequest | 
 try {
     TransactionResponse result = apiInstance.payinTransaction(transactionID, payinMethodRequest);
     System.out.println(result);
@@ -355,7 +354,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 Creates a fake payout for transaction
 
-This method is available only in sandbox environment and is supposed to be used only for testing. It allows you to emulate the payout of a transaction after payin.
+This method is available only in sandbox environment and is supposed to be used only for testing. It allows you to emulate the payout of a transaction after payin. 
 
 ### Example
 ```java
@@ -436,7 +435,7 @@ apiClient.setApiSecret("<secret>");
 apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 TransactionsApi apiInstance = new TransactionsApi(apiClient);
-TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest |
+TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest | 
 try {
     TransactionResponse result = apiInstance.postTransactions(transactionRequest);
     System.out.println(result);
@@ -477,70 +476,6 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="createAndFundTransactions"></a>
-# **createAndFundTransactions**
-> TransactionResponse createAndFundTransactions(transactionRequest)
-
-Creates and funds a new transaction
-
-Creates and funds a new transaction in a single API call. Checks if the account balance is sufficient and if sufficient, creates a new transaction.
-
-### Example
-```java
-// Import classes:
-//import com.transferzero.sdk.ApiClient;
-//import com.transferzero.sdk.ApiException;
-//import com.transferzero.sdk.Configuration;
-//import com.transferzero.sdk.auth.*;
-//import com.transferzero.sdk.api.TransactionsApi;
-
-ApiClient apiClient = new ApiClient();˜
-apiClient.setApiKey("<key>");
-apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
-
-TransactionsApi apiInstance = new TransactionsApi(apiClient);
-TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest |
-try {
-    TransactionResponse result = apiInstance.createAndFundTransaction(transactionRequest);
-    System.out.println(result);
-} catch (ApiException e) {
-    if (e.isValidationError()) {
-        TransactionResponse result = e.getResponseObject(TransactionResponse.class);
-        System.out.println(result);
-        System.err.println("WARN: Validation error occurred when calling the endpoint");
-    } else {
-       System.err.println("Exception when calling TransactionsApi#createAndFundTransaction");
-       e.printStackTrace();
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**transactionRequest** | [**TransactionRequest**](TransactionRequest.md)|  |
-
-### Return type
-
-[**TransactionResponse**](TransactionResponse.md)
-
-## Authorization
-
-You can set the API Key and Secret on the ApiClient object for authentication:
-
-```java
-ApiClient apiClient = new ApiClient();
-apiClient.setApiKey("<key>");
-apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
-```
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
 <a name="validateTransactions"></a>
 # **validateTransactions**
 > TransactionResponse validateTransactions(transactionRequest)
@@ -564,7 +499,7 @@ apiClient.setApiSecret("<secret>");
 apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 TransactionsApi apiInstance = new TransactionsApi(apiClient);
-TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest |
+TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest | 
 try {
     TransactionResponse result = apiInstance.validateTransactions(transactionRequest);
     System.out.println(result);
@@ -604,3 +539,4 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
