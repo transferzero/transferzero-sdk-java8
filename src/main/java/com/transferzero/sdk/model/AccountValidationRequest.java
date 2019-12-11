@@ -37,8 +37,12 @@ public class AccountValidationRequest {
   @SerializedName(SERIALIZED_NAME_BANK_CODE)
   private String bankCode;
 
+  public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
+  @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
+  private String phoneNumber;
+
   /**
-   * Country of account in 2-character alpha ISO 3166-2 country format (only NG is currently supported)
+   * Country of account in 2-character alpha ISO 3166-2 country format
    */
   @JsonAdapter(CountryEnum.Adapter.class)
   public enum CountryEnum {
@@ -140,11 +144,13 @@ public class AccountValidationRequest {
   private CurrencyEnum currency;
 
   /**
-   * The method of the payment. Currently only bank is supported
+   * The method of the payment. Currently bank and mobile are supported
    */
   @JsonAdapter(MethodEnum.Adapter.class)
   public enum MethodEnum {
-    BANK("bank");
+    BANK("bank"),
+    
+    MOBILE("mobile");
 
     private String value;
 
@@ -197,7 +203,7 @@ public class AccountValidationRequest {
    * Account Number to query
    * @return bankAccount
   **/
-  @ApiModelProperty(required = true, value = "Account Number to query")
+  @ApiModelProperty(value = "Account Number to query")
   public String getBankAccount() {
     return bankAccount;
   }
@@ -215,7 +221,7 @@ public class AccountValidationRequest {
    * Bank Code to query - same codes are used as for creating the transactions
    * @return bankCode
   **/
-  @ApiModelProperty(required = true, value = "Bank Code to query - same codes are used as for creating the transactions")
+  @ApiModelProperty(value = "Bank Code to query - same codes are used as for creating the transactions")
   public String getBankCode() {
     return bankCode;
   }
@@ -224,16 +230,34 @@ public class AccountValidationRequest {
     this.bankCode = bankCode;
   }
 
+  public AccountValidationRequest phoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+    return this;
+  }
+
+   /**
+   * Phone number to query
+   * @return phoneNumber
+  **/
+  @ApiModelProperty(example = "+233000000000", value = "Phone number to query")
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
   public AccountValidationRequest country(CountryEnum country) {
     this.country = country;
     return this;
   }
 
    /**
-   * Country of account in 2-character alpha ISO 3166-2 country format (only NG is currently supported)
+   * Country of account in 2-character alpha ISO 3166-2 country format
    * @return country
   **/
-  @ApiModelProperty(required = true, value = "Country of account in 2-character alpha ISO 3166-2 country format (only NG is currently supported)")
+  @ApiModelProperty(required = true, value = "Country of account in 2-character alpha ISO 3166-2 country format")
   public CountryEnum getCountry() {
     return country;
   }
@@ -266,10 +290,10 @@ public class AccountValidationRequest {
   }
 
    /**
-   * The method of the payment. Currently only bank is supported
+   * The method of the payment. Currently bank and mobile are supported
    * @return method
   **/
-  @ApiModelProperty(required = true, value = "The method of the payment. Currently only bank is supported")
+  @ApiModelProperty(required = true, value = "The method of the payment. Currently bank and mobile are supported")
   public MethodEnum getMethod() {
     return method;
   }
@@ -290,6 +314,7 @@ public class AccountValidationRequest {
     AccountValidationRequest accountValidationRequest = (AccountValidationRequest) o;
     return Objects.equals(this.bankAccount, accountValidationRequest.bankAccount) &&
         Objects.equals(this.bankCode, accountValidationRequest.bankCode) &&
+        Objects.equals(this.phoneNumber, accountValidationRequest.phoneNumber) &&
         Objects.equals(this.country, accountValidationRequest.country) &&
         Objects.equals(this.currency, accountValidationRequest.currency) &&
         Objects.equals(this.method, accountValidationRequest.method);
@@ -297,7 +322,7 @@ public class AccountValidationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bankAccount, bankCode, country, currency, method);
+    return Objects.hash(bankAccount, bankCode, phoneNumber, country, currency, method);
   }
 
 
@@ -307,6 +332,7 @@ public class AccountValidationRequest {
     sb.append("class AccountValidationRequest {\n");
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");

@@ -166,7 +166,7 @@ apiClient.setApiSecret("<secret>");
 apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 AccountDebitsApi apiInstance = new AccountDebitsApi(apiClient);
-DebitRequestWrapper debitRequestWrapper = new DebitRequestWrapper(); // DebitRequestWrapper | 
+DebitRequestWrapper debitRequestWrapper = {"debit":{"currency":"NGN","amount":"2000.0","to_id":"5f44026b-7904-4c30-87d6-f8972d790ded","to_type":"Transaction"}}; // DebitRequestWrapper | 
 try {
     DebitListResponse result = apiInstance.postAccountsDebits(debitRequestWrapper);
     System.out.println(result);

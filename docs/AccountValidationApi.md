@@ -4,16 +4,16 @@ All URIs are relative to *https://api-sandbox.transferzero.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**postAccountValidations**](AccountValidationApi.md#postAccountValidations) | **POST** /account_validations | Validates the existence of a bank account
+[**postAccountValidations**](AccountValidationApi.md#postAccountValidations) | **POST** /account_validations | Validates the existence of a bank account or a mobile phone number
 
 
 <a name="postAccountValidations"></a>
 # **postAccountValidations**
 > AccountValidationResponse postAccountValidations(accountValidationRequest)
 
-Validates the existence of a bank account
+Validates the existence of a bank account or a mobile phone number
 
-Validates the existence of a bank account and returns the associated customer name
+Validates the existence of a bank account or mobile phone number and returns the associated customer name
 
 ### Example
 ```java
@@ -30,7 +30,7 @@ apiClient.setApiSecret("<secret>");
 apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 AccountValidationApi apiInstance = new AccountValidationApi(apiClient);
-AccountValidationRequest accountValidationRequest = new AccountValidationRequest(); // AccountValidationRequest | 
+AccountValidationRequest accountValidationRequest = {"bank_account":"12345678","bank_code":"050","country":"NG","currency":"NGN","method":"bank"}; // AccountValidationRequest | 
 try {
     AccountValidationResponse result = apiInstance.postAccountValidations(accountValidationRequest);
     System.out.println(result);
