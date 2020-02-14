@@ -57,7 +57,15 @@ public class DocumentsApi {
         this.localVarApiClient = apiClient;
     }
 
-    private okhttp3.Call getDocumentCall(UUID documentID, final ApiCallback _callback) throws ApiException {
+    /**
+     * Build call for deleteDocument
+     * @param documentID ID of the document to delete.  Example: &#x60;/v1/document/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
+     * @param senderId Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call deleteDocumentCall(UUID documentID, String senderId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -66,6 +74,100 @@ public class DocumentsApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (senderId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sender_id", senderId));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "AuthorizationKey", "AuthorizationNonce", "AuthorizationSecret", "AuthorizationSignature" };
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteDocumentValidateBeforeCall(UUID documentID, String senderId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'documentID' is set
+        if (documentID == null) {
+            throw new ApiException("Missing the required parameter 'documentID' when calling deleteDocument(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteDocumentCall(documentID, senderId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Deleting a document
+     * Deletes a single document by the Document ID
+     * @param documentID ID of the document to delete.  Example: &#x60;/v1/document/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
+     * @param senderId Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocumentResponse deleteDocument(UUID documentID, String senderId) throws ApiException {
+        ApiResponse<DocumentResponse> localVarResp = deleteDocumentWithHttpInfo(documentID, senderId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Deleting a document
+     * Deletes a single document by the Document ID
+     * @param documentID ID of the document to delete.  Example: &#x60;/v1/document/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
+     * @param senderId Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)
+     * @return ApiResponse&lt;DocumentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DocumentResponse> deleteDocumentWithHttpInfo(UUID documentID, String senderId) throws ApiException {
+        okhttp3.Call localVarCall = deleteDocumentValidateBeforeCall(documentID, senderId, null);
+        Type localVarReturnType = new TypeToken<DocumentResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Deleting a document (asynchronously)
+     * Deletes a single document by the Document ID
+     * @param documentID ID of the document to delete.  Example: &#x60;/v1/document/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)
+     * @param senderId Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call deleteDocumentAsync(UUID documentID, String senderId, final ApiCallback<DocumentResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteDocumentValidateBeforeCall(documentID, senderId, _callback);
+        Type localVarReturnType = new TypeToken<DocumentResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    private okhttp3.Call getDocumentCall(UUID documentID, String senderId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/documents/{Document ID}"
+            .replaceAll("\\{" + "Document ID" + "\\}", localVarApiClient.escapeString(documentID.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (senderId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sender_id", senderId));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
@@ -87,7 +189,7 @@ public class DocumentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDocumentValidateBeforeCall(UUID documentID, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDocumentValidateBeforeCall(UUID documentID, String senderId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'documentID' is set
         if (documentID == null) {
@@ -95,21 +197,21 @@ public class DocumentsApi {
         }
         
 
-        okhttp3.Call localVarCall = getDocumentCall(documentID, _callback);
+        okhttp3.Call localVarCall = getDocumentCall(documentID, senderId, _callback);
         return localVarCall;
 
     }
 
 
-    private ApiResponse<DocumentResponse> getDocumentWithHttpInfo(UUID documentID) throws ApiException {
-        okhttp3.Call localVarCall = getDocumentValidateBeforeCall(documentID, null);
+    private ApiResponse<DocumentResponse> getDocumentWithHttpInfo(UUID documentID, String senderId) throws ApiException {
+        okhttp3.Call localVarCall = getDocumentValidateBeforeCall(documentID, senderId, null);
         Type localVarReturnType = new TypeToken<DocumentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getDocumentAsync(UUID documentID, final ApiCallback<DocumentResponse> _callback) throws ApiException {
+    private okhttp3.Call getDocumentAsync(UUID documentID, String senderId, final ApiCallback<DocumentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDocumentValidateBeforeCall(documentID, _callback);
+        okhttp3.Call localVarCall = getDocumentValidateBeforeCall(documentID, senderId, _callback);
         Type localVarReturnType = new TypeToken<DocumentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -117,9 +219,20 @@ public class DocumentsApi {
 
     public class APIgetDocumentRequest {
         private final UUID documentID;
+        private String senderId;
 
         private APIgetDocumentRequest(UUID documentID) {
             this.documentID = documentID;
+        }
+
+        /**
+         * Set senderId
+         * @param senderId Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)
+         * @return APIgetDocumentRequest
+         */
+        public APIgetDocumentRequest senderId(String senderId) {
+            this.senderId = senderId;
+            return this;
         }
 
         /**
@@ -129,7 +242,7 @@ public class DocumentsApi {
          * @throws ApiException If fail to serialize the request body object
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getDocumentCall(documentID, _callback);
+            return getDocumentCall(documentID, senderId, _callback);
         }
 
         /**
@@ -138,7 +251,7 @@ public class DocumentsApi {
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          */
         public DocumentResponse execute() throws ApiException {
-            ApiResponse<DocumentResponse> localVarResp = getDocumentWithHttpInfo(documentID);
+            ApiResponse<DocumentResponse> localVarResp = getDocumentWithHttpInfo(documentID, senderId);
             return localVarResp.getData();
         }
 
@@ -148,7 +261,7 @@ public class DocumentsApi {
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          */
         public ApiResponse<DocumentResponse> executeWithHttpInfo() throws ApiException {
-            return getDocumentWithHttpInfo(documentID);
+            return getDocumentWithHttpInfo(documentID, senderId);
         }
 
         /**
@@ -158,7 +271,7 @@ public class DocumentsApi {
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          */
         public okhttp3.Call executeAsync(final ApiCallback<DocumentResponse> _callback) throws ApiException {
-            return getDocumentAsync(documentID, _callback);
+            return getDocumentAsync(documentID, senderId, _callback);
         }
     }
 
@@ -171,7 +284,7 @@ public class DocumentsApi {
     public APIgetDocumentRequest getDocument(UUID documentID) {
         return new APIgetDocumentRequest(documentID);
     }
-    private okhttp3.Call getDocumentsCall(Integer page, Integer per, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDocumentsCall(Integer page, Integer per, String senderId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -187,6 +300,10 @@ public class DocumentsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("per", per));
         }
 
+        if (senderId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sender_id", senderId));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
@@ -208,24 +325,24 @@ public class DocumentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDocumentsValidateBeforeCall(Integer page, Integer per, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDocumentsValidateBeforeCall(Integer page, Integer per, String senderId, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = getDocumentsCall(page, per, _callback);
+        okhttp3.Call localVarCall = getDocumentsCall(page, per, senderId, _callback);
         return localVarCall;
 
     }
 
 
-    private ApiResponse<DocumentListResponse> getDocumentsWithHttpInfo(Integer page, Integer per) throws ApiException {
-        okhttp3.Call localVarCall = getDocumentsValidateBeforeCall(page, per, null);
+    private ApiResponse<DocumentListResponse> getDocumentsWithHttpInfo(Integer page, Integer per, String senderId) throws ApiException {
+        okhttp3.Call localVarCall = getDocumentsValidateBeforeCall(page, per, senderId, null);
         Type localVarReturnType = new TypeToken<DocumentListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getDocumentsAsync(Integer page, Integer per, final ApiCallback<DocumentListResponse> _callback) throws ApiException {
+    private okhttp3.Call getDocumentsAsync(Integer page, Integer per, String senderId, final ApiCallback<DocumentListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDocumentsValidateBeforeCall(page, per, _callback);
+        okhttp3.Call localVarCall = getDocumentsValidateBeforeCall(page, per, senderId, _callback);
         Type localVarReturnType = new TypeToken<DocumentListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -234,6 +351,7 @@ public class DocumentsApi {
     public class APIgetDocumentsRequest {
         private Integer page;
         private Integer per;
+        private String senderId;
 
         private APIgetDocumentsRequest() {
         }
@@ -259,13 +377,23 @@ public class DocumentsApi {
         }
 
         /**
+         * Set senderId
+         * @param senderId Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)
+         * @return APIgetDocumentsRequest
+         */
+        public APIgetDocumentsRequest senderId(String senderId) {
+            this.senderId = senderId;
+            return this;
+        }
+
+        /**
          * Build call for getDocuments
          * @param _callback ApiCallback API callback
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getDocumentsCall(page, per, _callback);
+            return getDocumentsCall(page, per, senderId, _callback);
         }
 
         /**
@@ -274,7 +402,7 @@ public class DocumentsApi {
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          */
         public DocumentListResponse execute() throws ApiException {
-            ApiResponse<DocumentListResponse> localVarResp = getDocumentsWithHttpInfo(page, per);
+            ApiResponse<DocumentListResponse> localVarResp = getDocumentsWithHttpInfo(page, per, senderId);
             return localVarResp.getData();
         }
 
@@ -284,7 +412,7 @@ public class DocumentsApi {
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          */
         public ApiResponse<DocumentListResponse> executeWithHttpInfo() throws ApiException {
-            return getDocumentsWithHttpInfo(page, per);
+            return getDocumentsWithHttpInfo(page, per, senderId);
         }
 
         /**
@@ -294,7 +422,7 @@ public class DocumentsApi {
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          */
         public okhttp3.Call executeAsync(final ApiCallback<DocumentListResponse> _callback) throws ApiException {
-            return getDocumentsAsync(page, per, _callback);
+            return getDocumentsAsync(page, per, senderId, _callback);
         }
     }
 

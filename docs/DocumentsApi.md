@@ -4,14 +4,81 @@ All URIs are relative to *https://api-sandbox.transferzero.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**deleteDocument**](DocumentsApi.md#deleteDocument) | **DELETE** /documents/{Document ID} | Deleting a document
 [**getDocument**](DocumentsApi.md#getDocument) | **GET** /documents/{Document ID} | Fetching a document
 [**getDocuments**](DocumentsApi.md#getDocuments) | **GET** /documents | Getting a list of documents
 [**postDocuments**](DocumentsApi.md#postDocuments) | **POST** /documents | Creating a document
 
 
+<a name="deleteDocument"></a>
+# **deleteDocument**
+> DocumentResponse deleteDocument(documentID, senderId)
+
+Deleting a document
+
+Deletes a single document by the Document ID
+
+### Example
+```java
+// Import classes:
+//import com.transferzero.sdk.ApiClient;
+//import com.transferzero.sdk.ApiException;
+//import com.transferzero.sdk.Configuration;
+//import com.transferzero.sdk.auth.*;
+//import com.transferzero.sdk.api.DocumentsApi;
+
+ApiClient apiClient = new ApiClient();
+apiClient.setApiKey("<key>");
+apiClient.setApiSecret("<secret>");
+apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+
+DocumentsApi apiInstance = new DocumentsApi(apiClient);
+UUID documentID = new UUID(); // UUID | ID of the document to delete.  Example: `/v1/document/bf9ff782-e182-45ac-abea-5bce83ad6670`
+String senderId = "senderId_example"; // String | Allows filtering results by `sender_id`.  Example: `/v1/transactions?sender_id=b41d3cb7-6c54-4245-85fc-8e30690eb0f7`
+try {
+    DocumentResponse result = apiInstance.deleteDocument(documentID, senderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    if (e.isValidationError()) {
+        DocumentResponse result = e.getResponseObject(DocumentResponse.class);
+        System.out.println(result);
+        System.err.println("WARN: Validation error occurred when calling the endpoint");
+    } else {
+        System.err.println("Exception when calling DocumentsApi#deleteDocument");
+        e.printStackTrace();
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **documentID** | [**UUID**](.md)| ID of the document to delete.  Example: &#x60;/v1/document/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; |
+ **senderId** | **String**| Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; | [optional]
+
+### Return type
+
+[**DocumentResponse**](DocumentResponse.md)
+
+## Authorization
+
+You can set the API Key and Secret on the ApiClient object for authentication:
+
+```java
+ApiClient apiClient = new ApiClient();
+apiClient.setApiKey("<key>");
+apiClient.setApiSecret("<secret>");
+apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+```
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getDocument"></a>
 # **getDocument**
-> DocumentResponse getDocument(documentID).execute();
+> DocumentResponse getDocument(documentID).senderId(senderId).execute();
 
 Fetching a document
 
@@ -33,8 +100,10 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 DocumentsApi apiInstance = new DocumentsApi(apiClient);
 UUID documentID = new UUID(); // UUID | ID of the document to get.  Example: `/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670`
+String senderId = "senderId_example"; // String | Allows filtering results by `sender_id`.  Example: `/v1/transactions?sender_id=b41d3cb7-6c54-4245-85fc-8e30690eb0f7`
 try {
     DocumentResponse result = apiInstance.getDocument(documentID)
+            .senderId(senderId)
             .execute();
     System.out.println(result);
 } catch (ApiException e) {
@@ -54,6 +123,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **documentID** | [**UUID**](.md)| ID of the document to get.  Example: &#x60;/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; |
+ **senderId** | **String**| Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; | [optional]
 
 ### Return type
 
@@ -76,7 +146,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="getDocuments"></a>
 # **getDocuments**
-> DocumentListResponse getDocuments().page(page).per(per).execute();
+> DocumentListResponse getDocuments().page(page).per(per).senderId(senderId).execute();
 
 Getting a list of documents
 
@@ -99,10 +169,12 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 DocumentsApi apiInstance = new DocumentsApi(apiClient);
 Integer page = 1; // Integer | The page number to request (defaults to 1)
 Integer per = 10; // Integer | The number of results to load per page (defaults to 10)
+String senderId = "senderId_example"; // String | Allows filtering results by `sender_id`.  Example: `/v1/transactions?sender_id=b41d3cb7-6c54-4245-85fc-8e30690eb0f7`
 try {
     DocumentListResponse result = apiInstance.getDocuments()
             .page(page)
             .per(per)
+            .senderId(senderId)
             .execute();
     System.out.println(result);
 } catch (ApiException e) {
@@ -123,6 +195,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**| The page number to request (defaults to 1) | [optional]
  **per** | **Integer**| The number of results to load per page (defaults to 10) | [optional]
+ **senderId** | **String**| Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; | [optional]
 
 ### Return type
 

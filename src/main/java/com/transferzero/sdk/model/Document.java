@@ -34,6 +34,10 @@ import java.util.UUID;
  */
 
 public class Document {
+  public static final String SERIALIZED_NAME_SENDER_ID = "sender_id";
+  @SerializedName(SERIALIZED_NAME_SENDER_ID)
+  private UUID senderId;
+
   public static final String SERIALIZED_NAME_UPLOAD = "upload";
   @SerializedName(SERIALIZED_NAME_UPLOAD)
   private String upload;
@@ -109,6 +113,10 @@ public class Document {
   @SerializedName(SERIALIZED_NAME_SIDE)
   private SideEnum side;
 
+  public static final String SERIALIZED_NAME_DOCUMENT_TYPE = "document_type";
+  @SerializedName(SERIALIZED_NAME_DOCUMENT_TYPE)
+  private String documentType;
+
   public static final String SERIALIZED_NAME_ISSUING_COUNTRY = "issuing_country";
   @SerializedName(SERIALIZED_NAME_ISSUING_COUNTRY)
   private String issuingCountry;
@@ -120,6 +128,24 @@ public class Document {
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
   private Map<String, List<ValidationErrorDescription>> errors = new HashMap<>();
+
+  public Document senderId(UUID senderId) {
+    this.senderId = senderId;
+    return this;
+  }
+
+   /**
+   * Get senderId
+   * @return senderId
+  **/
+  @ApiModelProperty(example = "ebe9bc0b-f2f6-4ce8-802a-8b79912d041e", value = "")
+  public UUID getSenderId() {
+    return senderId;
+  }
+
+  public void setSenderId(UUID senderId) {
+    this.senderId = senderId;
+  }
 
   public Document upload(String upload) {
     this.upload = upload;
@@ -212,6 +238,15 @@ public class Document {
   }
 
    /**
+   * This is a brief description of the document type
+   * @return documentType
+  **/
+  @ApiModelProperty(example = "certificate_of_business_name_registration", value = "This is a brief description of the document type")
+  public String getDocumentType() {
+    return documentType;
+  }
+
+   /**
    * Issuing country of ID in 2-character alpha ISO 3166-2 country format
    * @return issuingCountry
   **/
@@ -248,13 +283,15 @@ public class Document {
       return false;
     }
     Document document = (Document) o;
-    return Objects.equals(this.upload, document.upload) &&
+    return Objects.equals(this.senderId, document.senderId) &&
+        Objects.equals(this.upload, document.upload) &&
         Objects.equals(this.uploadFileName, document.uploadFileName) &&
         Objects.equals(this.metadata, document.metadata) &&
         Objects.equals(this.uploadContentType, document.uploadContentType) &&
         Objects.equals(this.uploadFileSize, document.uploadFileSize) &&
         Objects.equals(this.category, document.category) &&
         Objects.equals(this.side, document.side) &&
+        Objects.equals(this.documentType, document.documentType) &&
         Objects.equals(this.issuingCountry, document.issuingCountry) &&
         Objects.equals(this.id, document.id) &&
         Objects.equals(this.errors, document.errors);
@@ -262,7 +299,7 @@ public class Document {
 
   @Override
   public int hashCode() {
-    return Objects.hash(upload, uploadFileName, metadata, uploadContentType, uploadFileSize, category, side, issuingCountry, id, errors);
+    return Objects.hash(senderId, upload, uploadFileName, metadata, uploadContentType, uploadFileSize, category, side, documentType, issuingCountry, id, errors);
   }
 
 
@@ -270,6 +307,7 @@ public class Document {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Document {\n");
+    sb.append("    senderId: ").append(toIndentedString(senderId)).append("\n");
     sb.append("    upload: ").append(toIndentedString(upload)).append("\n");
     sb.append("    uploadFileName: ").append(toIndentedString(uploadFileName)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
@@ -277,6 +315,7 @@ public class Document {
     sb.append("    uploadFileSize: ").append(toIndentedString(uploadFileSize)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    side: ").append(toIndentedString(side)).append("\n");
+    sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
     sb.append("    issuingCountry: ").append(toIndentedString(issuingCountry)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
