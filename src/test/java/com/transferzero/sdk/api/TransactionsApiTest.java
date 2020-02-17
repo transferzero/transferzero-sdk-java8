@@ -54,6 +54,22 @@ public class TransactionsApiTest {
     }
     
     /**
+     * Creates a new transaction and funds it from account balance
+     *
+     * This endpoint creates a transaction and funds it from an account balance. You must ensure that you have established an account with us in the pay-in currency of the transactions you wish to create, and that this account is sufficently funded, before calling this endpoint.  Note that the &lt;pre&gt;external_id&lt;/pre&gt; field is required for requests to this endpoint.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createAndFundTransactionTest() throws ApiException {
+        TransactionRequest transactionRequest = null;
+        TransactionResponse response = api.createAndFundTransaction(transactionRequest);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Fetch a single transaction
      *
      * Finds and returns a Transaction created by the requesting API key, using the provided Transaction ID.

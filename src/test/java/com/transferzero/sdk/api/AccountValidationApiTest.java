@@ -34,9 +34,9 @@ public class AccountValidationApiTest {
 
     
     /**
-     * Validates the existence of a bank account
+     * Validates the existence of a bank account or a mobile phone number
      *
-     * Validates the existence of a bank account and returns the associated customer name
+     * Validates the existence of a bank account or mobile phone number and returns the associated customer name
      *
      * @throws ApiException
      *          if the Api call fails

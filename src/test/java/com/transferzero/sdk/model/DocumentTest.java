@@ -46,6 +46,14 @@ public class DocumentTest {
     }
 
     /**
+     * Test the property 'senderId'
+     */
+    @Test
+    public void senderIdTest() {
+        // TODO: test senderId
+    }
+
+    /**
      * Test the property 'upload'
      */
     @Test
@@ -99,6 +107,14 @@ public class DocumentTest {
     @Test
     public void sideTest() {
         // TODO: test side
+    }
+
+    /**
+     * Test the property 'documentType'
+     */
+    @Test
+    public void documentTypeTest() {
+        // TODO: test documentType
     }
 
     /**

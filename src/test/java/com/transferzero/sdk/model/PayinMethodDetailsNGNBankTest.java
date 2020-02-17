@@ -41,6 +41,14 @@ public class PayinMethodDetailsNGNBankTest {
     }
 
     /**
+     * Test the property 'paymentMethod'
+     */
+    @Test
+    public void paymentMethodTest() {
+        // TODO: test paymentMethod
+    }
+
+    /**
      * Test the property 'redirectUrl'
      */
     @Test

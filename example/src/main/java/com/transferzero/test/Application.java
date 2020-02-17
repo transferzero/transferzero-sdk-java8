@@ -15,13 +15,13 @@ import okhttp3.Response;
 import java.math.BigDecimal;
 import java.util.*;
 
-// Please see our documentation at https://github.com/transferzero/api-documentation
+// Please see our documentation at https://docs.transferzero.com
 // and the API specification at http://api.transferzero.com/documentation/
 // for more information.
 
 public class Application {
     public static String accountValidationExample(ApiClient apiClient) throws ApiException {
-        // See https://github.com/transferzero/api-documentation/blob/master/additional-features.md#bank-account-name-enquiry
+        // See https://docs.transferzero.com/docs/additional-features/#bank-account-name-enquiry
         // for more information on how this feature can be used
 
         AccountValidationRequest request = new AccountValidationRequest();
@@ -48,17 +48,17 @@ public class Application {
     }
 
     public static UUID createTransactionExample(ApiClient apiClient) throws ApiException {
-        // Please check our documentation at https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md
+        // Please check our documentation at https://docs.transferzero.com/docs/transaction-flow/
         // for details on how transactions work.
         TransactionsApi api = new TransactionsApi(apiClient);
         Transaction transaction = new Transaction();
 
         // When adding a sender to transaction, please use either an id or external_id. Providing both will result in a validation error.
-        // Please see our documentation at https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#sender
+        // Please see our documentation at https://docs.transferzero.com/docs/transaction-flow/#sender
         Sender sender = new Sender();
         sender.setId(UUID.fromString("058de445-ffff-ffff-ffff-da9c751d14bf"));
 
-        // You can find the various payout options at https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#payout-details
+        // You can find the various payout options at https://docs.transferzero.com/docs/transaction-flow/#payout-details
         PayoutMethodDetails ngnBankDetails = new PayoutMethodDetails();
         ngnBankDetails.setBankAccount("123456789");
         ngnBankDetails.setBankAccountType(PayoutMethodBankAccountTypeEnum._20);
@@ -70,17 +70,17 @@ public class Application {
         payoutMethod.setType("NGN::Bank");
         payoutMethod.setDetails(ngnBankDetails);
 
-        // Please see https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#requested-amount-and-currency
+        // Please see https://docs.transferzero.com/docs/transaction-flow/#requested-amount-and-currency
         // on what the request amount and currencies do
         Recipient recipient = new Recipient();
         recipient.setRequestedAmount(new BigDecimal("10000"));
         recipient.setRequestedCurrency("NGN");
         recipient.setPayoutMethod(payoutMethod);
 
-        // Find more details on external IDs at https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#external-id
+        // Find more details on external IDs at https://docs.transferzero.com/docs/transaction-flow/#external-id
         transaction.setExternalId("TRANSACTION-1f834ady");
 
-        // Similarly you can check https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#requested-amount-and-currency
+        // Similarly you can check https://docs.transferzero.com/docs/transaction-flow/#requested-amount-and-currency
         // on details about the input currency parameter
         transaction.setInputCurrency("USD");
         transaction.setSender(sender);
@@ -105,7 +105,7 @@ public class Application {
     }
 
     public static UUID createAndFundTransactionExample(ApiClient apiClient) throws Exception {
-        // Please see https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#funding-transactions
+        // Please see https://docs.transferzero.com/docs/transaction-flow/#funding-transactions
         // on details about funding transactions
 
         UUID transactionId = createTransactionExample(apiClient);
@@ -137,7 +137,7 @@ public class Application {
     }
 
     public static void getTransactionByExternalId(ApiClient apiClient) throws Exception {
-        // Please see https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#external-id
+        // Please see https://docs.transferzero.com/docs/transaction-flow/#external-id
         // for more details on external IDs
 
         TransactionsApi transactionsApi = new TransactionsApi(apiClient);
@@ -180,7 +180,7 @@ public class Application {
     }
 
     public static void getTransactionErrorMessageExample(ApiClient apiClient) throws ApiException {
-        // Please see https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#receiving-error-messages
+        // Please see https://docs.transferzero.com/docs/transaction-flow/#receiving-error-messages
         // on details about error messages
 
         UUID transactionId = UUID.fromString("990b9203-ffff-ffff-ffff-897f20eaefa8");
@@ -191,7 +191,7 @@ public class Application {
     }
 
     public static void webhookParseExample(ApiClient apiClient) throws ApiException {
-        // Please see https://github.com/transferzero/api-documentation#webhooks
+        // Please see https://docs.transferzero.com#webhooks
         // for more details about how webhooks / callbacks work from our system
 
         Map<String, String> webhookHeaders = new HashMap<String, String>();
@@ -389,7 +389,7 @@ public class Application {
     }
 
     public static UUID createSender(ApiClient apiClient) throws Exception {
-        // For more details on senders please check https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#sender
+        // For more details on senders please check https://docs.transferzero.com/docs/transaction-flow/#sender
 
         SendersApi apiInstance = new SendersApi(apiClient);
         Sender sender = new Sender();
@@ -429,7 +429,7 @@ public class Application {
     }
 
     public static void getSenderByExternalId(ApiClient apiClient) throws Exception {
-        // Find more details on external IDs at https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#external-id
+        // Find more details on external IDs at https://docs.transferzero.com/docs/transaction-flow/#external-id
 
         SendersApi sendersApi = new SendersApi(apiClient);
         String externalId = "SENDER-2b59defy";
@@ -451,7 +451,7 @@ public class Application {
     }
 
     public static void updateSender(ApiClient apiClient) throws Exception {
-        // For more details on senders please check https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#sender
+        // For more details on senders please check https://docs.transferzero.com/docs/transaction-flow/#sender
 
         SendersApi sendersApi = new SendersApi(apiClient);
 

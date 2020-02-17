@@ -57,6 +57,14 @@ public class AccountValidationRequestTest {
     }
 
     /**
+     * Test the property 'phoneNumber'
+     */
+    @Test
+    public void phoneNumberTest() {
+        // TODO: test phoneNumber
+    }
+
+    /**
      * Test the property 'country'
      */
     @Test
