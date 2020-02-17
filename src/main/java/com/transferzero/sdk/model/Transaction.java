@@ -139,10 +139,10 @@ public class Transaction {
   }
 
    /**
-   * Allows setting alternative collections, where funding the transaction is done through alternative means and not via account balance.  For more information please see [Collections from senders](https://github.com/transferzero/api-documentation/blob/master/additional-features.md#collections-from-senders) in the API documentation
+   * Allows setting alternative collections, where funding the transaction is done through alternative means and not via account balance.  For more information please see [Collections from senders](https://docs.transferzero.com/docs/additional-features/#collections-from-senders) in the API documentation
    * @return payinMethods
   **/
-  @ApiModelProperty(value = "Allows setting alternative collections, where funding the transaction is done through alternative means and not via account balance.  For more information please see [Collections from senders](https://github.com/transferzero/api-documentation/blob/master/additional-features.md#collections-from-senders) in the API documentation")
+  @ApiModelProperty(value = "Allows setting alternative collections, where funding the transaction is done through alternative means and not via account balance.  For more information please see [Collections from senders](https://docs.transferzero.com/docs/additional-features/#collections-from-senders) in the API documentation")
   public List<PayinMethod> getPayinMethods() {
     return payinMethods;
   }

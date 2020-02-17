@@ -32,6 +32,10 @@ import java.io.IOException;
 @ApiModel(description = "Fields needed by the payment processor. Depends on the chose payin type.  See the appropriate model details for more info:  - `NGN::Bank`: see [`PayinMethodDetailsNGNBank`](#model-PayinMethodDetailsNGNBank) - `GHS::Mobile`: see [`PayinMethodDetailsMobile`](#model-PayinMethodDetailsMobile) - `UGX::Mobile`: see [`PayinMethodDetailsMobile`](#model-PayinMethodDetailsMobile) - `TZS::Mobile`: see [`PayinMethodDetailsMobile`](#model-PayinMethodDetailsMobile) ")
 
 public class PayinMethodDetails {
+  public static final String SERIALIZED_NAME_PAYMENT_METHOD = "payment_method";
+  @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD)
+  private String paymentMethod;
+
   public static final String SERIALIZED_NAME_REDIRECT_URL = "redirect_url";
   @SerializedName(SERIALIZED_NAME_REDIRECT_URL)
   private String redirectUrl;
@@ -44,6 +48,24 @@ public class PayinMethodDetails {
   @SerializedName(SERIALIZED_NAME_SEND_INSTRUCTIONS)
   private Boolean sendInstructions;
 
+  public PayinMethodDetails paymentMethod(String paymentMethod) {
+    this.paymentMethod = paymentMethod;
+    return this;
+  }
+
+   /**
+   * The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.
+   * @return paymentMethod
+  **/
+  @ApiModelProperty(value = "The payment method which the user will use to make the payments. Options are `bank`, `card` or you can leave empty to support both.")
+  public String getPaymentMethod() {
+    return paymentMethod;
+  }
+
+  public void setPaymentMethod(String paymentMethod) {
+    this.paymentMethod = paymentMethod;
+  }
+
   public PayinMethodDetails redirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
     return this;
@@ -53,7 +75,7 @@ public class PayinMethodDetails {
    * This is where the user should be redirected back when the payment has been finished
    * @return redirectUrl
   **/
-  @ApiModelProperty(required = true, value = "This is where the user should be redirected back when the payment has been finished")
+  @ApiModelProperty(value = "This is where the user should be redirected back when the payment has been finished")
   public String getRedirectUrl() {
     return redirectUrl;
   }
@@ -108,14 +130,15 @@ public class PayinMethodDetails {
       return false;
     }
     PayinMethodDetails payinMethodDetails = (PayinMethodDetails) o;
-    return Objects.equals(this.redirectUrl, payinMethodDetails.redirectUrl) &&
+    return Objects.equals(this.paymentMethod, payinMethodDetails.paymentMethod) &&
+        Objects.equals(this.redirectUrl, payinMethodDetails.redirectUrl) &&
         Objects.equals(this.phoneNumber, payinMethodDetails.phoneNumber) &&
         Objects.equals(this.sendInstructions, payinMethodDetails.sendInstructions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(redirectUrl, phoneNumber, sendInstructions);
+    return Objects.hash(paymentMethod, redirectUrl, phoneNumber, sendInstructions);
   }
 
 
@@ -123,6 +146,7 @@ public class PayinMethodDetails {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PayinMethodDetails {\n");
+    sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    sendInstructions: ").append(toIndentedString(sendInstructions)).append("\n");

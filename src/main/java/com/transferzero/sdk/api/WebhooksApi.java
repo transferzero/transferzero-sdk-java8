@@ -509,7 +509,7 @@ public class WebhooksApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * More information about webhooks
-     * @see <a href="https://github.com/transferzero/api-documentation#webhooks">Creating a webhook Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/architecture/#webhooks">Creating a webhook Documentation</a>
      */
     public okhttp3.Call postWebhooksCall(WebhookDefinitionRequest webhookDefinitionRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = webhookDefinitionRequest;
@@ -560,7 +560,7 @@ public class WebhooksApi {
      * @return WebhookDefinitionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * More information about webhooks
-     * @see <a href="https://github.com/transferzero/api-documentation#webhooks">Creating a webhook Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/architecture/#webhooks">Creating a webhook Documentation</a>
      */
     public WebhookDefinitionResponse postWebhooks(WebhookDefinitionRequest webhookDefinitionRequest) throws ApiException {
         ApiResponse<WebhookDefinitionResponse> localVarResp = postWebhooksWithHttpInfo(webhookDefinitionRequest);
@@ -574,7 +574,7 @@ public class WebhooksApi {
      * @return ApiResponse&lt;WebhookDefinitionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * More information about webhooks
-     * @see <a href="https://github.com/transferzero/api-documentation#webhooks">Creating a webhook Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/architecture/#webhooks">Creating a webhook Documentation</a>
      */
     public ApiResponse<WebhookDefinitionResponse> postWebhooksWithHttpInfo(WebhookDefinitionRequest webhookDefinitionRequest) throws ApiException {
         okhttp3.Call localVarCall = postWebhooksValidateBeforeCall(webhookDefinitionRequest, null);
@@ -590,7 +590,7 @@ public class WebhooksApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * More information about webhooks
-     * @see <a href="https://github.com/transferzero/api-documentation#webhooks">Creating a webhook Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/architecture/#webhooks">Creating a webhook Documentation</a>
      */
     public okhttp3.Call postWebhooksAsync(WebhookDefinitionRequest webhookDefinitionRequest, final ApiCallback<WebhookDefinitionResponse> _callback) throws ApiException {
 

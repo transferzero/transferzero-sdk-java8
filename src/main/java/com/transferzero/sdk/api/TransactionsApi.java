@@ -712,7 +712,7 @@ public class TransactionsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * API Documentation - Create Transaction
-     * @see <a href="https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md">Creates a new transaction Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/transaction-flow/">Creates a new transaction Documentation</a>
      */
     public okhttp3.Call postTransactionsCall(TransactionRequest transactionRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = transactionRequest;
@@ -763,7 +763,7 @@ public class TransactionsApi {
      * @return TransactionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * API Documentation - Create Transaction
-     * @see <a href="https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md">Creates a new transaction Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/transaction-flow/">Creates a new transaction Documentation</a>
      */
     public TransactionResponse postTransactions(TransactionRequest transactionRequest) throws ApiException {
         ApiResponse<TransactionResponse> localVarResp = postTransactionsWithHttpInfo(transactionRequest);
@@ -777,7 +777,7 @@ public class TransactionsApi {
      * @return ApiResponse&lt;TransactionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * API Documentation - Create Transaction
-     * @see <a href="https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md">Creates a new transaction Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/transaction-flow/">Creates a new transaction Documentation</a>
      */
     public ApiResponse<TransactionResponse> postTransactionsWithHttpInfo(TransactionRequest transactionRequest) throws ApiException {
         okhttp3.Call localVarCall = postTransactionsValidateBeforeCall(transactionRequest, null);
@@ -793,7 +793,7 @@ public class TransactionsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * API Documentation - Create Transaction
-     * @see <a href="https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md">Creates a new transaction Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/transaction-flow/">Creates a new transaction Documentation</a>
      */
     public okhttp3.Call postTransactionsAsync(TransactionRequest transactionRequest, final ApiCallback<TransactionResponse> _callback) throws ApiException {
 

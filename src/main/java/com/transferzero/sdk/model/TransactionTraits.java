@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Additional features that are enabled on the transaction. For more details please see [Additional features](https://github.com/transferzero/api-documentation/blob/master/additional-features.md) in our API documentation
+ * Additional features that are enabled on the transaction. For more details please see [Additional features](https://docs.transferzero.com/docs/additional-features/) in our API documentation
  */
-@ApiModel(description = "Additional features that are enabled on the transaction. For more details please see [Additional features](https://github.com/transferzero/api-documentation/blob/master/additional-features.md) in our API documentation")
+@ApiModel(description = "Additional features that are enabled on the transaction. For more details please see [Additional features](https://docs.transferzero.com/docs/additional-features/) in our API documentation")
 
 public class TransactionTraits {
   public static final String SERIALIZED_NAME_AUTO_REFUND = "auto_refund";
@@ -44,10 +44,10 @@ public class TransactionTraits {
   }
 
    /**
-   * Enables or disables the auto refund functionality. Please see [Auto cancellation and refund of transactions](https://github.com/transferzero/api-documentation/blob/master/additional-features.md#auto-cancellation-and-refund-of-transactions) for more details
+   * Enables or disables the auto refund functionality. Please see [Auto cancellation and refund of transactions](https://docs.transferzero.com/docs/additional-features/#auto-cancellation-and-refund-of-transactions) for more details
    * @return autoRefund
   **/
-  @ApiModelProperty(value = "Enables or disables the auto refund functionality. Please see [Auto cancellation and refund of transactions](https://github.com/transferzero/api-documentation/blob/master/additional-features.md#auto-cancellation-and-refund-of-transactions) for more details")
+  @ApiModelProperty(value = "Enables or disables the auto refund functionality. Please see [Auto cancellation and refund of transactions](https://docs.transferzero.com/docs/additional-features/#auto-cancellation-and-refund-of-transactions) for more details")
   public Boolean getAutoRefund() {
     return autoRefund;
   }
@@ -62,10 +62,10 @@ public class TransactionTraits {
   }
 
    /**
-   * Enabled or disables the name validation functionality. Please see [Name validation in transactions](https://github.com/transferzero/api-documentation/blob/master/additional-features.md#name-validation-in-transactions) for more details
+   * Enabled or disables the name validation functionality. Please see [Name validation in transactions](https://docs.transferzero.com/docs/additional-features/#name-validation-in-transactions) for more details
    * @return accountValidation
   **/
-  @ApiModelProperty(value = "Enabled or disables the name validation functionality. Please see [Name validation in transactions](https://github.com/transferzero/api-documentation/blob/master/additional-features.md#name-validation-in-transactions) for more details")
+  @ApiModelProperty(value = "Enabled or disables the name validation functionality. Please see [Name validation in transactions](https://docs.transferzero.com/docs/additional-features/#name-validation-in-transactions) for more details")
   public Boolean getAccountValidation() {
     return accountValidation;
   }

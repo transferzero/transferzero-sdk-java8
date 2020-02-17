@@ -40,7 +40,9 @@ public enum SenderState {
   
   REJECTED("rejected"),
   
-  DISABLED("disabled");
+  DISABLED("disabled"),
+  
+  INCOMPLETE("incomplete");
 
   private String value;
 

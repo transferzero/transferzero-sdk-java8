@@ -313,7 +313,7 @@ public class AccountDebitsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * Funding Transaction guide including alternative ways to fund transactions.
-     * @see <a href="https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#funding-transactions">Creating an account debit Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/transaction-flow/#funding-transactions">Creating an account debit Documentation</a>
      */
     public okhttp3.Call postAccountsDebitsCall(DebitRequestWrapper debitRequestWrapper, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = debitRequestWrapper;
@@ -364,7 +364,7 @@ public class AccountDebitsApi {
      * @return DebitListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Funding Transaction guide including alternative ways to fund transactions.
-     * @see <a href="https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#funding-transactions">Creating an account debit Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/transaction-flow/#funding-transactions">Creating an account debit Documentation</a>
      */
     public DebitListResponse postAccountsDebits(DebitRequestWrapper debitRequestWrapper) throws ApiException {
         ApiResponse<DebitListResponse> localVarResp = postAccountsDebitsWithHttpInfo(debitRequestWrapper);
@@ -378,7 +378,7 @@ public class AccountDebitsApi {
      * @return ApiResponse&lt;DebitListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * Funding Transaction guide including alternative ways to fund transactions.
-     * @see <a href="https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#funding-transactions">Creating an account debit Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/transaction-flow/#funding-transactions">Creating an account debit Documentation</a>
      */
     public ApiResponse<DebitListResponse> postAccountsDebitsWithHttpInfo(DebitRequestWrapper debitRequestWrapper) throws ApiException {
         okhttp3.Call localVarCall = postAccountsDebitsValidateBeforeCall(debitRequestWrapper, null);
@@ -394,7 +394,7 @@ public class AccountDebitsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * Funding Transaction guide including alternative ways to fund transactions.
-     * @see <a href="https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#funding-transactions">Creating an account debit Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/transaction-flow/#funding-transactions">Creating an account debit Documentation</a>
      */
     public okhttp3.Call postAccountsDebitsAsync(DebitRequestWrapper debitRequestWrapper, final ApiCallback<DebitListResponse> _callback) throws ApiException {
 

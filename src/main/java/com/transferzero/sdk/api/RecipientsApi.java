@@ -64,7 +64,7 @@ public class RecipientsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * More details on cancelling recipients
-     * @see <a href="https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#cancelling-recipients-and-transactions">Cancelling a recipient Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/transaction-flow/#cancelling-recipients-and-transactions">Cancelling a recipient Documentation</a>
      */
     public okhttp3.Call deleteRecipientCall(UUID recipientID, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
@@ -116,7 +116,7 @@ public class RecipientsApi {
      * @return RecipientResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * More details on cancelling recipients
-     * @see <a href="https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#cancelling-recipients-and-transactions">Cancelling a recipient Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/transaction-flow/#cancelling-recipients-and-transactions">Cancelling a recipient Documentation</a>
      */
     public RecipientResponse deleteRecipient(UUID recipientID) throws ApiException {
         ApiResponse<RecipientResponse> localVarResp = deleteRecipientWithHttpInfo(recipientID);
@@ -130,7 +130,7 @@ public class RecipientsApi {
      * @return ApiResponse&lt;RecipientResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * More details on cancelling recipients
-     * @see <a href="https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#cancelling-recipients-and-transactions">Cancelling a recipient Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/transaction-flow/#cancelling-recipients-and-transactions">Cancelling a recipient Documentation</a>
      */
     public ApiResponse<RecipientResponse> deleteRecipientWithHttpInfo(UUID recipientID) throws ApiException {
         okhttp3.Call localVarCall = deleteRecipientValidateBeforeCall(recipientID, null);
@@ -146,7 +146,7 @@ public class RecipientsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * More details on cancelling recipients
-     * @see <a href="https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#cancelling-recipients-and-transactions">Cancelling a recipient Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/transaction-flow/#cancelling-recipients-and-transactions">Cancelling a recipient Documentation</a>
      */
     public okhttp3.Call deleteRecipientAsync(UUID recipientID, final ApiCallback<RecipientResponse> _callback) throws ApiException {
 
@@ -314,7 +314,7 @@ public class RecipientsApi {
 
         /**
          * Set state
-         * @param state Allows filtering results by &#x60;state&#x60; of recipient. See [API Documentation - Recipient state](https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#state-1) for possible states.  Example: &#x60;/v1/recipients?state[]&#x3D;error&amp;state[]&#x3D;initial&#x60; (optional)
+         * @param state Allows filtering results by &#x60;state&#x60; of recipient. See [API Documentation - Recipient state](https://docs.transferzero.com/docs/transaction-flow/#state) for possible states.  Example: &#x60;/v1/recipients?state[]&#x3D;error&amp;state[]&#x3D;initial&#x60; (optional)
          * @return APIgetRecipientsRequest
          */
         public APIgetRecipientsRequest state(List<String> state) {

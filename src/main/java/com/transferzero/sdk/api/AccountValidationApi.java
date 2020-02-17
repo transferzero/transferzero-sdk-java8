@@ -62,7 +62,7 @@ public class AccountValidationApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * More information on account validation and bank account name enquiry
-     * @see <a href="https://github.com/transferzero/api-documentation/blob/master/additional-features.md#bank-account-name-enquiry">Validates the existence of a bank account or a mobile phone number Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/additional-features/#account-name-enquiry">Validates the existence of a bank account or a mobile phone number Documentation</a>
      */
     public okhttp3.Call postAccountValidationsCall(AccountValidationRequest accountValidationRequest, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = accountValidationRequest;
@@ -113,7 +113,7 @@ public class AccountValidationApi {
      * @return AccountValidationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * More information on account validation and bank account name enquiry
-     * @see <a href="https://github.com/transferzero/api-documentation/blob/master/additional-features.md#bank-account-name-enquiry">Validates the existence of a bank account or a mobile phone number Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/additional-features/#account-name-enquiry">Validates the existence of a bank account or a mobile phone number Documentation</a>
      */
     public AccountValidationResponse postAccountValidations(AccountValidationRequest accountValidationRequest) throws ApiException {
         ApiResponse<AccountValidationResponse> localVarResp = postAccountValidationsWithHttpInfo(accountValidationRequest);
@@ -127,7 +127,7 @@ public class AccountValidationApi {
      * @return ApiResponse&lt;AccountValidationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * More information on account validation and bank account name enquiry
-     * @see <a href="https://github.com/transferzero/api-documentation/blob/master/additional-features.md#bank-account-name-enquiry">Validates the existence of a bank account or a mobile phone number Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/additional-features/#account-name-enquiry">Validates the existence of a bank account or a mobile phone number Documentation</a>
      */
     public ApiResponse<AccountValidationResponse> postAccountValidationsWithHttpInfo(AccountValidationRequest accountValidationRequest) throws ApiException {
         okhttp3.Call localVarCall = postAccountValidationsValidateBeforeCall(accountValidationRequest, null);
@@ -143,7 +143,7 @@ public class AccountValidationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * More information on account validation and bank account name enquiry
-     * @see <a href="https://github.com/transferzero/api-documentation/blob/master/additional-features.md#bank-account-name-enquiry">Validates the existence of a bank account or a mobile phone number Documentation</a>
+     * @see <a href="https://docs.transferzero.com/docs/additional-features/#account-name-enquiry">Validates the existence of a bank account or a mobile phone number Documentation</a>
      */
     public okhttp3.Call postAccountValidationsAsync(AccountValidationRequest accountValidationRequest, final ApiCallback<AccountValidationResponse> _callback) throws ApiException {
 
