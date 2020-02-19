@@ -250,7 +250,7 @@ public class Transaction {
    * The amount that was requested in the input currency
    * @return inputAmount
   **/
-  @ApiModelProperty(value = "The amount that was requested in the input currency")
+  @ApiModelProperty(example = "1000", value = "The amount that was requested in the input currency")
   public BigDecimal getInputAmount() {
     return inputAmount;
   }
@@ -268,7 +268,7 @@ public class Transaction {
    * The amount that was already paid in to the transaction
    * @return paidAmount
   **/
-  @ApiModelProperty(value = "The amount that was already paid in to the transaction")
+  @ApiModelProperty(example = "1000", value = "The amount that was already paid in to the transaction")
   public BigDecimal getPaidAmount() {
     return paidAmount;
   }
@@ -277,7 +277,7 @@ public class Transaction {
    * The amount needed to be paid in for the transaction to get funded
    * @return dueAmount
   **/
-  @ApiModelProperty(value = "The amount needed to be paid in for the transaction to get funded")
+  @ApiModelProperty(example = "1000", value = "The amount needed to be paid in for the transaction to get funded")
   public BigDecimal getDueAmount() {
     return dueAmount;
   }

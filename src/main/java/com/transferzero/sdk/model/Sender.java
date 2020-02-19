@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.Document;
+import com.transferzero.sdk.model.PoliticallyExposedPerson;
 import com.transferzero.sdk.model.SenderState;
 import com.transferzero.sdk.model.ValidationErrorDescription;
 import io.swagger.annotations.ApiModel;
@@ -228,6 +229,10 @@ public class Sender {
   public static final String SERIALIZED_NAME_DOCUMENTS = "documents";
   @SerializedName(SERIALIZED_NAME_DOCUMENTS)
   private List<Document> documents = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_POLITICALLY_EXPOSED_PEOPLE = "politically_exposed_people";
+  @SerializedName(SERIALIZED_NAME_POLITICALLY_EXPOSED_PEOPLE)
+  private List<PoliticallyExposedPerson> politicallyExposedPeople = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -668,6 +673,32 @@ public class Sender {
     this.documents = documents;
   }
 
+  public Sender politicallyExposedPeople(List<PoliticallyExposedPerson> politicallyExposedPeople) {
+    this.politicallyExposedPeople = politicallyExposedPeople;
+    return this;
+  }
+
+  public Sender addPoliticallyExposedPeopleItem(PoliticallyExposedPerson politicallyExposedPeopleItem) {
+    if (this.politicallyExposedPeople == null) {
+      this.politicallyExposedPeople = new ArrayList<>();
+    }
+    this.politicallyExposedPeople.add(politicallyExposedPeopleItem);
+    return this;
+  }
+
+   /**
+   * A list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,     \&quot;position\&quot;: \&quot;President of the United States\&quot;,     \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,     \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;   } &#x60;&#x60;&#x60;
+   * @return politicallyExposedPeople
+  **/
+  @ApiModelProperty(example = "[{\"id\":\"40\",\"name\":\"Ronald Reagan\",\"position\":\"President of the United States\",\"started_date\":\"1981-01-20T00:00:00.000Z\",\"ended_date\":\"1989-01-20T00:00:00.000Z\",\"sender_id\":\"f9dc79ca-0c39-4add-9f4d-5ad7e6f187fb\"}]", value = "A list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: ```json   {     \"name\": \"Ronald Reagan\",     \"position\": \"President of the United States\",     \"started_date\": \"1981-01-20T00:00:00.000Z\",     \"ended_date\": \"1989-01-20T00:00:00.000Z\"   } ```")
+  public List<PoliticallyExposedPerson> getPoliticallyExposedPeople() {
+    return politicallyExposedPeople;
+  }
+
+  public void setPoliticallyExposedPeople(List<PoliticallyExposedPerson> politicallyExposedPeople) {
+    this.politicallyExposedPeople = politicallyExposedPeople;
+  }
+
   public Sender metadata(Object metadata) {
     this.metadata = metadata;
     return this;
@@ -782,6 +813,7 @@ public class Sender {
         Objects.equals(this.identificationNumber, sender.identificationNumber) &&
         Objects.equals(this.identificationType, sender.identificationType) &&
         Objects.equals(this.documents, sender.documents) &&
+        Objects.equals(this.politicallyExposedPeople, sender.politicallyExposedPeople) &&
         Objects.equals(this.metadata, sender.metadata) &&
         Objects.equals(this.state, sender.state) &&
         Objects.equals(this.id, sender.id) &&
@@ -791,7 +823,7 @@ public class Sender {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, country, phoneCountry, phoneNumber, email, firstName, middleName, lastName, occupation, nationality, onboardingStatus, address, description, name, city, street, addressDescription, postalCode, birthDate, ip, identificationNumber, identificationType, documents, metadata, state, id, externalId, errors);
+    return Objects.hash(type, country, phoneCountry, phoneNumber, email, firstName, middleName, lastName, occupation, nationality, onboardingStatus, address, description, name, city, street, addressDescription, postalCode, birthDate, ip, identificationNumber, identificationType, documents, politicallyExposedPeople, metadata, state, id, externalId, errors);
   }
 
 
@@ -822,6 +854,7 @@ public class Sender {
     sb.append("    identificationNumber: ").append(toIndentedString(identificationNumber)).append("\n");
     sb.append("    identificationType: ").append(toIndentedString(identificationType)).append("\n");
     sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
+    sb.append("    politicallyExposedPeople: ").append(toIndentedString(politicallyExposedPeople)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
