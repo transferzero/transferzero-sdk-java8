@@ -40,6 +40,10 @@ import java.util.UUID;
 @ApiModel(description = "This contains the details of the sender. The first time a specific sender is used the full details should be provided. Once a sender is created and is used, the next time you MUST only send the ID of the sender. This is so we can match the same sender across multiple transactions for KYC and audit purposes.  Personal Sender Example: ```json {   \"country\": \"UG\",   \"phone_country\": \"UG\",   \"phone_number\": \"752403639\",   \"email\": \"example@home.org\",   \"first_name\": \"Johnny\",   \"last_name\": \"English\",   \"city\": \"Kampala\",   \"street\": \"Unknown 17-3\",   \"address_description\": \"Description of address\",   \"postal_code\": \"798983\",   \"birth_date\": \"1900-12-31\",   \"documents\": [ ],   \"ip\": \"127.0.0.1\",   \"identification_number\": \"AB123456\",   \"identification_type\": \"ID\",   \"external_id\": \"806ec63a-a5a7-43cc-9d75-1ee74fbcc026\",   \"metadata\": { } } ```  Business Sender Example:  ```json {   \"type\": \"business\",   \"country\": \"UG\",   \"phone_country\": \"UG\",   \"phone_number\": \"752403639\",   \"email\": \"example@home.org\",   \"name\": \"MyCompany\",   \"city\": \"Kampala\",   \"street\": \"Unknown 17-3\",   \"postal_code\": \"798983\",   \"address_description\": \"Description of address\",   \"documents\": [ ],   \"ip\": \"127.0.0.1\",   \"identification_number\": \"AB123456\",   \"identification_type\": \"ID\",   \"external_id\": \"806ec63a-a5a7-43cc-9d75-1ee74fbcc026\",   \"metadata\": { } } ```  [Sender in the API documentation](https://docs.transferzero.com/docs/transaction-flow/#sender)")
 
 public class Sender {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private UUID id;
+
   /**
    * Type of sender to create - either person or business (defaults to person) 
    */
@@ -91,9 +95,25 @@ public class Sender {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
 
+  public static final String SERIALIZED_NAME_STATE = "state";
+  @SerializedName(SERIALIZED_NAME_STATE)
+  private SenderState state;
+
   public static final String SERIALIZED_NAME_COUNTRY = "country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private String country;
+
+  public static final String SERIALIZED_NAME_STREET = "street";
+  @SerializedName(SERIALIZED_NAME_STREET)
+  private String street;
+
+  public static final String SERIALIZED_NAME_POSTAL_CODE = "postal_code";
+  @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
+  private String postalCode;
+
+  public static final String SERIALIZED_NAME_CITY = "city";
+  @SerializedName(SERIALIZED_NAME_CITY)
+  private String city;
 
   public static final String SERIALIZED_NAME_PHONE_COUNTRY = "phone_country";
   @SerializedName(SERIALIZED_NAME_PHONE_COUNTRY)
@@ -107,65 +127,13 @@ public class Sender {
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
 
-  public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
-  @SerializedName(SERIALIZED_NAME_FIRST_NAME)
-  private String firstName;
-
-  public static final String SERIALIZED_NAME_MIDDLE_NAME = "middle_name";
-  @SerializedName(SERIALIZED_NAME_MIDDLE_NAME)
-  private String middleName;
-
-  public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
-  @SerializedName(SERIALIZED_NAME_LAST_NAME)
-  private String lastName;
-
-  public static final String SERIALIZED_NAME_OCCUPATION = "occupation";
-  @SerializedName(SERIALIZED_NAME_OCCUPATION)
-  private String occupation;
-
-  public static final String SERIALIZED_NAME_NATIONALITY = "nationality";
-  @SerializedName(SERIALIZED_NAME_NATIONALITY)
-  private String nationality;
-
-  public static final String SERIALIZED_NAME_ONBOARDING_STATUS = "onboarding_status";
-  @SerializedName(SERIALIZED_NAME_ONBOARDING_STATUS)
-  private String onboardingStatus;
-
-  public static final String SERIALIZED_NAME_ADDRESS = "address";
-  @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private String address;
-
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
-  public static final String SERIALIZED_NAME_CITY = "city";
-  @SerializedName(SERIALIZED_NAME_CITY)
-  private String city;
-
-  public static final String SERIALIZED_NAME_STREET = "street";
-  @SerializedName(SERIALIZED_NAME_STREET)
-  private String street;
+  public static final String SERIALIZED_NAME_IP = "ip";
+  @SerializedName(SERIALIZED_NAME_IP)
+  private String ip;
 
   public static final String SERIALIZED_NAME_ADDRESS_DESCRIPTION = "address_description";
   @SerializedName(SERIALIZED_NAME_ADDRESS_DESCRIPTION)
   private String addressDescription;
-
-  public static final String SERIALIZED_NAME_POSTAL_CODE = "postal_code";
-  @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
-  private String postalCode;
-
-  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
-  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
-  private LocalDate birthDate;
-
-  public static final String SERIALIZED_NAME_IP = "ip";
-  @SerializedName(SERIALIZED_NAME_IP)
-  private String ip;
 
   public static final String SERIALIZED_NAME_IDENTIFICATION_NUMBER = "identification_number";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATION_NUMBER)
@@ -226,33 +194,196 @@ public class Sender {
   @SerializedName(SERIALIZED_NAME_IDENTIFICATION_TYPE)
   private IdentificationTypeEnum identificationType;
 
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
+  @SerializedName(SERIALIZED_NAME_FIRST_NAME)
+  private String firstName;
+
+  public static final String SERIALIZED_NAME_MIDDLE_NAME = "middle_name";
+  @SerializedName(SERIALIZED_NAME_MIDDLE_NAME)
+  private String middleName;
+
+  public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
+  @SerializedName(SERIALIZED_NAME_LAST_NAME)
+  private String lastName;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
+
+  public static final String SERIALIZED_NAME_OCCUPATION = "occupation";
+  @SerializedName(SERIALIZED_NAME_OCCUPATION)
+  private String occupation;
+
+  public static final String SERIALIZED_NAME_NATIONALITY = "nationality";
+  @SerializedName(SERIALIZED_NAME_NATIONALITY)
+  private String nationality;
+
+  /**
+   * Legal entity type (used only with a Business sender)
+   */
+  @JsonAdapter(LegalEntityTypeEnum.Adapter.class)
+  public enum LegalEntityTypeEnum {
+    SOLE_PROPRIETORSHIP("sole_proprietorship"),
+    
+    PARTNERSHIP("partnership"),
+    
+    PRIVATELY_OWNED_COMPANY("privately_owned_company"),
+    
+    PUBLICLY_OWNED_COMPANY("publicly_owned_company"),
+    
+    GOVERNMENT_OWNED_ENTITY("government_owned_entity"),
+    
+    TRUST("trust"),
+    
+    NGO("ngo"),
+    
+    CLUB_AND_SOCIETY("club_and_society"),
+    
+    GO("go"),
+    
+    OTHER("other"),
+    
+    FINANCIAL_INSTITUTION("financial_institution");
+
+    private String value;
+
+    LegalEntityTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static LegalEntityTypeEnum fromValue(String value) {
+      for (LegalEntityTypeEnum b : LegalEntityTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<LegalEntityTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LegalEntityTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public LegalEntityTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return LegalEntityTypeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_LEGAL_ENTITY_TYPE = "legal_entity_type";
+  @SerializedName(SERIALIZED_NAME_LEGAL_ENTITY_TYPE)
+  private LegalEntityTypeEnum legalEntityType;
+
+  public static final String SERIALIZED_NAME_REGISTRATION_DATE = "registration_date";
+  @SerializedName(SERIALIZED_NAME_REGISTRATION_DATE)
+  private String registrationDate;
+
+  public static final String SERIALIZED_NAME_REGISTRATION_NUMBER = "registration_number";
+  @SerializedName(SERIALIZED_NAME_REGISTRATION_NUMBER)
+  private String registrationNumber;
+
+  public static final String SERIALIZED_NAME_NATURE_OF_BUSINESS = "nature_of_business";
+  @SerializedName(SERIALIZED_NAME_NATURE_OF_BUSINESS)
+  private String natureOfBusiness;
+
+  public static final String SERIALIZED_NAME_SOURCE_OF_FUNDS = "source_of_funds";
+  @SerializedName(SERIALIZED_NAME_SOURCE_OF_FUNDS)
+  private String sourceOfFunds;
+
+  public static final String SERIALIZED_NAME_CORE_BUSINESS_ACTIVITIES = "core_business_activities";
+  @SerializedName(SERIALIZED_NAME_CORE_BUSINESS_ACTIVITIES)
+  private String coreBusinessActivities;
+
+  public static final String SERIALIZED_NAME_PURPOSE_OF_OPENING_ACCOUNT = "purpose_of_opening_account";
+  @SerializedName(SERIALIZED_NAME_PURPOSE_OF_OPENING_ACCOUNT)
+  private String purposeOfOpeningAccount;
+
+  public static final String SERIALIZED_NAME_OFFICE_PHONE = "office_phone";
+  @SerializedName(SERIALIZED_NAME_OFFICE_PHONE)
+  private String officePhone;
+
+  public static final String SERIALIZED_NAME_VAT_REGISTRATION_NUMBER = "vat_registration_number";
+  @SerializedName(SERIALIZED_NAME_VAT_REGISTRATION_NUMBER)
+  private String vatRegistrationNumber;
+
+  public static final String SERIALIZED_NAME_FINANCIAL_REGULATOR = "financial_regulator";
+  @SerializedName(SERIALIZED_NAME_FINANCIAL_REGULATOR)
+  private String financialRegulator;
+
+  public static final String SERIALIZED_NAME_REGULATORY_LICENCE_NUMBER = "regulatory_licence_number";
+  @SerializedName(SERIALIZED_NAME_REGULATORY_LICENCE_NUMBER)
+  private String regulatoryLicenceNumber;
+
+  public static final String SERIALIZED_NAME_CONTACT_PERSON_EMAIL = "contact_person_email";
+  @SerializedName(SERIALIZED_NAME_CONTACT_PERSON_EMAIL)
+  private String contactPersonEmail;
+
+  public static final String SERIALIZED_NAME_TRADING_COUNTRY = "trading_country";
+  @SerializedName(SERIALIZED_NAME_TRADING_COUNTRY)
+  private String tradingCountry;
+
+  public static final String SERIALIZED_NAME_TRADING_ADDRESS = "trading_address";
+  @SerializedName(SERIALIZED_NAME_TRADING_ADDRESS)
+  private String tradingAddress;
+
   public static final String SERIALIZED_NAME_DOCUMENTS = "documents";
   @SerializedName(SERIALIZED_NAME_DOCUMENTS)
   private List<Document> documents = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_POLITICALLY_EXPOSED_PEOPLE = "politically_exposed_people";
-  @SerializedName(SERIALIZED_NAME_POLITICALLY_EXPOSED_PEOPLE)
-  private List<PoliticallyExposedPerson> politicallyExposedPeople = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata = null;
 
-  public static final String SERIALIZED_NAME_STATE = "state";
-  @SerializedName(SERIALIZED_NAME_STATE)
-  private SenderState state;
+  public static final String SERIALIZED_NAME_ERRORS = "errors";
+  @SerializedName(SERIALIZED_NAME_ERRORS)
+  private Map<String, List<ValidationErrorDescription>> errors = new HashMap<>();
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private UUID id;
+  public static final String SERIALIZED_NAME_ONBOARDING_STATUS = "onboarding_status";
+  @SerializedName(SERIALIZED_NAME_ONBOARDING_STATUS)
+  private String onboardingStatus;
+
+  public static final String SERIALIZED_NAME_POLITICALLY_EXPOSED_PEOPLE = "politically_exposed_people";
+  @SerializedName(SERIALIZED_NAME_POLITICALLY_EXPOSED_PEOPLE)
+  private List<PoliticallyExposedPerson> politicallyExposedPeople = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "external_id";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
   private String externalId;
 
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  private Map<String, List<ValidationErrorDescription>> errors = new HashMap<>();
+  public Sender id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(example = "bf9ff782-e182-45ac-abea-5bce83ad6670", value = "")
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
 
   public Sender type(TypeEnum type) {
     this.type = type;
@@ -272,6 +403,24 @@ public class Sender {
     this.type = type;
   }
 
+  public Sender state(SenderState state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @ApiModelProperty(value = "")
+  public SenderState getState() {
+    return state;
+  }
+
+  public void setState(SenderState state) {
+    this.state = state;
+  }
+
   public Sender country(String country) {
     this.country = country;
     return this;
@@ -288,6 +437,60 @@ public class Sender {
 
   public void setCountry(String country) {
     this.country = country;
+  }
+
+  public Sender street(String street) {
+    this.street = street;
+    return this;
+  }
+
+   /**
+   * Sender&#39;s street
+   * @return street
+  **/
+  @ApiModelProperty(example = "Fake Street", required = true, value = "Sender's street")
+  public String getStreet() {
+    return street;
+  }
+
+  public void setStreet(String street) {
+    this.street = street;
+  }
+
+  public Sender postalCode(String postalCode) {
+    this.postalCode = postalCode;
+    return this;
+  }
+
+   /**
+   * Zip code of sender
+   * @return postalCode
+  **/
+  @ApiModelProperty(example = "798983", required = true, value = "Zip code of sender")
+  public String getPostalCode() {
+    return postalCode;
+  }
+
+  public void setPostalCode(String postalCode) {
+    this.postalCode = postalCode;
+  }
+
+  public Sender city(String city) {
+    this.city = city;
+    return this;
+  }
+
+   /**
+   * Sender&#39;s city
+   * @return city
+  **/
+  @ApiModelProperty(example = "Kampala", required = true, value = "Sender's city")
+  public String getCity() {
+    return city;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
   }
 
   public Sender phoneCountry(String phoneCountry) {
@@ -344,6 +547,96 @@ public class Sender {
     this.email = email;
   }
 
+  public Sender ip(String ip) {
+    this.ip = ip;
+    return this;
+  }
+
+   /**
+   * IP of sender
+   * @return ip
+  **/
+  @ApiModelProperty(example = "127.0.0.1", required = true, value = "IP of sender")
+  public String getIp() {
+    return ip;
+  }
+
+  public void setIp(String ip) {
+    this.ip = ip;
+  }
+
+  public Sender addressDescription(String addressDescription) {
+    this.addressDescription = addressDescription;
+    return this;
+  }
+
+   /**
+   * Description of address
+   * @return addressDescription
+  **/
+  @ApiModelProperty(value = "Description of address")
+  public String getAddressDescription() {
+    return addressDescription;
+  }
+
+  public void setAddressDescription(String addressDescription) {
+    this.addressDescription = addressDescription;
+  }
+
+  public Sender identificationNumber(String identificationNumber) {
+    this.identificationNumber = identificationNumber;
+    return this;
+  }
+
+   /**
+   * Identification number of document used
+   * @return identificationNumber
+  **/
+  @ApiModelProperty(example = "AB123456", value = "Identification number of document used")
+  public String getIdentificationNumber() {
+    return identificationNumber;
+  }
+
+  public void setIdentificationNumber(String identificationNumber) {
+    this.identificationNumber = identificationNumber;
+  }
+
+  public Sender identificationType(IdentificationTypeEnum identificationType) {
+    this.identificationType = identificationType;
+    return this;
+  }
+
+   /**
+   * Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other
+   * @return identificationType
+  **/
+  @ApiModelProperty(example = "ID", value = "Document to be identified. The identification type can be one of the following:  - `DL`: Driving License - `PP`: International Passport - `ID`: National ID - `OT`: Other")
+  public IdentificationTypeEnum getIdentificationType() {
+    return identificationType;
+  }
+
+  public void setIdentificationType(IdentificationTypeEnum identificationType) {
+    this.identificationType = identificationType;
+  }
+
+  public Sender name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of sender (used only with a Business sender)
+   * @return name
+  **/
+  @ApiModelProperty(value = "Name of sender (used only with a Business sender)")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
   public Sender firstName(String firstName) {
     this.firstName = firstName;
     return this;
@@ -398,6 +691,24 @@ public class Sender {
     this.lastName = lastName;
   }
 
+  public Sender birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of sender (used only with a Personal sender)
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of sender (used only with a Personal sender)")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
   public Sender occupation(String occupation) {
     this.occupation = occupation;
     return this;
@@ -434,220 +745,256 @@ public class Sender {
     this.nationality = nationality;
   }
 
-  public Sender onboardingStatus(String onboardingStatus) {
-    this.onboardingStatus = onboardingStatus;
+  public Sender legalEntityType(LegalEntityTypeEnum legalEntityType) {
+    this.legalEntityType = legalEntityType;
     return this;
   }
 
    /**
-   * The onboarding status of the sender
-   * @return onboardingStatus
+   * Legal entity type (used only with a Business sender)
+   * @return legalEntityType
   **/
-  @ApiModelProperty(value = "The onboarding status of the sender")
-  public String getOnboardingStatus() {
-    return onboardingStatus;
+  @ApiModelProperty(example = "sole_proprietorship", value = "Legal entity type (used only with a Business sender)")
+  public LegalEntityTypeEnum getLegalEntityType() {
+    return legalEntityType;
   }
 
-  public void setOnboardingStatus(String onboardingStatus) {
-    this.onboardingStatus = onboardingStatus;
+  public void setLegalEntityType(LegalEntityTypeEnum legalEntityType) {
+    this.legalEntityType = legalEntityType;
   }
 
-  public Sender address(String address) {
-    this.address = address;
+  public Sender registrationDate(String registrationDate) {
+    this.registrationDate = registrationDate;
     return this;
   }
 
    /**
-   * The address of the sender
-   * @return address
+   * The registration date (used only with a Business sender)
+   * @return registrationDate
   **/
-  @ApiModelProperty(value = "The address of the sender")
-  public String getAddress() {
-    return address;
+  @ApiModelProperty(value = "The registration date (used only with a Business sender)")
+  public String getRegistrationDate() {
+    return registrationDate;
   }
 
-  public void setAddress(String address) {
-    this.address = address;
+  public void setRegistrationDate(String registrationDate) {
+    this.registrationDate = registrationDate;
   }
 
-  public Sender description(String description) {
-    this.description = description;
+  public Sender registrationNumber(String registrationNumber) {
+    this.registrationNumber = registrationNumber;
     return this;
   }
 
    /**
-   * Description of the sender
-   * @return description
+   * The registration number (used only with a Business sender)
+   * @return registrationNumber
   **/
-  @ApiModelProperty(value = "Description of the sender")
-  public String getDescription() {
-    return description;
+  @ApiModelProperty(value = "The registration number (used only with a Business sender)")
+  public String getRegistrationNumber() {
+    return registrationNumber;
   }
 
-  public void setDescription(String description) {
-    this.description = description;
+  public void setRegistrationNumber(String registrationNumber) {
+    this.registrationNumber = registrationNumber;
   }
 
-  public Sender name(String name) {
-    this.name = name;
+  public Sender natureOfBusiness(String natureOfBusiness) {
+    this.natureOfBusiness = natureOfBusiness;
     return this;
   }
 
    /**
-   * Name of sender (used only with a Business sender)
-   * @return name
+   * Nature of business options (used only with a Business sender)
+   * @return natureOfBusiness
   **/
-  @ApiModelProperty(value = "Name of sender (used only with a Business sender)")
-  public String getName() {
-    return name;
+  @ApiModelProperty(value = "Nature of business options (used only with a Business sender)")
+  public String getNatureOfBusiness() {
+    return natureOfBusiness;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setNatureOfBusiness(String natureOfBusiness) {
+    this.natureOfBusiness = natureOfBusiness;
   }
 
-  public Sender city(String city) {
-    this.city = city;
+  public Sender sourceOfFunds(String sourceOfFunds) {
+    this.sourceOfFunds = sourceOfFunds;
     return this;
   }
 
    /**
-   * Sender&#39;s city
-   * @return city
+   * The source of funds
+   * @return sourceOfFunds
   **/
-  @ApiModelProperty(example = "Kampala", required = true, value = "Sender's city")
-  public String getCity() {
-    return city;
+  @ApiModelProperty(value = "The source of funds")
+  public String getSourceOfFunds() {
+    return sourceOfFunds;
   }
 
-  public void setCity(String city) {
-    this.city = city;
+  public void setSourceOfFunds(String sourceOfFunds) {
+    this.sourceOfFunds = sourceOfFunds;
   }
 
-  public Sender street(String street) {
-    this.street = street;
+  public Sender coreBusinessActivities(String coreBusinessActivities) {
+    this.coreBusinessActivities = coreBusinessActivities;
     return this;
   }
 
    /**
-   * Sender&#39;s street
-   * @return street
+   * The core activities (used only with a Business sender)
+   * @return coreBusinessActivities
   **/
-  @ApiModelProperty(example = "Fake Street", required = true, value = "Sender's street")
-  public String getStreet() {
-    return street;
+  @ApiModelProperty(value = "The core activities (used only with a Business sender)")
+  public String getCoreBusinessActivities() {
+    return coreBusinessActivities;
   }
 
-  public void setStreet(String street) {
-    this.street = street;
+  public void setCoreBusinessActivities(String coreBusinessActivities) {
+    this.coreBusinessActivities = coreBusinessActivities;
   }
 
-  public Sender addressDescription(String addressDescription) {
-    this.addressDescription = addressDescription;
+  public Sender purposeOfOpeningAccount(String purposeOfOpeningAccount) {
+    this.purposeOfOpeningAccount = purposeOfOpeningAccount;
     return this;
   }
 
    /**
-   * Description of address
-   * @return addressDescription
+   * The purpose for opening their account (used only with a Business sender)
+   * @return purposeOfOpeningAccount
   **/
-  @ApiModelProperty(value = "Description of address")
-  public String getAddressDescription() {
-    return addressDescription;
+  @ApiModelProperty(value = "The purpose for opening their account (used only with a Business sender)")
+  public String getPurposeOfOpeningAccount() {
+    return purposeOfOpeningAccount;
   }
 
-  public void setAddressDescription(String addressDescription) {
-    this.addressDescription = addressDescription;
+  public void setPurposeOfOpeningAccount(String purposeOfOpeningAccount) {
+    this.purposeOfOpeningAccount = purposeOfOpeningAccount;
   }
 
-  public Sender postalCode(String postalCode) {
-    this.postalCode = postalCode;
+  public Sender officePhone(String officePhone) {
+    this.officePhone = officePhone;
     return this;
   }
 
    /**
-   * Zip code of sender
-   * @return postalCode
+   * The official phone number (used only with a Business sender)
+   * @return officePhone
   **/
-  @ApiModelProperty(example = "798983", required = true, value = "Zip code of sender")
-  public String getPostalCode() {
-    return postalCode;
+  @ApiModelProperty(value = "The official phone number (used only with a Business sender)")
+  public String getOfficePhone() {
+    return officePhone;
   }
 
-  public void setPostalCode(String postalCode) {
-    this.postalCode = postalCode;
+  public void setOfficePhone(String officePhone) {
+    this.officePhone = officePhone;
   }
 
-  public Sender birthDate(LocalDate birthDate) {
-    this.birthDate = birthDate;
+  public Sender vatRegistrationNumber(String vatRegistrationNumber) {
+    this.vatRegistrationNumber = vatRegistrationNumber;
     return this;
   }
 
    /**
-   * Date of birth of sender
-   * @return birthDate
+   * The VAT registration number (used only with a Business sender)
+   * @return vatRegistrationNumber
   **/
-  @ApiModelProperty(value = "Date of birth of sender")
-  public LocalDate getBirthDate() {
-    return birthDate;
+  @ApiModelProperty(value = "The VAT registration number (used only with a Business sender)")
+  public String getVatRegistrationNumber() {
+    return vatRegistrationNumber;
   }
 
-  public void setBirthDate(LocalDate birthDate) {
-    this.birthDate = birthDate;
+  public void setVatRegistrationNumber(String vatRegistrationNumber) {
+    this.vatRegistrationNumber = vatRegistrationNumber;
   }
 
-  public Sender ip(String ip) {
-    this.ip = ip;
+  public Sender financialRegulator(String financialRegulator) {
+    this.financialRegulator = financialRegulator;
     return this;
   }
 
    /**
-   * IP of sender
-   * @return ip
+   * The Financial Regulator (used only with a Business sender)
+   * @return financialRegulator
   **/
-  @ApiModelProperty(example = "127.0.0.1", required = true, value = "IP of sender")
-  public String getIp() {
-    return ip;
+  @ApiModelProperty(value = "The Financial Regulator (used only with a Business sender)")
+  public String getFinancialRegulator() {
+    return financialRegulator;
   }
 
-  public void setIp(String ip) {
-    this.ip = ip;
+  public void setFinancialRegulator(String financialRegulator) {
+    this.financialRegulator = financialRegulator;
   }
 
-  public Sender identificationNumber(String identificationNumber) {
-    this.identificationNumber = identificationNumber;
+  public Sender regulatoryLicenceNumber(String regulatoryLicenceNumber) {
+    this.regulatoryLicenceNumber = regulatoryLicenceNumber;
     return this;
   }
 
    /**
-   * Identification number of document used
-   * @return identificationNumber
+   * The Regulatory Licence Number (used only with a Business sender)
+   * @return regulatoryLicenceNumber
   **/
-  @ApiModelProperty(example = "AB123456", value = "Identification number of document used")
-  public String getIdentificationNumber() {
-    return identificationNumber;
+  @ApiModelProperty(value = "The Regulatory Licence Number (used only with a Business sender)")
+  public String getRegulatoryLicenceNumber() {
+    return regulatoryLicenceNumber;
   }
 
-  public void setIdentificationNumber(String identificationNumber) {
-    this.identificationNumber = identificationNumber;
+  public void setRegulatoryLicenceNumber(String regulatoryLicenceNumber) {
+    this.regulatoryLicenceNumber = regulatoryLicenceNumber;
   }
 
-  public Sender identificationType(IdentificationTypeEnum identificationType) {
-    this.identificationType = identificationType;
+  public Sender contactPersonEmail(String contactPersonEmail) {
+    this.contactPersonEmail = contactPersonEmail;
     return this;
   }
 
    /**
-   * Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other
-   * @return identificationType
+   * The contact&#39;s email address (used only with a Business sender)
+   * @return contactPersonEmail
   **/
-  @ApiModelProperty(example = "ID", value = "Document to be identified. The identification type can be one of the following:  - `DL`: Driving License - `PP`: International Passport - `ID`: National ID - `OT`: Other")
-  public IdentificationTypeEnum getIdentificationType() {
-    return identificationType;
+  @ApiModelProperty(value = "The contact's email address (used only with a Business sender)")
+  public String getContactPersonEmail() {
+    return contactPersonEmail;
   }
 
-  public void setIdentificationType(IdentificationTypeEnum identificationType) {
-    this.identificationType = identificationType;
+  public void setContactPersonEmail(String contactPersonEmail) {
+    this.contactPersonEmail = contactPersonEmail;
+  }
+
+  public Sender tradingCountry(String tradingCountry) {
+    this.tradingCountry = tradingCountry;
+    return this;
+  }
+
+   /**
+   * The Business trading country (used only with a Business sender)
+   * @return tradingCountry
+  **/
+  @ApiModelProperty(value = "The Business trading country (used only with a Business sender)")
+  public String getTradingCountry() {
+    return tradingCountry;
+  }
+
+  public void setTradingCountry(String tradingCountry) {
+    this.tradingCountry = tradingCountry;
+  }
+
+  public Sender tradingAddress(String tradingAddress) {
+    this.tradingAddress = tradingAddress;
+    return this;
+  }
+
+   /**
+   * The Business trading address (used only with a Business sender)
+   * @return tradingAddress
+  **/
+  @ApiModelProperty(value = "The Business trading address (used only with a Business sender)")
+  public String getTradingAddress() {
+    return tradingAddress;
+  }
+
+  public void setTradingAddress(String tradingAddress) {
+    this.tradingAddress = tradingAddress;
   }
 
   public Sender documents(List<Document> documents) {
@@ -671,6 +1018,51 @@ public class Sender {
 
   public void setDocuments(List<Document> documents) {
     this.documents = documents;
+  }
+
+  public Sender metadata(Object metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * Metadata of sender. You can store any detail specific to your integration here (for example the local ID of the sender on your end). When requesting sender details you will receive the sent metadata back. Also when sending sender related webhooks you will receive the details stored here as well.
+   * @return metadata
+  **/
+  @ApiModelProperty(example = "{}", value = "Metadata of sender. You can store any detail specific to your integration here (for example the local ID of the sender on your end). When requesting sender details you will receive the sent metadata back. Also when sending sender related webhooks you will receive the details stored here as well.")
+  public Object getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(Object metadata) {
+    this.metadata = metadata;
+  }
+
+   /**
+   * The fields that have some problems and don&#39;t pass validation
+   * @return errors
+  **/
+  @ApiModelProperty(example = "{\"phone_number\":[{\"error\":\"invalid\"}],\"documents\":[{\"error\":\"blank\"}]}", value = "The fields that have some problems and don't pass validation")
+  public Map<String, List<ValidationErrorDescription>> getErrors() {
+    return errors;
+  }
+
+  public Sender onboardingStatus(String onboardingStatus) {
+    this.onboardingStatus = onboardingStatus;
+    return this;
+  }
+
+   /**
+   * The onboarding status of the sender
+   * @return onboardingStatus
+  **/
+  @ApiModelProperty(value = "The onboarding status of the sender")
+  public String getOnboardingStatus() {
+    return onboardingStatus;
+  }
+
+  public void setOnboardingStatus(String onboardingStatus) {
+    this.onboardingStatus = onboardingStatus;
   }
 
   public Sender politicallyExposedPeople(List<PoliticallyExposedPerson> politicallyExposedPeople) {
@@ -699,60 +1091,6 @@ public class Sender {
     this.politicallyExposedPeople = politicallyExposedPeople;
   }
 
-  public Sender metadata(Object metadata) {
-    this.metadata = metadata;
-    return this;
-  }
-
-   /**
-   * Metadata of sender. You can store any detail specific to your integration here (for example the local ID of the sender on your end). When requesting sender details you will receive the sent metadata back. Also when sending sender related webhooks you will receive the details stored here as well.
-   * @return metadata
-  **/
-  @ApiModelProperty(example = "{}", value = "Metadata of sender. You can store any detail specific to your integration here (for example the local ID of the sender on your end). When requesting sender details you will receive the sent metadata back. Also when sending sender related webhooks you will receive the details stored here as well.")
-  public Object getMetadata() {
-    return metadata;
-  }
-
-  public void setMetadata(Object metadata) {
-    this.metadata = metadata;
-  }
-
-  public Sender state(SenderState state) {
-    this.state = state;
-    return this;
-  }
-
-   /**
-   * Get state
-   * @return state
-  **/
-  @ApiModelProperty(value = "")
-  public SenderState getState() {
-    return state;
-  }
-
-  public void setState(SenderState state) {
-    this.state = state;
-  }
-
-  public Sender id(UUID id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(example = "bf9ff782-e182-45ac-abea-5bce83ad6670", value = "")
-  public UUID getId() {
-    return id;
-  }
-
-  public void setId(UUID id) {
-    this.id = id;
-  }
-
   public Sender externalId(String externalId) {
     this.externalId = externalId;
     return this;
@@ -771,15 +1109,6 @@ public class Sender {
     this.externalId = externalId;
   }
 
-   /**
-   * The fields that have some problems and don&#39;t pass validation
-   * @return errors
-  **/
-  @ApiModelProperty(example = "{\"phone_number\":[{\"error\":\"invalid\"}],\"documents\":[{\"error\":\"blank\"}]}", value = "The fields that have some problems and don't pass validation")
-  public Map<String, List<ValidationErrorDescription>> getErrors() {
-    return errors;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -790,40 +1119,52 @@ public class Sender {
       return false;
     }
     Sender sender = (Sender) o;
-    return Objects.equals(this.type, sender.type) &&
+    return Objects.equals(this.id, sender.id) &&
+        Objects.equals(this.type, sender.type) &&
+        Objects.equals(this.state, sender.state) &&
         Objects.equals(this.country, sender.country) &&
+        Objects.equals(this.street, sender.street) &&
+        Objects.equals(this.postalCode, sender.postalCode) &&
+        Objects.equals(this.city, sender.city) &&
         Objects.equals(this.phoneCountry, sender.phoneCountry) &&
         Objects.equals(this.phoneNumber, sender.phoneNumber) &&
         Objects.equals(this.email, sender.email) &&
+        Objects.equals(this.ip, sender.ip) &&
+        Objects.equals(this.addressDescription, sender.addressDescription) &&
+        Objects.equals(this.identificationNumber, sender.identificationNumber) &&
+        Objects.equals(this.identificationType, sender.identificationType) &&
+        Objects.equals(this.name, sender.name) &&
         Objects.equals(this.firstName, sender.firstName) &&
         Objects.equals(this.middleName, sender.middleName) &&
         Objects.equals(this.lastName, sender.lastName) &&
+        Objects.equals(this.birthDate, sender.birthDate) &&
         Objects.equals(this.occupation, sender.occupation) &&
         Objects.equals(this.nationality, sender.nationality) &&
-        Objects.equals(this.onboardingStatus, sender.onboardingStatus) &&
-        Objects.equals(this.address, sender.address) &&
-        Objects.equals(this.description, sender.description) &&
-        Objects.equals(this.name, sender.name) &&
-        Objects.equals(this.city, sender.city) &&
-        Objects.equals(this.street, sender.street) &&
-        Objects.equals(this.addressDescription, sender.addressDescription) &&
-        Objects.equals(this.postalCode, sender.postalCode) &&
-        Objects.equals(this.birthDate, sender.birthDate) &&
-        Objects.equals(this.ip, sender.ip) &&
-        Objects.equals(this.identificationNumber, sender.identificationNumber) &&
-        Objects.equals(this.identificationType, sender.identificationType) &&
+        Objects.equals(this.legalEntityType, sender.legalEntityType) &&
+        Objects.equals(this.registrationDate, sender.registrationDate) &&
+        Objects.equals(this.registrationNumber, sender.registrationNumber) &&
+        Objects.equals(this.natureOfBusiness, sender.natureOfBusiness) &&
+        Objects.equals(this.sourceOfFunds, sender.sourceOfFunds) &&
+        Objects.equals(this.coreBusinessActivities, sender.coreBusinessActivities) &&
+        Objects.equals(this.purposeOfOpeningAccount, sender.purposeOfOpeningAccount) &&
+        Objects.equals(this.officePhone, sender.officePhone) &&
+        Objects.equals(this.vatRegistrationNumber, sender.vatRegistrationNumber) &&
+        Objects.equals(this.financialRegulator, sender.financialRegulator) &&
+        Objects.equals(this.regulatoryLicenceNumber, sender.regulatoryLicenceNumber) &&
+        Objects.equals(this.contactPersonEmail, sender.contactPersonEmail) &&
+        Objects.equals(this.tradingCountry, sender.tradingCountry) &&
+        Objects.equals(this.tradingAddress, sender.tradingAddress) &&
         Objects.equals(this.documents, sender.documents) &&
-        Objects.equals(this.politicallyExposedPeople, sender.politicallyExposedPeople) &&
         Objects.equals(this.metadata, sender.metadata) &&
-        Objects.equals(this.state, sender.state) &&
-        Objects.equals(this.id, sender.id) &&
-        Objects.equals(this.externalId, sender.externalId) &&
-        Objects.equals(this.errors, sender.errors);
+        Objects.equals(this.errors, sender.errors) &&
+        Objects.equals(this.onboardingStatus, sender.onboardingStatus) &&
+        Objects.equals(this.politicallyExposedPeople, sender.politicallyExposedPeople) &&
+        Objects.equals(this.externalId, sender.externalId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, country, phoneCountry, phoneNumber, email, firstName, middleName, lastName, occupation, nationality, onboardingStatus, address, description, name, city, street, addressDescription, postalCode, birthDate, ip, identificationNumber, identificationType, documents, politicallyExposedPeople, metadata, state, id, externalId, errors);
+    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, coreBusinessActivities, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId);
   }
 
 
@@ -831,35 +1172,47 @@ public class Sender {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Sender {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    street: ").append(toIndentedString(street)).append("\n");
+    sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
+    sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    phoneCountry: ").append(toIndentedString(phoneCountry)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
+    sb.append("    addressDescription: ").append(toIndentedString(addressDescription)).append("\n");
+    sb.append("    identificationNumber: ").append(toIndentedString(identificationNumber)).append("\n");
+    sb.append("    identificationType: ").append(toIndentedString(identificationType)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("    occupation: ").append(toIndentedString(occupation)).append("\n");
     sb.append("    nationality: ").append(toIndentedString(nationality)).append("\n");
-    sb.append("    onboardingStatus: ").append(toIndentedString(onboardingStatus)).append("\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    city: ").append(toIndentedString(city)).append("\n");
-    sb.append("    street: ").append(toIndentedString(street)).append("\n");
-    sb.append("    addressDescription: ").append(toIndentedString(addressDescription)).append("\n");
-    sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
-    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
-    sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
-    sb.append("    identificationNumber: ").append(toIndentedString(identificationNumber)).append("\n");
-    sb.append("    identificationType: ").append(toIndentedString(identificationType)).append("\n");
+    sb.append("    legalEntityType: ").append(toIndentedString(legalEntityType)).append("\n");
+    sb.append("    registrationDate: ").append(toIndentedString(registrationDate)).append("\n");
+    sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
+    sb.append("    natureOfBusiness: ").append(toIndentedString(natureOfBusiness)).append("\n");
+    sb.append("    sourceOfFunds: ").append(toIndentedString(sourceOfFunds)).append("\n");
+    sb.append("    coreBusinessActivities: ").append(toIndentedString(coreBusinessActivities)).append("\n");
+    sb.append("    purposeOfOpeningAccount: ").append(toIndentedString(purposeOfOpeningAccount)).append("\n");
+    sb.append("    officePhone: ").append(toIndentedString(officePhone)).append("\n");
+    sb.append("    vatRegistrationNumber: ").append(toIndentedString(vatRegistrationNumber)).append("\n");
+    sb.append("    financialRegulator: ").append(toIndentedString(financialRegulator)).append("\n");
+    sb.append("    regulatoryLicenceNumber: ").append(toIndentedString(regulatoryLicenceNumber)).append("\n");
+    sb.append("    contactPersonEmail: ").append(toIndentedString(contactPersonEmail)).append("\n");
+    sb.append("    tradingCountry: ").append(toIndentedString(tradingCountry)).append("\n");
+    sb.append("    tradingAddress: ").append(toIndentedString(tradingAddress)).append("\n");
     sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
-    sb.append("    politicallyExposedPeople: ").append(toIndentedString(politicallyExposedPeople)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    onboardingStatus: ").append(toIndentedString(onboardingStatus)).append("\n");
+    sb.append("    politicallyExposedPeople: ").append(toIndentedString(politicallyExposedPeople)).append("\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
