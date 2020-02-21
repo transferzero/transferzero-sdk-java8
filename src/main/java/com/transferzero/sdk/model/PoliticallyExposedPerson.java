@@ -27,9 +27,8 @@ import java.time.OffsetDateTime;
 import java.util.UUID;
 
 /**
- * An optional list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country,  for example heads of state or heads of government, senior politicians, senior government, judicial or military officials,  senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,      \&quot;position\&quot;: \&quot;President of the United States\&quot;,      \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,     \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;   } &#x60;&#x60;&#x60;
+ * PoliticallyExposedPerson
  */
-@ApiModel(description = "An optional list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country,  for example heads of state or heads of government, senior politicians, senior government, judicial or military officials,  senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: ```json   {     \"name\": \"Ronald Reagan\",      \"position\": \"President of the United States\",      \"started_date\": \"1981-01-20T00:00:00.000Z\",     \"ended_date\": \"1989-01-20T00:00:00.000Z\"   } ```")
 
 public class PoliticallyExposedPerson {
   public static final String SERIALIZED_NAME_ID = "id";
