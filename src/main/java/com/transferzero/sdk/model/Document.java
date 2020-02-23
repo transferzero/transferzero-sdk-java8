@@ -34,10 +34,6 @@ import java.util.UUID;
  */
 
 public class Document {
-  public static final String SERIALIZED_NAME_SENDER_ID = "sender_id";
-  @SerializedName(SERIALIZED_NAME_SENDER_ID)
-  private UUID senderId;
-
   public static final String SERIALIZED_NAME_UPLOAD = "upload";
   @SerializedName(SERIALIZED_NAME_UPLOAD)
   private String upload;
@@ -125,27 +121,13 @@ public class Document {
   @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
+  public static final String SERIALIZED_NAME_STATE = "state";
+  @SerializedName(SERIALIZED_NAME_STATE)
+  private String state;
+
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
   private Map<String, List<ValidationErrorDescription>> errors = new HashMap<>();
-
-  public Document senderId(UUID senderId) {
-    this.senderId = senderId;
-    return this;
-  }
-
-   /**
-   * Get senderId
-   * @return senderId
-  **/
-  @ApiModelProperty(example = "ebe9bc0b-f2f6-4ce8-802a-8b79912d041e", value = "")
-  public UUID getSenderId() {
-    return senderId;
-  }
-
-  public void setSenderId(UUID senderId) {
-    this.senderId = senderId;
-  }
 
   public Document upload(String upload) {
     this.upload = upload;
@@ -265,6 +247,15 @@ public class Document {
   }
 
    /**
+   * The state of the document. Can be one of the following:  - &#x60;initial&#x60;: When a document is created and has not been through any checks (the default state) - &#x60;verified&#x60;: A document has passed compliance checks - &#x60;rejected&#x60;: The document has failed compliance checks
+   * @return state
+  **/
+  @ApiModelProperty(example = "verified", value = "The state of the document. Can be one of the following:  - `initial`: When a document is created and has not been through any checks (the default state) - `verified`: A document has passed compliance checks - `rejected`: The document has failed compliance checks")
+  public String getState() {
+    return state;
+  }
+
+   /**
    * The fields that have some problems and don&#39;t pass validation
    * @return errors
   **/
@@ -283,8 +274,7 @@ public class Document {
       return false;
     }
     Document document = (Document) o;
-    return Objects.equals(this.senderId, document.senderId) &&
-        Objects.equals(this.upload, document.upload) &&
+    return Objects.equals(this.upload, document.upload) &&
         Objects.equals(this.uploadFileName, document.uploadFileName) &&
         Objects.equals(this.metadata, document.metadata) &&
         Objects.equals(this.uploadContentType, document.uploadContentType) &&
@@ -294,12 +284,13 @@ public class Document {
         Objects.equals(this.documentType, document.documentType) &&
         Objects.equals(this.issuingCountry, document.issuingCountry) &&
         Objects.equals(this.id, document.id) &&
+        Objects.equals(this.state, document.state) &&
         Objects.equals(this.errors, document.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(senderId, upload, uploadFileName, metadata, uploadContentType, uploadFileSize, category, side, documentType, issuingCountry, id, errors);
+    return Objects.hash(upload, uploadFileName, metadata, uploadContentType, uploadFileSize, category, side, documentType, issuingCountry, id, state, errors);
   }
 
 
@@ -307,7 +298,6 @@ public class Document {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Document {\n");
-    sb.append("    senderId: ").append(toIndentedString(senderId)).append("\n");
     sb.append("    upload: ").append(toIndentedString(upload)).append("\n");
     sb.append("    uploadFileName: ").append(toIndentedString(uploadFileName)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
@@ -318,6 +308,7 @@ public class Document {
     sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
     sb.append("    issuingCountry: ").append(toIndentedString(issuingCountry)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();

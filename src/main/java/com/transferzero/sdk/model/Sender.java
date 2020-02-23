@@ -347,10 +347,6 @@ public class Sender {
   @SerializedName(SERIALIZED_NAME_DOCUMENTS)
   private List<Document> documents = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_POLITICALLY_EXPOSED_PEOPLE = "politically_exposed_people";
-  @SerializedName(SERIALIZED_NAME_POLITICALLY_EXPOSED_PEOPLE)
-  private List<PoliticallyExposedPerson> politicallyExposedPeople = new ArrayList<>();
-
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata = null;
@@ -362,6 +358,10 @@ public class Sender {
   public static final String SERIALIZED_NAME_ONBOARDING_STATUS = "onboarding_status";
   @SerializedName(SERIALIZED_NAME_ONBOARDING_STATUS)
   private String onboardingStatus;
+
+  public static final String SERIALIZED_NAME_POLITICALLY_EXPOSED_PEOPLE = "politically_exposed_people";
+  @SerializedName(SERIALIZED_NAME_POLITICALLY_EXPOSED_PEOPLE)
+  private List<PoliticallyExposedPerson> politicallyExposedPeople = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "external_id";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
@@ -1020,32 +1020,6 @@ public class Sender {
     this.documents = documents;
   }
 
-  public Sender politicallyExposedPeople(List<PoliticallyExposedPerson> politicallyExposedPeople) {
-    this.politicallyExposedPeople = politicallyExposedPeople;
-    return this;
-  }
-
-  public Sender addPoliticallyExposedPeopleItem(PoliticallyExposedPerson politicallyExposedPeopleItem) {
-    if (this.politicallyExposedPeople == null) {
-      this.politicallyExposedPeople = new ArrayList<>();
-    }
-    this.politicallyExposedPeople.add(politicallyExposedPeopleItem);
-    return this;
-  }
-
-   /**
-   * A list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,     \&quot;position\&quot;: \&quot;President of the United States\&quot;,     \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,     \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;   } &#x60;&#x60;&#x60;
-   * @return politicallyExposedPeople
-  **/
-  @ApiModelProperty(example = "[{\"id\":\"40\",\"name\":\"Ronald Reagan\",\"position\":\"President of the United States\",\"started_date\":\"1981-01-20T00:00:00.000Z\",\"ended_date\":\"1989-01-20T00:00:00.000Z\",\"sender_id\":\"f9dc79ca-0c39-4add-9f4d-5ad7e6f187fb\"}]", value = "A list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: ```json   {     \"name\": \"Ronald Reagan\",     \"position\": \"President of the United States\",     \"started_date\": \"1981-01-20T00:00:00.000Z\",     \"ended_date\": \"1989-01-20T00:00:00.000Z\"   } ```")
-  public List<PoliticallyExposedPerson> getPoliticallyExposedPeople() {
-    return politicallyExposedPeople;
-  }
-
-  public void setPoliticallyExposedPeople(List<PoliticallyExposedPerson> politicallyExposedPeople) {
-    this.politicallyExposedPeople = politicallyExposedPeople;
-  }
-
   public Sender metadata(Object metadata) {
     this.metadata = metadata;
     return this;
@@ -1089,6 +1063,32 @@ public class Sender {
 
   public void setOnboardingStatus(String onboardingStatus) {
     this.onboardingStatus = onboardingStatus;
+  }
+
+  public Sender politicallyExposedPeople(List<PoliticallyExposedPerson> politicallyExposedPeople) {
+    this.politicallyExposedPeople = politicallyExposedPeople;
+    return this;
+  }
+
+  public Sender addPoliticallyExposedPeopleItem(PoliticallyExposedPerson politicallyExposedPeopleItem) {
+    if (this.politicallyExposedPeople == null) {
+      this.politicallyExposedPeople = new ArrayList<>();
+    }
+    this.politicallyExposedPeople.add(politicallyExposedPeopleItem);
+    return this;
+  }
+
+   /**
+   * An optional list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;politically_exposed_person\&quot;: {       \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,       \&quot;position\&quot;: \&quot;President of the United States\&quot;,       \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,       \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;,       \&quot;sender_id\&quot;: \&quot;344fb668-196d-43db-9d94-b34b7e6c7e0b\&quot;     }   } &#x60;&#x60;&#x60;
+   * @return politicallyExposedPeople
+  **/
+  @ApiModelProperty(example = "[{\"id\":\"40\",\"name\":\"Ronald Reagan\",\"position\":\"President of the United States\",\"started_date\":\"1981-01-20T00:00:00.000Z\",\"ended_date\":\"1989-01-20T00:00:00.000Z\",\"sender_id\":\"f9dc79ca-0c39-4add-9f4d-5ad7e6f187fb\"}]", value = "An optional list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: ```json   {     \"politically_exposed_person\": {       \"name\": \"Ronald Reagan\",       \"position\": \"President of the United States\",       \"started_date\": \"1981-01-20T00:00:00.000Z\",       \"ended_date\": \"1989-01-20T00:00:00.000Z\",       \"sender_id\": \"344fb668-196d-43db-9d94-b34b7e6c7e0b\"     }   } ```")
+  public List<PoliticallyExposedPerson> getPoliticallyExposedPeople() {
+    return politicallyExposedPeople;
+  }
+
+  public void setPoliticallyExposedPeople(List<PoliticallyExposedPerson> politicallyExposedPeople) {
+    this.politicallyExposedPeople = politicallyExposedPeople;
   }
 
   public Sender externalId(String externalId) {
@@ -1155,16 +1155,16 @@ public class Sender {
         Objects.equals(this.tradingCountry, sender.tradingCountry) &&
         Objects.equals(this.tradingAddress, sender.tradingAddress) &&
         Objects.equals(this.documents, sender.documents) &&
-        Objects.equals(this.politicallyExposedPeople, sender.politicallyExposedPeople) &&
         Objects.equals(this.metadata, sender.metadata) &&
         Objects.equals(this.errors, sender.errors) &&
         Objects.equals(this.onboardingStatus, sender.onboardingStatus) &&
+        Objects.equals(this.politicallyExposedPeople, sender.politicallyExposedPeople) &&
         Objects.equals(this.externalId, sender.externalId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, coreBusinessActivities, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, documents, politicallyExposedPeople, metadata, errors, onboardingStatus, externalId);
+    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, coreBusinessActivities, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId);
   }
 
 
@@ -1208,10 +1208,10 @@ public class Sender {
     sb.append("    tradingCountry: ").append(toIndentedString(tradingCountry)).append("\n");
     sb.append("    tradingAddress: ").append(toIndentedString(tradingAddress)).append("\n");
     sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
-    sb.append("    politicallyExposedPeople: ").append(toIndentedString(politicallyExposedPeople)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    onboardingStatus: ").append(toIndentedString(onboardingStatus)).append("\n");
+    sb.append("    politicallyExposedPeople: ").append(toIndentedString(politicallyExposedPeople)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("}");
     return sb.toString();
