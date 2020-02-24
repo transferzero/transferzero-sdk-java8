@@ -121,10 +121,6 @@ public class Document {
   @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
-  public static final String SERIALIZED_NAME_STATE = "state";
-  @SerializedName(SERIALIZED_NAME_STATE)
-  private String state;
-
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
   private Map<String, List<ValidationErrorDescription>> errors = new HashMap<>();
@@ -247,15 +243,6 @@ public class Document {
   }
 
    /**
-   * The state of the document. Can be one of the following:  - &#x60;initial&#x60;: When a document is created and has not been through any checks (the default state) - &#x60;verified&#x60;: A document has passed compliance checks - &#x60;rejected&#x60;: The document has failed compliance checks
-   * @return state
-  **/
-  @ApiModelProperty(example = "verified", value = "The state of the document. Can be one of the following:  - `initial`: When a document is created and has not been through any checks (the default state) - `verified`: A document has passed compliance checks - `rejected`: The document has failed compliance checks")
-  public String getState() {
-    return state;
-  }
-
-   /**
    * The fields that have some problems and don&#39;t pass validation
    * @return errors
   **/
@@ -284,13 +271,12 @@ public class Document {
         Objects.equals(this.documentType, document.documentType) &&
         Objects.equals(this.issuingCountry, document.issuingCountry) &&
         Objects.equals(this.id, document.id) &&
-        Objects.equals(this.state, document.state) &&
         Objects.equals(this.errors, document.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(upload, uploadFileName, metadata, uploadContentType, uploadFileSize, category, side, documentType, issuingCountry, id, state, errors);
+    return Objects.hash(upload, uploadFileName, metadata, uploadContentType, uploadFileSize, category, side, documentType, issuingCountry, id, errors);
   }
 
 
@@ -308,7 +294,6 @@ public class Document {
     sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
     sb.append("    issuingCountry: ").append(toIndentedString(issuingCountry)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -343,6 +343,14 @@ public class Sender {
   @SerializedName(SERIALIZED_NAME_TRADING_ADDRESS)
   private String tradingAddress;
 
+  public static final String SERIALIZED_NAME_NUMBER_MONTHLY_TRANSACTIONS = "number_monthly_transactions";
+  @SerializedName(SERIALIZED_NAME_NUMBER_MONTHLY_TRANSACTIONS)
+  private String numberMonthlyTransactions;
+
+  public static final String SERIALIZED_NAME_AMOUNT_MONTHLY_TRANSACTIONS = "amount_monthly_transactions";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_MONTHLY_TRANSACTIONS)
+  private String amountMonthlyTransactions;
+
   public static final String SERIALIZED_NAME_DOCUMENTS = "documents";
   @SerializedName(SERIALIZED_NAME_DOCUMENTS)
   private List<Document> documents = new ArrayList<>();
@@ -997,6 +1005,42 @@ public class Sender {
     this.tradingAddress = tradingAddress;
   }
 
+  public Sender numberMonthlyTransactions(String numberMonthlyTransactions) {
+    this.numberMonthlyTransactions = numberMonthlyTransactions;
+    return this;
+  }
+
+   /**
+   * The estimated number of monthly transactions (used only with a Business sender)
+   * @return numberMonthlyTransactions
+  **/
+  @ApiModelProperty(value = "The estimated number of monthly transactions (used only with a Business sender)")
+  public String getNumberMonthlyTransactions() {
+    return numberMonthlyTransactions;
+  }
+
+  public void setNumberMonthlyTransactions(String numberMonthlyTransactions) {
+    this.numberMonthlyTransactions = numberMonthlyTransactions;
+  }
+
+  public Sender amountMonthlyTransactions(String amountMonthlyTransactions) {
+    this.amountMonthlyTransactions = amountMonthlyTransactions;
+    return this;
+  }
+
+   /**
+   * The estimated amount for all transactions each month in USD (used only with a Business sender)
+   * @return amountMonthlyTransactions
+  **/
+  @ApiModelProperty(value = "The estimated amount for all transactions each month in USD (used only with a Business sender)")
+  public String getAmountMonthlyTransactions() {
+    return amountMonthlyTransactions;
+  }
+
+  public void setAmountMonthlyTransactions(String amountMonthlyTransactions) {
+    this.amountMonthlyTransactions = amountMonthlyTransactions;
+  }
+
   public Sender documents(List<Document> documents) {
     this.documents = documents;
     return this;
@@ -1154,6 +1198,8 @@ public class Sender {
         Objects.equals(this.contactPersonEmail, sender.contactPersonEmail) &&
         Objects.equals(this.tradingCountry, sender.tradingCountry) &&
         Objects.equals(this.tradingAddress, sender.tradingAddress) &&
+        Objects.equals(this.numberMonthlyTransactions, sender.numberMonthlyTransactions) &&
+        Objects.equals(this.amountMonthlyTransactions, sender.amountMonthlyTransactions) &&
         Objects.equals(this.documents, sender.documents) &&
         Objects.equals(this.metadata, sender.metadata) &&
         Objects.equals(this.errors, sender.errors) &&
@@ -1164,7 +1210,7 @@ public class Sender {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, coreBusinessActivities, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId);
+    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, coreBusinessActivities, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId);
   }
 
 
@@ -1207,6 +1253,8 @@ public class Sender {
     sb.append("    contactPersonEmail: ").append(toIndentedString(contactPersonEmail)).append("\n");
     sb.append("    tradingCountry: ").append(toIndentedString(tradingCountry)).append("\n");
     sb.append("    tradingAddress: ").append(toIndentedString(tradingAddress)).append("\n");
+    sb.append("    numberMonthlyTransactions: ").append(toIndentedString(numberMonthlyTransactions)).append("\n");
+    sb.append("    amountMonthlyTransactions: ").append(toIndentedString(amountMonthlyTransactions)).append("\n");
     sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
