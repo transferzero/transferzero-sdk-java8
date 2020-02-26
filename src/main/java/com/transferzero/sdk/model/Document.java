@@ -179,6 +179,11 @@ public class Document {
     this.metadata = metadata;
   }
 
+  public Document uploadContentType(String uploadContentType) {
+    this.uploadContentType = uploadContentType;
+    return this;
+  }
+
    /**
    * Get uploadContentType
    * @return uploadContentType
@@ -188,6 +193,15 @@ public class Document {
     return uploadContentType;
   }
 
+  public void setUploadContentType(String uploadContentType) {
+    this.uploadContentType = uploadContentType;
+  }
+
+  public Document uploadFileSize(Integer uploadFileSize) {
+    this.uploadFileSize = uploadFileSize;
+    return this;
+  }
+
    /**
    * Get uploadFileSize
    * @return uploadFileSize
@@ -195,6 +209,10 @@ public class Document {
   @ApiModelProperty(example = "30255", value = "")
   public Integer getUploadFileSize() {
     return uploadFileSize;
+  }
+
+  public void setUploadFileSize(Integer uploadFileSize) {
+    this.uploadFileSize = uploadFileSize;
   }
 
    /**
@@ -215,6 +233,11 @@ public class Document {
     return side;
   }
 
+  public Document documentType(String documentType) {
+    this.documentType = documentType;
+    return this;
+  }
+
    /**
    * This is a brief description of the document type
    * @return documentType
@@ -222,6 +245,10 @@ public class Document {
   @ApiModelProperty(example = "certificate_of_business_name_registration", value = "This is a brief description of the document type")
   public String getDocumentType() {
     return documentType;
+  }
+
+  public void setDocumentType(String documentType) {
+    this.documentType = documentType;
   }
 
    /**
