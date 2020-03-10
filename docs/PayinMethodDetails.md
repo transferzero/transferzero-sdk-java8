@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **redirectUrl** | **String** | This is where the user should be redirected back when the payment has been finished |  [optional]
 **phoneNumber** | **String** | The phone number where the funds should be collected from | 
 **sendInstructions** | **Boolean** | States whether to send out the instructions to the phone number on how to pay the funds or not. This shuold always be set to true, otherwise the sender might not receive a prompt for payment. |  [optional]
+**refundAddress** | **String** | Please make sure the refund_address is a valid BTC address belonging to the sender, as that is going to be used in case the transaction has to be refunded. |  [optional]
 
 
 

@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.PayinMethodDetailsBTC;
 import com.transferzero.sdk.model.PayinMethodDetailsMobile;
 import com.transferzero.sdk.model.PayinMethodDetailsNGNBank;
 import io.swagger.annotations.ApiModel;
@@ -47,6 +48,10 @@ public class PayinMethodDetails {
   public static final String SERIALIZED_NAME_SEND_INSTRUCTIONS = "send_instructions";
   @SerializedName(SERIALIZED_NAME_SEND_INSTRUCTIONS)
   private Boolean sendInstructions;
+
+  public static final String SERIALIZED_NAME_REFUND_ADDRESS = "refund_address";
+  @SerializedName(SERIALIZED_NAME_REFUND_ADDRESS)
+  private String refundAddress;
 
   public PayinMethodDetails paymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
@@ -120,6 +125,24 @@ public class PayinMethodDetails {
     this.sendInstructions = sendInstructions;
   }
 
+  public PayinMethodDetails refundAddress(String refundAddress) {
+    this.refundAddress = refundAddress;
+    return this;
+  }
+
+   /**
+   * Please make sure the refund_address is a valid BTC address belonging to the sender, as that is going to be used in case the transaction has to be refunded.
+   * @return refundAddress
+  **/
+  @ApiModelProperty(value = "Please make sure the refund_address is a valid BTC address belonging to the sender, as that is going to be used in case the transaction has to be refunded.")
+  public String getRefundAddress() {
+    return refundAddress;
+  }
+
+  public void setRefundAddress(String refundAddress) {
+    this.refundAddress = refundAddress;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -133,12 +156,13 @@ public class PayinMethodDetails {
     return Objects.equals(this.paymentMethod, payinMethodDetails.paymentMethod) &&
         Objects.equals(this.redirectUrl, payinMethodDetails.redirectUrl) &&
         Objects.equals(this.phoneNumber, payinMethodDetails.phoneNumber) &&
-        Objects.equals(this.sendInstructions, payinMethodDetails.sendInstructions);
+        Objects.equals(this.sendInstructions, payinMethodDetails.sendInstructions) &&
+        Objects.equals(this.refundAddress, payinMethodDetails.refundAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentMethod, redirectUrl, phoneNumber, sendInstructions);
+    return Objects.hash(paymentMethod, redirectUrl, phoneNumber, sendInstructions, refundAddress);
   }
 
 
@@ -150,6 +174,7 @@ public class PayinMethodDetails {
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    sendInstructions: ").append(toIndentedString(sendInstructions)).append("\n");
+    sb.append("    refundAddress: ").append(toIndentedString(refundAddress)).append("\n");
     sb.append("}");
     return sb.toString();
   }

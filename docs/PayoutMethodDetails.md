@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **identityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  |  [optional]
 **identityCardId** | **String** |  |  [optional]
 **reference** | **String** |  |  [optional]
+**name** | **String** |  | 
+**address** | **String** |  | 
 
 
 

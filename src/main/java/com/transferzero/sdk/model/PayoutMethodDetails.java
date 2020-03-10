@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayoutMethodBankAccountTypeEnum;
+import com.transferzero.sdk.model.PayoutMethodDetailsBTC;
 import com.transferzero.sdk.model.PayoutMethodDetailsBalance;
 import com.transferzero.sdk.model.PayoutMethodDetailsGHSBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsIBAN;
@@ -120,6 +121,14 @@ public class PayoutMethodDetails {
   public static final String SERIALIZED_NAME_REFERENCE = "reference";
   @SerializedName(SERIALIZED_NAME_REFERENCE)
   private String reference;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_ADDRESS = "address";
+  @SerializedName(SERIALIZED_NAME_ADDRESS)
+  private String address;
 
   public PayoutMethodDetails firstName(String firstName) {
     this.firstName = firstName;
@@ -481,6 +490,42 @@ public class PayoutMethodDetails {
     this.reference = reference;
   }
 
+  public PayoutMethodDetails name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public PayoutMethodDetails address(String address) {
+    this.address = address;
+    return this;
+  }
+
+   /**
+   * Get address
+   * @return address
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getAddress() {
+    return address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -510,12 +555,14 @@ public class PayoutMethodDetails {
         Objects.equals(this.reason, payoutMethodDetails.reason) &&
         Objects.equals(this.identityCardType, payoutMethodDetails.identityCardType) &&
         Objects.equals(this.identityCardId, payoutMethodDetails.identityCardId) &&
-        Objects.equals(this.reference, payoutMethodDetails.reference);
+        Objects.equals(this.reference, payoutMethodDetails.reference) &&
+        Objects.equals(this.name, payoutMethodDetails.name) &&
+        Objects.equals(this.address, payoutMethodDetails.address);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, iban, bankName, bankCountry, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, iban, bankName, bankCountry, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address);
   }
 
 
@@ -543,6 +590,8 @@ public class PayoutMethodDetails {
     sb.append("    identityCardType: ").append(toIndentedString(identityCardType)).append("\n");
     sb.append("    identityCardId: ").append(toIndentedString(identityCardId)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("}");
     return sb.toString();
   }
