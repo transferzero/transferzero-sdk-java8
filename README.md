@@ -45,7 +45,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.transferzero.sdk</groupId>
   <artifactId>transferzero-sdk-java8</artifactId>
-  <version>1.0.0</version>
+  <version>1.6.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -55,7 +55,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.transferzero.sdk:transferzero-sdk-java8:1.0.0"
+compile "com.transferzero.sdk:transferzero-sdk-java8:1.6.0"
 ```
 
 ### Others
@@ -68,7 +68,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/transferzero-sdk-java8-1.0.0.jar`
+* `target/transferzero-sdk-java8-1.6.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -120,7 +120,7 @@ Class | Method | HTTP request | Description
 *AccountDebitsApi* | [**getAccountsDebit**](docs/AccountDebitsApi.md#getAccountsDebit) | **GET** /accounts/debits/{Account Debit ID} | Fetching an account debit
 *AccountDebitsApi* | [**getAccountsDebits**](docs/AccountDebitsApi.md#getAccountsDebits) | **GET** /accounts/debits | Listing Accounts debits
 *AccountDebitsApi* | [**postAccountsDebits**](docs/AccountDebitsApi.md#postAccountsDebits) | **POST** /accounts/debits | Creating an account debit
-*AccountValidationApi* | [**postAccountValidations**](docs/AccountValidationApi.md#postAccountValidations) | **POST** /account_validations | Validates the existence of a bank account
+*AccountValidationApi* | [**postAccountValidations**](docs/AccountValidationApi.md#postAccountValidations) | **POST** /account_validations | Validates the existence of a bank account or a mobile phone number
 *AccountsApi* | [**getAccount**](docs/AccountsApi.md#getAccount) | **GET** /accounts/{Currency} | Fetches account balance for specified currrency
 *AccountsApi* | [**getAccounts**](docs/AccountsApi.md#getAccounts) | **GET** /accounts | Fetches account balances for all currencies
 *ApiLogsApi* | [**getApiLog**](docs/ApiLogsApi.md#getApiLog) | **GET** /api_logs/{API Log ID} | Fetch an individual API log
@@ -149,12 +149,12 @@ Class | Method | HTTP request | Description
 *SendersApi* | [**patchSender**](docs/SendersApi.md#patchSender) | **PATCH** /senders/{Sender ID} | Updating a sender
 *SendersApi* | [**postSenders**](docs/SendersApi.md#postSenders) | **POST** /senders | Creating a sender
 *TransactionsApi* | [**calculateTransactions**](docs/TransactionsApi.md#calculateTransactions) | **POST** /transactions/calculate | Calculates transaction amounts for a transaction payload
+*TransactionsApi* | [**createAndFundTransaction**](docs/TransactionsApi.md#createAndFundTransaction) | **POST** /transactions/create_and_fund | Creates a new transaction and funds it from account balance
 *TransactionsApi* | [**getTransaction**](docs/TransactionsApi.md#getTransaction) | **GET** /transactions/{Transaction ID} | Fetch a single transaction
 *TransactionsApi* | [**getTransactions**](docs/TransactionsApi.md#getTransactions) | **GET** /transactions | Get a list of transactions
 *TransactionsApi* | [**payinTransaction**](docs/TransactionsApi.md#payinTransaction) | **POST** /transactions/{Transaction ID}/payin | Creates a fake payin for transaction
 *TransactionsApi* | [**payoutTransaction**](docs/TransactionsApi.md#payoutTransaction) | **POST** /transactions/{Transaction ID}/payout | Creates a fake payout for transaction
 *TransactionsApi* | [**postTransactions**](docs/TransactionsApi.md#postTransactions) | **POST** /transactions | Creates a new transaction
-*TransactionsApi* | [**createAndFundTransaction**](docs/TransactionsApi.md#createAndFundTransaction) | **POST** /transactions/create_and_fund | Creates and funds a new transaction
 *TransactionsApi* | [**validateTransactions**](docs/TransactionsApi.md#validateTransactions) | **POST** /transactions/validate | Validates a transaction payload
 *WebhooksApi* | [**deleteWebhook**](docs/WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{Webhook ID} | Unsubscribing from a webhook
 *WebhooksApi* | [**getWebhook**](docs/WebhooksApi.md#getWebhook) | **GET** /webhooks/{Webhook ID} | Find a webhook&#39;s details
@@ -200,6 +200,7 @@ Class | Method | HTTP request | Description
  - [PaginationMeta](docs/PaginationMeta.md)
  - [PayinMethod](docs/PayinMethod.md)
  - [PayinMethodDetails](docs/PayinMethodDetails.md)
+ - [PayinMethodDetailsBTC](docs/PayinMethodDetailsBTC.md)
  - [PayinMethodDetailsMobile](docs/PayinMethodDetailsMobile.md)
  - [PayinMethodDetailsNGNBank](docs/PayinMethodDetailsNGNBank.md)
  - [PayinMethodRequest](docs/PayinMethodRequest.md)
@@ -209,12 +210,14 @@ Class | Method | HTTP request | Description
  - [PayoutMethod](docs/PayoutMethod.md)
  - [PayoutMethodBankAccountTypeEnum](docs/PayoutMethodBankAccountTypeEnum.md)
  - [PayoutMethodDetails](docs/PayoutMethodDetails.md)
+ - [PayoutMethodDetailsBTC](docs/PayoutMethodDetailsBTC.md)
  - [PayoutMethodDetailsBalance](docs/PayoutMethodDetailsBalance.md)
  - [PayoutMethodDetailsGHSBank](docs/PayoutMethodDetailsGHSBank.md)
  - [PayoutMethodDetailsIBAN](docs/PayoutMethodDetailsIBAN.md)
  - [PayoutMethodDetailsMADCash](docs/PayoutMethodDetailsMADCash.md)
  - [PayoutMethodDetailsMobile](docs/PayoutMethodDetailsMobile.md)
  - [PayoutMethodDetailsNGNBank](docs/PayoutMethodDetailsNGNBank.md)
+ - [PayoutMethodDetailsXOFBank](docs/PayoutMethodDetailsXOFBank.md)
  - [PayoutMethodDetailsXOFMobile](docs/PayoutMethodDetailsXOFMobile.md)
  - [PayoutMethodGenderEnum](docs/PayoutMethodGenderEnum.md)
  - [PayoutMethodIdentityCardTypeEnum](docs/PayoutMethodIdentityCardTypeEnum.md)
@@ -223,6 +226,7 @@ Class | Method | HTTP request | Description
  - [PayoutMethodRequest](docs/PayoutMethodRequest.md)
  - [PayoutMethodResponse](docs/PayoutMethodResponse.md)
  - [PayoutMethodWebhook](docs/PayoutMethodWebhook.md)
+ - [PoliticallyExposedPerson](docs/PoliticallyExposedPerson.md)
  - [Recipient](docs/Recipient.md)
  - [RecipientListResponse](docs/RecipientListResponse.md)
  - [RecipientRequest](docs/RecipientRequest.md)
@@ -233,12 +237,16 @@ Class | Method | HTTP request | Description
  - [SenderListResponse](docs/SenderListResponse.md)
  - [SenderRequest](docs/SenderRequest.md)
  - [SenderResponse](docs/SenderResponse.md)
+ - [SenderResponseExisting](docs/SenderResponseExisting.md)
+ - [SenderResponseMeta](docs/SenderResponseMeta.md)
  - [SenderState](docs/SenderState.md)
  - [SenderWebhook](docs/SenderWebhook.md)
  - [Transaction](docs/Transaction.md)
  - [TransactionListResponse](docs/TransactionListResponse.md)
  - [TransactionRequest](docs/TransactionRequest.md)
  - [TransactionResponse](docs/TransactionResponse.md)
+ - [TransactionResponseExisting](docs/TransactionResponseExisting.md)
+ - [TransactionResponseMeta](docs/TransactionResponseMeta.md)
  - [TransactionState](docs/TransactionState.md)
  - [TransactionTraits](docs/TransactionTraits.md)
  - [TransactionWebhook](docs/TransactionWebhook.md)
