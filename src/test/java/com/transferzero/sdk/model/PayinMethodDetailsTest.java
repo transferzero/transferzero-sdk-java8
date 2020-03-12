@@ -18,6 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.PayinMethodDetailsBTC;
 import com.transferzero.sdk.model.PayinMethodDetailsMobile;
 import com.transferzero.sdk.model.PayinMethodDetailsNGNBank;
 import io.swagger.annotations.ApiModel;

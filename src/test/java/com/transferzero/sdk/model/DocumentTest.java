@@ -46,14 +46,6 @@ public class DocumentTest {
     }
 
     /**
-     * Test the property 'senderId'
-     */
-    @Test
-    public void senderIdTest() {
-        // TODO: test senderId
-    }
-
-    /**
      * Test the property 'upload'
      */
     @Test
