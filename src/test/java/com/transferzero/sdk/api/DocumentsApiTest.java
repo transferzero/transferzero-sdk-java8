@@ -36,23 +36,6 @@ public class DocumentsApiTest {
 
     
     /**
-     * Deleting a document
-     *
-     * Deletes a single document by the Document ID
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteDocumentTest() throws ApiException {
-        UUID documentID = null;
-        String senderId = null;
-        DocumentResponse response = api.deleteDocument(documentID, senderId);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Fetching a document
      *
      * Returns a single document by the Documents ID
@@ -63,9 +46,7 @@ public class DocumentsApiTest {
     @Test
     public void getDocumentTest() throws ApiException {
         UUID documentID = null;
-        String senderId = null;
         DocumentResponse response = api.getDocument(documentID)
-                .senderId(senderId)
                 .execute();
 
         // TODO: test validations
@@ -83,11 +64,9 @@ public class DocumentsApiTest {
     public void getDocumentsTest() throws ApiException {
         Integer page = null;
         Integer per = null;
-        String senderId = null;
         DocumentListResponse response = api.getDocuments()
                 .page(page)
                 .per(per)
-                .senderId(senderId)
                 .execute();
 
         // TODO: test validations

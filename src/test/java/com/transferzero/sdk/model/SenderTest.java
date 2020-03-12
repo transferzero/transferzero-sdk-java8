@@ -19,6 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.Document;
+import com.transferzero.sdk.model.PoliticallyExposedPerson;
 import com.transferzero.sdk.model.SenderState;
 import com.transferzero.sdk.model.ValidationErrorDescription;
 import io.swagger.annotations.ApiModel;
@@ -50,6 +51,14 @@ public class SenderTest {
     }
 
     /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
+    }
+
+    /**
      * Test the property 'type'
      */
     @Test
@@ -58,11 +67,43 @@ public class SenderTest {
     }
 
     /**
+     * Test the property 'state'
+     */
+    @Test
+    public void stateTest() {
+        // TODO: test state
+    }
+
+    /**
      * Test the property 'country'
      */
     @Test
     public void countryTest() {
         // TODO: test country
+    }
+
+    /**
+     * Test the property 'street'
+     */
+    @Test
+    public void streetTest() {
+        // TODO: test street
+    }
+
+    /**
+     * Test the property 'postalCode'
+     */
+    @Test
+    public void postalCodeTest() {
+        // TODO: test postalCode
+    }
+
+    /**
+     * Test the property 'city'
+     */
+    @Test
+    public void cityTest() {
+        // TODO: test city
     }
 
     /**
@@ -90,6 +131,46 @@ public class SenderTest {
     }
 
     /**
+     * Test the property 'ip'
+     */
+    @Test
+    public void ipTest() {
+        // TODO: test ip
+    }
+
+    /**
+     * Test the property 'addressDescription'
+     */
+    @Test
+    public void addressDescriptionTest() {
+        // TODO: test addressDescription
+    }
+
+    /**
+     * Test the property 'identificationNumber'
+     */
+    @Test
+    public void identificationNumberTest() {
+        // TODO: test identificationNumber
+    }
+
+    /**
+     * Test the property 'identificationType'
+     */
+    @Test
+    public void identificationTypeTest() {
+        // TODO: test identificationType
+    }
+
+    /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
      * Test the property 'firstName'
      */
     @Test
@@ -114,6 +195,14 @@ public class SenderTest {
     }
 
     /**
+     * Test the property 'birthDate'
+     */
+    @Test
+    public void birthDateTest() {
+        // TODO: test birthDate
+    }
+
+    /**
      * Test the property 'occupation'
      */
     @Test
@@ -130,99 +219,131 @@ public class SenderTest {
     }
 
     /**
-     * Test the property 'onboardingStatus'
+     * Test the property 'legalEntityType'
      */
     @Test
-    public void onboardingStatusTest() {
-        // TODO: test onboardingStatus
+    public void legalEntityTypeTest() {
+        // TODO: test legalEntityType
     }
 
     /**
-     * Test the property 'address'
+     * Test the property 'registrationDate'
      */
     @Test
-    public void addressTest() {
-        // TODO: test address
+    public void registrationDateTest() {
+        // TODO: test registrationDate
     }
 
     /**
-     * Test the property 'description'
+     * Test the property 'registrationNumber'
      */
     @Test
-    public void descriptionTest() {
-        // TODO: test description
+    public void registrationNumberTest() {
+        // TODO: test registrationNumber
     }
 
     /**
-     * Test the property 'name'
+     * Test the property 'natureOfBusiness'
      */
     @Test
-    public void nameTest() {
-        // TODO: test name
+    public void natureOfBusinessTest() {
+        // TODO: test natureOfBusiness
     }
 
     /**
-     * Test the property 'city'
+     * Test the property 'sourceOfFunds'
      */
     @Test
-    public void cityTest() {
-        // TODO: test city
+    public void sourceOfFundsTest() {
+        // TODO: test sourceOfFunds
     }
 
     /**
-     * Test the property 'street'
+     * Test the property 'coreBusinessActivities'
      */
     @Test
-    public void streetTest() {
-        // TODO: test street
+    public void coreBusinessActivitiesTest() {
+        // TODO: test coreBusinessActivities
     }
 
     /**
-     * Test the property 'addressDescription'
+     * Test the property 'purposeOfOpeningAccount'
      */
     @Test
-    public void addressDescriptionTest() {
-        // TODO: test addressDescription
+    public void purposeOfOpeningAccountTest() {
+        // TODO: test purposeOfOpeningAccount
     }
 
     /**
-     * Test the property 'postalCode'
+     * Test the property 'officePhone'
      */
     @Test
-    public void postalCodeTest() {
-        // TODO: test postalCode
+    public void officePhoneTest() {
+        // TODO: test officePhone
     }
 
     /**
-     * Test the property 'birthDate'
+     * Test the property 'vatRegistrationNumber'
      */
     @Test
-    public void birthDateTest() {
-        // TODO: test birthDate
+    public void vatRegistrationNumberTest() {
+        // TODO: test vatRegistrationNumber
     }
 
     /**
-     * Test the property 'ip'
+     * Test the property 'financialRegulator'
      */
     @Test
-    public void ipTest() {
-        // TODO: test ip
+    public void financialRegulatorTest() {
+        // TODO: test financialRegulator
     }
 
     /**
-     * Test the property 'identificationNumber'
+     * Test the property 'regulatoryLicenceNumber'
      */
     @Test
-    public void identificationNumberTest() {
-        // TODO: test identificationNumber
+    public void regulatoryLicenceNumberTest() {
+        // TODO: test regulatoryLicenceNumber
     }
 
     /**
-     * Test the property 'identificationType'
+     * Test the property 'contactPersonEmail'
      */
     @Test
-    public void identificationTypeTest() {
-        // TODO: test identificationType
+    public void contactPersonEmailTest() {
+        // TODO: test contactPersonEmail
+    }
+
+    /**
+     * Test the property 'tradingCountry'
+     */
+    @Test
+    public void tradingCountryTest() {
+        // TODO: test tradingCountry
+    }
+
+    /**
+     * Test the property 'tradingAddress'
+     */
+    @Test
+    public void tradingAddressTest() {
+        // TODO: test tradingAddress
+    }
+
+    /**
+     * Test the property 'numberMonthlyTransactions'
+     */
+    @Test
+    public void numberMonthlyTransactionsTest() {
+        // TODO: test numberMonthlyTransactions
+    }
+
+    /**
+     * Test the property 'amountMonthlyTransactions'
+     */
+    @Test
+    public void amountMonthlyTransactionsTest() {
+        // TODO: test amountMonthlyTransactions
     }
 
     /**
@@ -242,19 +363,27 @@ public class SenderTest {
     }
 
     /**
-     * Test the property 'state'
+     * Test the property 'errors'
      */
     @Test
-    public void stateTest() {
-        // TODO: test state
+    public void errorsTest() {
+        // TODO: test errors
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'onboardingStatus'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void onboardingStatusTest() {
+        // TODO: test onboardingStatus
+    }
+
+    /**
+     * Test the property 'politicallyExposedPeople'
+     */
+    @Test
+    public void politicallyExposedPeopleTest() {
+        // TODO: test politicallyExposedPeople
     }
 
     /**
@@ -263,14 +392,6 @@ public class SenderTest {
     @Test
     public void externalIdTest() {
         // TODO: test externalId
-    }
-
-    /**
-     * Test the property 'errors'
-     */
-    @Test
-    public void errorsTest() {
-        // TODO: test errors
     }
 
 }
