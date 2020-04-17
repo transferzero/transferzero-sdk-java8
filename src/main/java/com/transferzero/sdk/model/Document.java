@@ -38,6 +38,10 @@ public class Document {
   @SerializedName(SERIALIZED_NAME_UPLOAD)
   private String upload;
 
+  public static final String SERIALIZED_NAME_URL = "url";
+  @SerializedName(SERIALIZED_NAME_URL)
+  private String url;
+
   public static final String SERIALIZED_NAME_UPLOAD_FILE_NAME = "upload_file_name";
   @SerializedName(SERIALIZED_NAME_UPLOAD_FILE_NAME)
   private String uploadFileName;
@@ -141,6 +145,24 @@ public class Document {
 
   public void setUpload(String upload) {
     this.upload = upload;
+  }
+
+  public Document url(String url) {
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * URL of the document location
+   * @return url
+  **/
+  @ApiModelProperty(example = "https://bitpesa-documents.amazonaws.com/document.pdf", value = "URL of the document location")
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
   }
 
   public Document uploadFileName(String uploadFileName) {
@@ -289,6 +311,7 @@ public class Document {
     }
     Document document = (Document) o;
     return Objects.equals(this.upload, document.upload) &&
+        Objects.equals(this.url, document.url) &&
         Objects.equals(this.uploadFileName, document.uploadFileName) &&
         Objects.equals(this.metadata, document.metadata) &&
         Objects.equals(this.uploadContentType, document.uploadContentType) &&
@@ -303,7 +326,7 @@ public class Document {
 
   @Override
   public int hashCode() {
-    return Objects.hash(upload, uploadFileName, metadata, uploadContentType, uploadFileSize, category, side, documentType, issuingCountry, id, errors);
+    return Objects.hash(upload, url, uploadFileName, metadata, uploadContentType, uploadFileSize, category, side, documentType, issuingCountry, id, errors);
   }
 
 
@@ -312,6 +335,7 @@ public class Document {
     StringBuilder sb = new StringBuilder();
     sb.append("class Document {\n");
     sb.append("    upload: ").append(toIndentedString(upload)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    uploadFileName: ").append(toIndentedString(uploadFileName)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    uploadContentType: ").append(toIndentedString(uploadContentType)).append("\n");
