@@ -25,11 +25,11 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_name\&quot;: \&quot;Deutsche Bank\&quot;,   \&quot;iban\&quot;: \&quot;DE89370400440532013000\&quot;,   \&quot;bic\&quot;: \&quot;DEUTDEBBXXX\&quot; // Optional } &#x60;&#x60;&#x60;
+ * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_name\&quot;: \&quot;Deutsche Bank\&quot;,   \&quot;bank_account\&quot;: \&quot;12345678\&quot;, // Required if IBAN is not present   \&quot;sort_code\&quot;: \&quot;123456\&quot;, // Required if bank_account is present   \&quot;iban\&quot;: \&quot;DE89370400440532013000\&quot;, // Required if no bank_account &amp; sort_code   \&quot;bic\&quot;: \&quot;DEUTDEBBXXX\&quot; // Optional } &#x60;&#x60;&#x60;
  */
-@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"bank_name\": \"Deutsche Bank\",   \"iban\": \"DE89370400440532013000\",   \"bic\": \"DEUTDEBBXXX\" // Optional } ```")
+@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"bank_name\": \"Deutsche Bank\",   \"bank_account\": \"12345678\", // Required if IBAN is not present   \"sort_code\": \"123456\", // Required if bank_account is present   \"iban\": \"DE89370400440532013000\", // Required if no bank_account & sort_code   \"bic\": \"DEUTDEBBXXX\" // Optional } ```")
 
-public class PayoutMethodDetailsIBAN {
+public class PayoutMethodDetailsGBPBank {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
@@ -42,6 +42,14 @@ public class PayoutMethodDetailsIBAN {
   @SerializedName(SERIALIZED_NAME_BANK_NAME)
   private String bankName;
 
+  public static final String SERIALIZED_NAME_BANK_ACCOUNT = "bank_account";
+  @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT)
+  private String bankAccount;
+
+  public static final String SERIALIZED_NAME_SORT_CODE = "sort_code";
+  @SerializedName(SERIALIZED_NAME_SORT_CODE)
+  private String sortCode;
+
   public static final String SERIALIZED_NAME_IBAN = "iban";
   @SerializedName(SERIALIZED_NAME_IBAN)
   private String iban;
@@ -50,7 +58,7 @@ public class PayoutMethodDetailsIBAN {
   @SerializedName(SERIALIZED_NAME_BIC)
   private String bic;
 
-  public PayoutMethodDetailsIBAN firstName(String firstName) {
+  public PayoutMethodDetailsGBPBank firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -68,7 +76,7 @@ public class PayoutMethodDetailsIBAN {
     this.firstName = firstName;
   }
 
-  public PayoutMethodDetailsIBAN lastName(String lastName) {
+  public PayoutMethodDetailsGBPBank lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -86,7 +94,7 @@ public class PayoutMethodDetailsIBAN {
     this.lastName = lastName;
   }
 
-  public PayoutMethodDetailsIBAN bankName(String bankName) {
+  public PayoutMethodDetailsGBPBank bankName(String bankName) {
     this.bankName = bankName;
     return this;
   }
@@ -104,7 +112,43 @@ public class PayoutMethodDetailsIBAN {
     this.bankName = bankName;
   }
 
-  public PayoutMethodDetailsIBAN iban(String iban) {
+  public PayoutMethodDetailsGBPBank bankAccount(String bankAccount) {
+    this.bankAccount = bankAccount;
+    return this;
+  }
+
+   /**
+   * Get bankAccount
+   * @return bankAccount
+  **/
+  @ApiModelProperty(value = "")
+  public String getBankAccount() {
+    return bankAccount;
+  }
+
+  public void setBankAccount(String bankAccount) {
+    this.bankAccount = bankAccount;
+  }
+
+  public PayoutMethodDetailsGBPBank sortCode(String sortCode) {
+    this.sortCode = sortCode;
+    return this;
+  }
+
+   /**
+   * Get sortCode
+   * @return sortCode
+  **/
+  @ApiModelProperty(value = "")
+  public String getSortCode() {
+    return sortCode;
+  }
+
+  public void setSortCode(String sortCode) {
+    this.sortCode = sortCode;
+  }
+
+  public PayoutMethodDetailsGBPBank iban(String iban) {
     this.iban = iban;
     return this;
   }
@@ -113,7 +157,7 @@ public class PayoutMethodDetailsIBAN {
    * Get iban
    * @return iban
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getIban() {
     return iban;
   }
@@ -122,7 +166,7 @@ public class PayoutMethodDetailsIBAN {
     this.iban = iban;
   }
 
-  public PayoutMethodDetailsIBAN bic(String bic) {
+  public PayoutMethodDetailsGBPBank bic(String bic) {
     this.bic = bic;
     return this;
   }
@@ -149,27 +193,31 @@ public class PayoutMethodDetailsIBAN {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PayoutMethodDetailsIBAN payoutMethodDetailsIBAN = (PayoutMethodDetailsIBAN) o;
-    return Objects.equals(this.firstName, payoutMethodDetailsIBAN.firstName) &&
-        Objects.equals(this.lastName, payoutMethodDetailsIBAN.lastName) &&
-        Objects.equals(this.bankName, payoutMethodDetailsIBAN.bankName) &&
-        Objects.equals(this.iban, payoutMethodDetailsIBAN.iban) &&
-        Objects.equals(this.bic, payoutMethodDetailsIBAN.bic);
+    PayoutMethodDetailsGBPBank payoutMethodDetailsGBPBank = (PayoutMethodDetailsGBPBank) o;
+    return Objects.equals(this.firstName, payoutMethodDetailsGBPBank.firstName) &&
+        Objects.equals(this.lastName, payoutMethodDetailsGBPBank.lastName) &&
+        Objects.equals(this.bankName, payoutMethodDetailsGBPBank.bankName) &&
+        Objects.equals(this.bankAccount, payoutMethodDetailsGBPBank.bankAccount) &&
+        Objects.equals(this.sortCode, payoutMethodDetailsGBPBank.sortCode) &&
+        Objects.equals(this.iban, payoutMethodDetailsGBPBank.iban) &&
+        Objects.equals(this.bic, payoutMethodDetailsGBPBank.bic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankName, iban, bic);
+    return Objects.hash(firstName, lastName, bankName, bankAccount, sortCode, iban, bic);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PayoutMethodDetailsIBAN {\n");
+    sb.append("class PayoutMethodDetailsGBPBank {\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
+    sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
+    sb.append("    sortCode: ").append(toIndentedString(sortCode)).append("\n");
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
     sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
     sb.append("}");

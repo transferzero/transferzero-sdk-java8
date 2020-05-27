@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **iban** | **String** |  | 
 **bankName** | **String** |  | 
 **bankCountry** | **String** |  | 
+**sortCode** | **String** |  |  [optional]
 **bic** | **String** |  |  [optional]
 **senderIdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **senderIdentityCardId** | **String** |  | 
