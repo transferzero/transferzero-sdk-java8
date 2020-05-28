@@ -54,6 +54,14 @@ public class DocumentTest {
     }
 
     /**
+     * Test the property 'url'
+     */
+    @Test
+    public void urlTest() {
+        // TODO: test url
+    }
+
+    /**
      * Test the property 'uploadFileName'
      */
     @Test
