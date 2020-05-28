@@ -394,4 +394,12 @@ public class SenderTest {
         // TODO: test externalId
     }
 
+    /**
+     * Test the property 'createdAt'
+     */
+    @Test
+    public void createdAtTest() {
+        // TODO: test createdAt
+    }
+
 }
