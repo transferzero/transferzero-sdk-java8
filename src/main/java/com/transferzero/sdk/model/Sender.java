@@ -307,6 +307,10 @@ public class Sender {
   @SerializedName(SERIALIZED_NAME_SOURCE_OF_FUNDS)
   private String sourceOfFunds;
 
+  public static final String SERIALIZED_NAME_CUSTOM_SOURCE_OF_FUNDS = "custom_source_of_funds";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_SOURCE_OF_FUNDS)
+  private String customSourceOfFunds;
+
   public static final String SERIALIZED_NAME_CORE_BUSINESS_ACTIVITIES = "core_business_activities";
   @SerializedName(SERIALIZED_NAME_CORE_BUSINESS_ACTIVITIES)
   private String coreBusinessActivities;
@@ -908,6 +912,24 @@ public class Sender {
     this.sourceOfFunds = sourceOfFunds;
   }
 
+  public Sender customSourceOfFunds(String customSourceOfFunds) {
+    this.customSourceOfFunds = customSourceOfFunds;
+    return this;
+  }
+
+   /**
+   * Custom source of funds
+   * @return customSourceOfFunds
+  **/
+  @ApiModelProperty(value = "Custom source of funds")
+  public String getCustomSourceOfFunds() {
+    return customSourceOfFunds;
+  }
+
+  public void setCustomSourceOfFunds(String customSourceOfFunds) {
+    this.customSourceOfFunds = customSourceOfFunds;
+  }
+
   public Sender coreBusinessActivities(String coreBusinessActivities) {
     this.coreBusinessActivities = coreBusinessActivities;
     return this;
@@ -1317,6 +1339,7 @@ public class Sender {
         Objects.equals(this.registrationNumber, sender.registrationNumber) &&
         Objects.equals(this.natureOfBusiness, sender.natureOfBusiness) &&
         Objects.equals(this.sourceOfFunds, sender.sourceOfFunds) &&
+        Objects.equals(this.customSourceOfFunds, sender.customSourceOfFunds) &&
         Objects.equals(this.coreBusinessActivities, sender.coreBusinessActivities) &&
         Objects.equals(this.purposeOfOpeningAccount, sender.purposeOfOpeningAccount) &&
         Objects.equals(this.officePhone, sender.officePhone) &&
@@ -1342,7 +1365,7 @@ public class Sender {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, coreBusinessActivities, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId, cityOfBirth, countryOfBirth, gender, createdAt);
+    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, customSourceOfFunds, coreBusinessActivities, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId, cityOfBirth, countryOfBirth, gender, createdAt);
   }
 
 
@@ -1376,6 +1399,7 @@ public class Sender {
     sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
     sb.append("    natureOfBusiness: ").append(toIndentedString(natureOfBusiness)).append("\n");
     sb.append("    sourceOfFunds: ").append(toIndentedString(sourceOfFunds)).append("\n");
+    sb.append("    customSourceOfFunds: ").append(toIndentedString(customSourceOfFunds)).append("\n");
     sb.append("    coreBusinessActivities: ").append(toIndentedString(coreBusinessActivities)).append("\n");
     sb.append("    purposeOfOpeningAccount: ").append(toIndentedString(purposeOfOpeningAccount)).append("\n");
     sb.append("    officePhone: ").append(toIndentedString(officePhone)).append("\n");
