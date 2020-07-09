@@ -311,9 +311,9 @@ public class Sender {
   @SerializedName(SERIALIZED_NAME_CUSTOM_SOURCE_OF_FUNDS)
   private String customSourceOfFunds;
 
-  public static final String SERIALIZED_NAME_CORE_BUSINESS_ACTIVITIES = "core_business_activities";
-  @SerializedName(SERIALIZED_NAME_CORE_BUSINESS_ACTIVITIES)
-  private String coreBusinessActivities;
+  public static final String SERIALIZED_NAME_CORE_BUSINESS_ACTIVITY = "core_business_activity";
+  @SerializedName(SERIALIZED_NAME_CORE_BUSINESS_ACTIVITY)
+  private String coreBusinessActivity;
 
   public static final String SERIALIZED_NAME_PURPOSE_OF_OPENING_ACCOUNT = "purpose_of_opening_account";
   @SerializedName(SERIALIZED_NAME_PURPOSE_OF_OPENING_ACCOUNT)
@@ -930,22 +930,22 @@ public class Sender {
     this.customSourceOfFunds = customSourceOfFunds;
   }
 
-  public Sender coreBusinessActivities(String coreBusinessActivities) {
-    this.coreBusinessActivities = coreBusinessActivities;
+  public Sender coreBusinessActivity(String coreBusinessActivity) {
+    this.coreBusinessActivity = coreBusinessActivity;
     return this;
   }
 
    /**
-   * The core activities (used only with a Business sender)
-   * @return coreBusinessActivities
+   * The core activity (used only with a Business sender)
+   * @return coreBusinessActivity
   **/
-  @ApiModelProperty(value = "The core activities (used only with a Business sender)")
-  public String getCoreBusinessActivities() {
-    return coreBusinessActivities;
+  @ApiModelProperty(value = "The core activity (used only with a Business sender)")
+  public String getCoreBusinessActivity() {
+    return coreBusinessActivity;
   }
 
-  public void setCoreBusinessActivities(String coreBusinessActivities) {
-    this.coreBusinessActivities = coreBusinessActivities;
+  public void setCoreBusinessActivity(String coreBusinessActivity) {
+    this.coreBusinessActivity = coreBusinessActivity;
   }
 
   public Sender purposeOfOpeningAccount(String purposeOfOpeningAccount) {
@@ -1340,7 +1340,7 @@ public class Sender {
         Objects.equals(this.natureOfBusiness, sender.natureOfBusiness) &&
         Objects.equals(this.sourceOfFunds, sender.sourceOfFunds) &&
         Objects.equals(this.customSourceOfFunds, sender.customSourceOfFunds) &&
-        Objects.equals(this.coreBusinessActivities, sender.coreBusinessActivities) &&
+        Objects.equals(this.coreBusinessActivity, sender.coreBusinessActivity) &&
         Objects.equals(this.purposeOfOpeningAccount, sender.purposeOfOpeningAccount) &&
         Objects.equals(this.officePhone, sender.officePhone) &&
         Objects.equals(this.vatRegistrationNumber, sender.vatRegistrationNumber) &&
@@ -1365,7 +1365,7 @@ public class Sender {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, customSourceOfFunds, coreBusinessActivities, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId, cityOfBirth, countryOfBirth, gender, createdAt);
+    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, customSourceOfFunds, coreBusinessActivity, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId, cityOfBirth, countryOfBirth, gender, createdAt);
   }
 
 
@@ -1400,7 +1400,7 @@ public class Sender {
     sb.append("    natureOfBusiness: ").append(toIndentedString(natureOfBusiness)).append("\n");
     sb.append("    sourceOfFunds: ").append(toIndentedString(sourceOfFunds)).append("\n");
     sb.append("    customSourceOfFunds: ").append(toIndentedString(customSourceOfFunds)).append("\n");
-    sb.append("    coreBusinessActivities: ").append(toIndentedString(coreBusinessActivities)).append("\n");
+    sb.append("    coreBusinessActivity: ").append(toIndentedString(coreBusinessActivity)).append("\n");
     sb.append("    purposeOfOpeningAccount: ").append(toIndentedString(purposeOfOpeningAccount)).append("\n");
     sb.append("    officePhone: ").append(toIndentedString(officePhone)).append("\n");
     sb.append("    vatRegistrationNumber: ").append(toIndentedString(vatRegistrationNumber)).append("\n");
