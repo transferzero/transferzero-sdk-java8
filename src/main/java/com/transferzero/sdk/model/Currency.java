@@ -62,6 +62,10 @@ public class Currency {
   @SerializedName(SERIALIZED_NAME_MAX)
   private String max;
 
+  public static final String SERIALIZED_NAME_MARGIN = "margin";
+  @SerializedName(SERIALIZED_NAME_MARGIN)
+  private String margin;
+
   public static final String SERIALIZED_NAME_USD_EQUIVALENT = "usd_equivalent";
   @SerializedName(SERIALIZED_NAME_USD_EQUIVALENT)
   private String usdEquivalent;
@@ -139,6 +143,15 @@ public class Currency {
   }
 
    /**
+   * The margin set for transactions in this currency
+   * @return margin
+  **/
+  @ApiModelProperty(value = "The margin set for transactions in this currency")
+  public String getMargin() {
+    return margin;
+  }
+
+   /**
    * The equivalent of the currency to 1 USD
    * @return usdEquivalent
   **/
@@ -165,12 +178,13 @@ public class Currency {
         Objects.equals(this.primary, currency.primary) &&
         Objects.equals(this.min, currency.min) &&
         Objects.equals(this.max, currency.max) &&
+        Objects.equals(this.margin, currency.margin) &&
         Objects.equals(this.usdEquivalent, currency.usdEquivalent);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, name, symbol, decimals, subunitToUnit, primary, min, max, usdEquivalent);
+    return Objects.hash(code, name, symbol, decimals, subunitToUnit, primary, min, max, margin, usdEquivalent);
   }
 
 
@@ -186,6 +200,7 @@ public class Currency {
     sb.append("    primary: ").append(toIndentedString(primary)).append("\n");
     sb.append("    min: ").append(toIndentedString(min)).append("\n");
     sb.append("    max: ").append(toIndentedString(max)).append("\n");
+    sb.append("    margin: ").append(toIndentedString(margin)).append("\n");
     sb.append("    usdEquivalent: ").append(toIndentedString(usdEquivalent)).append("\n");
     sb.append("}");
     return sb.toString();

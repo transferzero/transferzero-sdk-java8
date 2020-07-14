@@ -66,6 +66,10 @@ public class CurrencyExchange {
   @SerializedName(SERIALIZED_NAME_MAX)
   private String max;
 
+  public static final String SERIALIZED_NAME_MARGIN = "margin";
+  @SerializedName(SERIALIZED_NAME_MARGIN)
+  private String margin;
+
   public static final String SERIALIZED_NAME_USD_EQUIVALENT = "usd_equivalent";
   @SerializedName(SERIALIZED_NAME_USD_EQUIVALENT)
   private String usdEquivalent;
@@ -147,6 +151,15 @@ public class CurrencyExchange {
   }
 
    /**
+   * The margin set for transactions in this currency
+   * @return margin
+  **/
+  @ApiModelProperty(value = "The margin set for transactions in this currency")
+  public String getMargin() {
+    return margin;
+  }
+
+   /**
    * The equivalent of the currency to 1 USD
    * @return usdEquivalent
   **/
@@ -182,13 +195,14 @@ public class CurrencyExchange {
         Objects.equals(this.primary, currencyExchange.primary) &&
         Objects.equals(this.min, currencyExchange.min) &&
         Objects.equals(this.max, currencyExchange.max) &&
+        Objects.equals(this.margin, currencyExchange.margin) &&
         Objects.equals(this.usdEquivalent, currencyExchange.usdEquivalent) &&
         Objects.equals(this.opposites, currencyExchange.opposites);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, name, symbol, decimals, subunitToUnit, primary, min, max, usdEquivalent, opposites);
+    return Objects.hash(code, name, symbol, decimals, subunitToUnit, primary, min, max, margin, usdEquivalent, opposites);
   }
 
 
@@ -204,6 +218,7 @@ public class CurrencyExchange {
     sb.append("    primary: ").append(toIndentedString(primary)).append("\n");
     sb.append("    min: ").append(toIndentedString(min)).append("\n");
     sb.append("    max: ").append(toIndentedString(max)).append("\n");
+    sb.append("    margin: ").append(toIndentedString(margin)).append("\n");
     sb.append("    usdEquivalent: ").append(toIndentedString(usdEquivalent)).append("\n");
     sb.append("    opposites: ").append(toIndentedString(opposites)).append("\n");
     sb.append("}");
