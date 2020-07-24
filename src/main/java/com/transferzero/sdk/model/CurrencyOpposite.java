@@ -63,6 +63,10 @@ public class CurrencyOpposite {
   @SerializedName(SERIALIZED_NAME_MAX)
   private String max;
 
+  public static final String SERIALIZED_NAME_MARGIN = "margin";
+  @SerializedName(SERIALIZED_NAME_MARGIN)
+  private String margin;
+
   public static final String SERIALIZED_NAME_USD_EQUIVALENT = "usd_equivalent";
   @SerializedName(SERIALIZED_NAME_USD_EQUIVALENT)
   private String usdEquivalent;
@@ -74,10 +78,6 @@ public class CurrencyOpposite {
   public static final String SERIALIZED_NAME_MTM_RATE = "mtm_rate";
   @SerializedName(SERIALIZED_NAME_MTM_RATE)
   private BigDecimal mtmRate;
-
-  public static final String SERIALIZED_NAME_MARGIN = "margin";
-  @SerializedName(SERIALIZED_NAME_MARGIN)
-  private String margin;
 
    /**
    * The currency code in 3-character alpha ISO 4217 currency format
@@ -152,6 +152,15 @@ public class CurrencyOpposite {
   }
 
    /**
+   * The margin set for transactions in this currency
+   * @return margin
+  **/
+  @ApiModelProperty(value = "The margin set for transactions in this currency")
+  public String getMargin() {
+    return margin;
+  }
+
+   /**
    * The equivalent of the currency to 1 USD
    * @return usdEquivalent
   **/
@@ -178,15 +187,6 @@ public class CurrencyOpposite {
     return mtmRate;
   }
 
-   /**
-   * The margin set for transactions of this particular currency with the base one
-   * @return margin
-  **/
-  @ApiModelProperty(value = "The margin set for transactions of this particular currency with the base one")
-  public String getMargin() {
-    return margin;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -205,15 +205,15 @@ public class CurrencyOpposite {
         Objects.equals(this.primary, currencyOpposite.primary) &&
         Objects.equals(this.min, currencyOpposite.min) &&
         Objects.equals(this.max, currencyOpposite.max) &&
+        Objects.equals(this.margin, currencyOpposite.margin) &&
         Objects.equals(this.usdEquivalent, currencyOpposite.usdEquivalent) &&
         Objects.equals(this.rate, currencyOpposite.rate) &&
-        Objects.equals(this.mtmRate, currencyOpposite.mtmRate) &&
-        Objects.equals(this.margin, currencyOpposite.margin);
+        Objects.equals(this.mtmRate, currencyOpposite.mtmRate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, name, symbol, decimals, subunitToUnit, primary, min, max, usdEquivalent, rate, mtmRate, margin);
+    return Objects.hash(code, name, symbol, decimals, subunitToUnit, primary, min, max, margin, usdEquivalent, rate, mtmRate);
   }
 
 
@@ -229,10 +229,10 @@ public class CurrencyOpposite {
     sb.append("    primary: ").append(toIndentedString(primary)).append("\n");
     sb.append("    min: ").append(toIndentedString(min)).append("\n");
     sb.append("    max: ").append(toIndentedString(max)).append("\n");
+    sb.append("    margin: ").append(toIndentedString(margin)).append("\n");
     sb.append("    usdEquivalent: ").append(toIndentedString(usdEquivalent)).append("\n");
     sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
     sb.append("    mtmRate: ").append(toIndentedString(mtmRate)).append("\n");
-    sb.append("    margin: ").append(toIndentedString(margin)).append("\n");
     sb.append("}");
     return sb.toString();
   }
