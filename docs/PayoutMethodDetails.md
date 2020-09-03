@@ -29,6 +29,10 @@ Name | Type | Description | Notes
 **reference** | **String** |  |  [optional]
 **name** | **String** |  | 
 **address** | **String** |  | 
+**street** | **String** |  | 
+**postalCode** | **String** |  | 
+**city** | **String** |  | 
+**transferReasonCode** | **String** |  |  [optional]
 
 
 

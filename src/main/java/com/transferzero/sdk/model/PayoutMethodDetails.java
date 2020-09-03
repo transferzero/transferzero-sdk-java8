@@ -31,6 +31,7 @@ import com.transferzero.sdk.model.PayoutMethodDetailsMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsNGNBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFMobile;
+import com.transferzero.sdk.model.PayoutMethodDetailsZARBank;
 import com.transferzero.sdk.model.PayoutMethodGenderEnum;
 import com.transferzero.sdk.model.PayoutMethodIdentityCardTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
@@ -134,6 +135,22 @@ public class PayoutMethodDetails {
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private String address;
+
+  public static final String SERIALIZED_NAME_STREET = "street";
+  @SerializedName(SERIALIZED_NAME_STREET)
+  private String street;
+
+  public static final String SERIALIZED_NAME_POSTAL_CODE = "postal_code";
+  @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
+  private String postalCode;
+
+  public static final String SERIALIZED_NAME_CITY = "city";
+  @SerializedName(SERIALIZED_NAME_CITY)
+  private String city;
+
+  public static final String SERIALIZED_NAME_TRANSFER_REASON_CODE = "transfer_reason_code";
+  @SerializedName(SERIALIZED_NAME_TRANSFER_REASON_CODE)
+  private String transferReasonCode;
 
   public PayoutMethodDetails firstName(String firstName) {
     this.firstName = firstName;
@@ -549,6 +566,78 @@ public class PayoutMethodDetails {
     this.address = address;
   }
 
+  public PayoutMethodDetails street(String street) {
+    this.street = street;
+    return this;
+  }
+
+   /**
+   * Get street
+   * @return street
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getStreet() {
+    return street;
+  }
+
+  public void setStreet(String street) {
+    this.street = street;
+  }
+
+  public PayoutMethodDetails postalCode(String postalCode) {
+    this.postalCode = postalCode;
+    return this;
+  }
+
+   /**
+   * Get postalCode
+   * @return postalCode
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getPostalCode() {
+    return postalCode;
+  }
+
+  public void setPostalCode(String postalCode) {
+    this.postalCode = postalCode;
+  }
+
+  public PayoutMethodDetails city(String city) {
+    this.city = city;
+    return this;
+  }
+
+   /**
+   * Get city
+   * @return city
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getCity() {
+    return city;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+  public PayoutMethodDetails transferReasonCode(String transferReasonCode) {
+    this.transferReasonCode = transferReasonCode;
+    return this;
+  }
+
+   /**
+   * Get transferReasonCode
+   * @return transferReasonCode
+  **/
+  @ApiModelProperty(value = "")
+  public String getTransferReasonCode() {
+    return transferReasonCode;
+  }
+
+  public void setTransferReasonCode(String transferReasonCode) {
+    this.transferReasonCode = transferReasonCode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -581,12 +670,16 @@ public class PayoutMethodDetails {
         Objects.equals(this.identityCardId, payoutMethodDetails.identityCardId) &&
         Objects.equals(this.reference, payoutMethodDetails.reference) &&
         Objects.equals(this.name, payoutMethodDetails.name) &&
-        Objects.equals(this.address, payoutMethodDetails.address);
+        Objects.equals(this.address, payoutMethodDetails.address) &&
+        Objects.equals(this.street, payoutMethodDetails.street) &&
+        Objects.equals(this.postalCode, payoutMethodDetails.postalCode) &&
+        Objects.equals(this.city, payoutMethodDetails.city) &&
+        Objects.equals(this.transferReasonCode, payoutMethodDetails.transferReasonCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, iban, bankName, bankCountry, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, iban, bankName, bankCountry, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, transferReasonCode);
   }
 
 
@@ -617,6 +710,10 @@ public class PayoutMethodDetails {
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    street: ").append(toIndentedString(street)).append("\n");
+    sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
+    sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    transferReasonCode: ").append(toIndentedString(transferReasonCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
