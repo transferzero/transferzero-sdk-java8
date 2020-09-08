@@ -148,6 +148,10 @@ public class PayoutMethodDetails {
   @SerializedName(SERIALIZED_NAME_CITY)
   private String city;
 
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
+
   public static final String SERIALIZED_NAME_TRANSFER_REASON_CODE = "transfer_reason_code";
   @SerializedName(SERIALIZED_NAME_TRANSFER_REASON_CODE)
   private String transferReasonCode;
@@ -620,6 +624,24 @@ public class PayoutMethodDetails {
     this.city = city;
   }
 
+  public PayoutMethodDetails email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @ApiModelProperty(value = "")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
   public PayoutMethodDetails transferReasonCode(String transferReasonCode) {
     this.transferReasonCode = transferReasonCode;
     return this;
@@ -674,12 +696,13 @@ public class PayoutMethodDetails {
         Objects.equals(this.street, payoutMethodDetails.street) &&
         Objects.equals(this.postalCode, payoutMethodDetails.postalCode) &&
         Objects.equals(this.city, payoutMethodDetails.city) &&
+        Objects.equals(this.email, payoutMethodDetails.email) &&
         Objects.equals(this.transferReasonCode, payoutMethodDetails.transferReasonCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, iban, bankName, bankCountry, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, transferReasonCode);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, iban, bankName, bankCountry, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, transferReasonCode);
   }
 
 
@@ -713,6 +736,7 @@ public class PayoutMethodDetails {
     sb.append("    street: ").append(toIndentedString(street)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    transferReasonCode: ").append(toIndentedString(transferReasonCode)).append("\n");
     sb.append("}");
     return sb.toString();

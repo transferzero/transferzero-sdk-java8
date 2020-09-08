@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **street** | **String** |  | 
 **postalCode** | **String** |  | 
 **city** | **String** |  | 
+**email** | **String** |  |  [optional]
 **transferReasonCode** | **String** |  |  [optional]
 
 

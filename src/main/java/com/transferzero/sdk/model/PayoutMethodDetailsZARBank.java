@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;postal_code\&quot;: \&quot;AB0001\&quot;,     \&quot;city\&quot;: \&quot;Cape Town\&quot;,     \&quot;bank_code\&quot;: \&quot;334810\&quot;,     \&quot;bank_account\&quot;: \&quot;12345678\&quot;,     \&quot;phone_number\&quot;: \&quot;+27119785313\&quot;,     \&quot;transfer_reason_code\&quot;: \&quot;185\&quot;   } &#x60;&#x60;&#x60;  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason_code lists
+ * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;postal_code\&quot;: \&quot;AB0001\&quot;,     \&quot;city\&quot;: \&quot;Cape Town\&quot;,     \&quot;email\&quot;: \&quot;recipient@email.com\&quot;,     \&quot;bank_code\&quot;: \&quot;334810\&quot;,     \&quot;bank_account\&quot;: \&quot;12345678\&quot;,     \&quot;phone_number\&quot;: \&quot;+27119785313\&quot;,     \&quot;transfer_reason_code\&quot;: \&quot;185\&quot;   } &#x60;&#x60;&#x60;  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason_code lists
  */
-@ApiModel(description = "```JSON   \"details\": {     \"first_name\": \"First\",     \"last_name\": \"Last\",     \"street\": \"Main Street\",     \"postal_code\": \"AB0001\",     \"city\": \"Cape Town\",     \"bank_code\": \"334810\",     \"bank_account\": \"12345678\",     \"phone_number\": \"+27119785313\",     \"transfer_reason_code\": \"185\"   } ```  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason_code lists")
+@ApiModel(description = "```JSON   \"details\": {     \"first_name\": \"First\",     \"last_name\": \"Last\",     \"street\": \"Main Street\",     \"postal_code\": \"AB0001\",     \"city\": \"Cape Town\",     \"email\": \"recipient@email.com\",     \"bank_code\": \"334810\",     \"bank_account\": \"12345678\",     \"phone_number\": \"+27119785313\",     \"transfer_reason_code\": \"185\"   } ```  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason_code lists")
 
 public class PayoutMethodDetailsZARBank {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
@@ -49,6 +49,10 @@ public class PayoutMethodDetailsZARBank {
   public static final String SERIALIZED_NAME_CITY = "city";
   @SerializedName(SERIALIZED_NAME_CITY)
   private String city;
+
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
 
   public static final String SERIALIZED_NAME_BANK_CODE = "bank_code";
   @SerializedName(SERIALIZED_NAME_BANK_CODE)
@@ -156,6 +160,24 @@ public class PayoutMethodDetailsZARBank {
     this.city = city;
   }
 
+  public PayoutMethodDetailsZARBank email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @ApiModelProperty(value = "")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
   public PayoutMethodDetailsZARBank bankCode(String bankCode) {
     this.bankCode = bankCode;
     return this;
@@ -243,6 +265,7 @@ public class PayoutMethodDetailsZARBank {
         Objects.equals(this.street, payoutMethodDetailsZARBank.street) &&
         Objects.equals(this.postalCode, payoutMethodDetailsZARBank.postalCode) &&
         Objects.equals(this.city, payoutMethodDetailsZARBank.city) &&
+        Objects.equals(this.email, payoutMethodDetailsZARBank.email) &&
         Objects.equals(this.bankCode, payoutMethodDetailsZARBank.bankCode) &&
         Objects.equals(this.bankAccount, payoutMethodDetailsZARBank.bankAccount) &&
         Objects.equals(this.phoneNumber, payoutMethodDetailsZARBank.phoneNumber) &&
@@ -251,7 +274,7 @@ public class PayoutMethodDetailsZARBank {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, street, postalCode, city, bankCode, bankAccount, phoneNumber, transferReasonCode);
+    return Objects.hash(firstName, lastName, street, postalCode, city, email, bankCode, bankAccount, phoneNumber, transferReasonCode);
   }
 
 
@@ -264,6 +287,7 @@ public class PayoutMethodDetailsZARBank {
     sb.append("    street: ").append(toIndentedString(street)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
