@@ -58,4 +58,12 @@ public class CurrencyOppositeTest {
         // TODO: test mtmRate
     }
 
+    /**
+     * Test the property 'margin'
+     */
+    @Test
+    public void marginTest() {
+        // TODO: test margin
+    }
+
 }

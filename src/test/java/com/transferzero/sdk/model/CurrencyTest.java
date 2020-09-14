@@ -106,14 +106,6 @@ public class CurrencyTest {
     }
 
     /**
-     * Test the property 'margin'
-     */
-    @Test
-    public void marginTest() {
-        // TODO: test margin
-    }
-
-    /**
      * Test the property 'usdEquivalent'
      */
     @Test

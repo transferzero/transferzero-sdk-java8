@@ -81,6 +81,14 @@ public class PayoutMethodDetailsZARBankTest {
     }
 
     /**
+     * Test the property 'email'
+     */
+    @Test
+    public void emailTest() {
+        // TODO: test email
+    }
+
+    /**
      * Test the property 'bankCode'
      */
     @Test

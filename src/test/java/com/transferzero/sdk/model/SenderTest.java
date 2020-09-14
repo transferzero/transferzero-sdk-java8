@@ -259,11 +259,19 @@ public class SenderTest {
     }
 
     /**
-     * Test the property 'coreBusinessActivities'
+     * Test the property 'customSourceOfFunds'
      */
     @Test
-    public void coreBusinessActivitiesTest() {
-        // TODO: test coreBusinessActivities
+    public void customSourceOfFundsTest() {
+        // TODO: test customSourceOfFunds
+    }
+
+    /**
+     * Test the property 'coreBusinessActivity'
+     */
+    @Test
+    public void coreBusinessActivityTest() {
+        // TODO: test coreBusinessActivity
     }
 
     /**
@@ -392,6 +400,30 @@ public class SenderTest {
     @Test
     public void externalIdTest() {
         // TODO: test externalId
+    }
+
+    /**
+     * Test the property 'cityOfBirth'
+     */
+    @Test
+    public void cityOfBirthTest() {
+        // TODO: test cityOfBirth
+    }
+
+    /**
+     * Test the property 'countryOfBirth'
+     */
+    @Test
+    public void countryOfBirthTest() {
+        // TODO: test countryOfBirth
+    }
+
+    /**
+     * Test the property 'gender'
+     */
+    @Test
+    public void genderTest() {
+        // TODO: test gender
     }
 
     /**
