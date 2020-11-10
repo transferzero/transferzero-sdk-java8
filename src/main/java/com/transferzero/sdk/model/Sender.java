@@ -35,9 +35,9 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * This contains the details of the sender. The first time a specific sender is used the full details should be provided. Once a sender is created and is used, the next time you MUST only send the ID of the sender. This is so we can match the same sender across multiple transactions for KYC and audit purposes.  Personal Sender Example: &#x60;&#x60;&#x60;json {   \&quot;country\&quot;: \&quot;UG\&quot;,   \&quot;phone_country\&quot;: \&quot;UG\&quot;,   \&quot;phone_number\&quot;: \&quot;752403639\&quot;,   \&quot;email\&quot;: \&quot;example@home.org\&quot;,   \&quot;first_name\&quot;: \&quot;Johnny\&quot;,   \&quot;last_name\&quot;: \&quot;English\&quot;,   \&quot;city\&quot;: \&quot;Kampala\&quot;,   \&quot;street\&quot;: \&quot;Unknown 17-3\&quot;,   \&quot;address_description\&quot;: \&quot;Description of address\&quot;,   \&quot;postal_code\&quot;: \&quot;798983\&quot;,   \&quot;birth_date\&quot;: \&quot;1900-12-31\&quot;,   \&quot;city_of_birth\&quot;: \&quot;London\&quot;,   \&quot;country_of_birth\&quot;: \&quot;GB\&quot;,   \&quot;gender\&quot;: \&quot;M\&quot;,   \&quot;documents\&quot;: [ ],   \&quot;politically_exposed_people\&quot;: [ ],   \&quot;ip\&quot;: \&quot;127.0.0.1\&quot;,   \&quot;identification_number\&quot;: \&quot;AB123456\&quot;,   \&quot;identification_type\&quot;: \&quot;ID\&quot;,   \&quot;external_id\&quot;: \&quot;806ec63a-a5a7-43cc-9d75-1ee74fbcc026\&quot;,   \&quot;created_at\&quot;: \&quot;2018-06-09 15:13:40 UTC\&quot;,   \&quot;metadata\&quot;: { } } &#x60;&#x60;&#x60;  Business Sender Example:  &#x60;&#x60;&#x60;json {   \&quot;type\&quot;: \&quot;business\&quot;,   \&quot;country\&quot;: \&quot;UG\&quot;,   \&quot;phone_country\&quot;: \&quot;UG\&quot;,   \&quot;phone_number\&quot;: \&quot;752403639\&quot;,   \&quot;email\&quot;: \&quot;example@home.org\&quot;,   \&quot;name\&quot;: \&quot;MyCompany\&quot;,   \&quot;city\&quot;: \&quot;Kampala\&quot;,   \&quot;street\&quot;: \&quot;Unknown 17-3\&quot;,   \&quot;postal_code\&quot;: \&quot;798983\&quot;,   \&quot;address_description\&quot;: \&quot;Description of address\&quot;,   \&quot;documents\&quot;: [ ],   \&quot;politically_exposed_people\&quot;: [ ],   \&quot;ip\&quot;: \&quot;127.0.0.1\&quot;,   \&quot;identification_number\&quot;: \&quot;AB123456\&quot;,   \&quot;identification_type\&quot;: \&quot;ID\&quot;,   \&quot;external_id\&quot;: \&quot;806ec63a-a5a7-43cc-9d75-1ee74fbcc026\&quot;,   \&quot;metadata\&quot;: { } } &#x60;&#x60;&#x60;  [Sender in the API documentation](https://docs.transferzero.com/docs/transaction-flow/#sender)
+ * This contains the details of the sender. The first time a specific sender is used the full details should be provided. Once a sender is created and is used, the next time you MUST only send the ID of the sender. This is so we can match the same sender across multiple transactions for KYC and audit purposes.  Personal Sender Example: &#x60;&#x60;&#x60;json {   // name   \&quot;first_name\&quot;: \&quot;Jane\&quot;,   \&quot;last_name\&quot;: \&quot;Doe\&quot;,    // address   \&quot;country\&quot;: \&quot;US\&quot;,   \&quot;city\&quot;: \&quot;New York\&quot;,   \&quot;street\&quot;: \&quot;20 W 34th St\&quot;,   \&quot;postal_code\&quot;: \&quot;10001\&quot;,   \&quot;address_description\&quot;: \&quot;\&quot;,    // DOB   \&quot;birth_date\&quot;: \&quot;1974-12-24\&quot;,    // Contact Details; You can usually use your company&#39;s contact details here   \&quot;phone_country\&quot;: \&quot;US\&quot;,   \&quot;phone_number\&quot;: \&quot;5555551234\&quot;,   \&quot;email\&quot;: \&quot;info@transferzero.com\&quot;,    // ID of the sender in your system   \&quot;external_id\&quot;: \&quot;Sender:US:234523\&quot;,    // these fields are mandatory, but you can usually leave them with the following default values:   \&quot;documents\&quot;: [ ],   \&quot;ip\&quot;: \&quot;127.0.0.1\&quot;,   \&quot;metadata\&quot;: {} } &#x60;&#x60;&#x60;  Business Sender Example:  &#x60;&#x60;&#x60;json {   \&quot;type\&quot;: \&quot;business\&quot;,   \&quot;name\&quot;: \&quot;Company name\&quot;,    // Country of Incorporation   \&quot;country\&quot;: \&quot;US\&quot;,    // Trading address of the company   \&quot;trading_country\&quot;: \&quot;US\&quot;,   \&quot;city\&quot;: \&quot;New York\&quot;,   \&quot;street\&quot;: \&quot;20 W 34th St\&quot;,   \&quot;postal_code\&quot;: \&quot;10001\&quot;,   \&quot;address_description\&quot;: \&quot;\&quot;,    // Company Details   \&quot;legal_entity_type\&quot;: \&quot;privately_owned_company\&quot;,   \&quot;registration_date\&quot;: \&quot;2012-01-25\&quot;,   \&quot;registration_number\&quot;: \&quot;VAT1234567\&quot;,   \&quot;nature_of_business\&quot;: \&quot;retail_trade\&quot;,    // Contact Details   \&quot;phone_country\&quot;: \&quot;US\&quot;,   \&quot;phone_number\&quot;: \&quot;5555551234\&quot;,   \&quot;email\&quot;: \&quot;example@home.org\&quot;,    // ID of the sender in your system   \&quot;external_id\&quot;: \&quot;Sender:Business:US:234523\&quot;,    // these fields are mandatory, but you can usually leave them with the following default values:   \&quot;documents\&quot;: [ ],   \&quot;ip\&quot;: \&quot;127.0.0.1\&quot;,   \&quot;metadata\&quot;: {} } &#x60;&#x60;&#x60;  [Sender in the API documentation](https://docs.transferzero.com/docs/transaction-flow/#sender)
  */
-@ApiModel(description = "This contains the details of the sender. The first time a specific sender is used the full details should be provided. Once a sender is created and is used, the next time you MUST only send the ID of the sender. This is so we can match the same sender across multiple transactions for KYC and audit purposes.  Personal Sender Example: ```json {   \"country\": \"UG\",   \"phone_country\": \"UG\",   \"phone_number\": \"752403639\",   \"email\": \"example@home.org\",   \"first_name\": \"Johnny\",   \"last_name\": \"English\",   \"city\": \"Kampala\",   \"street\": \"Unknown 17-3\",   \"address_description\": \"Description of address\",   \"postal_code\": \"798983\",   \"birth_date\": \"1900-12-31\",   \"city_of_birth\": \"London\",   \"country_of_birth\": \"GB\",   \"gender\": \"M\",   \"documents\": [ ],   \"politically_exposed_people\": [ ],   \"ip\": \"127.0.0.1\",   \"identification_number\": \"AB123456\",   \"identification_type\": \"ID\",   \"external_id\": \"806ec63a-a5a7-43cc-9d75-1ee74fbcc026\",   \"created_at\": \"2018-06-09 15:13:40 UTC\",   \"metadata\": { } } ```  Business Sender Example:  ```json {   \"type\": \"business\",   \"country\": \"UG\",   \"phone_country\": \"UG\",   \"phone_number\": \"752403639\",   \"email\": \"example@home.org\",   \"name\": \"MyCompany\",   \"city\": \"Kampala\",   \"street\": \"Unknown 17-3\",   \"postal_code\": \"798983\",   \"address_description\": \"Description of address\",   \"documents\": [ ],   \"politically_exposed_people\": [ ],   \"ip\": \"127.0.0.1\",   \"identification_number\": \"AB123456\",   \"identification_type\": \"ID\",   \"external_id\": \"806ec63a-a5a7-43cc-9d75-1ee74fbcc026\",   \"metadata\": { } } ```  [Sender in the API documentation](https://docs.transferzero.com/docs/transaction-flow/#sender)")
+@ApiModel(description = "This contains the details of the sender. The first time a specific sender is used the full details should be provided. Once a sender is created and is used, the next time you MUST only send the ID of the sender. This is so we can match the same sender across multiple transactions for KYC and audit purposes.  Personal Sender Example: ```json {   // name   \"first_name\": \"Jane\",   \"last_name\": \"Doe\",    // address   \"country\": \"US\",   \"city\": \"New York\",   \"street\": \"20 W 34th St\",   \"postal_code\": \"10001\",   \"address_description\": \"\",    // DOB   \"birth_date\": \"1974-12-24\",    // Contact Details; You can usually use your company's contact details here   \"phone_country\": \"US\",   \"phone_number\": \"5555551234\",   \"email\": \"info@transferzero.com\",    // ID of the sender in your system   \"external_id\": \"Sender:US:234523\",    // these fields are mandatory, but you can usually leave them with the following default values:   \"documents\": [ ],   \"ip\": \"127.0.0.1\",   \"metadata\": {} } ```  Business Sender Example:  ```json {   \"type\": \"business\",   \"name\": \"Company name\",    // Country of Incorporation   \"country\": \"US\",    // Trading address of the company   \"trading_country\": \"US\",   \"city\": \"New York\",   \"street\": \"20 W 34th St\",   \"postal_code\": \"10001\",   \"address_description\": \"\",    // Company Details   \"legal_entity_type\": \"privately_owned_company\",   \"registration_date\": \"2012-01-25\",   \"registration_number\": \"VAT1234567\",   \"nature_of_business\": \"retail_trade\",    // Contact Details   \"phone_country\": \"US\",   \"phone_number\": \"5555551234\",   \"email\": \"example@home.org\",    // ID of the sender in your system   \"external_id\": \"Sender:Business:US:234523\",    // these fields are mandatory, but you can usually leave them with the following default values:   \"documents\": [ ],   \"ip\": \"127.0.0.1\",   \"metadata\": {} } ```  [Sender in the API documentation](https://docs.transferzero.com/docs/transaction-flow/#sender)")
 
 public class Sender {
   public static final String SERIALIZED_NAME_ID = "id";
@@ -223,7 +223,7 @@ public class Sender {
   private String nationality;
 
   /**
-   * Legal entity type (used only with a Business sender)
+   * Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations &amp; Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select &#x60;financial_institution&#x60; then the fields &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60; and &#x60;regulatory_licence_number&#x60; will be mandatory as well.
    */
   @JsonAdapter(LegalEntityTypeEnum.Adapter.class)
   public enum LegalEntityTypeEnum {
@@ -293,15 +293,130 @@ public class Sender {
 
   public static final String SERIALIZED_NAME_REGISTRATION_DATE = "registration_date";
   @SerializedName(SERIALIZED_NAME_REGISTRATION_DATE)
-  private String registrationDate;
+  private LocalDate registrationDate;
 
   public static final String SERIALIZED_NAME_REGISTRATION_NUMBER = "registration_number";
   @SerializedName(SERIALIZED_NAME_REGISTRATION_NUMBER)
   private String registrationNumber;
 
+  /**
+   * Nature of business options (used only with a Business sender)  Available values:   - personal: Personal   - agriculture_and_hunting: Agriculture and Hunting   - forestry: Forestry   - fishing: Fishing   - agricultural_by_products: Agricultural By-Products   - coal_mining: Coal Mining   - oil_mining: Oil Mining   - iron_ore_mining: Iron Ore Mining   - other_metal_and_diamond_mining: Other Metal and Diamond Mining   - other_mineral_mining: Other Mineral Mining   - manufacturing_of_food_drink_tobacco: Manufacture of Food/Drink/Tobacco   - manufacturing_of_textiles_leather_fur_furniture: Manufacture of Textiles/Leather/Fur/Furniture   - manufacture_of_wooden_products_furniture: Manufacture of Wooden Products/Furniture   - manufacture_of_paper_pulp_allied_products: Manufacture of Paper/Pulp/Allied Products   - manufacture_of_chemicals_medical_petroleum_rubber_plastic_products: Manufacture Of Chemicals Medical Petroleum Rubber Plastic Products   - manufacture_of_pottery_china_glass_stone: Manufacture Of Pottery China Glass Stone   - manufacture_of_iron_steel_non_ferrous_metals_basic_industries: Manufacture Of Iron Steel Non-Ferrous Metals Basic Industries   - manufacture_of_metal_products_electrical_and_scientific_engineering: Manufacture Of Metal Products Electrical And Scientific Engineering   - manufacture_of_jewelry_musical_instruments_toys: Manufacture Of Jewelry Musical Instruments Toys   - electricity_gas_and_water: Electricity, Gas And Water   - construction: Construction   - wholesale_trade: Wholesale Trade   - retail_trade: Retail Trade   - catering_incl_hotels: Catering Incl. Hotels   - transport_storage: Transport Storage   - communications: Communications   - finance_and_holding_companies: Finance And Holding Companies   - insurance: Insurance   - business_services: Business Services   - real_estate_development_investment: Real Estate Development Investment   - central_state_governments: Central State Governments   - community_services_defence_police_prisons_etc: Community Services Defence Police Prisons Etc   - social_services_education_health_care: Social Services Education Health Care   - personal_services_leisure_services: Personal Services - Leisure Services   - personal_services_domestic_laundry_repairs: Personal Services - Domestic Laundry Repairs   - personal_services_embassies_international_organisations: Personal Services - Embassies
+   */
+  @JsonAdapter(NatureOfBusinessEnum.Adapter.class)
+  public enum NatureOfBusinessEnum {
+    PERSONAL("personal"),
+    
+    AGRICULTURE_AND_HUNTING("agriculture_and_hunting"),
+    
+    FORESTRY("forestry"),
+    
+    FISHING("fishing"),
+    
+    AGRICULTURAL_BY_PRODUCTS("agricultural_by_products"),
+    
+    COAL_MINING("coal_mining"),
+    
+    OIL_MINING("oil_mining"),
+    
+    IRON_ORE_MINING("iron_ore_mining"),
+    
+    OTHER_METAL_AND_DIAMOND_MINING("other_metal_and_diamond_mining"),
+    
+    OTHER_MINERAL_MINING("other_mineral_mining"),
+    
+    MANUFACTURING_OF_FOOD_DRINK_TOBACCO("manufacturing_of_food_drink_tobacco"),
+    
+    MANUFACTURING_OF_TEXTILES_LEATHER_FUR_FURNITURE("manufacturing_of_textiles_leather_fur_furniture"),
+    
+    MANUFACTURE_OF_WOODEN_PRODUCTS_FURNITURE("manufacture_of_wooden_products_furniture"),
+    
+    MANUFACTURE_OF_PAPER_PULP_ALLIED_PRODUCTS("manufacture_of_paper_pulp_allied_products"),
+    
+    MANUFACTURE_OF_CHEMICALS_MEDICAL_PETROLEUM_RUBBER_PLASTIC_PRODUCTS("manufacture_of_chemicals_medical_petroleum_rubber_plastic_products"),
+    
+    MANUFACTURE_OF_POTTERY_CHINA_GLASS_STONE("manufacture_of_pottery_china_glass_stone"),
+    
+    MANUFACTURE_OF_IRON_STEEL_NON_FERROUS_METALS_BASIC_INDUSTRIES("manufacture_of_iron_steel_non_ferrous_metals_basic_industries"),
+    
+    MANUFACTURE_OF_METAL_PRODUCTS_ELECTRICAL_AND_SCIENTIFIC_ENGINEERING("manufacture_of_metal_products_electrical_and_scientific_engineering"),
+    
+    MANUFACTURE_OF_JEWELRY_MUSICAL_INSTRUMENTS_TOYS("manufacture_of_jewelry_musical_instruments_toys"),
+    
+    ELECTRICITY_GAS_AND_WATER("electricity_gas_and_water"),
+    
+    CONSTRUCTION("construction"),
+    
+    WHOLESALE_TRADE("wholesale_trade"),
+    
+    RETAIL_TRADE("retail_trade"),
+    
+    CATERING_INCL_HOTELS("catering_incl_hotels"),
+    
+    TRANSPORT_STORAGE("transport_storage"),
+    
+    COMMUNICATIONS("communications"),
+    
+    FINANCE_AND_HOLDING_COMPANIES("finance_and_holding_companies"),
+    
+    INSURANCE("insurance"),
+    
+    BUSINESS_SERVICES("business_services"),
+    
+    REAL_ESTATE_DEVELOPMENT_INVESTMENT("real_estate_development_investment"),
+    
+    CENTRAL_STATE_GOVERNMENTS("central_state_governments"),
+    
+    COMMUNITY_SERVICES_DEFENCE_POLICE_PRISONS_ETC("community_services_defence_police_prisons_etc"),
+    
+    SOCIAL_SERVICES_EDUCATION_HEALTH_CARE("social_services_education_health_care"),
+    
+    PERSONAL_SERVICES_LEISURE_SERVICES("personal_services_leisure_services"),
+    
+    PERSONAL_SERVICES_DOMESTIC_LAUNDRY_REPAIRS("personal_services_domestic_laundry_repairs"),
+    
+    PERSONAL_SERVICES_EMBASSIES_INTERNATIONAL_ORGANISATIONS("personal_services_embassies_international_organisations");
+
+    private String value;
+
+    NatureOfBusinessEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static NatureOfBusinessEnum fromValue(String value) {
+      for (NatureOfBusinessEnum b : NatureOfBusinessEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<NatureOfBusinessEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NatureOfBusinessEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public NatureOfBusinessEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return NatureOfBusinessEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_NATURE_OF_BUSINESS = "nature_of_business";
   @SerializedName(SERIALIZED_NAME_NATURE_OF_BUSINESS)
-  private String natureOfBusiness;
+  private NatureOfBusinessEnum natureOfBusiness;
 
   public static final String SERIALIZED_NAME_SOURCE_OF_FUNDS = "source_of_funds";
   @SerializedName(SERIALIZED_NAME_SOURCE_OF_FUNDS)
@@ -504,10 +619,10 @@ public class Sender {
   }
 
    /**
-   * Country of sender in 2-character alpha ISO 3166-2 country format
+   * Country of sender in 2-character alpha ISO 3166-2 country format. This is the residential country for personal senders and the country of incorporation for business senders.
    * @return country
   **/
-  @ApiModelProperty(example = "NG", required = true, value = "Country of sender in 2-character alpha ISO 3166-2 country format")
+  @ApiModelProperty(example = "NG", required = true, value = "Country of sender in 2-character alpha ISO 3166-2 country format. This is the residential country for personal senders and the country of incorporation for business senders.")
   public String getCountry() {
     return country;
   }
@@ -828,10 +943,10 @@ public class Sender {
   }
 
    /**
-   * Legal entity type (used only with a Business sender)
+   * Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations &amp; Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select &#x60;financial_institution&#x60; then the fields &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60; and &#x60;regulatory_licence_number&#x60; will be mandatory as well.
    * @return legalEntityType
   **/
-  @ApiModelProperty(example = "sole_proprietorship", value = "Legal entity type (used only with a Business sender)")
+  @ApiModelProperty(example = "privately_owned_company", value = "Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations & Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select `financial_institution` then the fields `vat_registration_number`, `financial_regulator` and `regulatory_licence_number` will be mandatory as well.")
   public LegalEntityTypeEnum getLegalEntityType() {
     return legalEntityType;
   }
@@ -840,7 +955,7 @@ public class Sender {
     this.legalEntityType = legalEntityType;
   }
 
-  public Sender registrationDate(String registrationDate) {
+  public Sender registrationDate(LocalDate registrationDate) {
     this.registrationDate = registrationDate;
     return this;
   }
@@ -850,11 +965,11 @@ public class Sender {
    * @return registrationDate
   **/
   @ApiModelProperty(value = "The registration date (used only with a Business sender)")
-  public String getRegistrationDate() {
+  public LocalDate getRegistrationDate() {
     return registrationDate;
   }
 
-  public void setRegistrationDate(String registrationDate) {
+  public void setRegistrationDate(LocalDate registrationDate) {
     this.registrationDate = registrationDate;
   }
 
@@ -876,21 +991,21 @@ public class Sender {
     this.registrationNumber = registrationNumber;
   }
 
-  public Sender natureOfBusiness(String natureOfBusiness) {
+  public Sender natureOfBusiness(NatureOfBusinessEnum natureOfBusiness) {
     this.natureOfBusiness = natureOfBusiness;
     return this;
   }
 
    /**
-   * Nature of business options (used only with a Business sender)
+   * Nature of business options (used only with a Business sender)  Available values:   - personal: Personal   - agriculture_and_hunting: Agriculture and Hunting   - forestry: Forestry   - fishing: Fishing   - agricultural_by_products: Agricultural By-Products   - coal_mining: Coal Mining   - oil_mining: Oil Mining   - iron_ore_mining: Iron Ore Mining   - other_metal_and_diamond_mining: Other Metal and Diamond Mining   - other_mineral_mining: Other Mineral Mining   - manufacturing_of_food_drink_tobacco: Manufacture of Food/Drink/Tobacco   - manufacturing_of_textiles_leather_fur_furniture: Manufacture of Textiles/Leather/Fur/Furniture   - manufacture_of_wooden_products_furniture: Manufacture of Wooden Products/Furniture   - manufacture_of_paper_pulp_allied_products: Manufacture of Paper/Pulp/Allied Products   - manufacture_of_chemicals_medical_petroleum_rubber_plastic_products: Manufacture Of Chemicals Medical Petroleum Rubber Plastic Products   - manufacture_of_pottery_china_glass_stone: Manufacture Of Pottery China Glass Stone   - manufacture_of_iron_steel_non_ferrous_metals_basic_industries: Manufacture Of Iron Steel Non-Ferrous Metals Basic Industries   - manufacture_of_metal_products_electrical_and_scientific_engineering: Manufacture Of Metal Products Electrical And Scientific Engineering   - manufacture_of_jewelry_musical_instruments_toys: Manufacture Of Jewelry Musical Instruments Toys   - electricity_gas_and_water: Electricity, Gas And Water   - construction: Construction   - wholesale_trade: Wholesale Trade   - retail_trade: Retail Trade   - catering_incl_hotels: Catering Incl. Hotels   - transport_storage: Transport Storage   - communications: Communications   - finance_and_holding_companies: Finance And Holding Companies   - insurance: Insurance   - business_services: Business Services   - real_estate_development_investment: Real Estate Development Investment   - central_state_governments: Central State Governments   - community_services_defence_police_prisons_etc: Community Services Defence Police Prisons Etc   - social_services_education_health_care: Social Services Education Health Care   - personal_services_leisure_services: Personal Services - Leisure Services   - personal_services_domestic_laundry_repairs: Personal Services - Domestic Laundry Repairs   - personal_services_embassies_international_organisations: Personal Services - Embassies
    * @return natureOfBusiness
   **/
-  @ApiModelProperty(value = "Nature of business options (used only with a Business sender)")
-  public String getNatureOfBusiness() {
+  @ApiModelProperty(value = "Nature of business options (used only with a Business sender)  Available values:   - personal: Personal   - agriculture_and_hunting: Agriculture and Hunting   - forestry: Forestry   - fishing: Fishing   - agricultural_by_products: Agricultural By-Products   - coal_mining: Coal Mining   - oil_mining: Oil Mining   - iron_ore_mining: Iron Ore Mining   - other_metal_and_diamond_mining: Other Metal and Diamond Mining   - other_mineral_mining: Other Mineral Mining   - manufacturing_of_food_drink_tobacco: Manufacture of Food/Drink/Tobacco   - manufacturing_of_textiles_leather_fur_furniture: Manufacture of Textiles/Leather/Fur/Furniture   - manufacture_of_wooden_products_furniture: Manufacture of Wooden Products/Furniture   - manufacture_of_paper_pulp_allied_products: Manufacture of Paper/Pulp/Allied Products   - manufacture_of_chemicals_medical_petroleum_rubber_plastic_products: Manufacture Of Chemicals Medical Petroleum Rubber Plastic Products   - manufacture_of_pottery_china_glass_stone: Manufacture Of Pottery China Glass Stone   - manufacture_of_iron_steel_non_ferrous_metals_basic_industries: Manufacture Of Iron Steel Non-Ferrous Metals Basic Industries   - manufacture_of_metal_products_electrical_and_scientific_engineering: Manufacture Of Metal Products Electrical And Scientific Engineering   - manufacture_of_jewelry_musical_instruments_toys: Manufacture Of Jewelry Musical Instruments Toys   - electricity_gas_and_water: Electricity, Gas And Water   - construction: Construction   - wholesale_trade: Wholesale Trade   - retail_trade: Retail Trade   - catering_incl_hotels: Catering Incl. Hotels   - transport_storage: Transport Storage   - communications: Communications   - finance_and_holding_companies: Finance And Holding Companies   - insurance: Insurance   - business_services: Business Services   - real_estate_development_investment: Real Estate Development Investment   - central_state_governments: Central State Governments   - community_services_defence_police_prisons_etc: Community Services Defence Police Prisons Etc   - social_services_education_health_care: Social Services Education Health Care   - personal_services_leisure_services: Personal Services - Leisure Services   - personal_services_domestic_laundry_repairs: Personal Services - Domestic Laundry Repairs   - personal_services_embassies_international_organisations: Personal Services - Embassies")
+  public NatureOfBusinessEnum getNatureOfBusiness() {
     return natureOfBusiness;
   }
 
-  public void setNatureOfBusiness(String natureOfBusiness) {
+  public void setNatureOfBusiness(NatureOfBusinessEnum natureOfBusiness) {
     this.natureOfBusiness = natureOfBusiness;
   }
 
