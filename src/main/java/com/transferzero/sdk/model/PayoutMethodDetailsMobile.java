@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -41,6 +42,10 @@ public class PayoutMethodDetailsMobile {
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
   private String phoneNumber;
+
+  public static final String SERIALIZED_NAME_MOBILE_PROVIDER = "mobile_provider";
+  @SerializedName(SERIALIZED_NAME_MOBILE_PROVIDER)
+  private PayoutMethodMobileProviderEnum mobileProvider;
 
   public PayoutMethodDetailsMobile firstName(String firstName) {
     this.firstName = firstName;
@@ -96,6 +101,24 @@ public class PayoutMethodDetailsMobile {
     this.phoneNumber = phoneNumber;
   }
 
+  public PayoutMethodDetailsMobile mobileProvider(PayoutMethodMobileProviderEnum mobileProvider) {
+    this.mobileProvider = mobileProvider;
+    return this;
+  }
+
+   /**
+   * Get mobileProvider
+   * @return mobileProvider
+  **/
+  @ApiModelProperty(value = "")
+  public PayoutMethodMobileProviderEnum getMobileProvider() {
+    return mobileProvider;
+  }
+
+  public void setMobileProvider(PayoutMethodMobileProviderEnum mobileProvider) {
+    this.mobileProvider = mobileProvider;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -108,12 +131,13 @@ public class PayoutMethodDetailsMobile {
     PayoutMethodDetailsMobile payoutMethodDetailsMobile = (PayoutMethodDetailsMobile) o;
     return Objects.equals(this.firstName, payoutMethodDetailsMobile.firstName) &&
         Objects.equals(this.lastName, payoutMethodDetailsMobile.lastName) &&
-        Objects.equals(this.phoneNumber, payoutMethodDetailsMobile.phoneNumber);
+        Objects.equals(this.phoneNumber, payoutMethodDetailsMobile.phoneNumber) &&
+        Objects.equals(this.mobileProvider, payoutMethodDetailsMobile.mobileProvider);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, phoneNumber);
+    return Objects.hash(firstName, lastName, phoneNumber, mobileProvider);
   }
 
 
@@ -124,6 +148,7 @@ public class PayoutMethodDetailsMobile {
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
     sb.append("}");
     return sb.toString();
   }
