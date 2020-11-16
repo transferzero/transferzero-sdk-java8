@@ -194,6 +194,10 @@ public class Sender {
   @SerializedName(SERIALIZED_NAME_IDENTIFICATION_TYPE)
   private IdentificationTypeEnum identificationType;
 
+  public static final String SERIALIZED_NAME_LANG = "lang";
+  @SerializedName(SERIALIZED_NAME_LANG)
+  private String lang;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -809,6 +813,24 @@ public class Sender {
 
   public void setIdentificationType(IdentificationTypeEnum identificationType) {
     this.identificationType = identificationType;
+  }
+
+  public Sender lang(String lang) {
+    this.lang = lang;
+    return this;
+  }
+
+   /**
+   * Determines language of the served content. Defaults to English
+   * @return lang
+  **/
+  @ApiModelProperty(example = "en", value = "Determines language of the served content. Defaults to English")
+  public String getLang() {
+    return lang;
+  }
+
+  public void setLang(String lang) {
+    this.lang = lang;
   }
 
   public Sender name(String name) {
@@ -1442,6 +1464,7 @@ public class Sender {
         Objects.equals(this.addressDescription, sender.addressDescription) &&
         Objects.equals(this.identificationNumber, sender.identificationNumber) &&
         Objects.equals(this.identificationType, sender.identificationType) &&
+        Objects.equals(this.lang, sender.lang) &&
         Objects.equals(this.name, sender.name) &&
         Objects.equals(this.firstName, sender.firstName) &&
         Objects.equals(this.middleName, sender.middleName) &&
@@ -1480,7 +1503,7 @@ public class Sender {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, customSourceOfFunds, coreBusinessActivity, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId, cityOfBirth, countryOfBirth, gender, createdAt);
+    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, lang, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, customSourceOfFunds, coreBusinessActivity, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId, cityOfBirth, countryOfBirth, gender, createdAt);
   }
 
 
@@ -1502,6 +1525,7 @@ public class Sender {
     sb.append("    addressDescription: ").append(toIndentedString(addressDescription)).append("\n");
     sb.append("    identificationNumber: ").append(toIndentedString(identificationNumber)).append("\n");
     sb.append("    identificationType: ").append(toIndentedString(identificationType)).append("\n");
+    sb.append("    lang: ").append(toIndentedString(lang)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
