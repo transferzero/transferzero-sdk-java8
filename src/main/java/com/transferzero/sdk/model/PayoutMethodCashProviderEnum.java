@@ -25,20 +25,18 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;NI&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card  For XOF valid options are: - &#x60;NI&#x60;: National ID - &#x60;PP&#x60;: Passport
+ * The cash provider for the pickup:  For XOF valid options are: - &#x60;wari&#x60;: Wari - &#x60;wizall&#x60;: Wizall
  */
-@JsonAdapter(PayoutMethodIdentityCardTypeEnum.Adapter.class)
-public enum PayoutMethodIdentityCardTypeEnum {
+@JsonAdapter(PayoutMethodCashProviderEnum.Adapter.class)
+public enum PayoutMethodCashProviderEnum {
   
-  O("O"),
+  WARI("wari"),
   
-  PP("PP"),
-  
-  NI("NI");
+  WIZALL("wizall");
 
   private String value;
 
-  PayoutMethodIdentityCardTypeEnum(String value) {
+  PayoutMethodCashProviderEnum(String value) {
     this.value = value;
   }
 
@@ -51,8 +49,8 @@ public enum PayoutMethodIdentityCardTypeEnum {
     return String.valueOf(value);
   }
 
-  public static PayoutMethodIdentityCardTypeEnum fromValue(String value) {
-    for (PayoutMethodIdentityCardTypeEnum b : PayoutMethodIdentityCardTypeEnum.values()) {
+  public static PayoutMethodCashProviderEnum fromValue(String value) {
+    for (PayoutMethodCashProviderEnum b : PayoutMethodCashProviderEnum.values()) {
       if (b.value.equals(value)) {
         return b;
       }
@@ -60,16 +58,16 @@ public enum PayoutMethodIdentityCardTypeEnum {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 
-  public static class Adapter extends TypeAdapter<PayoutMethodIdentityCardTypeEnum> {
+  public static class Adapter extends TypeAdapter<PayoutMethodCashProviderEnum> {
     @Override
-    public void write(final JsonWriter jsonWriter, final PayoutMethodIdentityCardTypeEnum enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final PayoutMethodCashProviderEnum enumeration) throws IOException {
       jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public PayoutMethodIdentityCardTypeEnum read(final JsonReader jsonReader) throws IOException {
+    public PayoutMethodCashProviderEnum read(final JsonReader jsonReader) throws IOException {
       String value = jsonReader.nextString();
-      return PayoutMethodIdentityCardTypeEnum.fromValue(value);
+      return PayoutMethodCashProviderEnum.fromValue(value);
     }
   }
 }
