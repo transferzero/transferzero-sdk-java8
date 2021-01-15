@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.transferzero.sdk.model.ProofOfPaymentListResponse;
 import com.transferzero.sdk.model.RecipientListResponse;
 import com.transferzero.sdk.model.RecipientRequest;
 import com.transferzero.sdk.model.RecipientResponse;
@@ -476,6 +477,96 @@ public class RecipientsApi {
 
         okhttp3.Call localVarCall = patchRecipientValidateBeforeCall(recipientID, recipientRequest, _callback);
         Type localVarReturnType = new TypeToken<RecipientResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for proofOfPayments
+     * @param recipientID ID of the recipient for whom the proof of payments will be returned.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments&#x60; (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call proofOfPaymentsCall(UUID recipientID, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = new Object();
+
+        // create path and map variables
+        String localVarPath = "/recipients/{Recipient ID}/proof_of_payments"
+            .replaceAll("\\{" + "Recipient ID" + "\\}", localVarApiClient.escapeString(recipientID.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "AuthorizationKey", "AuthorizationNonce", "AuthorizationSecret", "AuthorizationSignature" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call proofOfPaymentsValidateBeforeCall(UUID recipientID, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'recipientID' is set
+        if (recipientID == null) {
+            throw new ApiException("Missing the required parameter 'recipientID' when calling proofOfPayments(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = proofOfPaymentsCall(recipientID, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Returns list of proof of payments
+     * Returns a list of uploaded proof of payment files for a transaction recipient
+     * @param recipientID ID of the recipient for whom the proof of payments will be returned.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments&#x60; (required)
+     * @return ProofOfPaymentListResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ProofOfPaymentListResponse proofOfPayments(UUID recipientID) throws ApiException {
+        ApiResponse<ProofOfPaymentListResponse> localVarResp = proofOfPaymentsWithHttpInfo(recipientID);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Returns list of proof of payments
+     * Returns a list of uploaded proof of payment files for a transaction recipient
+     * @param recipientID ID of the recipient for whom the proof of payments will be returned.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments&#x60; (required)
+     * @return ApiResponse&lt;ProofOfPaymentListResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ProofOfPaymentListResponse> proofOfPaymentsWithHttpInfo(UUID recipientID) throws ApiException {
+        okhttp3.Call localVarCall = proofOfPaymentsValidateBeforeCall(recipientID, null);
+        Type localVarReturnType = new TypeToken<ProofOfPaymentListResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Returns list of proof of payments (asynchronously)
+     * Returns a list of uploaded proof of payment files for a transaction recipient
+     * @param recipientID ID of the recipient for whom the proof of payments will be returned.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments&#x60; (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call proofOfPaymentsAsync(UUID recipientID, final ApiCallback<ProofOfPaymentListResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = proofOfPaymentsValidateBeforeCall(recipientID, _callback);
+        Type localVarReturnType = new TypeToken<ProofOfPaymentListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

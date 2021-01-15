@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**deleteRecipient**](RecipientsApi.md#deleteRecipient) | **DELETE** /recipients/{Recipient ID} | Cancelling a recipient
 [**getRecipients**](RecipientsApi.md#getRecipients) | **GET** /recipients | Getting a list of recipients with filtering
 [**patchRecipient**](RecipientsApi.md#patchRecipient) | **PATCH** /recipients/{Recipient ID} | Updating a recipient
+[**proofOfPayments**](RecipientsApi.md#proofOfPayments) | **GET** /recipients/{Recipient ID}/proof_of_payments | Returns list of proof of payments
 
 
 <a name="deleteRecipient"></a>
@@ -224,5 +225,69 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="proofOfPayments"></a>
+# **proofOfPayments**
+> ProofOfPaymentListResponse proofOfPayments(recipientID)
+
+Returns list of proof of payments
+
+Returns a list of uploaded proof of payment files for a transaction recipient
+
+### Example
+```java
+// Import classes:
+//import com.transferzero.sdk.ApiClient;
+//import com.transferzero.sdk.ApiException;
+//import com.transferzero.sdk.Configuration;
+//import com.transferzero.sdk.auth.*;
+//import com.transferzero.sdk.api.RecipientsApi;
+
+ApiClient apiClient = new ApiClient();
+apiClient.setApiKey("<key>");
+apiClient.setApiSecret("<secret>");
+apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+
+RecipientsApi apiInstance = new RecipientsApi(apiClient);
+UUID recipientID = new UUID(); // UUID | ID of the recipient for whom the proof of payments will be returned.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments`
+try {
+    ProofOfPaymentListResponse result = apiInstance.proofOfPayments(recipientID);
+    System.out.println(result);
+} catch (ApiException e) {
+    if (e.isValidationError()) {
+        ProofOfPaymentListResponse result = e.getResponseObject(ProofOfPaymentListResponse.class);
+        System.out.println(result);
+        System.err.println("WARN: Validation error occurred when calling the endpoint");
+    } else {
+        System.err.println("Exception when calling RecipientsApi#proofOfPayments");
+        e.printStackTrace();
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **recipientID** | [**UUID**](.md)| ID of the recipient for whom the proof of payments will be returned.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments&#x60; |
+
+### Return type
+
+[**ProofOfPaymentListResponse**](ProofOfPaymentListResponse.md)
+
+## Authorization
+
+You can set the API Key and Secret on the ApiClient object for authentication:
+
+```java
+ApiClient apiClient = new ApiClient();
+apiClient.setApiKey("<key>");
+apiClient.setApiSecret("<secret>");
+apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+```
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
