@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The cash provider for the pickup:  For XOF valid options are: - &#x60;wari&#x60;: Wari - &#x60;wizall&#x60;: Wizall
+ * The cash provider for the pickup: For XOF valid options are: - &#x60;wari&#x60;: Wari - &#x60;wizall&#x60;: Wizall
  */
 @JsonAdapter(PayoutMethodCashProviderEnum.Adapter.class)
 public enum PayoutMethodCashProviderEnum {
