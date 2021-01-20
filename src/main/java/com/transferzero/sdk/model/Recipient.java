@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayoutMethod;
 import com.transferzero.sdk.model.RecipientState;
+import com.transferzero.sdk.model.RecipientStateReasonDetails;
 import com.transferzero.sdk.model.TransactionState;
 import com.transferzero.sdk.model.ValidationErrorDescription;
 import io.swagger.annotations.ApiModel;
@@ -79,6 +80,10 @@ public class Recipient {
   public static final String SERIALIZED_NAME_STATE_REASON = "state_reason";
   @SerializedName(SERIALIZED_NAME_STATE_REASON)
   private String stateReason;
+
+  public static final String SERIALIZED_NAME_STATE_REASON_DETAILS = "state_reason_details";
+  @SerializedName(SERIALIZED_NAME_STATE_REASON_DETAILS)
+  private RecipientStateReasonDetails stateReasonDetails = null;
 
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
@@ -250,6 +255,24 @@ public class Recipient {
     return stateReason;
   }
 
+  public Recipient stateReasonDetails(RecipientStateReasonDetails stateReasonDetails) {
+    this.stateReasonDetails = stateReasonDetails;
+    return this;
+  }
+
+   /**
+   * Get stateReasonDetails
+   * @return stateReasonDetails
+  **/
+  @ApiModelProperty(value = "")
+  public RecipientStateReasonDetails getStateReasonDetails() {
+    return stateReasonDetails;
+  }
+
+  public void setStateReasonDetails(RecipientStateReasonDetails stateReasonDetails) {
+    this.stateReasonDetails = stateReasonDetails;
+  }
+
   public Recipient state(RecipientState state) {
     this.state = state;
     return this;
@@ -387,6 +410,7 @@ public class Recipient {
         Objects.equals(this.inputUsdAmount, recipient.inputUsdAmount) &&
         Objects.equals(this.mayCancel, recipient.mayCancel) &&
         Objects.equals(this.stateReason, recipient.stateReason) &&
+        Objects.equals(this.stateReasonDetails, recipient.stateReasonDetails) &&
         Objects.equals(this.state, recipient.state) &&
         Objects.equals(this.transactionId, recipient.transactionId) &&
         Objects.equals(this.transactionState, recipient.transactionState) &&
@@ -402,7 +426,7 @@ public class Recipient {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestedAmount, requestedCurrency, payoutMethod, metadata, createdAt, editable, retriable, inputUsdAmount, mayCancel, stateReason, state, transactionId, transactionState, exchangeRate, feeFractional, inputAmount, inputCurrency, outputAmount, outputCurrency, id, errors);
+    return Objects.hash(requestedAmount, requestedCurrency, payoutMethod, metadata, createdAt, editable, retriable, inputUsdAmount, mayCancel, stateReason, stateReasonDetails, state, transactionId, transactionState, exchangeRate, feeFractional, inputAmount, inputCurrency, outputAmount, outputCurrency, id, errors);
   }
 
 
@@ -420,6 +444,7 @@ public class Recipient {
     sb.append("    inputUsdAmount: ").append(toIndentedString(inputUsdAmount)).append("\n");
     sb.append("    mayCancel: ").append(toIndentedString(mayCancel)).append("\n");
     sb.append("    stateReason: ").append(toIndentedString(stateReason)).append("\n");
+    sb.append("    stateReasonDetails: ").append(toIndentedString(stateReasonDetails)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
     sb.append("    transactionState: ").append(toIndentedString(transactionState)).append("\n");
