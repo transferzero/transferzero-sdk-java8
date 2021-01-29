@@ -93,6 +93,10 @@ public class Recipient {
   @SerializedName(SERIALIZED_NAME_TRANSACTION_ID)
   private String transactionId;
 
+  public static final String SERIALIZED_NAME_TRANSACTION_EXTERNAL_ID = "transaction_external_id";
+  @SerializedName(SERIALIZED_NAME_TRANSACTION_EXTERNAL_ID)
+  private String transactionExternalId;
+
   public static final String SERIALIZED_NAME_TRANSACTION_STATE = "transaction_state";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_STATE)
   private TransactionState transactionState;
@@ -300,6 +304,24 @@ public class Recipient {
     return transactionId;
   }
 
+  public Recipient transactionExternalId(String transactionExternalId) {
+    this.transactionExternalId = transactionExternalId;
+    return this;
+  }
+
+   /**
+   * Optional ID that is supplied by partner linking it to the partner&#39;s own Transaction ID.
+   * @return transactionExternalId
+  **/
+  @ApiModelProperty(example = "806ec63a-a5a7-43cc-9d75-1ee74fbcc026", value = "Optional ID that is supplied by partner linking it to the partner's own Transaction ID.")
+  public String getTransactionExternalId() {
+    return transactionExternalId;
+  }
+
+  public void setTransactionExternalId(String transactionExternalId) {
+    this.transactionExternalId = transactionExternalId;
+  }
+
   public Recipient transactionState(TransactionState transactionState) {
     this.transactionState = transactionState;
     return this;
@@ -413,6 +435,7 @@ public class Recipient {
         Objects.equals(this.stateReasonDetails, recipient.stateReasonDetails) &&
         Objects.equals(this.state, recipient.state) &&
         Objects.equals(this.transactionId, recipient.transactionId) &&
+        Objects.equals(this.transactionExternalId, recipient.transactionExternalId) &&
         Objects.equals(this.transactionState, recipient.transactionState) &&
         Objects.equals(this.exchangeRate, recipient.exchangeRate) &&
         Objects.equals(this.feeFractional, recipient.feeFractional) &&
@@ -426,7 +449,7 @@ public class Recipient {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestedAmount, requestedCurrency, payoutMethod, metadata, createdAt, editable, retriable, inputUsdAmount, mayCancel, stateReason, stateReasonDetails, state, transactionId, transactionState, exchangeRate, feeFractional, inputAmount, inputCurrency, outputAmount, outputCurrency, id, errors);
+    return Objects.hash(requestedAmount, requestedCurrency, payoutMethod, metadata, createdAt, editable, retriable, inputUsdAmount, mayCancel, stateReason, stateReasonDetails, state, transactionId, transactionExternalId, transactionState, exchangeRate, feeFractional, inputAmount, inputCurrency, outputAmount, outputCurrency, id, errors);
   }
 
 
@@ -447,6 +470,7 @@ public class Recipient {
     sb.append("    stateReasonDetails: ").append(toIndentedString(stateReasonDetails)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
+    sb.append("    transactionExternalId: ").append(toIndentedString(transactionExternalId)).append("\n");
     sb.append("    transactionState: ").append(toIndentedString(transactionState)).append("\n");
     sb.append("    exchangeRate: ").append(toIndentedString(exchangeRate)).append("\n");
     sb.append("    feeFractional: ").append(toIndentedString(feeFractional)).append("\n");
