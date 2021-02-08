@@ -24,6 +24,7 @@ import com.transferzero.sdk.model.ValidationErrorDescription;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -124,6 +125,14 @@ public class Document {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
+
+  public static final String SERIALIZED_NAME_DOCUMENT_ID = "document_id";
+  @SerializedName(SERIALIZED_NAME_DOCUMENT_ID)
+  private String documentId;
+
+  public static final String SERIALIZED_NAME_EXPIRY_DATE = "expiry_date";
+  @SerializedName(SERIALIZED_NAME_EXPIRY_DATE)
+  private LocalDate expiryDate;
 
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
@@ -291,6 +300,42 @@ public class Document {
     return id;
   }
 
+  public Document documentId(String documentId) {
+    this.documentId = documentId;
+    return this;
+  }
+
+   /**
+   * Document ID issued by government
+   * @return documentId
+  **/
+  @ApiModelProperty(example = "XYZ12345", value = "Document ID issued by government")
+  public String getDocumentId() {
+    return documentId;
+  }
+
+  public void setDocumentId(String documentId) {
+    this.documentId = documentId;
+  }
+
+  public Document expiryDate(LocalDate expiryDate) {
+    this.expiryDate = expiryDate;
+    return this;
+  }
+
+   /**
+   * Document expiry date issued by government
+   * @return expiryDate
+  **/
+  @ApiModelProperty(value = "Document expiry date issued by government")
+  public LocalDate getExpiryDate() {
+    return expiryDate;
+  }
+
+  public void setExpiryDate(LocalDate expiryDate) {
+    this.expiryDate = expiryDate;
+  }
+
    /**
    * The fields that have some problems and don&#39;t pass validation
    * @return errors
@@ -321,12 +366,14 @@ public class Document {
         Objects.equals(this.documentType, document.documentType) &&
         Objects.equals(this.issuingCountry, document.issuingCountry) &&
         Objects.equals(this.id, document.id) &&
+        Objects.equals(this.documentId, document.documentId) &&
+        Objects.equals(this.expiryDate, document.expiryDate) &&
         Objects.equals(this.errors, document.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(upload, url, uploadFileName, metadata, uploadContentType, uploadFileSize, category, side, documentType, issuingCountry, id, errors);
+    return Objects.hash(upload, url, uploadFileName, metadata, uploadContentType, uploadFileSize, category, side, documentType, issuingCountry, id, documentId, expiryDate, errors);
   }
 
 
@@ -345,6 +392,8 @@ public class Document {
     sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
     sb.append("    issuingCountry: ").append(toIndentedString(issuingCountry)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    documentId: ").append(toIndentedString(documentId)).append("\n");
+    sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
