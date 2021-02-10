@@ -140,7 +140,7 @@ public class Sender {
   private String identificationNumber;
 
   /**
-   * Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other
+   * Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other  Please note for Wizall &#x60;XOF::Cash&#x60; transactions the valid options are: - &#x60;ID&#x60;: National ID - &#x60;PP&#x60;: Passport
    */
   @JsonAdapter(IdentificationTypeEnum.Adapter.class)
   public enum IdentificationTypeEnum {
@@ -803,10 +803,10 @@ public class Sender {
   }
 
    /**
-   * Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other
+   * Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other  Please note for Wizall &#x60;XOF::Cash&#x60; transactions the valid options are: - &#x60;ID&#x60;: National ID - &#x60;PP&#x60;: Passport
    * @return identificationType
   **/
-  @ApiModelProperty(example = "ID", value = "Document to be identified. The identification type can be one of the following:  - `DL`: Driving License - `PP`: International Passport - `ID`: National ID - `OT`: Other")
+  @ApiModelProperty(example = "ID", value = "Document to be identified. The identification type can be one of the following:  - `DL`: Driving License - `PP`: International Passport - `ID`: National ID - `OT`: Other  Please note for Wizall `XOF::Cash` transactions the valid options are: - `ID`: National ID - `PP`: Passport")
   public IdentificationTypeEnum getIdentificationType() {
     return identificationType;
   }

@@ -86,14 +86,6 @@ public class PayoutMethodDetails {
   @SerializedName(SERIALIZED_NAME_BANK_COUNTRY)
   private String bankCountry;
 
-  public static final String SERIALIZED_NAME_IDENTITY_CARD_ID = "identity_card_id";
-  @SerializedName(SERIALIZED_NAME_IDENTITY_CARD_ID)
-  private String identityCardId;
-
-  public static final String SERIALIZED_NAME_IDENTITY_CARD_TYPE = "identity_card_type";
-  @SerializedName(SERIALIZED_NAME_IDENTITY_CARD_TYPE)
-  private PayoutMethodIdentityCardTypeEnum identityCardType;
-
   public static final String SERIALIZED_NAME_CASH_PROVIDER = "cash_provider";
   @SerializedName(SERIALIZED_NAME_CASH_PROVIDER)
   private PayoutMethodCashProviderEnum cashProvider;
@@ -129,6 +121,14 @@ public class PayoutMethodDetails {
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
+
+  public static final String SERIALIZED_NAME_IDENTITY_CARD_TYPE = "identity_card_type";
+  @SerializedName(SERIALIZED_NAME_IDENTITY_CARD_TYPE)
+  private PayoutMethodIdentityCardTypeEnum identityCardType;
+
+  public static final String SERIALIZED_NAME_IDENTITY_CARD_ID = "identity_card_id";
+  @SerializedName(SERIALIZED_NAME_IDENTITY_CARD_ID)
+  private String identityCardId;
 
   public static final String SERIALIZED_NAME_REFERENCE = "reference";
   @SerializedName(SERIALIZED_NAME_REFERENCE)
@@ -342,42 +342,6 @@ public class PayoutMethodDetails {
     this.bankCountry = bankCountry;
   }
 
-  public PayoutMethodDetails identityCardId(String identityCardId) {
-    this.identityCardId = identityCardId;
-    return this;
-  }
-
-   /**
-   * Get identityCardId
-   * @return identityCardId
-  **/
-  @ApiModelProperty(value = "")
-  public String getIdentityCardId() {
-    return identityCardId;
-  }
-
-  public void setIdentityCardId(String identityCardId) {
-    this.identityCardId = identityCardId;
-  }
-
-  public PayoutMethodDetails identityCardType(PayoutMethodIdentityCardTypeEnum identityCardType) {
-    this.identityCardType = identityCardType;
-    return this;
-  }
-
-   /**
-   * Get identityCardType
-   * @return identityCardType
-  **/
-  @ApiModelProperty(value = "")
-  public PayoutMethodIdentityCardTypeEnum getIdentityCardType() {
-    return identityCardType;
-  }
-
-  public void setIdentityCardType(PayoutMethodIdentityCardTypeEnum identityCardType) {
-    this.identityCardType = identityCardType;
-  }
-
   public PayoutMethodDetails cashProvider(PayoutMethodCashProviderEnum cashProvider) {
     this.cashProvider = cashProvider;
     return this;
@@ -538,6 +502,42 @@ public class PayoutMethodDetails {
 
   public void setReason(String reason) {
     this.reason = reason;
+  }
+
+  public PayoutMethodDetails identityCardType(PayoutMethodIdentityCardTypeEnum identityCardType) {
+    this.identityCardType = identityCardType;
+    return this;
+  }
+
+   /**
+   * Get identityCardType
+   * @return identityCardType
+  **/
+  @ApiModelProperty(value = "")
+  public PayoutMethodIdentityCardTypeEnum getIdentityCardType() {
+    return identityCardType;
+  }
+
+  public void setIdentityCardType(PayoutMethodIdentityCardTypeEnum identityCardType) {
+    this.identityCardType = identityCardType;
+  }
+
+  public PayoutMethodDetails identityCardId(String identityCardId) {
+    this.identityCardId = identityCardId;
+    return this;
+  }
+
+   /**
+   * Get identityCardId
+   * @return identityCardId
+  **/
+  @ApiModelProperty(value = "")
+  public String getIdentityCardId() {
+    return identityCardId;
+  }
+
+  public void setIdentityCardId(String identityCardId) {
+    this.identityCardId = identityCardId;
   }
 
   public PayoutMethodDetails reference(String reference) {
@@ -704,8 +704,6 @@ public class PayoutMethodDetails {
         Objects.equals(this.iban, payoutMethodDetails.iban) &&
         Objects.equals(this.bankName, payoutMethodDetails.bankName) &&
         Objects.equals(this.bankCountry, payoutMethodDetails.bankCountry) &&
-        Objects.equals(this.identityCardId, payoutMethodDetails.identityCardId) &&
-        Objects.equals(this.identityCardType, payoutMethodDetails.identityCardType) &&
         Objects.equals(this.cashProvider, payoutMethodDetails.cashProvider) &&
         Objects.equals(this.sortCode, payoutMethodDetails.sortCode) &&
         Objects.equals(this.bic, payoutMethodDetails.bic) &&
@@ -715,6 +713,8 @@ public class PayoutMethodDetails {
         Objects.equals(this.senderCountryOfBirth, payoutMethodDetails.senderCountryOfBirth) &&
         Objects.equals(this.senderGender, payoutMethodDetails.senderGender) &&
         Objects.equals(this.reason, payoutMethodDetails.reason) &&
+        Objects.equals(this.identityCardType, payoutMethodDetails.identityCardType) &&
+        Objects.equals(this.identityCardId, payoutMethodDetails.identityCardId) &&
         Objects.equals(this.reference, payoutMethodDetails.reference) &&
         Objects.equals(this.name, payoutMethodDetails.name) &&
         Objects.equals(this.address, payoutMethodDetails.address) &&
@@ -727,7 +727,7 @@ public class PayoutMethodDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, iban, bankName, bankCountry, identityCardId, identityCardType, cashProvider, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, reference, name, address, street, postalCode, city, email, transferReasonCode);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, iban, bankName, bankCountry, cashProvider, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, transferReasonCode);
   }
 
 
@@ -745,8 +745,6 @@ public class PayoutMethodDetails {
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
     sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
     sb.append("    bankCountry: ").append(toIndentedString(bankCountry)).append("\n");
-    sb.append("    identityCardId: ").append(toIndentedString(identityCardId)).append("\n");
-    sb.append("    identityCardType: ").append(toIndentedString(identityCardType)).append("\n");
     sb.append("    cashProvider: ").append(toIndentedString(cashProvider)).append("\n");
     sb.append("    sortCode: ").append(toIndentedString(sortCode)).append("\n");
     sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
@@ -756,6 +754,8 @@ public class PayoutMethodDetails {
     sb.append("    senderCountryOfBirth: ").append(toIndentedString(senderCountryOfBirth)).append("\n");
     sb.append("    senderGender: ").append(toIndentedString(senderGender)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    identityCardType: ").append(toIndentedString(identityCardType)).append("\n");
+    sb.append("    identityCardId: ").append(toIndentedString(identityCardId)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
