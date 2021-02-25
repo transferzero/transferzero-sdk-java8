@@ -20,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayoutMethod;
 import com.transferzero.sdk.model.RecipientState;
+import com.transferzero.sdk.model.RecipientStateReasonDetails;
 import com.transferzero.sdk.model.TransactionState;
 import com.transferzero.sdk.model.ValidationErrorDescription;
 import io.swagger.annotations.ApiModel;
@@ -131,6 +132,14 @@ public class RecipientTest {
     }
 
     /**
+     * Test the property 'stateReasonDetails'
+     */
+    @Test
+    public void stateReasonDetailsTest() {
+        // TODO: test stateReasonDetails
+    }
+
+    /**
      * Test the property 'state'
      */
     @Test
@@ -144,6 +153,14 @@ public class RecipientTest {
     @Test
     public void transactionIdTest() {
         // TODO: test transactionId
+    }
+
+    /**
+     * Test the property 'transactionExternalId'
+     */
+    @Test
+    public void transactionExternalIdTest() {
+        // TODO: test transactionExternalId
     }
 
     /**

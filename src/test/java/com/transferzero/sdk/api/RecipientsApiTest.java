@@ -14,6 +14,7 @@
 package com.transferzero.sdk.api;
 
 import com.transferzero.sdk.ApiException;
+import com.transferzero.sdk.model.ProofOfPaymentListResponse;
 import com.transferzero.sdk.model.RecipientListResponse;
 import com.transferzero.sdk.model.RecipientRequest;
 import com.transferzero.sdk.model.RecipientResponse;
@@ -96,6 +97,22 @@ public class RecipientsApiTest {
         UUID recipientID = null;
         RecipientRequest recipientRequest = null;
         RecipientResponse response = api.patchRecipient(recipientID, recipientRequest);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Returns list of proof of payments
+     *
+     * Returns a list of uploaded proof of payment files for a transaction recipient
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void proofOfPaymentsTest() throws ApiException {
+        UUID recipientID = null;
+        ProofOfPaymentListResponse response = api.proofOfPayments(recipientID);
 
         // TODO: test validations
     }
