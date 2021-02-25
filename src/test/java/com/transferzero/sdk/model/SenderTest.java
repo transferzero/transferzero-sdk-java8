@@ -163,6 +163,14 @@ public class SenderTest {
     }
 
     /**
+     * Test the property 'lang'
+     */
+    @Test
+    public void langTest() {
+        // TODO: test lang
+    }
+
+    /**
      * Test the property 'name'
      */
     @Test

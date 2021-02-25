@@ -22,6 +22,7 @@ import com.transferzero.sdk.model.ValidationErrorDescription;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -131,6 +132,22 @@ public class DocumentTest {
     @Test
     public void idTest() {
         // TODO: test id
+    }
+
+    /**
+     * Test the property 'documentId'
+     */
+    @Test
+    public void documentIdTest() {
+        // TODO: test documentId
+    }
+
+    /**
+     * Test the property 'expiryDate'
+     */
+    @Test
+    public void expiryDateTest() {
+        // TODO: test expiryDate
     }
 
     /**

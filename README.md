@@ -45,7 +45,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.transferzero.sdk</groupId>
   <artifactId>transferzero-sdk-java8</artifactId>
-  <version>1.9.0-SNAPSHOT</version>
+  <version>1.12.0-SNAPSHOT</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -55,7 +55,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.transferzero.sdk:transferzero-sdk-java8:1.9.0-SNAPSHOT"
+compile "com.transferzero.sdk:transferzero-sdk-java8:1.12.0-SNAPSHOT"
 ```
 
 ### Others
@@ -68,7 +68,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/transferzero-sdk-java8-1.9.0-SNAPSHOT.jar`
+* `target/transferzero-sdk-java8-1.12.0-SNAPSHOT.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -143,6 +143,7 @@ Class | Method | HTTP request | Description
 *RecipientsApi* | [**deleteRecipient**](docs/RecipientsApi.md#deleteRecipient) | **DELETE** /recipients/{Recipient ID} | Cancelling a recipient
 *RecipientsApi* | [**getRecipients**](docs/RecipientsApi.md#getRecipients) | **GET** /recipients | Getting a list of recipients with filtering
 *RecipientsApi* | [**patchRecipient**](docs/RecipientsApi.md#patchRecipient) | **PATCH** /recipients/{Recipient ID} | Updating a recipient
+*RecipientsApi* | [**proofOfPayments**](docs/RecipientsApi.md#proofOfPayments) | **GET** /recipients/{Recipient ID}/proof_of_payments | Returns list of proof of payments
 *SendersApi* | [**deleteSender**](docs/SendersApi.md#deleteSender) | **DELETE** /senders/{Sender ID} | Deleting a sender
 *SendersApi* | [**getSender**](docs/SendersApi.md#getSender) | **GET** /senders/{Sender ID} | Fetching a sender
 *SendersApi* | [**getSenders**](docs/SendersApi.md#getSenders) | **GET** /senders | Listing senders
@@ -209,6 +210,8 @@ Class | Method | HTTP request | Description
  - [PaymentMethodOpposite](docs/PaymentMethodOpposite.md)
  - [PayoutMethod](docs/PayoutMethod.md)
  - [PayoutMethodBankAccountTypeEnum](docs/PayoutMethodBankAccountTypeEnum.md)
+ - [PayoutMethodCashProviderEnum](docs/PayoutMethodCashProviderEnum.md)
+ - [PayoutMethodCountryEnum](docs/PayoutMethodCountryEnum.md)
  - [PayoutMethodDetails](docs/PayoutMethodDetails.md)
  - [PayoutMethodDetailsBTC](docs/PayoutMethodDetailsBTC.md)
  - [PayoutMethodDetailsBalance](docs/PayoutMethodDetailsBalance.md)
@@ -219,6 +222,7 @@ Class | Method | HTTP request | Description
  - [PayoutMethodDetailsMobile](docs/PayoutMethodDetailsMobile.md)
  - [PayoutMethodDetailsNGNBank](docs/PayoutMethodDetailsNGNBank.md)
  - [PayoutMethodDetailsXOFBank](docs/PayoutMethodDetailsXOFBank.md)
+ - [PayoutMethodDetailsXOFCash](docs/PayoutMethodDetailsXOFCash.md)
  - [PayoutMethodDetailsXOFMobile](docs/PayoutMethodDetailsXOFMobile.md)
  - [PayoutMethodDetailsZARBank](docs/PayoutMethodDetailsZARBank.md)
  - [PayoutMethodGenderEnum](docs/PayoutMethodGenderEnum.md)
@@ -229,11 +233,14 @@ Class | Method | HTTP request | Description
  - [PayoutMethodResponse](docs/PayoutMethodResponse.md)
  - [PayoutMethodWebhook](docs/PayoutMethodWebhook.md)
  - [PoliticallyExposedPerson](docs/PoliticallyExposedPerson.md)
+ - [ProofOfPayment](docs/ProofOfPayment.md)
+ - [ProofOfPaymentListResponse](docs/ProofOfPaymentListResponse.md)
  - [Recipient](docs/Recipient.md)
  - [RecipientListResponse](docs/RecipientListResponse.md)
  - [RecipientRequest](docs/RecipientRequest.md)
  - [RecipientResponse](docs/RecipientResponse.md)
  - [RecipientState](docs/RecipientState.md)
+ - [RecipientStateReasonDetails](docs/RecipientStateReasonDetails.md)
  - [RecipientWebhook](docs/RecipientWebhook.md)
  - [Sender](docs/Sender.md)
  - [SenderListResponse](docs/SenderListResponse.md)
@@ -283,3 +290,6 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
 ## Author
+
+
+

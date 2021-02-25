@@ -19,7 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayoutMethodCashProviderEnum;
-import com.transferzero.sdk.model.PayoutMethodIdentityCardTypeEnum;
+import com.transferzero.sdk.model.PayoutMethodCountryEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -59,22 +59,6 @@ public class PayoutMethodDetailsXOFCashTest {
     }
 
     /**
-     * Test the property 'identityCardId'
-     */
-    @Test
-    public void identityCardIdTest() {
-        // TODO: test identityCardId
-    }
-
-    /**
-     * Test the property 'identityCardType'
-     */
-    @Test
-    public void identityCardTypeTest() {
-        // TODO: test identityCardType
-    }
-
-    /**
      * Test the property 'phoneNumber'
      */
     @Test
@@ -88,6 +72,14 @@ public class PayoutMethodDetailsXOFCashTest {
     @Test
     public void cashProviderTest() {
         // TODO: test cashProvider
+    }
+
+    /**
+     * Test the property 'country'
+     */
+    @Test
+    public void countryTest() {
+        // TODO: test country
     }
 
 }
