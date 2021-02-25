@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -40,6 +41,10 @@ public class AccountValidationRequest {
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
   private String phoneNumber;
+
+  public static final String SERIALIZED_NAME_MOBILE_PROVIDER = "mobile_provider";
+  @SerializedName(SERIALIZED_NAME_MOBILE_PROVIDER)
+  private PayoutMethodMobileProviderEnum mobileProvider;
 
   /**
    * Country of account in 2-character alpha ISO 3166-2 country format
@@ -248,6 +253,24 @@ public class AccountValidationRequest {
     this.phoneNumber = phoneNumber;
   }
 
+  public AccountValidationRequest mobileProvider(PayoutMethodMobileProviderEnum mobileProvider) {
+    this.mobileProvider = mobileProvider;
+    return this;
+  }
+
+   /**
+   * Get mobileProvider
+   * @return mobileProvider
+  **/
+  @ApiModelProperty(value = "")
+  public PayoutMethodMobileProviderEnum getMobileProvider() {
+    return mobileProvider;
+  }
+
+  public void setMobileProvider(PayoutMethodMobileProviderEnum mobileProvider) {
+    this.mobileProvider = mobileProvider;
+  }
+
   public AccountValidationRequest country(CountryEnum country) {
     this.country = country;
     return this;
@@ -315,6 +338,7 @@ public class AccountValidationRequest {
     return Objects.equals(this.bankAccount, accountValidationRequest.bankAccount) &&
         Objects.equals(this.bankCode, accountValidationRequest.bankCode) &&
         Objects.equals(this.phoneNumber, accountValidationRequest.phoneNumber) &&
+        Objects.equals(this.mobileProvider, accountValidationRequest.mobileProvider) &&
         Objects.equals(this.country, accountValidationRequest.country) &&
         Objects.equals(this.currency, accountValidationRequest.currency) &&
         Objects.equals(this.method, accountValidationRequest.method);
@@ -322,7 +346,7 @@ public class AccountValidationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bankAccount, bankCode, phoneNumber, country, currency, method);
+    return Objects.hash(bankAccount, bankCode, phoneNumber, mobileProvider, country, currency, method);
   }
 
 
@@ -333,6 +357,7 @@ public class AccountValidationRequest {
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
