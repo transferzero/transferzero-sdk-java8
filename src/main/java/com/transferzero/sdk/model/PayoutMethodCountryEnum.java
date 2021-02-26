@@ -34,7 +34,29 @@ public enum PayoutMethodCountryEnum {
   
   ML("ML"),
   
-  SN("SN");
+  SN("SN"),
+  
+  NG("NG"),
+  
+  MA("MA"),
+  
+  TZ("TZ"),
+  
+  GH("GH"),
+  
+  UG("UG"),
+  
+  KE("KE"),
+  
+  NJ("NJ"),
+  
+  EU("EU"),
+  
+  GB("GB"),
+  
+  ZA("ZA"),
+  
+  EG("EG");
 
   private String value;
 

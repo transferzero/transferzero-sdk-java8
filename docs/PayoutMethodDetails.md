@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **bankName** | **String** |  | 
 **bankCountry** | **String** |  | 
 **cashProvider** | [**PayoutMethodCashProviderEnum**](PayoutMethodCashProviderEnum.md) |  |  [optional]
+**country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  |  [optional]
 **sortCode** | **String** |  |  [optional]
 **bic** | **String** |  |  [optional]
 **senderIdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 

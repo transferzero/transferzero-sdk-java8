@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayoutMethodBankAccountTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodCashProviderEnum;
+import com.transferzero.sdk.model.PayoutMethodCountryEnum;
 import com.transferzero.sdk.model.PayoutMethodDetailsBTC;
 import com.transferzero.sdk.model.PayoutMethodDetailsBalance;
 import com.transferzero.sdk.model.PayoutMethodDetailsGBPBank;
@@ -89,6 +90,10 @@ public class PayoutMethodDetails {
   public static final String SERIALIZED_NAME_CASH_PROVIDER = "cash_provider";
   @SerializedName(SERIALIZED_NAME_CASH_PROVIDER)
   private PayoutMethodCashProviderEnum cashProvider;
+
+  public static final String SERIALIZED_NAME_COUNTRY = "country";
+  @SerializedName(SERIALIZED_NAME_COUNTRY)
+  private PayoutMethodCountryEnum country;
 
   public static final String SERIALIZED_NAME_SORT_CODE = "sort_code";
   @SerializedName(SERIALIZED_NAME_SORT_CODE)
@@ -358,6 +363,24 @@ public class PayoutMethodDetails {
 
   public void setCashProvider(PayoutMethodCashProviderEnum cashProvider) {
     this.cashProvider = cashProvider;
+  }
+
+  public PayoutMethodDetails country(PayoutMethodCountryEnum country) {
+    this.country = country;
+    return this;
+  }
+
+   /**
+   * Get country
+   * @return country
+  **/
+  @ApiModelProperty(value = "")
+  public PayoutMethodCountryEnum getCountry() {
+    return country;
+  }
+
+  public void setCountry(PayoutMethodCountryEnum country) {
+    this.country = country;
   }
 
   public PayoutMethodDetails sortCode(String sortCode) {
@@ -705,6 +728,7 @@ public class PayoutMethodDetails {
         Objects.equals(this.bankName, payoutMethodDetails.bankName) &&
         Objects.equals(this.bankCountry, payoutMethodDetails.bankCountry) &&
         Objects.equals(this.cashProvider, payoutMethodDetails.cashProvider) &&
+        Objects.equals(this.country, payoutMethodDetails.country) &&
         Objects.equals(this.sortCode, payoutMethodDetails.sortCode) &&
         Objects.equals(this.bic, payoutMethodDetails.bic) &&
         Objects.equals(this.senderIdentityCardType, payoutMethodDetails.senderIdentityCardType) &&
@@ -727,7 +751,7 @@ public class PayoutMethodDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, iban, bankName, bankCountry, cashProvider, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, transferReasonCode);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, iban, bankName, bankCountry, cashProvider, country, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, transferReasonCode);
   }
 
 
@@ -746,6 +770,7 @@ public class PayoutMethodDetails {
     sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
     sb.append("    bankCountry: ").append(toIndentedString(bankCountry)).append("\n");
     sb.append("    cashProvider: ").append(toIndentedString(cashProvider)).append("\n");
+    sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    sortCode: ").append(toIndentedString(sortCode)).append("\n");
     sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
     sb.append("    senderIdentityCardType: ").append(toIndentedString(senderIdentityCardType)).append("\n");

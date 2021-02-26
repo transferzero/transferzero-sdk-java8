@@ -21,14 +21,15 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayoutMethodCashProviderEnum;
+import com.transferzero.sdk.model.PayoutMethodCountryEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;774044436\&quot;, // local or international Senegalese format   \&quot;cash_provider\&quot;: \&quot;wizall\&quot; // Optional; Values: \&quot;wari\&quot; or \&quot;wizall\&quot;; Default value is \&quot;wari\&quot;; } &#x60;&#x60;&#x60;  Please note when sending Wari cash pickup requests you should subscribe to the recipient.pending webhook, as that will broadcast the payment reference ID the customer need to use to obtain the funds. Example webhook response excerpt -  &#x60;&#x60;&#x60;JSON {   (...)   \&quot;state\&quot;:\&quot;pending\&quot;,   \&quot;metadata\&quot;: {     \&quot;payment_reference\&quot;:\&quot;9M5GJRJUBCY\&quot;   },   (...) } &#x60;&#x60;&#x60;  Please note all senders trying to create Wizall cash pickup requests must have &#x60;identity_type&#x60; and &#x60;identity_number&#x60; present. The fields above are generally considered optional for senders for other payment corridors. If you wish to use an existing sender who has some of these fields missing you can provide them alongside the &#x60;id&#x60; or &#x60;external_id&#x60; field in the sender details. For example -  &#x60;&#x60;&#x60;JSON {   \&quot;transaction\&quot;: {       \&quot;sender\&quot;: {         \&quot;external_id\&quot;: \&quot;&lt;id of sender&gt;\&quot;,         \&quot;identity_type\&quot;: \&quot;ID\&quot;,         \&quot;identity_number\&quot;: \&quot;AB12345678\&quot;,         (...)       },       (...)     } } &#x60;&#x60;&#x60;
+ * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;221774044436\&quot;, // local or international format   \&quot;cash_provider\&quot;: \&quot;wizall\&quot; // Optional; Values: \&quot;wari\&quot; or \&quot;wizall\&quot;; Default value is \&quot;wari\&quot;;   \&quot;country\&quot;: \&quot;SN\&quot; // Optional; Values: \&quot;CI\&quot;, \&quot;ML\&quot; or \&quot;SN\&quot;; Default value is \&quot;SN\&quot;; } &#x60;&#x60;&#x60;  Please note when sending Wari cash pickup requests you should subscribe to the recipient.pending webhook, as that will broadcast the payment reference ID the customer need to use to obtain the funds. Example webhook response excerpt -  &#x60;&#x60;&#x60;JSON {   (...)   \&quot;state\&quot;:\&quot;pending\&quot;,   \&quot;metadata\&quot;: {     \&quot;payment_reference\&quot;:\&quot;9M5GJRJUBCY\&quot;   },   (...) } &#x60;&#x60;&#x60;  Please note all senders trying to create Wizall cash pickup requests must have &#x60;identity_type&#x60; and &#x60;identity_number&#x60; present. The fields above are generally considered optional for senders for other payment corridors. If you wish to use an existing sender who has some of these fields missing you can provide them alongside the &#x60;id&#x60; or &#x60;external_id&#x60; field in the sender details. For example -  &#x60;&#x60;&#x60;JSON {   \&quot;transaction\&quot;: {       \&quot;sender\&quot;: {         \&quot;external_id\&quot;: \&quot;&lt;id of sender&gt;\&quot;,         \&quot;identity_type\&quot;: \&quot;ID\&quot;,         \&quot;identity_number\&quot;: \&quot;AB12345678\&quot;,         (...)       },       (...)     } } &#x60;&#x60;&#x60;
  */
-@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"phone_number\": \"774044436\", // local or international Senegalese format   \"cash_provider\": \"wizall\" // Optional; Values: \"wari\" or \"wizall\"; Default value is \"wari\"; } ```  Please note when sending Wari cash pickup requests you should subscribe to the recipient.pending webhook, as that will broadcast the payment reference ID the customer need to use to obtain the funds. Example webhook response excerpt -  ```JSON {   (...)   \"state\":\"pending\",   \"metadata\": {     \"payment_reference\":\"9M5GJRJUBCY\"   },   (...) } ```  Please note all senders trying to create Wizall cash pickup requests must have `identity_type` and `identity_number` present. The fields above are generally considered optional for senders for other payment corridors. If you wish to use an existing sender who has some of these fields missing you can provide them alongside the `id` or `external_id` field in the sender details. For example -  ```JSON {   \"transaction\": {       \"sender\": {         \"external_id\": \"<id of sender>\",         \"identity_type\": \"ID\",         \"identity_number\": \"AB12345678\",         (...)       },       (...)     } } ```")
+@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"phone_number\": \"221774044436\", // local or international format   \"cash_provider\": \"wizall\" // Optional; Values: \"wari\" or \"wizall\"; Default value is \"wari\";   \"country\": \"SN\" // Optional; Values: \"CI\", \"ML\" or \"SN\"; Default value is \"SN\"; } ```  Please note when sending Wari cash pickup requests you should subscribe to the recipient.pending webhook, as that will broadcast the payment reference ID the customer need to use to obtain the funds. Example webhook response excerpt -  ```JSON {   (...)   \"state\":\"pending\",   \"metadata\": {     \"payment_reference\":\"9M5GJRJUBCY\"   },   (...) } ```  Please note all senders trying to create Wizall cash pickup requests must have `identity_type` and `identity_number` present. The fields above are generally considered optional for senders for other payment corridors. If you wish to use an existing sender who has some of these fields missing you can provide them alongside the `id` or `external_id` field in the sender details. For example -  ```JSON {   \"transaction\": {       \"sender\": {         \"external_id\": \"<id of sender>\",         \"identity_type\": \"ID\",         \"identity_number\": \"AB12345678\",         (...)       },       (...)     } } ```")
 
 public class PayoutMethodDetailsXOFCash {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
@@ -46,6 +47,10 @@ public class PayoutMethodDetailsXOFCash {
   public static final String SERIALIZED_NAME_CASH_PROVIDER = "cash_provider";
   @SerializedName(SERIALIZED_NAME_CASH_PROVIDER)
   private PayoutMethodCashProviderEnum cashProvider;
+
+  public static final String SERIALIZED_NAME_COUNTRY = "country";
+  @SerializedName(SERIALIZED_NAME_COUNTRY)
+  private PayoutMethodCountryEnum country;
 
   public PayoutMethodDetailsXOFCash firstName(String firstName) {
     this.firstName = firstName;
@@ -119,6 +124,24 @@ public class PayoutMethodDetailsXOFCash {
     this.cashProvider = cashProvider;
   }
 
+  public PayoutMethodDetailsXOFCash country(PayoutMethodCountryEnum country) {
+    this.country = country;
+    return this;
+  }
+
+   /**
+   * Get country
+   * @return country
+  **/
+  @ApiModelProperty(value = "")
+  public PayoutMethodCountryEnum getCountry() {
+    return country;
+  }
+
+  public void setCountry(PayoutMethodCountryEnum country) {
+    this.country = country;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -132,12 +155,13 @@ public class PayoutMethodDetailsXOFCash {
     return Objects.equals(this.firstName, payoutMethodDetailsXOFCash.firstName) &&
         Objects.equals(this.lastName, payoutMethodDetailsXOFCash.lastName) &&
         Objects.equals(this.phoneNumber, payoutMethodDetailsXOFCash.phoneNumber) &&
-        Objects.equals(this.cashProvider, payoutMethodDetailsXOFCash.cashProvider);
+        Objects.equals(this.cashProvider, payoutMethodDetailsXOFCash.cashProvider) &&
+        Objects.equals(this.country, payoutMethodDetailsXOFCash.country);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, phoneNumber, cashProvider);
+    return Objects.hash(firstName, lastName, phoneNumber, cashProvider, country);
   }
 
 
@@ -149,6 +173,7 @@ public class PayoutMethodDetailsXOFCash {
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    cashProvider: ").append(toIndentedString(cashProvider)).append("\n");
+    sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("}");
     return sb.toString();
   }
