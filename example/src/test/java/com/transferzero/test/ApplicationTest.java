@@ -11,23 +11,27 @@
  */
 
 
-package com.transferzero.sdk.model;
+package com.transferzero.test;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.transferzero.sdk.model.Account;
-import com.transferzero.sdk.model.AccountMeta;
+import com.transferzero.sdk.model.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import com.transferzero.test.Application;
 import com.transferzero.sdk.ApiClient;
+
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.*;
 import com.transferzero.sdk.ApiException;
 
@@ -36,15 +40,61 @@ public class ApplicationTest {
   private ApiClient apiClient;
 
   public void setUp() throws Exception {
-      application = new Application();
-    }
+    application = new Application();
+  }
+  @Before
+  public void setupApiClient() throws Exception {
+    apiClient = new ApiClient();
+    apiClient.setApiKey("HhHFLqJcX8VYkyKK5PqwAATFaN5LdScsILjLWi1NiV6Mfs+AMQUIKeHBthSBAxweh0ibaJ0vLLZRIDFF87Sduw==");
+    apiClient.setApiSecret("WEUPNQEzfznymW3r1jX8n+IFmUWi+FVh9L5eXVot6Ed57FsKsLYrrA7MwDEb5pbkuJPYcwdFVALoWfZ/5EFdWg==");
+    apiClient.setBasePath("https://api-staging.bitpesa.co/v1");
+  }
+String suuid = UUID.randomUUID().toString();
 
     @Test
     public void accountValidation() throws ApiException {
-      apiClient = new ApiClient();
-      apiClient.setApiKey("<ApiKey>");
-      apiClient.setApiSecret("<API secret>");
-      apiClient.setBasePath("<API url>");
       assertEquals("TEST USER", application.accountValidationExample(apiClient));
+    }
+
+    @Test
+    public void createAndThenGetTransaction() throws Exception {
+      String testUuid = suuid;
+      UUID createdTransactionId = application.createTransactionExample(apiClient, testUuid);
+      assertThat(createdTransactionId, instanceOf(UUID.class));
+      Transaction returnedTransaction = application.getTransactionByExternalId(apiClient, testUuid).getObject().get(0);
+      assertThat(returnedTransaction.getId(), instanceOf(UUID.class));
+      assertEquals(returnedTransaction.getId(), createdTransactionId);
+      assertEquals(testUuid, returnedTransaction.getExternalId());
+    }
+
+    @Test
+    public void createAndFundTransactionAndGetRecipientForThatTransaction() throws Exception {
+        UUID createdTransactionId = application.createAndFundTransactionExample(apiClient, suuid);
+        assertThat(createdTransactionId, instanceOf(UUID.class));
+        Recipient returnedRecipient = application.getTransactionErrorMessageExample(apiClient, createdTransactionId);
+        assertThat(returnedRecipient, instanceOf(Recipient.class));
+        assertEquals(RecipientState.INITIAL, returnedRecipient.getState());
+        assertEquals(createdTransactionId.toString(), returnedRecipient.getTransactionId());
+    }
+
+    @Test
+    public void createAndUpdateSender() throws Exception {
+        String city = "London";
+        UUID createdSenderId = application.createSender(apiClient, suuid);
+        assertThat(createdSenderId, instanceOf(UUID.class));
+        Sender updatedSender = application.updateSender(apiClient, createdSenderId, city).getObject();
+        assertThat(updatedSender.getId(), instanceOf(UUID.class));
+        assertEquals(createdSenderId, updatedSender.getId());
+        assertEquals(city, updatedSender.getCity());
+    }
+
+    @Test
+    public void createAndGetSender() throws Exception {
+        String testUuid = suuid;
+        UUID createdSenderId = application.createSender(apiClient, testUuid);
+        assertThat(createdSenderId, instanceOf(UUID.class));
+        Sender returnedSender = application.getSenderByExternalId(apiClient, testUuid).getObject().get(0);
+        assertThat(returnedSender.getId(), instanceOf(UUID.class));
+        assertEquals(testUuid, returnedSender.getExternalId());
     }
 }

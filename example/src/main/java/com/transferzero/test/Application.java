@@ -9,9 +9,6 @@ import com.transferzero.sdk.api.TransactionsApi;
 import com.transferzero.sdk.model.*;
 import java.time.LocalDate;
 
-import okhttp3.Request;
-import okhttp3.Response;
-
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -47,117 +44,118 @@ public class Application {
         }
     }
 
-    // public static UUID createTransactionExample(ApiClient apiClient) throws ApiException {
-    //     // Please check our documentation at https://docs.transferzero.com/docs/transaction-flow/
-    //     // for details on how transactions work.
-    //     TransactionsApi api = new TransactionsApi(apiClient);
-    //     Transaction transaction = new Transaction();
+     public static UUID createTransactionExample(ApiClient apiClient, String suuid) throws ApiException {
+         // Please check our documentation at https://docs.transferzero.com/docs/transaction-flow/
+         // for details on how transactions work.
+         TransactionsApi api = new TransactionsApi(apiClient);
+         Transaction transaction = new Transaction();
 
-    //     // When adding a sender to transaction, please use either an id or external_id. Providing both will result in a validation error.
-    //     // Please see our documentation at https://docs.transferzero.com/docs/transaction-flow/#sender
-    //     Sender sender = new Sender();
-    //     sender.setId(UUID.fromString("058de445-ffff-ffff-ffff-da9c751d14bf"));
+         // When adding a sender to transaction, please use either an id or external_id. Providing both will result in a validation error.
+         // Please see our documentation at https://docs.transferzero.com/docs/transaction-flow/#sender
+         Sender sender = new Sender();
+         sender.setId(UUID.fromString("80f3435f-7970-453b-848c-f831049de41f"));
 
-    //     // You can find the various payout options at https://docs.transferzero.com/docs/transaction-flow/#payout-details
-    //     PayoutMethodDetails ngnBankDetails = new PayoutMethodDetails();
-    //     ngnBankDetails.setBankAccount("123456789");
-    //     ngnBankDetails.setBankAccountType(PayoutMethodBankAccountTypeEnum._20);
-    //     ngnBankDetails.setBankCode("082");
-    //     ngnBankDetails.setFirstName("First");
-    //     ngnBankDetails.setLastName("Last");
+         // You can find the various payout options at https://docs.transferzero.com/docs/transaction-flow/#payout-details
+         PayoutMethodDetails ngnBankDetails = new PayoutMethodDetails();
+//         ngnBankDetails.setBankAccount("123456789");
+//         ngnBankDetails.setBankAccountType(PayoutMethodBankAccountTypeEnum._20);
+//         ngnBankDetails.setBankCode("082");
+         ngnBankDetails.setPhoneNumber("7087661234");
+         ngnBankDetails.setFirstName("First");
+         ngnBankDetails.setLastName("Last");
 
-    //     PayoutMethod payoutMethod = new PayoutMethod();
-    //     payoutMethod.setType("NGN::Bank");
-    //     payoutMethod.setDetails(ngnBankDetails);
+         PayoutMethod payoutMethod = new PayoutMethod();
+         payoutMethod.setType("NGN::Mobile");
+         payoutMethod.setDetails(ngnBankDetails);
 
-    //     // Please see https://docs.transferzero.com/docs/transaction-flow/#requested-amount-and-currency
-    //     // on what the request amount and currencies do
-    //     Recipient recipient = new Recipient();
-    //     recipient.setRequestedAmount(new BigDecimal("10000"));
-    //     recipient.setRequestedCurrency("NGN");
-    //     recipient.setPayoutMethod(payoutMethod);
+         // Please see https://docs.transferzero.com/docs/transaction-flow/#requested-amount-and-currency
+         // on what the request amount and currencies do
+         Recipient recipient = new Recipient();
+         recipient.setRequestedAmount(new BigDecimal("10000"));
+         recipient.setRequestedCurrency("NGN");
+         recipient.setPayoutMethod(payoutMethod);
 
-    //     // Find more details on external IDs at https://docs.transferzero.com/docs/transaction-flow/#external-id
-    //     transaction.setExternalId("TRANSACTION-1f834ady");
+         // Find more details on external IDs at https://docs.transferzero.com/docs/transaction-flow/#external-id
+         transaction.setExternalId(suuid);
 
-    //     // Similarly you can check https://docs.transferzero.com/docs/transaction-flow/#requested-amount-and-currency
-    //     // on details about the input currency parameter
-    //     transaction.setInputCurrency("USD");
-    //     transaction.setSender(sender);
-    //     transaction.addRecipientsItem(recipient);
+         // Similarly you can check https://docs.transferzero.com/docs/transaction-flow/#requested-amount-and-currency
+         // on details about the input currency parameter
+         transaction.setInputCurrency("USD");
+         transaction.setSender(sender);
+         transaction.addRecipientsItem(recipient);
 
-    //     try {
-    //         TransactionRequest transactionRequest = new TransactionRequest();
-    //         transactionRequest.setTransaction(transaction);
-    //         TransactionResponse transactionResponse = api.postTransactions(transactionRequest);
-    //         System.out.println("Transaction created! ID" + transactionResponse.getObject().getId());
-    //         System.out.println(transactionResponse.getObject());
-    //         return transactionResponse.getObject().getId();
-    //     } catch (ApiException e) {
-    //         if (e.isValidationError()) {
-    //             TransactionResponse transactionResponse = e.getResponseObject(TransactionResponse.class);
-    //             System.out.println("Validation Error" + transactionResponse.getObject().getErrors());
-    //         } else {
-    //             throw e;
-    //         }
-    //         return null;
-    //     }
-    // }
+         try {
+             TransactionRequest transactionRequest = new TransactionRequest();
+             transactionRequest.setTransaction(transaction);
+             TransactionResponse transactionResponse = api.postTransactions(transactionRequest);
+             System.out.println("Transaction created! ID" + transactionResponse.getObject().getId());
+             System.out.println(transactionResponse.getObject());
+             return transactionResponse.getObject().getId();
+         } catch (ApiException e) {
+             if (e.isValidationError()) {
+                 TransactionResponse transactionResponse = e.getResponseObject(TransactionResponse.class);
+                 System.out.println("Validation Error" + transactionResponse.getObject().getErrors());
+             } else {
+                 throw e;
+             }
+             return null;
+         }
+     }
 
-    // public static UUID createAndFundTransactionExample(ApiClient apiClient) throws Exception {
-    //     // Please see https://docs.transferzero.com/docs/transaction-flow/#funding-transactions
-    //     // on details about funding transactions
+     public static UUID createAndFundTransactionExample(ApiClient apiClient, String suuid) throws Exception {
+         // Please see https://docs.transferzero.com/docs/transaction-flow/#funding-transactions
+         // on details about funding transactions
 
-    //     UUID transactionId = createTransactionExample(apiClient);
-    //     if (transactionId != null) {
-    //         Debit debit = new Debit();
-    //         debit.setCurrency("USD");
-    //         debit.setToId(transactionId);
-    //         debit.setToType("Transaction");
+         UUID transactionId = createTransactionExample(apiClient, suuid);
+         if (transactionId != null) {
+             Debit debit = new Debit();
+             debit.setCurrency("USD");
+             debit.setToId(transactionId);
+             debit.setToType("Transaction");
 
-    //         DebitRequestWrapper debitRequest = new DebitRequestWrapper();
-    //         debitRequest.addDebitItem(debit);
+             DebitRequestWrapper debitRequest = new DebitRequestWrapper();
+             debitRequest.addDebitItem(debit);
 
-    //         AccountDebitsApi debitsApi = new AccountDebitsApi(apiClient);
-    //         try {
-    //             DebitListResponse debitListResponse = debitsApi.postAccountsDebits(debitRequest);
-    //             System.out.println("Transaction Funded Successfully");
-    //             System.out.println(debitListResponse.getObject().get(0));
-    //         } catch (ApiException e) {
-    //             if (e.isValidationError()) {
-    //                 DebitListResponse debitListResponse = e.getResponseObject(DebitListResponse.class);
-    //                 System.out.println("Transaction could not be funded");
-    //                 System.out.println(debitListResponse.getObject().get(0).getErrors());
-    //             } else {
-    //                 throw e;
-    //             }
-    //         }
-    //     }
-    //     return transactionId;
-    // }
+             AccountDebitsApi debitsApi = new AccountDebitsApi(apiClient);
+             try {
+                 DebitListResponse debitListResponse = debitsApi.postAccountsDebits(debitRequest);
+                 System.out.println("Transaction Funded Successfully");
+                 System.out.println(debitListResponse.getObject().get(0));
+             } catch (ApiException e) {
+                 if (e.isValidationError()) {
+                     DebitListResponse debitListResponse = e.getResponseObject(DebitListResponse.class);
+                     System.out.println("Transaction could not be funded");
+                     System.out.println(debitListResponse.getObject().get(0).getErrors());
+                 } else {
+                     throw e;
+                 }
+             }
+         }
+         return transactionId;
+     }
 
-    // public static void getTransactionByExternalId(ApiClient apiClient) throws Exception {
-    //     // Please see https://docs.transferzero.com/docs/transaction-flow/#external-id
-    //     // for more details on external IDs
-
-    //     TransactionsApi transactionsApi = new TransactionsApi(apiClient);
-    //     String externalId = "TRANSACTION-1f834ady";
-    //     try {
-    //         TransactionListResponse transactionListResponse = transactionsApi.getTransactions()
-    //                 .externalId(externalId)
-    //                 .execute();
-    //         System.out.println(transactionListResponse);
-    //     } catch (ApiException e) {
-    //         if (e.isValidationError()) {
-    //             TransactionListResponse transactionListResponse = e.getResponseObject(TransactionListResponse.class);
-    //             System.err.println("There was an error retrieving the transaction");
-    //             System.out.println(transactionListResponse.getObject().get(0).getErrors());
-    //             System.out.println(transactionListResponse);
-    //         } else {
-    //             throw e;
-    //         }
-    //     }
-    // }
+    public static TransactionListResponse getTransactionByExternalId(ApiClient apiClient, String suuid) throws Exception {
+        // Please see https://docs.transferzero.com/docs/transaction-flow/#external-id
+        // for more details on external IDs
+        TransactionsApi transactionsApi = new TransactionsApi(apiClient);
+        String externalId = suuid;
+        try {
+            TransactionListResponse transactionListResponse = transactionsApi.getTransactions()
+                    .externalId(externalId)
+                    .execute();
+            return transactionListResponse;
+        } catch (ApiException e) {
+            if (e.isValidationError()) {
+                TransactionListResponse transactionListResponse = e.getResponseObject(TransactionListResponse.class);
+                System.err.println("There was an error retrieving the transaction");
+                System.out.println(transactionListResponse.getObject().get(0).getErrors());
+                System.out.println(transactionListResponse);
+            } else {
+                throw e;
+            }
+        }
+        return null;
+    }
 
     // public static void apiInterceptorExample(ApiClient apiClient) throws ApiException {
 
@@ -179,16 +177,15 @@ public class Application {
     //     api.getSenders().externalId("SENDER-2b59defy").execute();
     // }
 
-    // public static void getTransactionErrorMessageExample(ApiClient apiClient) throws ApiException {
-    //     // Please see https://docs.transferzero.com/docs/transaction-flow/#receiving-error-messages
-    //     // on details about error messages
+     public static Recipient getTransactionErrorMessageExample(ApiClient apiClient, UUID transactionId) throws ApiException {
+         // Please see https://docs.transferzero.com/docs/transaction-flow/#receiving-error-messages
+         // on details about error messages
 
-    //     UUID transactionId = UUID.fromString("990b9203-ffff-ffff-ffff-897f20eaefa8");
-
-    //     TransactionsApi transactionsApi = new TransactionsApi(apiClient);
-    //     TransactionResponse transaction = transactionsApi.getTransaction(transactionId).execute();
-    //     System.out.println("Get recipient's state error message: "+ transaction.getObject().getRecipients().get(0).getStateReason());
-    // }
+         TransactionsApi transactionsApi = new TransactionsApi(apiClient);
+         TransactionResponse transaction = transactionsApi.getTransaction(transactionId).execute();
+         System.out.println("Get recipient's state error message: "+ transaction.getObject().getRecipients().get(0).getStateReason());
+         return transaction.getObject().getRecipients().get(0);
+     }
 
     // public static void webhookParseExample(ApiClient apiClient) throws ApiException {
     //     // Please see https://docs.transferzero.com#webhooks
@@ -388,93 +385,108 @@ public class Application {
     //     }
     // }
 
-    // public static UUID createSender(ApiClient apiClient) throws Exception {
-    //     // For more details on senders please check https://docs.transferzero.com/docs/transaction-flow/#sender
+     public static UUID createSender(ApiClient apiClient, String suuid) throws Exception {
+         // For more details on senders please check https://docs.transferzero.com/docs/transaction-flow/#sender
 
-    //     SendersApi apiInstance = new SendersApi(apiClient);
-    //     Sender sender = new Sender();
-    //     sender.setCountry("UG");
-    //     sender.setPhoneCountry("UG");
-    //     sender.setPhoneNumber("752403639");
-    //     sender.setEmail("example@example.com");
-    //     sender.setFirstName("test");
-    //     sender.setLastName("user");
-    //     sender.setCity("Lagos");
-    //     sender.setStreet("Unknown 123");
-    //     sender.setPostalCode("798983");
-    //     sender.setBirthDate(LocalDate.parse("1980-01-01"));
-    //     sender.setIp("127.0.0.1");
-    //     sender.setAddressDescription("Description");
-    //     sender.setDocuments(new ArrayList<>());
-    //     //  Optional field for customer ID
-    //     sender.setExternalId("SENDER-2b59defy");
+         SendersApi apiInstance = new SendersApi(apiClient);
+         Sender sender = new Sender();
+         // sender.setId(UUID.fromString("c2c1d6f0-2196-4360-be73-29149a54e155")); //staging Business banned
+         sender.setCountry("UG");
+         sender.setPhoneCountry("UG");
+         sender.setPhoneNumber("793653133");
+         sender.setEmail("saran@azafinance.com");
+         sender.setFirstName("Saran");
+         sender.setLastName("Test");
+         sender.setCity("Kampala");
+         sender.setStreet("Unknown 123");
+         sender.setPostalCode("79898");
+         sender.setBirthDate(LocalDate.parse("1980-01-01"));
+         sender.setIp("127.0.0.1");
+         sender.setAddressDescription("Description");
+         //sender.setMiddleName("TEST");
+         sender.setDocuments(new ArrayList<>());
+         Document document = new Document();
+         document.setUpload("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4gEeCTEzbKJEHgAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAADElEQVQI12P4z8AAAAMBAQAY3Y2wAAAAAElFTkSuQmCC");
+         document.uploadFileName("example.png");
+         sender.addDocumentsItem(document);
+         //Optional field for customer ID
+         sender.setExternalId(suuid);
+         sender.setIdentificationNumber("28555669");
+         sender.setIdentificationType(Sender.IdentificationTypeEnum.fromValue("PP"));
+         sender.setCityOfBirth("London");
+         sender.setCountryOfBirth("GB");
+         sender.setGender(Sender.GenderEnum.M);
 
-    //     SenderRequest senderRequest = new SenderRequest();
-    //     senderRequest.setSender(sender);
-    //     try {
-    //         SenderResponse result = apiInstance.postSenders(senderRequest);
-    //         System.out.println(result);
-    //         return result.getObject().getId();
-    //     } catch (ApiException e) {
-    //         if (e.isValidationError()) {
-    //             SenderResponse result = e.getResponseObject(SenderResponse.class);
-    //             System.out.println(result);
-    //             System.err.println("WARN: Validation error occurred when calling the endpoint");
-    //         } else {
-    //             System.err.println("Exception when calling SendersApi#postSenders");
-    //             e.printStackTrace();
-    //         }
-    //     }
-    //     return null;
-    // }
+         SenderRequest senderRequest = new SenderRequest();
+         senderRequest.setSender(sender);
+         try {
+             SenderResponse result = apiInstance.postSenders(senderRequest);
+             System.out.println(result);
+             return result.getObject().getId();
+         } catch (ApiException e) {
+             if (e.isValidationError()) {
+                 SenderResponse result = e.getResponseObject(SenderResponse.class);
+                 System.out.println(result);
+                 System.err.println("WARN: Validation error occurred when calling the endpoint");
+             } else {
+                 System.err.println("Exception when calling SendersApi#postSenders");
+                 e.printStackTrace();
+             }
+         }
+         return null;
+     }
 
-    // public static void getSenderByExternalId(ApiClient apiClient) throws Exception {
-    //     // Find more details on external IDs at https://docs.transferzero.com/docs/transaction-flow/#external-id
+     public static SenderListResponse getSenderByExternalId(ApiClient apiClient, String suuid) throws Exception {
+         // Find more details on external IDs at https://docs.transferzero.com/docs/transaction-flow/#external-id
 
-    //     SendersApi sendersApi = new SendersApi(apiClient);
-    //     String externalId = "SENDER-2b59defy";
-    //     try {
-    //         SenderListResponse senderListResponse = sendersApi.getSenders()
-    //                 .externalId(externalId)
-    //                 .execute();
-    //         System.out.println(senderListResponse);
-    //     } catch (ApiException e) {
-    //         if (e.isValidationError()) {
-    //             SenderListResponse senderListResponse = e.getResponseObject(SenderListResponse.class);
-    //             System.err.println("There was an error retrieving the sender");
-    //             System.out.println(senderListResponse.getObject().get(0).getErrors());
-    //             System.out.println(senderListResponse);
-    //         } else {
-    //             throw e;
-    //         }
-    //     }
-    // }
+         SendersApi sendersApi = new SendersApi(apiClient);
+         String externalId = suuid;
+         try {
+             SenderListResponse senderListResponse = sendersApi.getSenders()
+                     .externalId(externalId)
+                     .execute();
+             System.out.println(senderListResponse);
+             return senderListResponse;
+         } catch (ApiException e) {
+             if (e.isValidationError()) {
+                 SenderListResponse senderListResponse = e.getResponseObject(SenderListResponse.class);
+                 System.err.println("There was an error retrieving the sender");
+                 System.out.println(senderListResponse.getObject().get(0).getErrors());
+                 System.out.println(senderListResponse);
+             } else {
+                 throw e;
+             }
+         }
+         return null;
+     }
 
-    // public static void updateSender(ApiClient apiClient) throws Exception {
-    //     // For more details on senders please check https://docs.transferzero.com/docs/transaction-flow/#sender
+     public static SenderResponse updateSender(ApiClient apiClient, UUID senderId, String city) throws Exception {
+         // For more details on senders please check https://docs.transferzero.com/docs/transaction-flow/#sender
 
-    //     SendersApi sendersApi = new SendersApi(apiClient);
+         SendersApi sendersApi = new SendersApi(apiClient);
 
-    //     SenderRequest senderRequest = new SenderRequest();
-    //     Sender sender = new Sender();
-    //     senderRequest.setSender(sender);
+         SenderRequest senderRequest = new SenderRequest();
+         Sender sender = new Sender();
+         senderRequest.setSender(sender);
 
-    //     sender.setCity("London");
+         sender.setCity(city);
 
-    //     try {
-    //         SenderResponse senderResponse = sendersApi.patchSender(UUID.fromString("058de445-e7eb-4d98-acaf-da9c751d14bf"), senderRequest);
-    //         System.out.println(senderResponse);
-    //     } catch (ApiException e) {
-    //         if (e.isValidationError()) {
-    //             SenderResponse senderResponse = e.getResponseObject(SenderResponse.class);
-    //             System.err.println("There was an error changing the sender details");
-    //             System.out.println(senderResponse.getObject().getErrors());
-    //             System.out.println(senderResponse);
-    //         } else {
-    //             throw e;
-    //         }
-    //     }
-    // }
+         try {
+             SenderResponse senderResponse = sendersApi.patchSender(senderId, senderRequest);
+             System.out.println(senderResponse);
+             return  senderResponse;
+         } catch (ApiException e) {
+             if (e.isValidationError()) {
+                 SenderResponse senderResponse = e.getResponseObject(SenderResponse.class);
+                 System.err.println("There was an error changing the sender details");
+                 System.out.println(senderResponse.getObject().getErrors());
+                 System.out.println(senderResponse);
+             } else {
+                 throw e;
+             }
+         }
+         return null;
+     }
 
     public static void main(String[] args) throws Exception {
         // ApiClient apiClient = new ApiClient();
@@ -482,14 +494,14 @@ public class Application {
         // apiClient.setApiSecret("<API secret>");
         // apiClient.setBasePath("<API url>");
         // accountValidationExample(apiClient);
-        //createTransactionExample(apiClient);
-        //createAndFundTransactionExample(apiClient);
-        //getTransactionByExternalId(apiClient);
-        //getTransactionErrorMessageExample(apiClient);
-        //webhookParseExample(apiClient);
-        //createSender(apiClient);
-        //getSenderByExternalId(apiClient);
-        //updateSender(apiClient);
-        //apiInterceptorExample(apiClient);
+//        createTransactionExample(apiClient);
+//        createAndFundTransactionExample(apiClient);
+//        getTransactionByExternalId(apiClient);
+//        getTransactionErrorMessageExample(apiClient);
+//        webhookParseExample(apiClient);
+//        createSender(apiClient);
+//        getSenderByExternalId(apiClient);
+//        updateSender(apiClient);
+//        apiInterceptorExample(apiClient);
     }
 }
