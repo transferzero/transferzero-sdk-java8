@@ -56,17 +56,13 @@ public class Application {
          sender.setId(UUID.fromString("80f3435f-7970-453b-848c-f831049de41f"));
 
          // You can find the various payout options at https://docs.transferzero.com/docs/transaction-flow/#payout-details
-         PayoutMethodDetails ngnBankDetails = new PayoutMethodDetails();
-//         ngnBankDetails.setBankAccount("123456789");
-//         ngnBankDetails.setBankAccountType(PayoutMethodBankAccountTypeEnum._20);
-//         ngnBankDetails.setBankCode("082");
-         ngnBankDetails.setPhoneNumber("7087661234");
-         ngnBankDetails.setFirstName("First");
-         ngnBankDetails.setLastName("Last");
+         PayoutMethodDetails ngnMobileDetails = new PayoutMethodDetails();
+         ngnMobileDetails.setPhoneNumber("7087661234");
+         ngnMobileDetails.setName("First Last");
 
          PayoutMethod payoutMethod = new PayoutMethod();
          payoutMethod.setType("NGN::Mobile");
-         payoutMethod.setDetails(ngnBankDetails);
+         payoutMethod.setDetails(ngnMobileDetails);
 
          // Please see https://docs.transferzero.com/docs/transaction-flow/#requested-amount-and-currency
          // on what the request amount and currencies do
