@@ -157,26 +157,6 @@ public class Application {
         return null;
     }
 
-    // public static void apiInterceptorExample(ApiClient apiClient) throws ApiException {
-
-    //     class ApiInterceptorImpl implements ApiClient.ApiInterceptor {
-    //         public Request handlePreRequest(Request request) {
-    //             System.out.println(request.body());
-    //             return request;
-    //         }
-
-    //         public Response handlePostResponse(Response response) {
-    //             System.out.println(response.body());
-    //             return response;
-    //         }
-    //     }
-
-    //     ApiInterceptorImpl ApiIntImpl = new ApiInterceptorImpl();
-    //     apiClient.setApiInterceptor(ApiIntImpl);
-    //     SendersApi api = new SendersApi(apiClient);
-    //     api.getSenders().externalId("SENDER-2b59defy").execute();
-    // }
-
      public static Recipient getTransactionErrorMessageExample(ApiClient apiClient, UUID transactionId) throws ApiException {
          // Please see https://docs.transferzero.com/docs/transaction-flow/#receiving-error-messages
          // on details about error messages

@@ -12,23 +12,11 @@
 
 
 package com.transferzero.test;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.*;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
-import com.transferzero.test.Application;
 import com.transferzero.sdk.ApiClient;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
@@ -39,11 +27,11 @@ public class ApplicationTest {
   private Application application;
   private ApiClient apiClient;
 
-  public void setUp() throws Exception {
+  public void setUp() {
     application = new Application();
   }
   @Before
-  public void setupApiClient() throws Exception {
+  public void setupApiClient() {
     apiClient = new ApiClient();
     apiClient.setApiKey("HhHFLqJcX8VYkyKK5PqwAATFaN5LdScsILjLWi1NiV6Mfs+AMQUIKeHBthSBAxweh0ibaJ0vLLZRIDFF87Sduw==");
     apiClient.setApiSecret("WEUPNQEzfznymW3r1jX8n+IFmUWi+FVh9L5eXVot6Ed57FsKsLYrrA7MwDEb5pbkuJPYcwdFVALoWfZ/5EFdWg==");
