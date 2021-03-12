@@ -47,7 +47,7 @@ String suuid = UUID.randomUUID().toString();
     @Test
     public void createAndThenGetTransaction() throws Exception {
       String testUuid = suuid;
-      UUID createdTransactionId = application.createTransactionExample(apiClient, testUuid);
+      UUID createdTransactionId = application.createTransactionExample(apiClient, testUuid, false);
       assertThat(createdTransactionId, instanceOf(UUID.class));
       Transaction returnedTransaction = application.getTransactionByExternalId(apiClient, testUuid).getObject().get(0);
       assertThat(returnedTransaction.getId(), instanceOf(UUID.class));
@@ -56,8 +56,8 @@ String suuid = UUID.randomUUID().toString();
     }
 
     @Test
-    public void createAndFundTransactionAndGetRecipientForThatTransaction() throws Exception {
-        UUID createdTransactionId = application.createAndFundTransactionExample(apiClient, suuid);
+    public void createAndFundB2BTransactionAndGetRecipientForThatTransaction() throws Exception {
+        UUID createdTransactionId = application.createAndFundTransactionExample(apiClient, suuid, true);
         assertThat(createdTransactionId, instanceOf(UUID.class));
         Recipient returnedRecipient = application.getTransactionErrorMessageExample(apiClient, createdTransactionId);
         assertThat(returnedRecipient, instanceOf(Recipient.class));

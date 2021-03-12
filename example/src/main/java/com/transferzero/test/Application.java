@@ -44,7 +44,7 @@ public class Application {
         }
     }
 
-     public static UUID createTransactionExample(ApiClient apiClient, String suuid) throws ApiException {
+     public static UUID createTransactionExample(ApiClient apiClient, String suuid, Boolean business) throws ApiException {
          // Please check our documentation at https://docs.transferzero.com/docs/transaction-flow/
          // for details on how transactions work.
          TransactionsApi api = new TransactionsApi(apiClient);
@@ -58,7 +58,12 @@ public class Application {
          // You can find the various payout options at https://docs.transferzero.com/docs/transaction-flow/#payout-details
          PayoutMethodDetails ngnMobileDetails = new PayoutMethodDetails();
          ngnMobileDetails.setPhoneNumber("7087661234");
-         ngnMobileDetails.setName("First Last");
+         if (business) {
+             ngnMobileDetails.setName("First Last");
+         } else {
+             ngnMobileDetails.setFirstName("First");
+             ngnMobileDetails.setLastName("Last");
+         }
 
          PayoutMethod payoutMethod = new PayoutMethod();
          payoutMethod.setType("NGN::Mobile");
@@ -98,11 +103,11 @@ public class Application {
          }
      }
 
-     public static UUID createAndFundTransactionExample(ApiClient apiClient, String suuid) throws Exception {
+     public static UUID createAndFundTransactionExample(ApiClient apiClient, String suuid, Boolean business) throws Exception {
          // Please see https://docs.transferzero.com/docs/transaction-flow/#funding-transactions
          // on details about funding transactions
 
-         UUID transactionId = createTransactionExample(apiClient, suuid);
+         UUID transactionId = createTransactionExample(apiClient, suuid, business);
          if (transactionId != null) {
              Debit debit = new Debit();
              debit.setCurrency("USD");
