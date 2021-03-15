@@ -15,12 +15,13 @@ package com.transferzero.test;
 import com.transferzero.sdk.model.*;
 import java.util.UUID;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import com.transferzero.sdk.ApiClient;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.instanceOf;
+import static org.junit.jupiter.api.Assertions.*;
 import com.transferzero.sdk.ApiException;
 
 public class ApplicationTest {
@@ -30,7 +31,7 @@ public class ApplicationTest {
   public void setUp() {
     application = new Application();
   }
-  @Before
+  @BeforeEach
   public void setupApiClient() {
     apiClient = new ApiClient();
     apiClient.setApiKey("HhHFLqJcX8VYkyKK5PqwAATFaN5LdScsILjLWi1NiV6Mfs+AMQUIKeHBthSBAxweh0ibaJ0vLLZRIDFF87Sduw==");
@@ -50,9 +51,12 @@ String suuid = UUID.randomUUID().toString();
       UUID createdTransactionId = application.createTransactionExample(apiClient, testUuid, false);
       assertThat(createdTransactionId, instanceOf(UUID.class));
       Transaction returnedTransaction = application.getTransactionByExternalId(apiClient, testUuid).getObject().get(0);
-      assertThat(returnedTransaction.getId(), instanceOf(UUID.class));
-      assertEquals(returnedTransaction.getId(), createdTransactionId);
-      assertEquals(testUuid, returnedTransaction.getExternalId());
+        assertAll(
+                () -> assertThat(returnedTransaction.getId(), instanceOf(UUID.class)),
+                () -> assertEquals( returnedTransaction.getId(), createdTransactionId),
+                () -> assertEquals(testUuid, returnedTransaction.getExternalId())
+        );
+
     }
 
     @Test
@@ -60,9 +64,11 @@ String suuid = UUID.randomUUID().toString();
         UUID createdTransactionId = application.createAndFundTransactionExample(apiClient, suuid, true);
         assertThat(createdTransactionId, instanceOf(UUID.class));
         Recipient returnedRecipient = application.getTransactionErrorMessageExample(apiClient, createdTransactionId);
-        assertThat(returnedRecipient, instanceOf(Recipient.class));
-        assertEquals(RecipientState.INITIAL, returnedRecipient.getState());
-        assertEquals(createdTransactionId.toString(), returnedRecipient.getTransactionId());
+        assertAll(
+                () -> assertThat(returnedRecipient, instanceOf(Recipient.class)),
+                () -> assertEquals(RecipientState.INITIAL, returnedRecipient.getState()),
+                () -> assertEquals(createdTransactionId.toString(), returnedRecipient.getTransactionId())
+        );
     }
 
     @Test
@@ -71,9 +77,12 @@ String suuid = UUID.randomUUID().toString();
         UUID createdSenderId = application.createSender(apiClient, suuid);
         assertThat(createdSenderId, instanceOf(UUID.class));
         Sender updatedSender = application.updateSender(apiClient, createdSenderId, city).getObject();
-        assertThat(updatedSender.getId(), instanceOf(UUID.class));
-        assertEquals(createdSenderId, updatedSender.getId());
-        assertEquals(city, updatedSender.getCity());
+        assertAll(
+                () -> assertThat(updatedSender.getId(), instanceOf(UUID.class)),
+                () -> assertEquals(createdSenderId, updatedSender.getId()),
+                () -> assertEquals(city, updatedSender.getCity())
+        );
+
     }
 
     @Test
@@ -82,7 +91,9 @@ String suuid = UUID.randomUUID().toString();
         UUID createdSenderId = application.createSender(apiClient, testUuid);
         assertThat(createdSenderId, instanceOf(UUID.class));
         Sender returnedSender = application.getSenderByExternalId(apiClient, testUuid).getObject().get(0);
-        assertThat(returnedSender.getId(), instanceOf(UUID.class));
-        assertEquals(testUuid, returnedSender.getExternalId());
+        assertAll(
+                () -> assertThat(returnedSender.getId(), instanceOf(UUID.class)),
+                () -> assertEquals(testUuid, returnedSender.getExternalId())
+        );
     }
 }
