@@ -20,15 +20,16 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.PayoutMethodCountryEnum;
 import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;774044436\&quot;     # local or international Senegalese format   \&quot;mobile_provider\&quot;: \&quot;orange\&quot;, # \&quot;orange\&quot; or \&quot;tigo\&quot; } &#x60;&#x60;&#x60;
+ * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;774044436\&quot;,     # local or international Senegalese or Ivory Coast format   \&quot;mobile_provider\&quot;: \&quot;orange\&quot;, # \&quot;orange\&quot; or \&quot;tigo\&quot; for Senegal; \&quot;orange\&quot;, \&quot;mtn\&quot; or \&quot;moov\&quot; for Ivory Coast   \&quot;country\&quot; # Optional; Values: \&quot;SN\&quot; for Senegal or \&quot;CI\&quot; for Ivory Coast; Default value is \&quot;SN\&quot; } &#x60;&#x60;&#x60;
  */
-@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"phone_number\": \"774044436\"     # local or international Senegalese format   \"mobile_provider\": \"orange\", # \"orange\" or \"tigo\" } ```")
+@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"phone_number\": \"774044436\",     # local or international Senegalese or Ivory Coast format   \"mobile_provider\": \"orange\", # \"orange\" or \"tigo\" for Senegal; \"orange\", \"mtn\" or \"moov\" for Ivory Coast   \"country\" # Optional; Values: \"SN\" for Senegal or \"CI\" for Ivory Coast; Default value is \"SN\" } ```")
 
 public class PayoutMethodDetailsXOFMobile {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
@@ -46,6 +47,10 @@ public class PayoutMethodDetailsXOFMobile {
   public static final String SERIALIZED_NAME_MOBILE_PROVIDER = "mobile_provider";
   @SerializedName(SERIALIZED_NAME_MOBILE_PROVIDER)
   private PayoutMethodMobileProviderEnum mobileProvider;
+
+  public static final String SERIALIZED_NAME_COUNTRY = "country";
+  @SerializedName(SERIALIZED_NAME_COUNTRY)
+  private PayoutMethodCountryEnum country;
 
   public PayoutMethodDetailsXOFMobile firstName(String firstName) {
     this.firstName = firstName;
@@ -119,6 +124,24 @@ public class PayoutMethodDetailsXOFMobile {
     this.mobileProvider = mobileProvider;
   }
 
+  public PayoutMethodDetailsXOFMobile country(PayoutMethodCountryEnum country) {
+    this.country = country;
+    return this;
+  }
+
+   /**
+   * Get country
+   * @return country
+  **/
+  @ApiModelProperty(value = "")
+  public PayoutMethodCountryEnum getCountry() {
+    return country;
+  }
+
+  public void setCountry(PayoutMethodCountryEnum country) {
+    this.country = country;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -132,12 +155,13 @@ public class PayoutMethodDetailsXOFMobile {
     return Objects.equals(this.firstName, payoutMethodDetailsXOFMobile.firstName) &&
         Objects.equals(this.lastName, payoutMethodDetailsXOFMobile.lastName) &&
         Objects.equals(this.phoneNumber, payoutMethodDetailsXOFMobile.phoneNumber) &&
-        Objects.equals(this.mobileProvider, payoutMethodDetailsXOFMobile.mobileProvider);
+        Objects.equals(this.mobileProvider, payoutMethodDetailsXOFMobile.mobileProvider) &&
+        Objects.equals(this.country, payoutMethodDetailsXOFMobile.country);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, phoneNumber, mobileProvider);
+    return Objects.hash(firstName, lastName, phoneNumber, mobileProvider, country);
   }
 
 
@@ -149,6 +173,7 @@ public class PayoutMethodDetailsXOFMobile {
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
+    sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("}");
     return sb.toString();
   }

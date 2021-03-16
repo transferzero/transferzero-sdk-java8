@@ -13,11 +13,11 @@ Name | Type | Description | Notes
 **bankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  |  [optional]
 **phoneNumber** | **String** |  | 
 **mobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
+**country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  |  [optional]
 **iban** | **String** |  | 
 **bankName** | **String** |  | 
 **bankCountry** | **String** |  | 
 **cashProvider** | [**PayoutMethodCashProviderEnum**](PayoutMethodCashProviderEnum.md) |  |  [optional]
-**country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  |  [optional]
 **sortCode** | **String** |  |  [optional]
 **bic** | **String** |  |  [optional]
 **senderIdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 

@@ -9,6 +9,8 @@
 
 * `TIGO` (value: `"tigo"`)
 
+* `MOOV` (value: `"moov"`)
+
 * `MTN` (value: `"mtn"`)
 
 * `AIRTEL` (value: `"airtel"`)
