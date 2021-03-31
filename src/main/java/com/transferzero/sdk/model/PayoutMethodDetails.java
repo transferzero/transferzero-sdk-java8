@@ -465,7 +465,7 @@ public class PayoutMethodDetails {
    * Get senderCityOfBirth
    * @return senderCityOfBirth
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getSenderCityOfBirth() {
     return senderCityOfBirth;
   }
@@ -483,7 +483,7 @@ public class PayoutMethodDetails {
    * Get senderCountryOfBirth
    * @return senderCountryOfBirth
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getSenderCountryOfBirth() {
     return senderCountryOfBirth;
   }
