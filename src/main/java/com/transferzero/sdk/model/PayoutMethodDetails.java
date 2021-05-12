@@ -501,7 +501,7 @@ public class PayoutMethodDetails {
    * Get senderGender
    * @return senderGender
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public PayoutMethodGenderEnum getSenderGender() {
     return senderGender;
   }
