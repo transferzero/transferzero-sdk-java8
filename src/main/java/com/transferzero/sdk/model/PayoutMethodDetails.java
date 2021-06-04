@@ -36,6 +36,7 @@ import com.transferzero.sdk.model.PayoutMethodDetailsXOFBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsZARBank;
+import com.transferzero.sdk.model.PayoutMethodEntityTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodGenderEnum;
 import com.transferzero.sdk.model.PayoutMethodIdentityCardTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
@@ -167,6 +168,26 @@ public class PayoutMethodDetails {
   public static final String SERIALIZED_NAME_TRANSFER_REASON_CODE = "transfer_reason_code";
   @SerializedName(SERIALIZED_NAME_TRANSFER_REASON_CODE)
   private String transferReasonCode;
+
+  public static final String SERIALIZED_NAME_CONTACT_FIRST_NAME = "contact_first_name";
+  @SerializedName(SERIALIZED_NAME_CONTACT_FIRST_NAME)
+  private String contactFirstName;
+
+  public static final String SERIALIZED_NAME_CONTACT_LAST_NAME = "contact_last_name";
+  @SerializedName(SERIALIZED_NAME_CONTACT_LAST_NAME)
+  private String contactLastName;
+
+  public static final String SERIALIZED_NAME_REGISTRATION_NUMBER = "registration_number";
+  @SerializedName(SERIALIZED_NAME_REGISTRATION_NUMBER)
+  private String registrationNumber;
+
+  public static final String SERIALIZED_NAME_NATURE_OF_BUSINESS = "nature_of_business";
+  @SerializedName(SERIALIZED_NAME_NATURE_OF_BUSINESS)
+  private String natureOfBusiness;
+
+  public static final String SERIALIZED_NAME_ENTITY_TYPE = "entity_type";
+  @SerializedName(SERIALIZED_NAME_ENTITY_TYPE)
+  private PayoutMethodEntityTypeEnum entityType;
 
   public PayoutMethodDetails firstName(String firstName) {
     this.firstName = firstName;
@@ -708,6 +729,96 @@ public class PayoutMethodDetails {
     this.transferReasonCode = transferReasonCode;
   }
 
+  public PayoutMethodDetails contactFirstName(String contactFirstName) {
+    this.contactFirstName = contactFirstName;
+    return this;
+  }
+
+   /**
+   * Get contactFirstName
+   * @return contactFirstName
+  **/
+  @ApiModelProperty(value = "")
+  public String getContactFirstName() {
+    return contactFirstName;
+  }
+
+  public void setContactFirstName(String contactFirstName) {
+    this.contactFirstName = contactFirstName;
+  }
+
+  public PayoutMethodDetails contactLastName(String contactLastName) {
+    this.contactLastName = contactLastName;
+    return this;
+  }
+
+   /**
+   * Get contactLastName
+   * @return contactLastName
+  **/
+  @ApiModelProperty(value = "")
+  public String getContactLastName() {
+    return contactLastName;
+  }
+
+  public void setContactLastName(String contactLastName) {
+    this.contactLastName = contactLastName;
+  }
+
+  public PayoutMethodDetails registrationNumber(String registrationNumber) {
+    this.registrationNumber = registrationNumber;
+    return this;
+  }
+
+   /**
+   * Get registrationNumber
+   * @return registrationNumber
+  **/
+  @ApiModelProperty(value = "")
+  public String getRegistrationNumber() {
+    return registrationNumber;
+  }
+
+  public void setRegistrationNumber(String registrationNumber) {
+    this.registrationNumber = registrationNumber;
+  }
+
+  public PayoutMethodDetails natureOfBusiness(String natureOfBusiness) {
+    this.natureOfBusiness = natureOfBusiness;
+    return this;
+  }
+
+   /**
+   * Get natureOfBusiness
+   * @return natureOfBusiness
+  **/
+  @ApiModelProperty(value = "")
+  public String getNatureOfBusiness() {
+    return natureOfBusiness;
+  }
+
+  public void setNatureOfBusiness(String natureOfBusiness) {
+    this.natureOfBusiness = natureOfBusiness;
+  }
+
+  public PayoutMethodDetails entityType(PayoutMethodEntityTypeEnum entityType) {
+    this.entityType = entityType;
+    return this;
+  }
+
+   /**
+   * Get entityType
+   * @return entityType
+  **/
+  @ApiModelProperty(value = "")
+  public PayoutMethodEntityTypeEnum getEntityType() {
+    return entityType;
+  }
+
+  public void setEntityType(PayoutMethodEntityTypeEnum entityType) {
+    this.entityType = entityType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -747,12 +858,17 @@ public class PayoutMethodDetails {
         Objects.equals(this.postalCode, payoutMethodDetails.postalCode) &&
         Objects.equals(this.city, payoutMethodDetails.city) &&
         Objects.equals(this.email, payoutMethodDetails.email) &&
-        Objects.equals(this.transferReasonCode, payoutMethodDetails.transferReasonCode);
+        Objects.equals(this.transferReasonCode, payoutMethodDetails.transferReasonCode) &&
+        Objects.equals(this.contactFirstName, payoutMethodDetails.contactFirstName) &&
+        Objects.equals(this.contactLastName, payoutMethodDetails.contactLastName) &&
+        Objects.equals(this.registrationNumber, payoutMethodDetails.registrationNumber) &&
+        Objects.equals(this.natureOfBusiness, payoutMethodDetails.natureOfBusiness) &&
+        Objects.equals(this.entityType, payoutMethodDetails.entityType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, iban, bankName, bankCountry, cashProvider, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, transferReasonCode);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, iban, bankName, bankCountry, cashProvider, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, entityType);
   }
 
 
@@ -790,6 +906,11 @@ public class PayoutMethodDetails {
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    transferReasonCode: ").append(toIndentedString(transferReasonCode)).append("\n");
+    sb.append("    contactFirstName: ").append(toIndentedString(contactFirstName)).append("\n");
+    sb.append("    contactLastName: ").append(toIndentedString(contactLastName)).append("\n");
+    sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
+    sb.append("    natureOfBusiness: ").append(toIndentedString(natureOfBusiness)).append("\n");
+    sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

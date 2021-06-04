@@ -36,6 +36,11 @@ Name | Type | Description | Notes
 **city** | **String** |  | 
 **email** | **String** |  |  [optional]
 **transferReasonCode** | **String** |  |  [optional]
+**contactFirstName** | **String** |  |  [optional]
+**contactLastName** | **String** |  |  [optional]
+**registrationNumber** | **String** |  |  [optional]
+**natureOfBusiness** | **String** |  |  [optional]
+**entityType** | [**PayoutMethodEntityTypeEnum**](PayoutMethodEntityTypeEnum.md) |  |  [optional]
 
 
 
