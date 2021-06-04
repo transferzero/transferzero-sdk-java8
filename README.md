@@ -163,6 +163,8 @@ Class | Method | HTTP request | Description
 *WebhooksApi* | [**getWebhooks**](docs/WebhooksApi.md#getWebhooks) | **GET** /webhooks | Listing webhooks
 *WebhooksApi* | [**postWebhooks**](docs/WebhooksApi.md#postWebhooks) | **POST** /webhooks | Creating a webhook
 
+
+
 ## Documentation for Models
 
  - [Account](docs/Account.md)
