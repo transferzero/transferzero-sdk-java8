@@ -351,7 +351,7 @@ public class TransactionsApi {
     public APIgetTransactionRequest getTransaction(UUID transactionID) {
         return new APIgetTransactionRequest(transactionID);
     }
-    private okhttp3.Call getTransactionsCall(Integer page, Integer per, String externalId, String senderId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTransactionsCall(Integer page, Integer per, String externalId, String senderId, String transactionsType, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -375,6 +375,10 @@ public class TransactionsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sender_id", senderId));
         }
 
+        if (transactionsType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("transactions_type", transactionsType));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
@@ -396,24 +400,24 @@ public class TransactionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTransactionsValidateBeforeCall(Integer page, Integer per, String externalId, String senderId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTransactionsValidateBeforeCall(Integer page, Integer per, String externalId, String senderId, String transactionsType, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = getTransactionsCall(page, per, externalId, senderId, _callback);
+        okhttp3.Call localVarCall = getTransactionsCall(page, per, externalId, senderId, transactionsType, _callback);
         return localVarCall;
 
     }
 
 
-    private ApiResponse<TransactionListResponse> getTransactionsWithHttpInfo(Integer page, Integer per, String externalId, String senderId) throws ApiException {
-        okhttp3.Call localVarCall = getTransactionsValidateBeforeCall(page, per, externalId, senderId, null);
+    private ApiResponse<TransactionListResponse> getTransactionsWithHttpInfo(Integer page, Integer per, String externalId, String senderId, String transactionsType) throws ApiException {
+        okhttp3.Call localVarCall = getTransactionsValidateBeforeCall(page, per, externalId, senderId, transactionsType, null);
         Type localVarReturnType = new TypeToken<TransactionListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTransactionsAsync(Integer page, Integer per, String externalId, String senderId, final ApiCallback<TransactionListResponse> _callback) throws ApiException {
+    private okhttp3.Call getTransactionsAsync(Integer page, Integer per, String externalId, String senderId, String transactionsType, final ApiCallback<TransactionListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTransactionsValidateBeforeCall(page, per, externalId, senderId, _callback);
+        okhttp3.Call localVarCall = getTransactionsValidateBeforeCall(page, per, externalId, senderId, transactionsType, _callback);
         Type localVarReturnType = new TypeToken<TransactionListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -424,6 +428,7 @@ public class TransactionsApi {
         private Integer per;
         private String externalId;
         private String senderId;
+        private String transactionsType;
 
         private APIgetTransactionsRequest() {
         }
@@ -469,13 +474,23 @@ public class TransactionsApi {
         }
 
         /**
+         * Set transactionsType
+         * @param transactionsType Allows filtering results by &#x60;transactions_type&#x60;.  Example: &#x60;/v1/transactions?transactions_type&#x3D;automated&#x60; (optional)
+         * @return APIgetTransactionsRequest
+         */
+        public APIgetTransactionsRequest transactionsType(String transactionsType) {
+            this.transactionsType = transactionsType;
+            return this;
+        }
+
+        /**
          * Build call for getTransactions
          * @param _callback ApiCallback API callback
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getTransactionsCall(page, per, externalId, senderId, _callback);
+            return getTransactionsCall(page, per, externalId, senderId, transactionsType, _callback);
         }
 
         /**
@@ -484,7 +499,7 @@ public class TransactionsApi {
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          */
         public TransactionListResponse execute() throws ApiException {
-            ApiResponse<TransactionListResponse> localVarResp = getTransactionsWithHttpInfo(page, per, externalId, senderId);
+            ApiResponse<TransactionListResponse> localVarResp = getTransactionsWithHttpInfo(page, per, externalId, senderId, transactionsType);
             return localVarResp.getData();
         }
 
@@ -494,7 +509,7 @@ public class TransactionsApi {
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          */
         public ApiResponse<TransactionListResponse> executeWithHttpInfo() throws ApiException {
-            return getTransactionsWithHttpInfo(page, per, externalId, senderId);
+            return getTransactionsWithHttpInfo(page, per, externalId, senderId, transactionsType);
         }
 
         /**
@@ -504,7 +519,7 @@ public class TransactionsApi {
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
          */
         public okhttp3.Call executeAsync(final ApiCallback<TransactionListResponse> _callback) throws ApiException {
-            return getTransactionsAsync(page, per, externalId, senderId, _callback);
+            return getTransactionsAsync(page, per, externalId, senderId, transactionsType, _callback);
         }
     }
 
