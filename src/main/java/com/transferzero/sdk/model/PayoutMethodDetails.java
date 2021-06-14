@@ -36,10 +36,11 @@ import com.transferzero.sdk.model.PayoutMethodDetailsXOFBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsZARBank;
-import com.transferzero.sdk.model.PayoutMethodEntityTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodGenderEnum;
 import com.transferzero.sdk.model.PayoutMethodIdentityCardTypeEnum;
+import com.transferzero.sdk.model.PayoutMethodLegalEntityTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
+import com.transferzero.sdk.model.PayoutMethodNatureOfBusinessEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -183,11 +184,11 @@ public class PayoutMethodDetails {
 
   public static final String SERIALIZED_NAME_NATURE_OF_BUSINESS = "nature_of_business";
   @SerializedName(SERIALIZED_NAME_NATURE_OF_BUSINESS)
-  private String natureOfBusiness;
+  private PayoutMethodNatureOfBusinessEnum natureOfBusiness;
 
-  public static final String SERIALIZED_NAME_ENTITY_TYPE = "entity_type";
-  @SerializedName(SERIALIZED_NAME_ENTITY_TYPE)
-  private PayoutMethodEntityTypeEnum entityType;
+  public static final String SERIALIZED_NAME_LEGAL_ENTITY_TYPE = "legal_entity_type";
+  @SerializedName(SERIALIZED_NAME_LEGAL_ENTITY_TYPE)
+  private PayoutMethodLegalEntityTypeEnum legalEntityType;
 
   public PayoutMethodDetails firstName(String firstName) {
     this.firstName = firstName;
@@ -783,7 +784,7 @@ public class PayoutMethodDetails {
     this.registrationNumber = registrationNumber;
   }
 
-  public PayoutMethodDetails natureOfBusiness(String natureOfBusiness) {
+  public PayoutMethodDetails natureOfBusiness(PayoutMethodNatureOfBusinessEnum natureOfBusiness) {
     this.natureOfBusiness = natureOfBusiness;
     return this;
   }
@@ -793,30 +794,30 @@ public class PayoutMethodDetails {
    * @return natureOfBusiness
   **/
   @ApiModelProperty(value = "")
-  public String getNatureOfBusiness() {
+  public PayoutMethodNatureOfBusinessEnum getNatureOfBusiness() {
     return natureOfBusiness;
   }
 
-  public void setNatureOfBusiness(String natureOfBusiness) {
+  public void setNatureOfBusiness(PayoutMethodNatureOfBusinessEnum natureOfBusiness) {
     this.natureOfBusiness = natureOfBusiness;
   }
 
-  public PayoutMethodDetails entityType(PayoutMethodEntityTypeEnum entityType) {
-    this.entityType = entityType;
+  public PayoutMethodDetails legalEntityType(PayoutMethodLegalEntityTypeEnum legalEntityType) {
+    this.legalEntityType = legalEntityType;
     return this;
   }
 
    /**
-   * Get entityType
-   * @return entityType
+   * Get legalEntityType
+   * @return legalEntityType
   **/
   @ApiModelProperty(value = "")
-  public PayoutMethodEntityTypeEnum getEntityType() {
-    return entityType;
+  public PayoutMethodLegalEntityTypeEnum getLegalEntityType() {
+    return legalEntityType;
   }
 
-  public void setEntityType(PayoutMethodEntityTypeEnum entityType) {
-    this.entityType = entityType;
+  public void setLegalEntityType(PayoutMethodLegalEntityTypeEnum legalEntityType) {
+    this.legalEntityType = legalEntityType;
   }
 
 
@@ -863,12 +864,12 @@ public class PayoutMethodDetails {
         Objects.equals(this.contactLastName, payoutMethodDetails.contactLastName) &&
         Objects.equals(this.registrationNumber, payoutMethodDetails.registrationNumber) &&
         Objects.equals(this.natureOfBusiness, payoutMethodDetails.natureOfBusiness) &&
-        Objects.equals(this.entityType, payoutMethodDetails.entityType);
+        Objects.equals(this.legalEntityType, payoutMethodDetails.legalEntityType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, iban, bankName, bankCountry, cashProvider, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, entityType);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, iban, bankName, bankCountry, cashProvider, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType);
   }
 
 
@@ -910,7 +911,7 @@ public class PayoutMethodDetails {
     sb.append("    contactLastName: ").append(toIndentedString(contactLastName)).append("\n");
     sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
     sb.append("    natureOfBusiness: ").append(toIndentedString(natureOfBusiness)).append("\n");
-    sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
+    sb.append("    legalEntityType: ").append(toIndentedString(legalEntityType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

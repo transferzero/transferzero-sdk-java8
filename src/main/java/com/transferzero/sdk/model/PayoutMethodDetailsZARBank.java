@@ -20,15 +20,16 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.transferzero.sdk.model.PayoutMethodEntityTypeEnum;
+import com.transferzero.sdk.model.PayoutMethodLegalEntityTypeEnum;
+import com.transferzero.sdk.model.PayoutMethodNatureOfBusinessEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;, //  Mandatory for personal payouts;     \&quot;last_name\&quot;: \&quot;Last\&quot;, //  Mandatory for personal payouts;     \&quot;name\&quot; \&quot;First Ltd\&quot;, // Mandatory for business payouts;     \&quot;contact_first_name\&quot; \&quot;Business\&quot;, // Mandatory for business payouts;     \&quot;contact_last_name\&quot; \&quot;Contact\&quot;, // Mandatory for business payouts;     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;postal_code\&quot;: \&quot;AB0001\&quot;,     \&quot;city\&quot;: \&quot;Cape Town\&quot;,     \&quot;email\&quot;: \&quot;recipient@email.com\&quot;,     \&quot;bank_code\&quot;: \&quot;334810\&quot;,     \&quot;bank_account\&quot;: \&quot;12345678\&quot;,     \&quot;phone_number\&quot;: \&quot;+27119785313\&quot;,     \&quot;transfer_reason_code\&quot;: \&quot;185\&quot;,     \&quot;entity_type\&quot;: \&quot;sole_proprietorship\&quot;, // Optional; Default value is \&quot;person\&quot;; Mandatory for business payouts;     \&quot;nature_of_business\&quot;: \&quot;Mining\&quot;, // Mandatory for business payouts;     \&quot;registration_number\&quot;: \&quot;17364BGC\&quot; // Mandatory for business payouts;   } &#x60;&#x60;&#x60;  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason_code lists
+ * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;, //  Mandatory for personal payouts;     \&quot;last_name\&quot;: \&quot;Last\&quot;, //  Mandatory for personal payouts;     \&quot;name\&quot; \&quot;First Ltd\&quot;, // Mandatory for business payouts;     \&quot;contact_first_name\&quot; \&quot;Business\&quot;, // Mandatory for business payouts;     \&quot;contact_last_name\&quot; \&quot;Contact\&quot;, // Mandatory for business payouts;     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;postal_code\&quot;: \&quot;AB0001\&quot;,     \&quot;city\&quot;: \&quot;Cape Town\&quot;,     \&quot;email\&quot;: \&quot;recipient@email.com\&quot;,     \&quot;bank_code\&quot;: \&quot;334810\&quot;,     \&quot;bank_account\&quot;: \&quot;12345678\&quot;,     \&quot;phone_number\&quot;: \&quot;+27119785313\&quot;,     \&quot;transfer_reason_code\&quot;: \&quot;185\&quot;,     \&quot;legal_entity_type\&quot;: \&quot;sole_proprietorship\&quot;, // Optional; Default value is \&quot;person\&quot;; Mandatory for business payouts;     \&quot;nature_of_business\&quot;: \&quot;Mining\&quot;, // Optional for business payouts;     \&quot;registration_number\&quot;: \&quot;17364BGC\&quot; // Optional for business payouts;   } &#x60;&#x60;&#x60;  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason_code lists
  */
-@ApiModel(description = "```JSON   \"details\": {     \"first_name\": \"First\", //  Mandatory for personal payouts;     \"last_name\": \"Last\", //  Mandatory for personal payouts;     \"name\" \"First Ltd\", // Mandatory for business payouts;     \"contact_first_name\" \"Business\", // Mandatory for business payouts;     \"contact_last_name\" \"Contact\", // Mandatory for business payouts;     \"street\": \"Main Street\",     \"postal_code\": \"AB0001\",     \"city\": \"Cape Town\",     \"email\": \"recipient@email.com\",     \"bank_code\": \"334810\",     \"bank_account\": \"12345678\",     \"phone_number\": \"+27119785313\",     \"transfer_reason_code\": \"185\",     \"entity_type\": \"sole_proprietorship\", // Optional; Default value is \"person\"; Mandatory for business payouts;     \"nature_of_business\": \"Mining\", // Mandatory for business payouts;     \"registration_number\": \"17364BGC\" // Mandatory for business payouts;   } ```  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason_code lists")
+@ApiModel(description = "```JSON   \"details\": {     \"first_name\": \"First\", //  Mandatory for personal payouts;     \"last_name\": \"Last\", //  Mandatory for personal payouts;     \"name\" \"First Ltd\", // Mandatory for business payouts;     \"contact_first_name\" \"Business\", // Mandatory for business payouts;     \"contact_last_name\" \"Contact\", // Mandatory for business payouts;     \"street\": \"Main Street\",     \"postal_code\": \"AB0001\",     \"city\": \"Cape Town\",     \"email\": \"recipient@email.com\",     \"bank_code\": \"334810\",     \"bank_account\": \"12345678\",     \"phone_number\": \"+27119785313\",     \"transfer_reason_code\": \"185\",     \"legal_entity_type\": \"sole_proprietorship\", // Optional; Default value is \"person\"; Mandatory for business payouts;     \"nature_of_business\": \"Mining\", // Optional for business payouts;     \"registration_number\": \"17364BGC\" // Optional for business payouts;   } ```  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason_code lists")
 
 public class PayoutMethodDetailsZARBank {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
@@ -89,11 +90,11 @@ public class PayoutMethodDetailsZARBank {
 
   public static final String SERIALIZED_NAME_NATURE_OF_BUSINESS = "nature_of_business";
   @SerializedName(SERIALIZED_NAME_NATURE_OF_BUSINESS)
-  private String natureOfBusiness;
+  private PayoutMethodNatureOfBusinessEnum natureOfBusiness;
 
-  public static final String SERIALIZED_NAME_ENTITY_TYPE = "entity_type";
-  @SerializedName(SERIALIZED_NAME_ENTITY_TYPE)
-  private PayoutMethodEntityTypeEnum entityType;
+  public static final String SERIALIZED_NAME_LEGAL_ENTITY_TYPE = "legal_entity_type";
+  @SerializedName(SERIALIZED_NAME_LEGAL_ENTITY_TYPE)
+  private PayoutMethodLegalEntityTypeEnum legalEntityType;
 
   public PayoutMethodDetailsZARBank firstName(String firstName) {
     this.firstName = firstName;
@@ -347,7 +348,7 @@ public class PayoutMethodDetailsZARBank {
     this.registrationNumber = registrationNumber;
   }
 
-  public PayoutMethodDetailsZARBank natureOfBusiness(String natureOfBusiness) {
+  public PayoutMethodDetailsZARBank natureOfBusiness(PayoutMethodNatureOfBusinessEnum natureOfBusiness) {
     this.natureOfBusiness = natureOfBusiness;
     return this;
   }
@@ -357,30 +358,30 @@ public class PayoutMethodDetailsZARBank {
    * @return natureOfBusiness
   **/
   @ApiModelProperty(value = "")
-  public String getNatureOfBusiness() {
+  public PayoutMethodNatureOfBusinessEnum getNatureOfBusiness() {
     return natureOfBusiness;
   }
 
-  public void setNatureOfBusiness(String natureOfBusiness) {
+  public void setNatureOfBusiness(PayoutMethodNatureOfBusinessEnum natureOfBusiness) {
     this.natureOfBusiness = natureOfBusiness;
   }
 
-  public PayoutMethodDetailsZARBank entityType(PayoutMethodEntityTypeEnum entityType) {
-    this.entityType = entityType;
+  public PayoutMethodDetailsZARBank legalEntityType(PayoutMethodLegalEntityTypeEnum legalEntityType) {
+    this.legalEntityType = legalEntityType;
     return this;
   }
 
    /**
-   * Get entityType
-   * @return entityType
+   * Get legalEntityType
+   * @return legalEntityType
   **/
   @ApiModelProperty(value = "")
-  public PayoutMethodEntityTypeEnum getEntityType() {
-    return entityType;
+  public PayoutMethodLegalEntityTypeEnum getLegalEntityType() {
+    return legalEntityType;
   }
 
-  public void setEntityType(PayoutMethodEntityTypeEnum entityType) {
-    this.entityType = entityType;
+  public void setLegalEntityType(PayoutMethodLegalEntityTypeEnum legalEntityType) {
+    this.legalEntityType = legalEntityType;
   }
 
 
@@ -408,12 +409,12 @@ public class PayoutMethodDetailsZARBank {
         Objects.equals(this.contactLastName, payoutMethodDetailsZARBank.contactLastName) &&
         Objects.equals(this.registrationNumber, payoutMethodDetailsZARBank.registrationNumber) &&
         Objects.equals(this.natureOfBusiness, payoutMethodDetailsZARBank.natureOfBusiness) &&
-        Objects.equals(this.entityType, payoutMethodDetailsZARBank.entityType);
+        Objects.equals(this.legalEntityType, payoutMethodDetailsZARBank.legalEntityType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, street, postalCode, city, email, bankCode, bankAccount, phoneNumber, transferReasonCode, name, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, entityType);
+    return Objects.hash(firstName, lastName, street, postalCode, city, email, bankCode, bankAccount, phoneNumber, transferReasonCode, name, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType);
   }
 
 
@@ -436,7 +437,7 @@ public class PayoutMethodDetailsZARBank {
     sb.append("    contactLastName: ").append(toIndentedString(contactLastName)).append("\n");
     sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
     sb.append("    natureOfBusiness: ").append(toIndentedString(natureOfBusiness)).append("\n");
-    sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
+    sb.append("    legalEntityType: ").append(toIndentedString(legalEntityType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
