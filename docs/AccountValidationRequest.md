@@ -22,6 +22,7 @@ Name | Value
 ---- | -----
 NG | &quot;NG&quot;
 GH | &quot;GH&quot;
+SN | &quot;SN&quot;
 
 
 
@@ -31,6 +32,7 @@ Name | Value
 ---- | -----
 NGN | &quot;NGN&quot;
 GHS | &quot;GHS&quot;
+XOF | &quot;XOF&quot;
 
 
 

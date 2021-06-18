@@ -53,7 +53,9 @@ public class AccountValidationRequest {
   public enum CountryEnum {
     NG("NG"),
     
-    GH("GH");
+    GH("GH"),
+    
+    SN("SN");
 
     private String value;
 
@@ -104,7 +106,9 @@ public class AccountValidationRequest {
   public enum CurrencyEnum {
     NGN("NGN"),
     
-    GHS("GHS");
+    GHS("GHS"),
+    
+    XOF("XOF");
 
     private String value;
 
