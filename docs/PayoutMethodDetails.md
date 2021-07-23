@@ -26,8 +26,8 @@ Name | Type | Description | Notes
 **senderCountryOfBirth** | **String** |  |  [optional]
 **senderGender** | [**PayoutMethodGenderEnum**](PayoutMethodGenderEnum.md) |  |  [optional]
 **reason** | **String** |  |  [optional]
-**identityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  |  [optional]
-**identityCardId** | **String** |  |  [optional]
+**identityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
+**identityCardId** | **String** |  | 
 **reference** | **String** |  |  [optional]
 **name** | **String** |  | 
 **address** | **String** |  | 
@@ -35,12 +35,14 @@ Name | Type | Description | Notes
 **postalCode** | **String** |  | 
 **city** | **String** |  | 
 **email** | **String** |  |  [optional]
-**transferReasonCode** | **String** |  |  [optional]
+**transferReasonCode** | **String** |  | 
 **contactFirstName** | **String** |  |  [optional]
 **contactLastName** | **String** |  |  [optional]
 **registrationNumber** | **String** |  |  [optional]
 **natureOfBusiness** | [**PayoutMethodNatureOfBusinessEnum**](PayoutMethodNatureOfBusinessEnum.md) |  |  [optional]
 **legalEntityType** | [**PayoutMethodLegalEntityTypeEnum**](PayoutMethodLegalEntityTypeEnum.md) |  |  [optional]
+**branchCode** | **String** |  |  [optional]
+**swiftCode** | **String** |  | 
 
 
 
