@@ -18,6 +18,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.PayoutMethodLegalEntityTypeEnum;
+import com.transferzero.sdk.model.PayoutMethodNatureOfBusinessEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -118,6 +120,54 @@ public class PayoutMethodDetailsZARBankTest {
     @Test
     public void transferReasonCodeTest() {
         // TODO: test transferReasonCode
+    }
+
+    /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
+     * Test the property 'contactFirstName'
+     */
+    @Test
+    public void contactFirstNameTest() {
+        // TODO: test contactFirstName
+    }
+
+    /**
+     * Test the property 'contactLastName'
+     */
+    @Test
+    public void contactLastNameTest() {
+        // TODO: test contactLastName
+    }
+
+    /**
+     * Test the property 'registrationNumber'
+     */
+    @Test
+    public void registrationNumberTest() {
+        // TODO: test registrationNumber
+    }
+
+    /**
+     * Test the property 'natureOfBusiness'
+     */
+    @Test
+    public void natureOfBusinessTest() {
+        // TODO: test natureOfBusiness
+    }
+
+    /**
+     * Test the property 'legalEntityType'
+     */
+    @Test
+    public void legalEntityTypeTest() {
+        // TODO: test legalEntityType
     }
 
 }
