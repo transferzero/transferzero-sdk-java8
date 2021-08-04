@@ -390,7 +390,7 @@ public class PayoutMethodDetails {
    * Get bankCountry
    * @return bankCountry
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getBankCountry() {
     return bankCountry;
   }

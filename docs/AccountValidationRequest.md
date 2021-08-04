@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bankAccount** | **String** | Account Number to query |  [optional]
 **bankCode** | **String** | Bank Code to query - same codes are used as for creating the transactions |  [optional]
+**iban** | **String** | IBAN to query - BBAN format for XOF bank accounts |  [optional]
 **phoneNumber** | **String** | Phone number to query |  [optional]
 **mobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  |  [optional]
 **country** | [**CountryEnum**](#CountryEnum) | Country of account in 2-character alpha ISO 3166-2 country format | 
@@ -23,6 +24,7 @@ Name | Value
 NG | &quot;NG&quot;
 GH | &quot;GH&quot;
 SN | &quot;SN&quot;
+CI | &quot;CI&quot;
 
 
 

@@ -25,9 +25,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;iban\&quot;: \&quot;SN08SN0000000000000000000000\&quot;,   \&quot;bank_name\&quot;: \&quot;BRM\&quot;,   \&quot;bank_country\&quot;: \&quot;SN\&quot; # ISO country code for Senegal } &#x60;&#x60;&#x60;
+ * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;iban\&quot;: \&quot;BJ0610100100144390000769\&quot;, # BBAN format   \&quot;bank_name\&quot;: \&quot;Bank Of Africa Bénin\&quot;,   \&quot;bank_country\&quot;: \&quot;BJ\&quot;, # ISO country code for Benin   \&quot;bank_code\&quot;: \&quot;BJ061\&quot; } &#x60;&#x60;&#x60;  See [XOF Bank](https://docs.transferzero.com/docs/payout-details/#xofbank) documentation for the bank_code list
  */
-@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"iban\": \"SN08SN0000000000000000000000\",   \"bank_name\": \"BRM\",   \"bank_country\": \"SN\" # ISO country code for Senegal } ```")
+@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"iban\": \"BJ0610100100144390000769\", # BBAN format   \"bank_name\": \"Bank Of Africa Bénin\",   \"bank_country\": \"BJ\", # ISO country code for Benin   \"bank_code\": \"BJ061\" } ```  See [XOF Bank](https://docs.transferzero.com/docs/payout-details/#xofbank) documentation for the bank_code list")
 
 public class PayoutMethodDetailsXOFBank {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
@@ -49,6 +49,10 @@ public class PayoutMethodDetailsXOFBank {
   public static final String SERIALIZED_NAME_BANK_COUNTRY = "bank_country";
   @SerializedName(SERIALIZED_NAME_BANK_COUNTRY)
   private String bankCountry;
+
+  public static final String SERIALIZED_NAME_BANK_CODE = "bank_code";
+  @SerializedName(SERIALIZED_NAME_BANK_CODE)
+  private String bankCode;
 
   public PayoutMethodDetailsXOFBank firstName(String firstName) {
     this.firstName = firstName;
@@ -113,7 +117,7 @@ public class PayoutMethodDetailsXOFBank {
    * Get bankName
    * @return bankName
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getBankName() {
     return bankName;
   }
@@ -131,13 +135,31 @@ public class PayoutMethodDetailsXOFBank {
    * Get bankCountry
    * @return bankCountry
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getBankCountry() {
     return bankCountry;
   }
 
   public void setBankCountry(String bankCountry) {
     this.bankCountry = bankCountry;
+  }
+
+  public PayoutMethodDetailsXOFBank bankCode(String bankCode) {
+    this.bankCode = bankCode;
+    return this;
+  }
+
+   /**
+   * Get bankCode
+   * @return bankCode
+  **/
+  @ApiModelProperty(value = "")
+  public String getBankCode() {
+    return bankCode;
+  }
+
+  public void setBankCode(String bankCode) {
+    this.bankCode = bankCode;
   }
 
 
@@ -154,12 +176,13 @@ public class PayoutMethodDetailsXOFBank {
         Objects.equals(this.lastName, payoutMethodDetailsXOFBank.lastName) &&
         Objects.equals(this.iban, payoutMethodDetailsXOFBank.iban) &&
         Objects.equals(this.bankName, payoutMethodDetailsXOFBank.bankName) &&
-        Objects.equals(this.bankCountry, payoutMethodDetailsXOFBank.bankCountry);
+        Objects.equals(this.bankCountry, payoutMethodDetailsXOFBank.bankCountry) &&
+        Objects.equals(this.bankCode, payoutMethodDetailsXOFBank.bankCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, iban, bankName, bankCountry);
+    return Objects.hash(firstName, lastName, iban, bankName, bankCountry, bankCode);
   }
 
 
@@ -172,6 +195,7 @@ public class PayoutMethodDetailsXOFBank {
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
     sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
     sb.append("    bankCountry: ").append(toIndentedString(bankCountry)).append("\n");
+    sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

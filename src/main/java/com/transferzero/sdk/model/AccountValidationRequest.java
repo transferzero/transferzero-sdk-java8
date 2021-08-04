@@ -38,6 +38,10 @@ public class AccountValidationRequest {
   @SerializedName(SERIALIZED_NAME_BANK_CODE)
   private String bankCode;
 
+  public static final String SERIALIZED_NAME_IBAN = "iban";
+  @SerializedName(SERIALIZED_NAME_IBAN)
+  private String iban;
+
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
   private String phoneNumber;
@@ -55,7 +59,9 @@ public class AccountValidationRequest {
     
     GH("GH"),
     
-    SN("SN");
+    SN("SN"),
+    
+    CI("CI");
 
     private String value;
 
@@ -239,6 +245,24 @@ public class AccountValidationRequest {
     this.bankCode = bankCode;
   }
 
+  public AccountValidationRequest iban(String iban) {
+    this.iban = iban;
+    return this;
+  }
+
+   /**
+   * IBAN to query - BBAN format for XOF bank accounts
+   * @return iban
+  **/
+  @ApiModelProperty(value = "IBAN to query - BBAN format for XOF bank accounts")
+  public String getIban() {
+    return iban;
+  }
+
+  public void setIban(String iban) {
+    this.iban = iban;
+  }
+
   public AccountValidationRequest phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
     return this;
@@ -341,6 +365,7 @@ public class AccountValidationRequest {
     AccountValidationRequest accountValidationRequest = (AccountValidationRequest) o;
     return Objects.equals(this.bankAccount, accountValidationRequest.bankAccount) &&
         Objects.equals(this.bankCode, accountValidationRequest.bankCode) &&
+        Objects.equals(this.iban, accountValidationRequest.iban) &&
         Objects.equals(this.phoneNumber, accountValidationRequest.phoneNumber) &&
         Objects.equals(this.mobileProvider, accountValidationRequest.mobileProvider) &&
         Objects.equals(this.country, accountValidationRequest.country) &&
@@ -350,7 +375,7 @@ public class AccountValidationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bankAccount, bankCode, phoneNumber, mobileProvider, country, currency, method);
+    return Objects.hash(bankAccount, bankCode, iban, phoneNumber, mobileProvider, country, currency, method);
   }
 
 
@@ -360,6 +385,7 @@ public class AccountValidationRequest {
     sb.append("class AccountValidationRequest {\n");
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
+    sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
