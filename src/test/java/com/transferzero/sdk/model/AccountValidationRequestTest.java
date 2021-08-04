@@ -58,6 +58,14 @@ public class AccountValidationRequestTest {
     }
 
     /**
+     * Test the property 'iban'
+     */
+    @Test
+    public void ibanTest() {
+        // TODO: test iban
+    }
+
+    /**
      * Test the property 'phoneNumber'
      */
     @Test

@@ -80,4 +80,12 @@ public class PayoutMethodDetailsXOFBankTest {
         // TODO: test bankCountry
     }
 
+    /**
+     * Test the property 'bankCode'
+     */
+    @Test
+    public void bankCodeTest() {
+        // TODO: test bankCode
+    }
+
 }

@@ -100,11 +100,13 @@ public class TransactionsApiTest {
         Integer per = null;
         String externalId = null;
         String senderId = null;
+        String transactionsType = null;
         TransactionListResponse response = api.getTransactions()
                 .page(page)
                 .per(per)
                 .externalId(externalId)
                 .senderId(senderId)
+                .transactionsType(transactionsType)
                 .execute();
 
         // TODO: test validations
