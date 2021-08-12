@@ -1,6 +1,6 @@
 
 
-# PayoutMethodDetailsUSDBank
+# PayoutMethodDetailsUSDCash
 
 ## Properties
 
@@ -9,8 +9,6 @@ Name | Type | Description | Notes
 **firstName** | **String** |  | 
 **lastName** | **String** |  | 
 **phoneNumber** | **String** |  | 
-**bankCode** | **String** |  | 
-**bankAccount** | **String** |  | 
 **country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  | 
 
 

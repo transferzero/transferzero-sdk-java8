@@ -26,11 +26,11 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;phone_number\&quot;: \&quot;+2341234567\&quot;,     \&quot;bank_code\&quot;: \&quot;057\&quot;,     \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,     \&quot;country\&quot;: \&quot;NG\&quot;   } &#x60;&#x60;&#x60; See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank) documentation for the bank_code and country lists
+ * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;phone_number\&quot;: \&quot;+2341234567\&quot;,     \&quot;country\&quot;: \&quot;NG\&quot;   } &#x60;&#x60;&#x60; See [USD Cash](https://docs.transferzero.com/docs/payout-details/#usdcash) documentation for the country list
  */
-@ApiModel(description = "```JSON   \"details\": {     \"first_name\": \"Jane\",     \"last_name\": \"Doe\",     \"phone_number\": \"+2341234567\",     \"bank_code\": \"057\",     \"bank_account\": \"1234567890\",     \"country\": \"NG\"   } ``` See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank) documentation for the bank_code and country lists")
+@ApiModel(description = "```JSON   \"details\": {     \"first_name\": \"Jane\",     \"last_name\": \"Doe\",     \"phone_number\": \"+2341234567\",     \"country\": \"NG\"   } ``` See [USD Cash](https://docs.transferzero.com/docs/payout-details/#usdcash) documentation for the country list")
 
-public class PayoutMethodDetailsUSDBank {
+public class PayoutMethodDetailsUSDCash {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
@@ -43,19 +43,11 @@ public class PayoutMethodDetailsUSDBank {
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
   private String phoneNumber;
 
-  public static final String SERIALIZED_NAME_BANK_CODE = "bank_code";
-  @SerializedName(SERIALIZED_NAME_BANK_CODE)
-  private String bankCode;
-
-  public static final String SERIALIZED_NAME_BANK_ACCOUNT = "bank_account";
-  @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT)
-  private String bankAccount;
-
   public static final String SERIALIZED_NAME_COUNTRY = "country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private PayoutMethodCountryEnum country;
 
-  public PayoutMethodDetailsUSDBank firstName(String firstName) {
+  public PayoutMethodDetailsUSDCash firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -73,7 +65,7 @@ public class PayoutMethodDetailsUSDBank {
     this.firstName = firstName;
   }
 
-  public PayoutMethodDetailsUSDBank lastName(String lastName) {
+  public PayoutMethodDetailsUSDCash lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -91,7 +83,7 @@ public class PayoutMethodDetailsUSDBank {
     this.lastName = lastName;
   }
 
-  public PayoutMethodDetailsUSDBank phoneNumber(String phoneNumber) {
+  public PayoutMethodDetailsUSDCash phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -109,43 +101,7 @@ public class PayoutMethodDetailsUSDBank {
     this.phoneNumber = phoneNumber;
   }
 
-  public PayoutMethodDetailsUSDBank bankCode(String bankCode) {
-    this.bankCode = bankCode;
-    return this;
-  }
-
-   /**
-   * Get bankCode
-   * @return bankCode
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public String getBankCode() {
-    return bankCode;
-  }
-
-  public void setBankCode(String bankCode) {
-    this.bankCode = bankCode;
-  }
-
-  public PayoutMethodDetailsUSDBank bankAccount(String bankAccount) {
-    this.bankAccount = bankAccount;
-    return this;
-  }
-
-   /**
-   * Get bankAccount
-   * @return bankAccount
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public String getBankAccount() {
-    return bankAccount;
-  }
-
-  public void setBankAccount(String bankAccount) {
-    this.bankAccount = bankAccount;
-  }
-
-  public PayoutMethodDetailsUSDBank country(PayoutMethodCountryEnum country) {
+  public PayoutMethodDetailsUSDCash country(PayoutMethodCountryEnum country) {
     this.country = country;
     return this;
   }
@@ -172,30 +128,26 @@ public class PayoutMethodDetailsUSDBank {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PayoutMethodDetailsUSDBank payoutMethodDetailsUSDBank = (PayoutMethodDetailsUSDBank) o;
-    return Objects.equals(this.firstName, payoutMethodDetailsUSDBank.firstName) &&
-        Objects.equals(this.lastName, payoutMethodDetailsUSDBank.lastName) &&
-        Objects.equals(this.phoneNumber, payoutMethodDetailsUSDBank.phoneNumber) &&
-        Objects.equals(this.bankCode, payoutMethodDetailsUSDBank.bankCode) &&
-        Objects.equals(this.bankAccount, payoutMethodDetailsUSDBank.bankAccount) &&
-        Objects.equals(this.country, payoutMethodDetailsUSDBank.country);
+    PayoutMethodDetailsUSDCash payoutMethodDetailsUSDCash = (PayoutMethodDetailsUSDCash) o;
+    return Objects.equals(this.firstName, payoutMethodDetailsUSDCash.firstName) &&
+        Objects.equals(this.lastName, payoutMethodDetailsUSDCash.lastName) &&
+        Objects.equals(this.phoneNumber, payoutMethodDetailsUSDCash.phoneNumber) &&
+        Objects.equals(this.country, payoutMethodDetailsUSDCash.country);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, phoneNumber, bankCode, bankAccount, country);
+    return Objects.hash(firstName, lastName, phoneNumber, country);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PayoutMethodDetailsUSDBank {\n");
+    sb.append("class PayoutMethodDetailsUSDCash {\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-    sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
-    sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("}");
     return sb.toString();

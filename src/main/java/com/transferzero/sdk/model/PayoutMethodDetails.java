@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayoutMethodBankAccountTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodCashProviderEnum;
-import com.transferzero.sdk.model.PayoutMethodCountryEnumUSDBank;
+import com.transferzero.sdk.model.PayoutMethodCountryEnum;
 import com.transferzero.sdk.model.PayoutMethodDetailsBTC;
 import com.transferzero.sdk.model.PayoutMethodDetailsBalance;
 import com.transferzero.sdk.model.PayoutMethodDetailsGBPBank;
@@ -35,6 +35,7 @@ import com.transferzero.sdk.model.PayoutMethodDetailsMADCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsNGNBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsUSDBank;
+import com.transferzero.sdk.model.PayoutMethodDetailsUSDCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFMobile;
@@ -83,7 +84,7 @@ public class PayoutMethodDetails {
 
   public static final String SERIALIZED_NAME_COUNTRY = "country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
-  private PayoutMethodCountryEnumUSDBank country;
+  private PayoutMethodCountryEnum country;
 
   public static final String SERIALIZED_NAME_IBAN = "iban";
   @SerializedName(SERIALIZED_NAME_IBAN)
@@ -327,7 +328,7 @@ public class PayoutMethodDetails {
     this.mobileProvider = mobileProvider;
   }
 
-  public PayoutMethodDetails country(PayoutMethodCountryEnumUSDBank country) {
+  public PayoutMethodDetails country(PayoutMethodCountryEnum country) {
     this.country = country;
     return this;
   }
@@ -337,11 +338,11 @@ public class PayoutMethodDetails {
    * @return country
   **/
   @ApiModelProperty(required = true, value = "")
-  public PayoutMethodCountryEnumUSDBank getCountry() {
+  public PayoutMethodCountryEnum getCountry() {
     return country;
   }
 
-  public void setCountry(PayoutMethodCountryEnumUSDBank country) {
+  public void setCountry(PayoutMethodCountryEnum country) {
     this.country = country;
   }
 
