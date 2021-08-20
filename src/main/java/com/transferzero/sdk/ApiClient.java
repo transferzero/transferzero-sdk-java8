@@ -103,7 +103,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("TransferZero-SDK/Java8/1.15.1-SNAPSHOT");
+        setUserAgent("TransferZero-SDK/Java8/1.16.0-SNAPSHOT");
     }
 
     /**
