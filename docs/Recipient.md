@@ -28,17 +28,7 @@ Name | Type | Description | Notes
 **outputAmount** | [**BigDecimal**](BigDecimal.md) | The amount that will be paid to the recipient |  [optional]
 **outputCurrency** | **String** | The currency the payment will be delivered in |  [optional]
 **id** | [**UUID**](UUID.md) |  |  [optional]
-**type** | [**TypeEnum**](#TypeEnum) | Type of recipient to create - either person or business (defaults to person)  |  [optional]
 **errors** | [**Map&lt;String, List&lt;ValidationErrorDescription&gt;&gt;**](List.md) | The fields that have some problems and don&#39;t pass validation |  [optional]
-
-
-
-## Enum: TypeEnum
-
-Name | Value
----- | -----
-PERSON | &quot;person&quot;
-BUSINESS | &quot;business&quot;
 
 
 
