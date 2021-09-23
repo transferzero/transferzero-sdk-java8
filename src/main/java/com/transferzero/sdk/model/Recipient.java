@@ -129,6 +129,57 @@ public class Recipient {
   @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
+  /**
+   * Type of recipient to create - either person or business (defaults to person) 
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    PERSON("person"),
+    
+    BUSINESS("business");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private TypeEnum type;
+
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
   private Map<String, List<ValidationErrorDescription>> errors = new HashMap<>();
@@ -403,6 +454,24 @@ public class Recipient {
     return id;
   }
 
+  public Recipient type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Type of recipient to create - either person or business (defaults to person) 
+   * @return type
+  **/
+  @ApiModelProperty(example = "person", value = "Type of recipient to create - either person or business (defaults to person) ")
+  public TypeEnum getType() {
+    return type;
+  }
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
    /**
    * The fields that have some problems and don&#39;t pass validation
    * @return errors
@@ -444,12 +513,13 @@ public class Recipient {
         Objects.equals(this.outputAmount, recipient.outputAmount) &&
         Objects.equals(this.outputCurrency, recipient.outputCurrency) &&
         Objects.equals(this.id, recipient.id) &&
+        Objects.equals(this.type, recipient.type) &&
         Objects.equals(this.errors, recipient.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestedAmount, requestedCurrency, payoutMethod, metadata, createdAt, editable, retriable, inputUsdAmount, mayCancel, stateReason, stateReasonDetails, state, transactionId, transactionExternalId, transactionState, exchangeRate, feeFractional, inputAmount, inputCurrency, outputAmount, outputCurrency, id, errors);
+    return Objects.hash(requestedAmount, requestedCurrency, payoutMethod, metadata, createdAt, editable, retriable, inputUsdAmount, mayCancel, stateReason, stateReasonDetails, state, transactionId, transactionExternalId, transactionState, exchangeRate, feeFractional, inputAmount, inputCurrency, outputAmount, outputCurrency, id, type, errors);
   }
 
 
@@ -479,6 +549,7 @@ public class Recipient {
     sb.append("    outputAmount: ").append(toIndentedString(outputAmount)).append("\n");
     sb.append("    outputCurrency: ").append(toIndentedString(outputCurrency)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
