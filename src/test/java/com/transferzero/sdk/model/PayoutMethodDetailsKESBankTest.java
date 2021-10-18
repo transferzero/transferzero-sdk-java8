@@ -19,6 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayoutMethodIdentityCardTypeEnum;
+import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -111,6 +112,14 @@ public class PayoutMethodDetailsKESBankTest {
     @Test
     public void transferReasonCodeTest() {
         // TODO: test transferReasonCode
+    }
+
+    /**
+     * Test the property 'transferReason'
+     */
+    @Test
+    public void transferReasonTest() {
+        // TODO: test transferReason
     }
 
     /**
