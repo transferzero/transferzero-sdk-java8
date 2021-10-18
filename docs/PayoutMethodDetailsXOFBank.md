@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **bankName** | **String** |  |  [optional]
 **bankCountry** | **String** |  |  [optional]
 **bankCode** | **String** |  |  [optional]
+**transferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  |  [optional]
 
 
 

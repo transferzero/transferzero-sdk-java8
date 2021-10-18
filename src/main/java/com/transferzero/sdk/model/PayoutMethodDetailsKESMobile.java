@@ -22,14 +22,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayoutMethodIdentityCardTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
+import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;phone_number\&quot;: \&quot;+254997853134\&quot;,     \&quot;mobile_provider\&quot;: \&quot;mpesa\&quot;,     \&quot;transfer_reason_code\&quot;: \&quot;185\&quot;,     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;,     \&quot;identity_card_id\&quot;: \&quot;AB12345678\&quot;   } &#x60;&#x60;&#x60;  See [KES Mobile](https://docs.transferzero.com/docs/payout-details/#kesmobile) documentation for transfer_reason_code lists
+ * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;phone_number\&quot;: \&quot;+254997853134\&quot;,     \&quot;mobile_provider\&quot;: \&quot;mpesa\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;, // New transfer reason field     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;,     \&quot;identity_card_id\&quot;: \&quot;AB12345678\&quot;   } &#x60;&#x60;&#x60;  See [KES Mobile](https://docs.transferzero.com/docs/payout-details/#kesmobile) documentation for transfer_reason lists
  */
-@ApiModel(description = "```JSON   \"details\": {     \"first_name\": \"First\",     \"last_name\": \"Last\",     \"street\": \"Main Street\",     \"phone_number\": \"+254997853134\",     \"mobile_provider\": \"mpesa\",     \"transfer_reason_code\": \"185\",     \"identity_card_type\": \"ID\",     \"identity_card_id\": \"AB12345678\"   } ```  See [KES Mobile](https://docs.transferzero.com/docs/payout-details/#kesmobile) documentation for transfer_reason_code lists")
+@ApiModel(description = "```JSON   \"details\": {     \"first_name\": \"First\",     \"last_name\": \"Last\",     \"street\": \"Main Street\",     \"phone_number\": \"+254997853134\",     \"mobile_provider\": \"mpesa\",     \"transfer_reason\": \"personal_account\", // New transfer reason field     \"identity_card_type\": \"ID\",     \"identity_card_id\": \"AB12345678\"   } ```  See [KES Mobile](https://docs.transferzero.com/docs/payout-details/#kesmobile) documentation for transfer_reason lists")
 
 public class PayoutMethodDetailsKESMobile {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
@@ -55,6 +56,10 @@ public class PayoutMethodDetailsKESMobile {
   public static final String SERIALIZED_NAME_TRANSFER_REASON_CODE = "transfer_reason_code";
   @SerializedName(SERIALIZED_NAME_TRANSFER_REASON_CODE)
   private String transferReasonCode;
+
+  public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
+  @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
+  private PayoutMethodTransferReasonEnum transferReason;
 
   public static final String SERIALIZED_NAME_IDENTITY_CARD_TYPE = "identity_card_type";
   @SerializedName(SERIALIZED_NAME_IDENTITY_CARD_TYPE)
@@ -163,13 +168,31 @@ public class PayoutMethodDetailsKESMobile {
    * Get transferReasonCode
    * @return transferReasonCode
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getTransferReasonCode() {
     return transferReasonCode;
   }
 
   public void setTransferReasonCode(String transferReasonCode) {
     this.transferReasonCode = transferReasonCode;
+  }
+
+  public PayoutMethodDetailsKESMobile transferReason(PayoutMethodTransferReasonEnum transferReason) {
+    this.transferReason = transferReason;
+    return this;
+  }
+
+   /**
+   * Get transferReason
+   * @return transferReason
+  **/
+  @ApiModelProperty(value = "")
+  public PayoutMethodTransferReasonEnum getTransferReason() {
+    return transferReason;
+  }
+
+  public void setTransferReason(PayoutMethodTransferReasonEnum transferReason) {
+    this.transferReason = transferReason;
   }
 
   public PayoutMethodDetailsKESMobile identityCardType(PayoutMethodIdentityCardTypeEnum identityCardType) {
@@ -224,13 +247,14 @@ public class PayoutMethodDetailsKESMobile {
         Objects.equals(this.phoneNumber, payoutMethodDetailsKESMobile.phoneNumber) &&
         Objects.equals(this.mobileProvider, payoutMethodDetailsKESMobile.mobileProvider) &&
         Objects.equals(this.transferReasonCode, payoutMethodDetailsKESMobile.transferReasonCode) &&
+        Objects.equals(this.transferReason, payoutMethodDetailsKESMobile.transferReason) &&
         Objects.equals(this.identityCardType, payoutMethodDetailsKESMobile.identityCardType) &&
         Objects.equals(this.identityCardId, payoutMethodDetailsKESMobile.identityCardId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, street, phoneNumber, mobileProvider, transferReasonCode, identityCardType, identityCardId);
+    return Objects.hash(firstName, lastName, street, phoneNumber, mobileProvider, transferReasonCode, transferReason, identityCardType, identityCardId);
   }
 
 
@@ -244,6 +268,7 @@ public class PayoutMethodDetailsKESMobile {
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
     sb.append("    transferReasonCode: ").append(toIndentedString(transferReasonCode)).append("\n");
+    sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
     sb.append("    identityCardType: ").append(toIndentedString(identityCardType)).append("\n");
     sb.append("    identityCardId: ").append(toIndentedString(identityCardId)).append("\n");
     sb.append("}");

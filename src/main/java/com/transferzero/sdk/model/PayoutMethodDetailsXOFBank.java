@@ -20,14 +20,15 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;iban\&quot;: \&quot;BJ0610100100144390000769\&quot;, # BBAN format   \&quot;bank_name\&quot;: \&quot;Bank Of Africa Bénin\&quot;,   \&quot;bank_country\&quot;: \&quot;BJ\&quot;, # ISO country code for Benin   \&quot;bank_code\&quot;: \&quot;BJ061\&quot; } &#x60;&#x60;&#x60;  See [XOF Bank](https://docs.transferzero.com/docs/payout-details/#xofbank) documentation for the bank_code list
+ * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;iban\&quot;: \&quot;BJ0610100100144390000769\&quot;, # BBAN format   \&quot;bank_name\&quot;: \&quot;Bank Of Africa Bénin\&quot;,   \&quot;bank_country\&quot;: \&quot;BJ\&quot;, # ISO country code for Benin   \&quot;bank_code\&quot;: \&quot;BJ061\&quot;,   \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot; } &#x60;&#x60;&#x60;  See [XOF Bank](https://docs.transferzero.com/docs/payout-details/#xofbank) documentation for the bank_code and transfer_reason lists
  */
-@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"iban\": \"BJ0610100100144390000769\", # BBAN format   \"bank_name\": \"Bank Of Africa Bénin\",   \"bank_country\": \"BJ\", # ISO country code for Benin   \"bank_code\": \"BJ061\" } ```  See [XOF Bank](https://docs.transferzero.com/docs/payout-details/#xofbank) documentation for the bank_code list")
+@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"iban\": \"BJ0610100100144390000769\", # BBAN format   \"bank_name\": \"Bank Of Africa Bénin\",   \"bank_country\": \"BJ\", # ISO country code for Benin   \"bank_code\": \"BJ061\",   \"transfer_reason\": \"personal_account\" } ```  See [XOF Bank](https://docs.transferzero.com/docs/payout-details/#xofbank) documentation for the bank_code and transfer_reason lists")
 
 public class PayoutMethodDetailsXOFBank {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
@@ -53,6 +54,10 @@ public class PayoutMethodDetailsXOFBank {
   public static final String SERIALIZED_NAME_BANK_CODE = "bank_code";
   @SerializedName(SERIALIZED_NAME_BANK_CODE)
   private String bankCode;
+
+  public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
+  @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
+  private PayoutMethodTransferReasonEnum transferReason;
 
   public PayoutMethodDetailsXOFBank firstName(String firstName) {
     this.firstName = firstName;
@@ -162,6 +167,24 @@ public class PayoutMethodDetailsXOFBank {
     this.bankCode = bankCode;
   }
 
+  public PayoutMethodDetailsXOFBank transferReason(PayoutMethodTransferReasonEnum transferReason) {
+    this.transferReason = transferReason;
+    return this;
+  }
+
+   /**
+   * Get transferReason
+   * @return transferReason
+  **/
+  @ApiModelProperty(value = "")
+  public PayoutMethodTransferReasonEnum getTransferReason() {
+    return transferReason;
+  }
+
+  public void setTransferReason(PayoutMethodTransferReasonEnum transferReason) {
+    this.transferReason = transferReason;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -177,12 +200,13 @@ public class PayoutMethodDetailsXOFBank {
         Objects.equals(this.iban, payoutMethodDetailsXOFBank.iban) &&
         Objects.equals(this.bankName, payoutMethodDetailsXOFBank.bankName) &&
         Objects.equals(this.bankCountry, payoutMethodDetailsXOFBank.bankCountry) &&
-        Objects.equals(this.bankCode, payoutMethodDetailsXOFBank.bankCode);
+        Objects.equals(this.bankCode, payoutMethodDetailsXOFBank.bankCode) &&
+        Objects.equals(this.transferReason, payoutMethodDetailsXOFBank.transferReason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, iban, bankName, bankCountry, bankCode);
+    return Objects.hash(firstName, lastName, iban, bankName, bankCountry, bankCode, transferReason);
   }
 
 
@@ -196,6 +220,7 @@ public class PayoutMethodDetailsXOFBank {
     sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
     sb.append("    bankCountry: ").append(toIndentedString(bankCountry)).append("\n");
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
+    sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
     sb.append("}");
     return sb.toString();
   }

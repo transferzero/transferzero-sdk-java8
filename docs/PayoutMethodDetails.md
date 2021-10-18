@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **iban** | **String** |  | 
 **bankName** | **String** |  | 
 **bankCountry** | **String** |  |  [optional]
+**transferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  |  [optional]
 **cashProvider** | [**PayoutMethodCashProviderEnum**](PayoutMethodCashProviderEnum.md) |  |  [optional]
 **sortCode** | **String** |  |  [optional]
 **bic** | **String** |  |  [optional]
@@ -35,7 +36,7 @@ Name | Type | Description | Notes
 **postalCode** | **String** |  | 
 **city** | **String** |  | 
 **email** | **String** |  |  [optional]
-**transferReasonCode** | **String** |  | 
+**transferReasonCode** | **String** |  |  [optional]
 **contactFirstName** | **String** |  |  [optional]
 **contactLastName** | **String** |  |  [optional]
 **registrationNumber** | **String** |  |  [optional]
