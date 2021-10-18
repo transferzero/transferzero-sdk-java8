@@ -43,6 +43,7 @@ import com.transferzero.sdk.model.PayoutMethodIdentityCardTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodLegalEntityTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
 import com.transferzero.sdk.model.PayoutMethodNatureOfBusinessEnum;
+import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
