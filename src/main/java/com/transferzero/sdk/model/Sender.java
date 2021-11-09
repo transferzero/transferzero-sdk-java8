@@ -559,6 +559,10 @@ public class Sender {
   @SerializedName(SERIALIZED_NAME_GENDER)
   private GenderEnum gender;
 
+  public static final String SERIALIZED_NAME_SALES_LEAD_ID = "sales_lead_id";
+  @SerializedName(SERIALIZED_NAME_SALES_LEAD_ID)
+  private String salesLeadId;
+
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private String createdAt;
@@ -1431,6 +1435,24 @@ public class Sender {
     this.gender = gender;
   }
 
+  public Sender salesLeadId(String salesLeadId) {
+    this.salesLeadId = salesLeadId;
+    return this;
+  }
+
+   /**
+   * Sales Lead ID for tracking (optional)
+   * @return salesLeadId
+  **/
+  @ApiModelProperty(example = "HF6HJVF67", value = "Sales Lead ID for tracking (optional)")
+  public String getSalesLeadId() {
+    return salesLeadId;
+  }
+
+  public void setSalesLeadId(String salesLeadId) {
+    this.salesLeadId = salesLeadId;
+  }
+
    /**
    * Date and time of sender was created
    * @return createdAt
@@ -1498,12 +1520,13 @@ public class Sender {
         Objects.equals(this.cityOfBirth, sender.cityOfBirth) &&
         Objects.equals(this.countryOfBirth, sender.countryOfBirth) &&
         Objects.equals(this.gender, sender.gender) &&
+        Objects.equals(this.salesLeadId, sender.salesLeadId) &&
         Objects.equals(this.createdAt, sender.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, lang, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, customSourceOfFunds, coreBusinessActivity, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId, cityOfBirth, countryOfBirth, gender, createdAt);
+    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, lang, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, customSourceOfFunds, coreBusinessActivity, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId, cityOfBirth, countryOfBirth, gender, salesLeadId, createdAt);
   }
 
 
@@ -1559,6 +1582,7 @@ public class Sender {
     sb.append("    cityOfBirth: ").append(toIndentedString(cityOfBirth)).append("\n");
     sb.append("    countryOfBirth: ").append(toIndentedString(countryOfBirth)).append("\n");
     sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
+    sb.append("    salesLeadId: ").append(toIndentedString(salesLeadId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("}");
     return sb.toString();
