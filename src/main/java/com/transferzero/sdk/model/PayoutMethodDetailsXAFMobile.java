@@ -22,17 +22,16 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayoutMethodCountryEnum;
 import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
-import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;774044436\&quot;, // local or international Senegalese or Ivory Coast format   \&quot;mobile_provider\&quot;: \&quot;orange\&quot;, // \&quot;orange\&quot; or \&quot;tigo\&quot; for Senegal; \&quot;orange\&quot;, \&quot;mtn\&quot; or \&quot;moov\&quot; for Ivory Coast; \&quot;orange\&quot; or \&quot;mobicash\&quot; for Burkina Faso and Mali   \&quot;country\&quot; // Optional; Values: \&quot;SN\&quot; for Senegal; \&quot;CI\&quot; for Ivory Coast; \&quot;ML\&quot; for Mali; \&quot;BF\&quot; for Burkina Faso; Default value is \&quot;SN\&quot;   \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot; // mandatory for Mali payouts, optional otherwise } &#x60;&#x60;&#x60;
+ * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;674044436\&quot;, // local or international cameroon format   \&quot;mobile_provider\&quot;: \&quot;orange\&quot;, // or mtn\&quot;   \&quot;country\&quot; // Optional; Values: \&quot;CM\&quot; } &#x60;&#x60;&#x60;
  */
-@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"phone_number\": \"774044436\", // local or international Senegalese or Ivory Coast format   \"mobile_provider\": \"orange\", // \"orange\" or \"tigo\" for Senegal; \"orange\", \"mtn\" or \"moov\" for Ivory Coast; \"orange\" or \"mobicash\" for Burkina Faso and Mali   \"country\" // Optional; Values: \"SN\" for Senegal; \"CI\" for Ivory Coast; \"ML\" for Mali; \"BF\" for Burkina Faso; Default value is \"SN\"   \"transfer_reason\": \"personal_account\" // mandatory for Mali payouts, optional otherwise } ```")
+@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"phone_number\": \"674044436\", // local or international cameroon format   \"mobile_provider\": \"orange\", // or mtn\"   \"country\" // Optional; Values: \"CM\" } ```")
 
-public class PayoutMethodDetailsXOFMobile {
+public class PayoutMethodDetailsXAFMobile {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
@@ -53,11 +52,7 @@ public class PayoutMethodDetailsXOFMobile {
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private PayoutMethodCountryEnum country;
 
-  public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
-  @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
-  private PayoutMethodTransferReasonEnum transferReason;
-
-  public PayoutMethodDetailsXOFMobile firstName(String firstName) {
+  public PayoutMethodDetailsXAFMobile firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -75,7 +70,7 @@ public class PayoutMethodDetailsXOFMobile {
     this.firstName = firstName;
   }
 
-  public PayoutMethodDetailsXOFMobile lastName(String lastName) {
+  public PayoutMethodDetailsXAFMobile lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -93,7 +88,7 @@ public class PayoutMethodDetailsXOFMobile {
     this.lastName = lastName;
   }
 
-  public PayoutMethodDetailsXOFMobile phoneNumber(String phoneNumber) {
+  public PayoutMethodDetailsXAFMobile phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -111,7 +106,7 @@ public class PayoutMethodDetailsXOFMobile {
     this.phoneNumber = phoneNumber;
   }
 
-  public PayoutMethodDetailsXOFMobile mobileProvider(PayoutMethodMobileProviderEnum mobileProvider) {
+  public PayoutMethodDetailsXAFMobile mobileProvider(PayoutMethodMobileProviderEnum mobileProvider) {
     this.mobileProvider = mobileProvider;
     return this;
   }
@@ -129,7 +124,7 @@ public class PayoutMethodDetailsXOFMobile {
     this.mobileProvider = mobileProvider;
   }
 
-  public PayoutMethodDetailsXOFMobile country(PayoutMethodCountryEnum country) {
+  public PayoutMethodDetailsXAFMobile country(PayoutMethodCountryEnum country) {
     this.country = country;
     return this;
   }
@@ -147,24 +142,6 @@ public class PayoutMethodDetailsXOFMobile {
     this.country = country;
   }
 
-  public PayoutMethodDetailsXOFMobile transferReason(PayoutMethodTransferReasonEnum transferReason) {
-    this.transferReason = transferReason;
-    return this;
-  }
-
-   /**
-   * Get transferReason
-   * @return transferReason
-  **/
-  @ApiModelProperty(value = "")
-  public PayoutMethodTransferReasonEnum getTransferReason() {
-    return transferReason;
-  }
-
-  public void setTransferReason(PayoutMethodTransferReasonEnum transferReason) {
-    this.transferReason = transferReason;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -174,31 +151,29 @@ public class PayoutMethodDetailsXOFMobile {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PayoutMethodDetailsXOFMobile payoutMethodDetailsXOFMobile = (PayoutMethodDetailsXOFMobile) o;
-    return Objects.equals(this.firstName, payoutMethodDetailsXOFMobile.firstName) &&
-        Objects.equals(this.lastName, payoutMethodDetailsXOFMobile.lastName) &&
-        Objects.equals(this.phoneNumber, payoutMethodDetailsXOFMobile.phoneNumber) &&
-        Objects.equals(this.mobileProvider, payoutMethodDetailsXOFMobile.mobileProvider) &&
-        Objects.equals(this.country, payoutMethodDetailsXOFMobile.country) &&
-        Objects.equals(this.transferReason, payoutMethodDetailsXOFMobile.transferReason);
+    PayoutMethodDetailsXAFMobile payoutMethodDetailsXAFMobile = (PayoutMethodDetailsXAFMobile) o;
+    return Objects.equals(this.firstName, payoutMethodDetailsXAFMobile.firstName) &&
+        Objects.equals(this.lastName, payoutMethodDetailsXAFMobile.lastName) &&
+        Objects.equals(this.phoneNumber, payoutMethodDetailsXAFMobile.phoneNumber) &&
+        Objects.equals(this.mobileProvider, payoutMethodDetailsXAFMobile.mobileProvider) &&
+        Objects.equals(this.country, payoutMethodDetailsXAFMobile.country);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, phoneNumber, mobileProvider, country, transferReason);
+    return Objects.hash(firstName, lastName, phoneNumber, mobileProvider, country);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PayoutMethodDetailsXOFMobile {\n");
+    sb.append("class PayoutMethodDetailsXAFMobile {\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
-    sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
     sb.append("}");
     return sb.toString();
   }

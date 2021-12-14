@@ -28,6 +28,7 @@ import com.transferzero.sdk.model.PayoutMethodDetailsBalance;
 import com.transferzero.sdk.model.PayoutMethodDetailsGBPBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsGHSBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsGHSCash;
+import com.transferzero.sdk.model.PayoutMethodDetailsGNFMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsIBAN;
 import com.transferzero.sdk.model.PayoutMethodDetailsKESBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsKESMobile;
@@ -36,6 +37,7 @@ import com.transferzero.sdk.model.PayoutMethodDetailsMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsNGNBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsUSDBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsUSDCash;
+import com.transferzero.sdk.model.PayoutMethodDetailsXAFMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFMobile;
@@ -87,6 +89,10 @@ public class PayoutMethodDetails {
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private PayoutMethodCountryEnum country;
 
+  public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
+  @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
+  private PayoutMethodTransferReasonEnum transferReason;
+
   public static final String SERIALIZED_NAME_IBAN = "iban";
   @SerializedName(SERIALIZED_NAME_IBAN)
   private String iban;
@@ -98,10 +104,6 @@ public class PayoutMethodDetails {
   public static final String SERIALIZED_NAME_BANK_COUNTRY = "bank_country";
   @SerializedName(SERIALIZED_NAME_BANK_COUNTRY)
   private String bankCountry;
-
-  public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
-  @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
-  private PayoutMethodTransferReasonEnum transferReason;
 
   public static final String SERIALIZED_NAME_CASH_PROVIDER = "cash_provider";
   @SerializedName(SERIALIZED_NAME_CASH_PROVIDER)
@@ -351,6 +353,24 @@ public class PayoutMethodDetails {
     this.country = country;
   }
 
+  public PayoutMethodDetails transferReason(PayoutMethodTransferReasonEnum transferReason) {
+    this.transferReason = transferReason;
+    return this;
+  }
+
+   /**
+   * Get transferReason
+   * @return transferReason
+  **/
+  @ApiModelProperty(value = "")
+  public PayoutMethodTransferReasonEnum getTransferReason() {
+    return transferReason;
+  }
+
+  public void setTransferReason(PayoutMethodTransferReasonEnum transferReason) {
+    this.transferReason = transferReason;
+  }
+
   public PayoutMethodDetails iban(String iban) {
     this.iban = iban;
     return this;
@@ -403,24 +423,6 @@ public class PayoutMethodDetails {
 
   public void setBankCountry(String bankCountry) {
     this.bankCountry = bankCountry;
-  }
-
-  public PayoutMethodDetails transferReason(PayoutMethodTransferReasonEnum transferReason) {
-    this.transferReason = transferReason;
-    return this;
-  }
-
-   /**
-   * Get transferReason
-   * @return transferReason
-  **/
-  @ApiModelProperty(value = "")
-  public PayoutMethodTransferReasonEnum getTransferReason() {
-    return transferReason;
-  }
-
-  public void setTransferReason(PayoutMethodTransferReasonEnum transferReason) {
-    this.transferReason = transferReason;
   }
 
   public PayoutMethodDetails cashProvider(PayoutMethodCashProviderEnum cashProvider) {
@@ -909,10 +911,10 @@ public class PayoutMethodDetails {
         Objects.equals(this.phoneNumber, payoutMethodDetails.phoneNumber) &&
         Objects.equals(this.mobileProvider, payoutMethodDetails.mobileProvider) &&
         Objects.equals(this.country, payoutMethodDetails.country) &&
+        Objects.equals(this.transferReason, payoutMethodDetails.transferReason) &&
         Objects.equals(this.iban, payoutMethodDetails.iban) &&
         Objects.equals(this.bankName, payoutMethodDetails.bankName) &&
         Objects.equals(this.bankCountry, payoutMethodDetails.bankCountry) &&
-        Objects.equals(this.transferReason, payoutMethodDetails.transferReason) &&
         Objects.equals(this.cashProvider, payoutMethodDetails.cashProvider) &&
         Objects.equals(this.sortCode, payoutMethodDetails.sortCode) &&
         Objects.equals(this.bic, payoutMethodDetails.bic) &&
@@ -943,7 +945,7 @@ public class PayoutMethodDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, iban, bankName, bankCountry, transferReason, cashProvider, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, branchCode, swiftCode);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, branchCode, swiftCode);
   }
 
 
@@ -959,10 +961,10 @@ public class PayoutMethodDetails {
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
     sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
     sb.append("    bankCountry: ").append(toIndentedString(bankCountry)).append("\n");
-    sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
     sb.append("    cashProvider: ").append(toIndentedString(cashProvider)).append("\n");
     sb.append("    sortCode: ").append(toIndentedString(sortCode)).append("\n");
     sb.append("    bic: ").append(toIndentedString(bic)).append("\n");

@@ -26,11 +26,11 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;7087661234\&quot; // local or international format } &#x60;&#x60;&#x60;  Please note when sending XOF::Cash payments you should subscribe to the recipient.pending webhook, as that will broadcast the payment reference ID the customer need to use to obtain the funds. Example webhook response excerpt -  &#x60;&#x60;&#x60;JSON {   (...)   \&quot;state\&quot;:\&quot;pending\&quot;,   \&quot;metadata\&quot;: {     \&quot;payment_reference\&quot;:\&quot;9M5GJRJUBCY\&quot;   },   (...) } &#x60;&#x60;&#x60;
+ * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;444044436\&quot;, // local or international Guinea format   \&quot;mobile_provider\&quot;: \&quot;mtn\&quot; } &#x60;&#x60;&#x60;
  */
-@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"phone_number\": \"7087661234\" // local or international format } ```  Please note when sending XOF::Cash payments you should subscribe to the recipient.pending webhook, as that will broadcast the payment reference ID the customer need to use to obtain the funds. Example webhook response excerpt -  ```JSON {   (...)   \"state\":\"pending\",   \"metadata\": {     \"payment_reference\":\"9M5GJRJUBCY\"   },   (...) } ```")
+@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"phone_number\": \"444044436\", // local or international Guinea format   \"mobile_provider\": \"mtn\" } ```")
 
-public class PayoutMethodDetailsMobile {
+public class PayoutMethodDetailsGNFMobile {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
@@ -47,7 +47,7 @@ public class PayoutMethodDetailsMobile {
   @SerializedName(SERIALIZED_NAME_MOBILE_PROVIDER)
   private PayoutMethodMobileProviderEnum mobileProvider;
 
-  public PayoutMethodDetailsMobile firstName(String firstName) {
+  public PayoutMethodDetailsGNFMobile firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -65,7 +65,7 @@ public class PayoutMethodDetailsMobile {
     this.firstName = firstName;
   }
 
-  public PayoutMethodDetailsMobile lastName(String lastName) {
+  public PayoutMethodDetailsGNFMobile lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -83,7 +83,7 @@ public class PayoutMethodDetailsMobile {
     this.lastName = lastName;
   }
 
-  public PayoutMethodDetailsMobile phoneNumber(String phoneNumber) {
+  public PayoutMethodDetailsGNFMobile phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
     return this;
   }
@@ -101,7 +101,7 @@ public class PayoutMethodDetailsMobile {
     this.phoneNumber = phoneNumber;
   }
 
-  public PayoutMethodDetailsMobile mobileProvider(PayoutMethodMobileProviderEnum mobileProvider) {
+  public PayoutMethodDetailsGNFMobile mobileProvider(PayoutMethodMobileProviderEnum mobileProvider) {
     this.mobileProvider = mobileProvider;
     return this;
   }
@@ -110,7 +110,7 @@ public class PayoutMethodDetailsMobile {
    * Get mobileProvider
    * @return mobileProvider
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public PayoutMethodMobileProviderEnum getMobileProvider() {
     return mobileProvider;
   }
@@ -128,11 +128,11 @@ public class PayoutMethodDetailsMobile {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PayoutMethodDetailsMobile payoutMethodDetailsMobile = (PayoutMethodDetailsMobile) o;
-    return Objects.equals(this.firstName, payoutMethodDetailsMobile.firstName) &&
-        Objects.equals(this.lastName, payoutMethodDetailsMobile.lastName) &&
-        Objects.equals(this.phoneNumber, payoutMethodDetailsMobile.phoneNumber) &&
-        Objects.equals(this.mobileProvider, payoutMethodDetailsMobile.mobileProvider);
+    PayoutMethodDetailsGNFMobile payoutMethodDetailsGNFMobile = (PayoutMethodDetailsGNFMobile) o;
+    return Objects.equals(this.firstName, payoutMethodDetailsGNFMobile.firstName) &&
+        Objects.equals(this.lastName, payoutMethodDetailsGNFMobile.lastName) &&
+        Objects.equals(this.phoneNumber, payoutMethodDetailsGNFMobile.phoneNumber) &&
+        Objects.equals(this.mobileProvider, payoutMethodDetailsGNFMobile.mobileProvider);
   }
 
   @Override
@@ -144,7 +144,7 @@ public class PayoutMethodDetailsMobile {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PayoutMethodDetailsMobile {\n");
+    sb.append("class PayoutMethodDetailsGNFMobile {\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
