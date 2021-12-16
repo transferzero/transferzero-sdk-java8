@@ -20,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayoutMethodCountryEnum;
 import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
+import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -80,6 +81,14 @@ public class PayoutMethodDetailsXOFMobileTest {
     @Test
     public void countryTest() {
         // TODO: test country
+    }
+
+    /**
+     * Test the property 'transferReason'
+     */
+    @Test
+    public void transferReasonTest() {
+        // TODO: test transferReason
     }
 
 }
