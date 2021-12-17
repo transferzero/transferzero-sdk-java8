@@ -435,6 +435,14 @@ public class SenderTest {
     }
 
     /**
+     * Test the property 'salesLeadId'
+     */
+    @Test
+    public void salesLeadIdTest() {
+        // TODO: test salesLeadId
+    }
+
+    /**
      * Test the property 'createdAt'
      */
     @Test
