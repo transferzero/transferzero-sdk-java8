@@ -466,6 +466,10 @@ public class Sender {
   @SerializedName(SERIALIZED_NAME_TRADING_ADDRESS)
   private String tradingAddress;
 
+  public static final String SERIALIZED_NAME_TRADING_NAME = "trading_name";
+  @SerializedName(SERIALIZED_NAME_TRADING_NAME)
+  private String tradingName;
+
   public static final String SERIALIZED_NAME_NUMBER_MONTHLY_TRANSACTIONS = "number_monthly_transactions";
   @SerializedName(SERIALIZED_NAME_NUMBER_MONTHLY_TRANSACTIONS)
   private String numberMonthlyTransactions;
@@ -1233,6 +1237,24 @@ public class Sender {
     this.tradingAddress = tradingAddress;
   }
 
+  public Sender tradingName(String tradingName) {
+    this.tradingName = tradingName;
+    return this;
+  }
+
+   /**
+   * The Business trading name (used only with a Business sender)
+   * @return tradingName
+  **/
+  @ApiModelProperty(value = "The Business trading name (used only with a Business sender)")
+  public String getTradingName() {
+    return tradingName;
+  }
+
+  public void setTradingName(String tradingName) {
+    this.tradingName = tradingName;
+  }
+
   public Sender numberMonthlyTransactions(String numberMonthlyTransactions) {
     this.numberMonthlyTransactions = numberMonthlyTransactions;
     return this;
@@ -1509,6 +1531,7 @@ public class Sender {
         Objects.equals(this.contactPersonEmail, sender.contactPersonEmail) &&
         Objects.equals(this.tradingCountry, sender.tradingCountry) &&
         Objects.equals(this.tradingAddress, sender.tradingAddress) &&
+        Objects.equals(this.tradingName, sender.tradingName) &&
         Objects.equals(this.numberMonthlyTransactions, sender.numberMonthlyTransactions) &&
         Objects.equals(this.amountMonthlyTransactions, sender.amountMonthlyTransactions) &&
         Objects.equals(this.documents, sender.documents) &&
@@ -1526,7 +1549,7 @@ public class Sender {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, lang, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, customSourceOfFunds, coreBusinessActivity, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId, cityOfBirth, countryOfBirth, gender, salesLeadId, createdAt);
+    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, lang, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, customSourceOfFunds, coreBusinessActivity, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, tradingName, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId, cityOfBirth, countryOfBirth, gender, salesLeadId, createdAt);
   }
 
 
@@ -1571,6 +1594,7 @@ public class Sender {
     sb.append("    contactPersonEmail: ").append(toIndentedString(contactPersonEmail)).append("\n");
     sb.append("    tradingCountry: ").append(toIndentedString(tradingCountry)).append("\n");
     sb.append("    tradingAddress: ").append(toIndentedString(tradingAddress)).append("\n");
+    sb.append("    tradingName: ").append(toIndentedString(tradingName)).append("\n");
     sb.append("    numberMonthlyTransactions: ").append(toIndentedString(numberMonthlyTransactions)).append("\n");
     sb.append("    amountMonthlyTransactions: ").append(toIndentedString(amountMonthlyTransactions)).append("\n");
     sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
