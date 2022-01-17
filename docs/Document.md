@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **id** | [**UUID**](UUID.md) |  |  [optional]
 **documentId** | **String** | Document ID issued by government |  [optional]
 **expiryDate** | [**LocalDate**](LocalDate.md) | Document expiry date issued by government |  [optional]
+**source** | **String** | Determines the document&#39;s source. Default value \&quot;Manual\&quot; |  [optional]
 **errors** | [**Map&lt;String, List&lt;ValidationErrorDescription&gt;&gt;**](List.md) | The fields that have some problems and don&#39;t pass validation |  [optional]
 
 

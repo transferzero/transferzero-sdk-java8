@@ -134,6 +134,10 @@ public class Document {
   @SerializedName(SERIALIZED_NAME_EXPIRY_DATE)
   private LocalDate expiryDate;
 
+  public static final String SERIALIZED_NAME_SOURCE = "source";
+  @SerializedName(SERIALIZED_NAME_SOURCE)
+  private String source;
+
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
   private Map<String, List<ValidationErrorDescription>> errors = new HashMap<>();
@@ -336,6 +340,24 @@ public class Document {
     this.expiryDate = expiryDate;
   }
 
+  public Document source(String source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Determines the document&#39;s source. Default value \&quot;Manual\&quot;
+   * @return source
+  **/
+  @ApiModelProperty(example = "Manual", value = "Determines the document's source. Default value \"Manual\"")
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
    /**
    * The fields that have some problems and don&#39;t pass validation
    * @return errors
@@ -368,12 +390,13 @@ public class Document {
         Objects.equals(this.id, document.id) &&
         Objects.equals(this.documentId, document.documentId) &&
         Objects.equals(this.expiryDate, document.expiryDate) &&
+        Objects.equals(this.source, document.source) &&
         Objects.equals(this.errors, document.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(upload, url, uploadFileName, metadata, uploadContentType, uploadFileSize, category, side, documentType, issuingCountry, id, documentId, expiryDate, errors);
+    return Objects.hash(upload, url, uploadFileName, metadata, uploadContentType, uploadFileSize, category, side, documentType, issuingCountry, id, documentId, expiryDate, source, errors);
   }
 
 
@@ -394,6 +417,7 @@ public class Document {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    documentId: ").append(toIndentedString(documentId)).append("\n");
     sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
