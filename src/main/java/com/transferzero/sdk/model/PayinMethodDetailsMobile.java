@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -33,6 +34,10 @@ public class PayinMethodDetailsMobile {
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
   private String phoneNumber;
+
+  public static final String SERIALIZED_NAME_MOBILE_PROVIDER = "mobile_provider";
+  @SerializedName(SERIALIZED_NAME_MOBILE_PROVIDER)
+  private PayoutMethodMobileProviderEnum mobileProvider;
 
   public static final String SERIALIZED_NAME_SEND_INSTRUCTIONS = "send_instructions";
   @SerializedName(SERIALIZED_NAME_SEND_INSTRUCTIONS)
@@ -54,6 +59,24 @@ public class PayinMethodDetailsMobile {
 
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+  }
+
+  public PayinMethodDetailsMobile mobileProvider(PayoutMethodMobileProviderEnum mobileProvider) {
+    this.mobileProvider = mobileProvider;
+    return this;
+  }
+
+   /**
+   * Get mobileProvider
+   * @return mobileProvider
+  **/
+  @ApiModelProperty(value = "")
+  public PayoutMethodMobileProviderEnum getMobileProvider() {
+    return mobileProvider;
+  }
+
+  public void setMobileProvider(PayoutMethodMobileProviderEnum mobileProvider) {
+    this.mobileProvider = mobileProvider;
   }
 
   public PayinMethodDetailsMobile sendInstructions(Boolean sendInstructions) {
@@ -85,12 +108,13 @@ public class PayinMethodDetailsMobile {
     }
     PayinMethodDetailsMobile payinMethodDetailsMobile = (PayinMethodDetailsMobile) o;
     return Objects.equals(this.phoneNumber, payinMethodDetailsMobile.phoneNumber) &&
+        Objects.equals(this.mobileProvider, payinMethodDetailsMobile.mobileProvider) &&
         Objects.equals(this.sendInstructions, payinMethodDetailsMobile.sendInstructions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(phoneNumber, sendInstructions);
+    return Objects.hash(phoneNumber, mobileProvider, sendInstructions);
   }
 
 
@@ -99,6 +123,7 @@ public class PayinMethodDetailsMobile {
     StringBuilder sb = new StringBuilder();
     sb.append("class PayinMethodDetailsMobile {\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
     sb.append("    sendInstructions: ").append(toIndentedString(sendInstructions)).append("\n");
     sb.append("}");
     return sb.toString();
