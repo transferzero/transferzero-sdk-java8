@@ -434,7 +434,7 @@ public class PayoutMethodDetails {
    * Get cashProvider
    * @return cashProvider
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public PayoutMethodCashProviderEnum getCashProvider() {
     return cashProvider;
   }
