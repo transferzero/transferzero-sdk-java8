@@ -18,6 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.StateReasonDetails;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -40,38 +41,6 @@ public class RecipientStateReasonDetailsTest {
     @Test
     public void testRecipientStateReasonDetails() {
         // TODO: test RecipientStateReasonDetails
-    }
-
-    /**
-     * Test the property 'code'
-     */
-    @Test
-    public void codeTest() {
-        // TODO: test code
-    }
-
-    /**
-     * Test the property 'category'
-     */
-    @Test
-    public void categoryTest() {
-        // TODO: test category
-    }
-
-    /**
-     * Test the property 'messages'
-     */
-    @Test
-    public void messagesTest() {
-        // TODO: test messages
-    }
-
-    /**
-     * Test the property 'description'
-     */
-    @Test
-    public void descriptionTest() {
-        // TODO: test description
     }
 
 }

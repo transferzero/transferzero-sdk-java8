@@ -347,6 +347,14 @@ public class SenderTest {
     }
 
     /**
+     * Test the property 'tradingName'
+     */
+    @Test
+    public void tradingNameTest() {
+        // TODO: test tradingName
+    }
+
+    /**
      * Test the property 'numberMonthlyTransactions'
      */
     @Test
