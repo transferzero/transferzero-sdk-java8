@@ -309,5 +309,3 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 ## Author
 
-
-
