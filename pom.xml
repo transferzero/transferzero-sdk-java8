@@ -1,10 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.transferzero.sdk</groupId>
     <artifactId>transferzero-sdk-java8</artifactId>
     <packaging>jar</packaging>
     <name>transferzero-sdk-java8</name>
-    <version>1.18.0-SNAPSHOT</version>
+    <version>1.19.0-SNAPSHOT</version>
     <url>https://github.com/transferzero/transferzero-sdk-java8</url>
     <description>Java 8 library for the TransferZero API</description>
     <scm>
@@ -106,11 +107,6 @@
     <profiles>
       <profile>
         <id>release</id>
-        <properties>
-          <staging.server.id>ossrh</staging.server.id>
-          <staging.server.url>https://oss.sonatype.org/</staging.server.url>
-          <staging.timeout.minutes>20</staging.timeout.minutes>
-        </properties>
         <build>
           <plugins>
             <plugin>
@@ -196,7 +192,6 @@
               <configuration>
                 <serverId>ossrh</serverId>
                 <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                <stagingProgressTimeoutMinutes>${staging.timeout.minutes}</stagingProgressTimeoutMinutes>
                 <autoReleaseAfterClose>true</autoReleaseAfterClose>
               </configuration>
             </plugin>

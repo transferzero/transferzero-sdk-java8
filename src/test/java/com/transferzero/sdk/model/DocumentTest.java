@@ -151,6 +151,14 @@ public class DocumentTest {
     }
 
     /**
+     * Test the property 'source'
+     */
+    @Test
+    public void sourceTest() {
+        // TODO: test source
+    }
+
+    /**
      * Test the property 'errors'
      */
     @Test

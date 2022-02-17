@@ -45,7 +45,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.transferzero.sdk</groupId>
   <artifactId>transferzero-sdk-java8</artifactId>
-  <version>1.18.0-SNAPSHOT</version>
+  <version>1.19.0-SNAPSHOT</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -55,7 +55,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.transferzero.sdk:transferzero-sdk-java8:1.18.0-SNAPSHOT"
+compile "com.transferzero.sdk:transferzero-sdk-java8:1.19.0-SNAPSHOT"
 ```
 
 ### Others
@@ -68,7 +68,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/transferzero-sdk-java8-1.18.0-SNAPSHOT.jar`
+* `target/transferzero-sdk-java8-1.19.0-SNAPSHOT.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -133,6 +133,10 @@ Class | Method | HTTP request | Description
 *DocumentsApi* | [**postDocuments**](docs/DocumentsApi.md#postDocuments) | **POST** /documents | Creating a document
 *LogsApi* | [**getWebhookLog**](docs/LogsApi.md#getWebhookLog) | **GET** /logs/{Webhook Log ID} | Fetch an individual webhook log
 *LogsApi* | [**getWebhookLogs**](docs/LogsApi.md#getWebhookLogs) | **GET** /logs/webhooks | Fetch a list of webhook logs
+*PayinMethodsApi* | [**deletePayinMethod**](docs/PayinMethodsApi.md#deletePayinMethod) | **DELETE** /payin_methods/{PayinMethod ID} | Deleting a payin method
+*PayinMethodsApi* | [**getPayinMethod**](docs/PayinMethodsApi.md#getPayinMethod) | **GET** /payin_methods/{PayinMethod ID} | Fetching a payin method
+*PayinMethodsApi* | [**patchPayinMethod**](docs/PayinMethodsApi.md#patchPayinMethod) | **PATCH** /payin_methods/{PayinMethod ID} | Updating a payin method
+*PayinMethodsApi* | [**retryPayinMethod**](docs/PayinMethodsApi.md#retryPayinMethod) | **POST** /payin_methods/{PayinMethod ID}/retry | Retries PayinMethod
 *PaymentMethodsApi* | [**paymentMethodsIn**](docs/PaymentMethodsApi.md#paymentMethodsIn) | **GET** /info/payment_methods/in | This method returns possible payin methods.
 *PaymentMethodsApi* | [**paymentMethodsOut**](docs/PaymentMethodsApi.md#paymentMethodsOut) | **GET** /info/payment_methods/out | This method returns possible payout methods.
 *PayoutMethodsApi* | [**deletePayoutMethod**](docs/PayoutMethodsApi.md#deletePayoutMethod) | **DELETE** /payout_methods/{Payout Method ID} | Deleting a payout method
@@ -205,6 +209,9 @@ Class | Method | HTTP request | Description
  - [PayinMethodDetailsMobile](docs/PayinMethodDetailsMobile.md)
  - [PayinMethodDetailsNGNBank](docs/PayinMethodDetailsNGNBank.md)
  - [PayinMethodRequest](docs/PayinMethodRequest.md)
+ - [PayinMethodResponse](docs/PayinMethodResponse.md)
+ - [PayinMethodState](docs/PayinMethodState.md)
+ - [PayinMethodUxFlow](docs/PayinMethodUxFlow.md)
  - [PaymentMethod](docs/PaymentMethod.md)
  - [PaymentMethodListResponse](docs/PaymentMethodListResponse.md)
  - [PaymentMethodOpposite](docs/PaymentMethodOpposite.md)
@@ -260,6 +267,7 @@ Class | Method | HTTP request | Description
  - [SenderResponseMeta](docs/SenderResponseMeta.md)
  - [SenderState](docs/SenderState.md)
  - [SenderWebhook](docs/SenderWebhook.md)
+ - [StateReasonDetails](docs/StateReasonDetails.md)
  - [Transaction](docs/Transaction.md)
  - [TransactionListResponse](docs/TransactionListResponse.md)
  - [TransactionRequest](docs/TransactionRequest.md)
@@ -300,6 +308,4 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
 ## Author
-
-
 

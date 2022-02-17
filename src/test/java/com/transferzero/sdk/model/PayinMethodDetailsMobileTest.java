@@ -18,6 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -49,11 +50,11 @@ public class PayinMethodDetailsMobileTest {
     }
 
     /**
-     * Test the property 'sendInstructions'
+     * Test the property 'mobileProvider'
      */
     @Test
-    public void sendInstructionsTest() {
-        // TODO: test sendInstructions
+    public void mobileProviderTest() {
+        // TODO: test mobileProvider
     }
 
 }

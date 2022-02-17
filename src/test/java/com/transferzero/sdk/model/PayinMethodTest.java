@@ -19,9 +19,17 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayinMethodDetails;
+import com.transferzero.sdk.model.PayinMethodState;
+import com.transferzero.sdk.model.PayinMethodUxFlow;
+import com.transferzero.sdk.model.StateReasonDetails;
+import com.transferzero.sdk.model.ValidationErrorDescription;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -50,11 +58,43 @@ public class PayinMethodTest {
     }
 
     /**
+     * Test the property 'uxFlow'
+     */
+    @Test
+    public void uxFlowTest() {
+        // TODO: test uxFlow
+    }
+
+    /**
      * Test the property 'inDetails'
      */
     @Test
     public void inDetailsTest() {
         // TODO: test inDetails
+    }
+
+    /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
+    }
+
+    /**
+     * Test the property 'state'
+     */
+    @Test
+    public void stateTest() {
+        // TODO: test state
+    }
+
+    /**
+     * Test the property 'stateReasonDetails'
+     */
+    @Test
+    public void stateReasonDetailsTest() {
+        // TODO: test stateReasonDetails
     }
 
     /**
@@ -74,11 +114,11 @@ public class PayinMethodTest {
     }
 
     /**
-     * Test the property 'provider'
+     * Test the property 'errors'
      */
     @Test
-    public void providerTest() {
-        // TODO: test provider
+    public void errorsTest() {
+        // TODO: test errors
     }
 
 }
