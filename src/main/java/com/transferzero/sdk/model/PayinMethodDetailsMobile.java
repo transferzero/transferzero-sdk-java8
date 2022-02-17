@@ -26,9 +26,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;phone_number\&quot;: \&quot;+2569999999\&quot;,   \&quot;send_instructions\&quot;: true } &#x60;&#x60;&#x60;
+ * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;phone_number\&quot;: \&quot;+2569999999\&quot;, } &#x60;&#x60;&#x60;
  */
-@ApiModel(description = "```JSON \"details\": {   \"phone_number\": \"+2569999999\",   \"send_instructions\": true } ```")
+@ApiModel(description = "```JSON \"details\": {   \"phone_number\": \"+2569999999\", } ```")
 
 public class PayinMethodDetailsMobile {
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
@@ -39,10 +39,6 @@ public class PayinMethodDetailsMobile {
   @SerializedName(SERIALIZED_NAME_MOBILE_PROVIDER)
   private PayoutMethodMobileProviderEnum mobileProvider;
 
-  public static final String SERIALIZED_NAME_SEND_INSTRUCTIONS = "send_instructions";
-  @SerializedName(SERIALIZED_NAME_SEND_INSTRUCTIONS)
-  private Boolean sendInstructions;
-
   public PayinMethodDetailsMobile phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
     return this;
@@ -52,7 +48,7 @@ public class PayinMethodDetailsMobile {
    * The phone number where the funds should be collected from
    * @return phoneNumber
   **/
-  @ApiModelProperty(example = "+2569999999", required = true, value = "The phone number where the funds should be collected from")
+  @ApiModelProperty(example = "+2569999999", value = "The phone number where the funds should be collected from")
   public String getPhoneNumber() {
     return phoneNumber;
   }
@@ -79,24 +75,6 @@ public class PayinMethodDetailsMobile {
     this.mobileProvider = mobileProvider;
   }
 
-  public PayinMethodDetailsMobile sendInstructions(Boolean sendInstructions) {
-    this.sendInstructions = sendInstructions;
-    return this;
-  }
-
-   /**
-   * States whether to send out the instructions to the phone number on how to pay the funds or not. This shuold always be set to true, otherwise the sender might not receive a prompt for payment.
-   * @return sendInstructions
-  **/
-  @ApiModelProperty(example = "true", value = "States whether to send out the instructions to the phone number on how to pay the funds or not. This shuold always be set to true, otherwise the sender might not receive a prompt for payment.")
-  public Boolean getSendInstructions() {
-    return sendInstructions;
-  }
-
-  public void setSendInstructions(Boolean sendInstructions) {
-    this.sendInstructions = sendInstructions;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -108,13 +86,12 @@ public class PayinMethodDetailsMobile {
     }
     PayinMethodDetailsMobile payinMethodDetailsMobile = (PayinMethodDetailsMobile) o;
     return Objects.equals(this.phoneNumber, payinMethodDetailsMobile.phoneNumber) &&
-        Objects.equals(this.mobileProvider, payinMethodDetailsMobile.mobileProvider) &&
-        Objects.equals(this.sendInstructions, payinMethodDetailsMobile.sendInstructions);
+        Objects.equals(this.mobileProvider, payinMethodDetailsMobile.mobileProvider);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(phoneNumber, mobileProvider, sendInstructions);
+    return Objects.hash(phoneNumber, mobileProvider);
   }
 
 
@@ -124,7 +101,6 @@ public class PayinMethodDetailsMobile {
     sb.append("class PayinMethodDetailsMobile {\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
-    sb.append("    sendInstructions: ").append(toIndentedString(sendInstructions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

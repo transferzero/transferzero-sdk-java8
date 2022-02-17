@@ -21,9 +21,17 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayinMethodDetails;
+import com.transferzero.sdk.model.PayinMethodState;
+import com.transferzero.sdk.model.PayinMethodUxFlow;
+import com.transferzero.sdk.model.StateReasonDetails;
+import com.transferzero.sdk.model.ValidationErrorDescription;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * This describes the specific details on how the funds should be collected from the sender.
@@ -35,9 +43,25 @@ public class PayinMethod {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public static final String SERIALIZED_NAME_UX_FLOW = "ux_flow";
+  @SerializedName(SERIALIZED_NAME_UX_FLOW)
+  private PayinMethodUxFlow uxFlow;
+
   public static final String SERIALIZED_NAME_IN_DETAILS = "in_details";
   @SerializedName(SERIALIZED_NAME_IN_DETAILS)
   private PayinMethodDetails inDetails = null;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private UUID id;
+
+  public static final String SERIALIZED_NAME_STATE = "state";
+  @SerializedName(SERIALIZED_NAME_STATE)
+  private PayinMethodState state;
+
+  public static final String SERIALIZED_NAME_STATE_REASON_DETAILS = "state_reason_details";
+  @SerializedName(SERIALIZED_NAME_STATE_REASON_DETAILS)
+  private StateReasonDetails stateReasonDetails = null;
 
   public static final String SERIALIZED_NAME_OUT_DETAILS = "out_details";
   @SerializedName(SERIALIZED_NAME_OUT_DETAILS)
@@ -47,9 +71,9 @@ public class PayinMethod {
   @SerializedName(SERIALIZED_NAME_INSTRUCTIONS)
   private Object instructions = null;
 
-  public static final String SERIALIZED_NAME_PROVIDER = "provider";
-  @SerializedName(SERIALIZED_NAME_PROVIDER)
-  private String provider;
+  public static final String SERIALIZED_NAME_ERRORS = "errors";
+  @SerializedName(SERIALIZED_NAME_ERRORS)
+  private Map<String, List<ValidationErrorDescription>> errors = new HashMap<>();
 
   public PayinMethod type(String type) {
     this.type = type;
@@ -57,16 +81,34 @@ public class PayinMethod {
   }
 
    /**
-   * Describes how the payment should be requested from the user.  Possible values: - &#x60;NGN::Bank&#x60;: NGN bank and card collection requests - &#x60;NGN::Mobile&#x60;: NGN mobile collections - &#x60;GHS::Mobile&#x60;: GHS mobile collections - &#x60;TZS::Mobile&#x60;: TZS mobile collections - &#x60;UGX::Mobile&#x60;: UGX mobile collections - &#x60;EUR::Bank&#x60;: EUR IBAN collections - &#x60;GBP::Bank&#x60;: GBP IBAN collections 
+   * Describes how the payment should be requested from the sender.  Possible values: - &#x60;GHS::Mobile&#x60;: GHS mobile collections - &#x60;UGX::Mobile&#x60;: UGX mobile collections - &#x60;EUR::Bank&#x60;: EUR IBAN collections - &#x60;GBP::Bank&#x60;: GBP IBAN collections 
    * @return type
   **/
-  @ApiModelProperty(example = "NGN::Bank", value = "Describes how the payment should be requested from the user.  Possible values: - `NGN::Bank`: NGN bank and card collection requests - `NGN::Mobile`: NGN mobile collections - `GHS::Mobile`: GHS mobile collections - `TZS::Mobile`: TZS mobile collections - `UGX::Mobile`: UGX mobile collections - `EUR::Bank`: EUR IBAN collections - `GBP::Bank`: GBP IBAN collections ")
+  @ApiModelProperty(example = "GHS::Mobile", value = "Describes how the payment should be requested from the sender.  Possible values: - `GHS::Mobile`: GHS mobile collections - `UGX::Mobile`: UGX mobile collections - `EUR::Bank`: EUR IBAN collections - `GBP::Bank`: GBP IBAN collections ")
   public String getType() {
     return type;
   }
 
   public void setType(String type) {
     this.type = type;
+  }
+
+  public PayinMethod uxFlow(PayinMethodUxFlow uxFlow) {
+    this.uxFlow = uxFlow;
+    return this;
+  }
+
+   /**
+   * Get uxFlow
+   * @return uxFlow
+  **/
+  @ApiModelProperty(value = "")
+  public PayinMethodUxFlow getUxFlow() {
+    return uxFlow;
+  }
+
+  public void setUxFlow(PayinMethodUxFlow uxFlow) {
+    this.uxFlow = uxFlow;
   }
 
   public PayinMethod inDetails(PayinMethodDetails inDetails) {
@@ -88,6 +130,51 @@ public class PayinMethod {
   }
 
    /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(example = "97e79719-06e4-4794-aeeb-d2d9415d983a", value = "")
+  public UUID getId() {
+    return id;
+  }
+
+  public PayinMethod state(PayinMethodState state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @ApiModelProperty(value = "")
+  public PayinMethodState getState() {
+    return state;
+  }
+
+  public void setState(PayinMethodState state) {
+    this.state = state;
+  }
+
+  public PayinMethod stateReasonDetails(StateReasonDetails stateReasonDetails) {
+    this.stateReasonDetails = stateReasonDetails;
+    return this;
+  }
+
+   /**
+   * Get stateReasonDetails
+   * @return stateReasonDetails
+  **/
+  @ApiModelProperty(value = "")
+  public StateReasonDetails getStateReasonDetails() {
+    return stateReasonDetails;
+  }
+
+  public void setStateReasonDetails(StateReasonDetails stateReasonDetails) {
+    this.stateReasonDetails = stateReasonDetails;
+  }
+
+   /**
    * This will contain the description on where to pay the funds. Please see the [Collections Details](https://docs.transferzero.com/docs/collection-details) in the API documentation on what to expect here.
    * @return outDetails
   **/
@@ -105,22 +192,13 @@ public class PayinMethod {
     return instructions;
   }
 
-  public PayinMethod provider(String provider) {
-    this.provider = provider;
-    return this;
-  }
-
    /**
-   * Describes which provider to use for collection. Please see the [Collections Details](https://docs.transferzero.com/docs/collection-details) in the API documentation on the valid values
-   * @return provider
+   * The fields that have some problems and don&#39;t pass validation
+   * @return errors
   **/
-  @ApiModelProperty(value = "Describes which provider to use for collection. Please see the [Collections Details](https://docs.transferzero.com/docs/collection-details) in the API documentation on the valid values")
-  public String getProvider() {
-    return provider;
-  }
-
-  public void setProvider(String provider) {
-    this.provider = provider;
+  @ApiModelProperty(example = "{\"phone_number\":[{\"error\":\"invalid\"}],\"documents\":[{\"error\":\"blank\"}]}", value = "The fields that have some problems and don't pass validation")
+  public Map<String, List<ValidationErrorDescription>> getErrors() {
+    return errors;
   }
 
 
@@ -134,15 +212,19 @@ public class PayinMethod {
     }
     PayinMethod payinMethod = (PayinMethod) o;
     return Objects.equals(this.type, payinMethod.type) &&
+        Objects.equals(this.uxFlow, payinMethod.uxFlow) &&
         Objects.equals(this.inDetails, payinMethod.inDetails) &&
+        Objects.equals(this.id, payinMethod.id) &&
+        Objects.equals(this.state, payinMethod.state) &&
+        Objects.equals(this.stateReasonDetails, payinMethod.stateReasonDetails) &&
         Objects.equals(this.outDetails, payinMethod.outDetails) &&
         Objects.equals(this.instructions, payinMethod.instructions) &&
-        Objects.equals(this.provider, payinMethod.provider);
+        Objects.equals(this.errors, payinMethod.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, inDetails, outDetails, instructions, provider);
+    return Objects.hash(type, uxFlow, inDetails, id, state, stateReasonDetails, outDetails, instructions, errors);
   }
 
 
@@ -151,10 +233,14 @@ public class PayinMethod {
     StringBuilder sb = new StringBuilder();
     sb.append("class PayinMethod {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    uxFlow: ").append(toIndentedString(uxFlow)).append("\n");
     sb.append("    inDetails: ").append(toIndentedString(inDetails)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    stateReasonDetails: ").append(toIndentedString(stateReasonDetails)).append("\n");
     sb.append("    outDetails: ").append(toIndentedString(outDetails)).append("\n");
     sb.append("    instructions: ").append(toIndentedString(instructions)).append("\n");
-    sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
   }

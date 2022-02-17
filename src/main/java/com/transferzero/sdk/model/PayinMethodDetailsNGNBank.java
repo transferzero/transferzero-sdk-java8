@@ -44,10 +44,10 @@ public class PayinMethodDetailsNGNBank {
   }
 
    /**
-   * The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.
+   * The payment method which the sender will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.
    * @return paymentMethod
   **/
-  @ApiModelProperty(value = "The payment method which the user will use to make the payments. Options are `bank`, `card` or you can leave empty to support both.")
+  @ApiModelProperty(value = "The payment method which the sender will use to make the payments. Options are `bank`, `card` or you can leave empty to support both.")
   public String getPaymentMethod() {
     return paymentMethod;
   }
@@ -62,10 +62,10 @@ public class PayinMethodDetailsNGNBank {
   }
 
    /**
-   * This is where the user should be redirected back when the payment has been finished
+   * This is where the sender should be redirected back when the payment has been finished
    * @return redirectUrl
   **/
-  @ApiModelProperty(value = "This is where the user should be redirected back when the payment has been finished")
+  @ApiModelProperty(value = "This is where the sender should be redirected back when the payment has been finished")
   public String getRedirectUrl() {
     return redirectUrl;
   }

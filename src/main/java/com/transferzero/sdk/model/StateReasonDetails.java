@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.transferzero.sdk.model.StateReasonDetails;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -28,10 +27,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * RecipientStateReasonDetails
+ * StateReasonDetails
  */
 
-public class RecipientStateReasonDetails {
+public class StateReasonDetails {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
@@ -93,11 +92,11 @@ public class RecipientStateReasonDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RecipientStateReasonDetails recipientStateReasonDetails = (RecipientStateReasonDetails) o;
-    return Objects.equals(this.code, recipientStateReasonDetails.code) &&
-        Objects.equals(this.category, recipientStateReasonDetails.category) &&
-        Objects.equals(this.messages, recipientStateReasonDetails.messages) &&
-        Objects.equals(this.description, recipientStateReasonDetails.description);
+    StateReasonDetails stateReasonDetails = (StateReasonDetails) o;
+    return Objects.equals(this.code, stateReasonDetails.code) &&
+        Objects.equals(this.category, stateReasonDetails.category) &&
+        Objects.equals(this.messages, stateReasonDetails.messages) &&
+        Objects.equals(this.description, stateReasonDetails.description);
   }
 
   @Override
@@ -109,7 +108,7 @@ public class RecipientStateReasonDetails {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RecipientStateReasonDetails {\n");
+    sb.append("class StateReasonDetails {\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");

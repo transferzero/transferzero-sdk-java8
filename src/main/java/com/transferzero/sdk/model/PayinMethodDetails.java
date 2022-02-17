@@ -50,10 +50,6 @@ public class PayinMethodDetails {
   @SerializedName(SERIALIZED_NAME_MOBILE_PROVIDER)
   private PayoutMethodMobileProviderEnum mobileProvider;
 
-  public static final String SERIALIZED_NAME_SEND_INSTRUCTIONS = "send_instructions";
-  @SerializedName(SERIALIZED_NAME_SEND_INSTRUCTIONS)
-  private Boolean sendInstructions;
-
   public static final String SERIALIZED_NAME_REFUND_ADDRESS = "refund_address";
   @SerializedName(SERIALIZED_NAME_REFUND_ADDRESS)
   private String refundAddress;
@@ -64,10 +60,10 @@ public class PayinMethodDetails {
   }
 
    /**
-   * The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.
+   * The payment method which the sender will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.
    * @return paymentMethod
   **/
-  @ApiModelProperty(value = "The payment method which the user will use to make the payments. Options are `bank`, `card` or you can leave empty to support both.")
+  @ApiModelProperty(value = "The payment method which the sender will use to make the payments. Options are `bank`, `card` or you can leave empty to support both.")
   public String getPaymentMethod() {
     return paymentMethod;
   }
@@ -82,10 +78,10 @@ public class PayinMethodDetails {
   }
 
    /**
-   * This is where the user should be redirected back when the payment has been finished
+   * This is where the sender should be redirected back when the payment has been finished
    * @return redirectUrl
   **/
-  @ApiModelProperty(value = "This is where the user should be redirected back when the payment has been finished")
+  @ApiModelProperty(value = "This is where the sender should be redirected back when the payment has been finished")
   public String getRedirectUrl() {
     return redirectUrl;
   }
@@ -103,7 +99,7 @@ public class PayinMethodDetails {
    * The phone number where the funds should be collected from
    * @return phoneNumber
   **/
-  @ApiModelProperty(example = "+2569999999", required = true, value = "The phone number where the funds should be collected from")
+  @ApiModelProperty(example = "+2569999999", value = "The phone number where the funds should be collected from")
   public String getPhoneNumber() {
     return phoneNumber;
   }
@@ -128,24 +124,6 @@ public class PayinMethodDetails {
 
   public void setMobileProvider(PayoutMethodMobileProviderEnum mobileProvider) {
     this.mobileProvider = mobileProvider;
-  }
-
-  public PayinMethodDetails sendInstructions(Boolean sendInstructions) {
-    this.sendInstructions = sendInstructions;
-    return this;
-  }
-
-   /**
-   * States whether to send out the instructions to the phone number on how to pay the funds or not. This shuold always be set to true, otherwise the sender might not receive a prompt for payment.
-   * @return sendInstructions
-  **/
-  @ApiModelProperty(example = "true", value = "States whether to send out the instructions to the phone number on how to pay the funds or not. This shuold always be set to true, otherwise the sender might not receive a prompt for payment.")
-  public Boolean getSendInstructions() {
-    return sendInstructions;
-  }
-
-  public void setSendInstructions(Boolean sendInstructions) {
-    this.sendInstructions = sendInstructions;
   }
 
   public PayinMethodDetails refundAddress(String refundAddress) {
@@ -180,13 +158,12 @@ public class PayinMethodDetails {
         Objects.equals(this.redirectUrl, payinMethodDetails.redirectUrl) &&
         Objects.equals(this.phoneNumber, payinMethodDetails.phoneNumber) &&
         Objects.equals(this.mobileProvider, payinMethodDetails.mobileProvider) &&
-        Objects.equals(this.sendInstructions, payinMethodDetails.sendInstructions) &&
         Objects.equals(this.refundAddress, payinMethodDetails.refundAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentMethod, redirectUrl, phoneNumber, mobileProvider, sendInstructions, refundAddress);
+    return Objects.hash(paymentMethod, redirectUrl, phoneNumber, mobileProvider, refundAddress);
   }
 
 
@@ -198,7 +175,6 @@ public class PayinMethodDetails {
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
-    sb.append("    sendInstructions: ").append(toIndentedString(sendInstructions)).append("\n");
     sb.append("    refundAddress: ").append(toIndentedString(refundAddress)).append("\n");
     sb.append("}");
     return sb.toString();

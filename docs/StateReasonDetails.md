@@ -1,6 +1,6 @@
 
 
-# RecipientStateReasonDetails
+# StateReasonDetails
 
 ## Properties
 
