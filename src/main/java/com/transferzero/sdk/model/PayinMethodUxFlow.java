@@ -25,14 +25,20 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Describes the collection experience that will be presented to the sender. Can be one of the following:  * &#x60;ussd_popup&#x60;: Payment prompt is pushed to the sender&#39;s phone. They can approve or decline. Supported for GHS::Mobile, UGX::Mobile * &#x60;bank_transfer&#x60;: For bank collections. Sender should send funds to the bank account details specified in out_details. Supported for EUR::Bank, GBP::Bank
+ * Describes the collection experience that will be presented to the sender. Can be one of the following:  * &#x60;ussd_popup&#x60;: Payment prompt is pushed to the sender&#39;s phone. They can approve or decline. Supported for GHS::Mobile, UGX::Mobile * &#x60;bank_transfer&#x60;: For bank collections. Sender should send funds to the bank account details specified in out_details. Supported for EUR::Bank, GBP::Bank * &#x60;http_redirect&#x60;: The sender will be redirected to a website where they can fill in their details to initiate the collection.
  */
 @JsonAdapter(PayinMethodUxFlow.Adapter.class)
 public enum PayinMethodUxFlow {
   
   USSD_POPUP("ussd_popup"),
   
-  BANK_TRANSFER("bank_transfer");
+  BANK_TRANSFER("bank_transfer"),
+  
+  HTTP_REDIRECT("http_redirect"),
+  
+  BLOCKCHAIN("blockchain"),
+  
+  UNKNOWN("unknown");
 
   private String value;
 

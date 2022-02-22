@@ -9,5 +9,11 @@
 
 * `BANK_TRANSFER` (value: `"bank_transfer"`)
 
+* `HTTP_REDIRECT` (value: `"http_redirect"`)
+
+* `BLOCKCHAIN` (value: `"blockchain"`)
+
+* `UNKNOWN` (value: `"unknown"`)
+
 
 
