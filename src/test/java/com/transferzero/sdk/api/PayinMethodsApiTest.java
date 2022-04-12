@@ -95,7 +95,7 @@ public class PayinMethodsApiTest {
     @Test
     public void retryPayinMethodTest() throws ApiException {
         UUID payinMethodID = null;
-        api.retryPayinMethod(payinMethodID);
+        PayinMethodResponse response = api.retryPayinMethod(payinMethodID);
 
         // TODO: test validations
     }
