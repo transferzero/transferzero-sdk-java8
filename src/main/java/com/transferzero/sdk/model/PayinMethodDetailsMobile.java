@@ -39,6 +39,10 @@ public class PayinMethodDetailsMobile {
   @SerializedName(SERIALIZED_NAME_MOBILE_PROVIDER)
   private PayoutMethodMobileProviderEnum mobileProvider;
 
+  public static final String SERIALIZED_NAME_OTP = "otp";
+  @SerializedName(SERIALIZED_NAME_OTP)
+  private String otp;
+
   public PayinMethodDetailsMobile phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
     return this;
@@ -75,6 +79,24 @@ public class PayinMethodDetailsMobile {
     this.mobileProvider = mobileProvider;
   }
 
+  public PayinMethodDetailsMobile otp(String otp) {
+    this.otp = otp;
+    return this;
+  }
+
+   /**
+   * The OTP that the sender received in otp verified ussd popup ux flow.
+   * @return otp
+  **/
+  @ApiModelProperty(value = "The OTP that the sender received in otp verified ussd popup ux flow.")
+  public String getOtp() {
+    return otp;
+  }
+
+  public void setOtp(String otp) {
+    this.otp = otp;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -86,12 +108,13 @@ public class PayinMethodDetailsMobile {
     }
     PayinMethodDetailsMobile payinMethodDetailsMobile = (PayinMethodDetailsMobile) o;
     return Objects.equals(this.phoneNumber, payinMethodDetailsMobile.phoneNumber) &&
-        Objects.equals(this.mobileProvider, payinMethodDetailsMobile.mobileProvider);
+        Objects.equals(this.mobileProvider, payinMethodDetailsMobile.mobileProvider) &&
+        Objects.equals(this.otp, payinMethodDetailsMobile.otp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(phoneNumber, mobileProvider);
+    return Objects.hash(phoneNumber, mobileProvider, otp);
   }
 
 
@@ -101,6 +124,7 @@ public class PayinMethodDetailsMobile {
     sb.append("class PayinMethodDetailsMobile {\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
+    sb.append("    otp: ").append(toIndentedString(otp)).append("\n");
     sb.append("}");
     return sb.toString();
   }

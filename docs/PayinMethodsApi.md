@@ -207,7 +207,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 <a name="retryPayinMethod"></a>
 # **retryPayinMethod**
-> retryPayinMethod(payinMethodID)
+> PayinMethodResponse retryPayinMethod(payinMethodID)
 
 Retries PayinMethod
 
@@ -230,10 +230,12 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 PayinMethodsApi apiInstance = new PayinMethodsApi(apiClient);
 UUID payinMethodID = new UUID(); // UUID | ID of the payin method whose collection process should be retried  Example: `/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry`
 try {
-    apiInstance.retryPayinMethod(payinMethodID);
+    PayinMethodResponse result = apiInstance.retryPayinMethod(payinMethodID);
+    System.out.println(result);
 } catch (ApiException e) {
     if (e.isValidationError()) {
-        
+        PayinMethodResponse result = e.getResponseObject(PayinMethodResponse.class);
+        System.out.println(result);
         System.err.println("WARN: Validation error occurred when calling the endpoint");
     } else {
         System.err.println("Exception when calling PayinMethodsApi#retryPayinMethod");
@@ -250,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**PayinMethodResponse**](PayinMethodResponse.md)
 
 ## Authorization
 
@@ -265,5 +267,5 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 

@@ -378,7 +378,7 @@ public class PayinMethodsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -413,22 +413,25 @@ public class PayinMethodsApi {
      * Retries PayinMethod
      * Retries the collection process for the payin method.  Please note only payin methods in &#x60;error&#x60; state can be retried.
      * @param payinMethodID ID of the payin method whose collection process should be retried  Example: &#x60;/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry&#x60; (required)
+     * @return PayinMethodResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void retryPayinMethod(UUID payinMethodID) throws ApiException {
-        retryPayinMethodWithHttpInfo(payinMethodID);
+    public PayinMethodResponse retryPayinMethod(UUID payinMethodID) throws ApiException {
+        ApiResponse<PayinMethodResponse> localVarResp = retryPayinMethodWithHttpInfo(payinMethodID);
+        return localVarResp.getData();
     }
 
     /**
      * Retries PayinMethod
      * Retries the collection process for the payin method.  Please note only payin methods in &#x60;error&#x60; state can be retried.
      * @param payinMethodID ID of the payin method whose collection process should be retried  Example: &#x60;/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry&#x60; (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;PayinMethodResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> retryPayinMethodWithHttpInfo(UUID payinMethodID) throws ApiException {
+    public ApiResponse<PayinMethodResponse> retryPayinMethodWithHttpInfo(UUID payinMethodID) throws ApiException {
         okhttp3.Call localVarCall = retryPayinMethodValidateBeforeCall(payinMethodID, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<PayinMethodResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -439,10 +442,11 @@ public class PayinMethodsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call retryPayinMethodAsync(UUID payinMethodID, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call retryPayinMethodAsync(UUID payinMethodID, final ApiCallback<PayinMethodResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = retryPayinMethodValidateBeforeCall(payinMethodID, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<PayinMethodResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 }

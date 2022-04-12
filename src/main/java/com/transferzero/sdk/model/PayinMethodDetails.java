@@ -50,6 +50,10 @@ public class PayinMethodDetails {
   @SerializedName(SERIALIZED_NAME_MOBILE_PROVIDER)
   private PayoutMethodMobileProviderEnum mobileProvider;
 
+  public static final String SERIALIZED_NAME_OTP = "otp";
+  @SerializedName(SERIALIZED_NAME_OTP)
+  private String otp;
+
   public static final String SERIALIZED_NAME_REFUND_ADDRESS = "refund_address";
   @SerializedName(SERIALIZED_NAME_REFUND_ADDRESS)
   private String refundAddress;
@@ -126,6 +130,24 @@ public class PayinMethodDetails {
     this.mobileProvider = mobileProvider;
   }
 
+  public PayinMethodDetails otp(String otp) {
+    this.otp = otp;
+    return this;
+  }
+
+   /**
+   * The OTP that the sender received in otp verified ussd popup ux flow.
+   * @return otp
+  **/
+  @ApiModelProperty(value = "The OTP that the sender received in otp verified ussd popup ux flow.")
+  public String getOtp() {
+    return otp;
+  }
+
+  public void setOtp(String otp) {
+    this.otp = otp;
+  }
+
   public PayinMethodDetails refundAddress(String refundAddress) {
     this.refundAddress = refundAddress;
     return this;
@@ -158,12 +180,13 @@ public class PayinMethodDetails {
         Objects.equals(this.redirectUrl, payinMethodDetails.redirectUrl) &&
         Objects.equals(this.phoneNumber, payinMethodDetails.phoneNumber) &&
         Objects.equals(this.mobileProvider, payinMethodDetails.mobileProvider) &&
+        Objects.equals(this.otp, payinMethodDetails.otp) &&
         Objects.equals(this.refundAddress, payinMethodDetails.refundAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentMethod, redirectUrl, phoneNumber, mobileProvider, refundAddress);
+    return Objects.hash(paymentMethod, redirectUrl, phoneNumber, mobileProvider, otp, refundAddress);
   }
 
 
@@ -175,6 +198,7 @@ public class PayinMethodDetails {
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
+    sb.append("    otp: ").append(toIndentedString(otp)).append("\n");
     sb.append("    refundAddress: ").append(toIndentedString(refundAddress)).append("\n");
     sb.append("}");
     return sb.toString();
