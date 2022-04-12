@@ -57,4 +57,12 @@ public class PayinMethodDetailsMobileTest {
         // TODO: test mobileProvider
     }
 
+    /**
+     * Test the property 'otp'
+     */
+    @Test
+    public void otpTest() {
+        // TODO: test otp
+    }
+
 }
