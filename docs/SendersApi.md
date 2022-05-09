@@ -224,7 +224,7 @@ apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 Updating a sender
 
-Updates the sender specified in the URL path.
+Updates a single sender by the Sender ID
 
 ### Example
 ```java
