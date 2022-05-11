@@ -354,7 +354,7 @@ public enum PayoutMethodCountryEnum {
   
   MP("MP"),
   
-  FALSE("false"),
+  NO("NO"),
   
   OM("OM"),
   
