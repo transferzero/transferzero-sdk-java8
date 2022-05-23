@@ -1032,7 +1032,7 @@ public class Sender {
    * @return birthDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Thu Jan 01 00:00:00 UTC 1970", value = "Date of birth of sender (used only with a Personal sender)")
+  @ApiModelProperty(value = "Date of birth of sender (used only with a Personal sender)")
 
   public LocalDate getBirthDate() {
     return birthDate;
@@ -1128,7 +1128,7 @@ public class Sender {
    * @return registrationDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Thu Jan 01 00:00:00 UTC 1970", value = "The registration date (used only with a Business sender)")
+  @ApiModelProperty(value = "The registration date (used only with a Business sender)")
 
   public LocalDate getRegistrationDate() {
     return registrationDate;

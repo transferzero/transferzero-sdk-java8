@@ -400,7 +400,7 @@ public class Document {
    * @return expiryDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Wed Jun 07 00:00:00 UTC 2028", value = "Document expiry date issued by government")
+  @ApiModelProperty(value = "Document expiry date issued by government")
 
   public LocalDate getExpiryDate() {
     return expiryDate;
