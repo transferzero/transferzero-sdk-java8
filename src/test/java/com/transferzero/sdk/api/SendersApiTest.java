@@ -97,7 +97,7 @@ public class SendersApiTest {
     /**
      * Updating a sender
      *
-     * Updates the sender specified in the URL path.
+     * Updates a single sender by the Sender ID
      *
      * @throws ApiException
      *          if the Api call fails
