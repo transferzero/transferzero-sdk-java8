@@ -70,7 +70,7 @@ public class PayinMethodsApiTest {
     /**
      * Updating a payin method
      *
-     * Updates the payin method specified in the URL path.
+     * Updates a single payin method by the Payin Method ID
      *
      * @throws ApiException
      *          if the Api call fails
