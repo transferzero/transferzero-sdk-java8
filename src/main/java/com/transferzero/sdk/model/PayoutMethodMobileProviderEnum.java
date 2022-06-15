@@ -50,6 +50,10 @@ public enum PayoutMethodMobileProviderEnum {
   
   MOBICASH("mobicash"),
   
+  EMONEY("emoney"),
+  
+  FREE("free"),
+  
   WAVE("wave");
 
   private String value;

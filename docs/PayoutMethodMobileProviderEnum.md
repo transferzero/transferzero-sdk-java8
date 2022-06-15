@@ -25,6 +25,10 @@
 
 * `MOBICASH` (value: `"mobicash"`)
 
+* `EMONEY` (value: `"emoney"`)
+
+* `FREE` (value: `"free"`)
+
 * `WAVE` (value: `"wave"`)
 
 
