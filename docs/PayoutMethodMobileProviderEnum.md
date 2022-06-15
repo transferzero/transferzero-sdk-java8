@@ -25,5 +25,7 @@
 
 * `MOBICASH` (value: `"mobicash"`)
 
+* `WAVE` (value: `"wave"`)
+
 
 
