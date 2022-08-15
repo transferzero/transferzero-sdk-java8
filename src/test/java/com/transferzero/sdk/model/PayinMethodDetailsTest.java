@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayinMethodDetailsBTC;
 import com.transferzero.sdk.model.PayinMethodDetailsMobile;
 import com.transferzero.sdk.model.PayinMethodDetailsNGNBank;
+import com.transferzero.sdk.model.PayoutMethodCountryEnum;
 import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
