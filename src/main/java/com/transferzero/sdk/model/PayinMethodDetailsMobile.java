@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.PayoutMethodCountryEnum;
 import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -38,6 +39,10 @@ public class PayinMethodDetailsMobile {
   public static final String SERIALIZED_NAME_MOBILE_PROVIDER = "mobile_provider";
   @SerializedName(SERIALIZED_NAME_MOBILE_PROVIDER)
   private PayoutMethodMobileProviderEnum mobileProvider;
+
+  public static final String SERIALIZED_NAME_COUNTRY = "country";
+  @SerializedName(SERIALIZED_NAME_COUNTRY)
+  private PayoutMethodCountryEnum country;
 
   public static final String SERIALIZED_NAME_OTP = "otp";
   @SerializedName(SERIALIZED_NAME_OTP)
@@ -79,6 +84,24 @@ public class PayinMethodDetailsMobile {
     this.mobileProvider = mobileProvider;
   }
 
+  public PayinMethodDetailsMobile country(PayoutMethodCountryEnum country) {
+    this.country = country;
+    return this;
+  }
+
+   /**
+   * Get country
+   * @return country
+  **/
+  @ApiModelProperty(value = "")
+  public PayoutMethodCountryEnum getCountry() {
+    return country;
+  }
+
+  public void setCountry(PayoutMethodCountryEnum country) {
+    this.country = country;
+  }
+
   public PayinMethodDetailsMobile otp(String otp) {
     this.otp = otp;
     return this;
@@ -109,12 +132,13 @@ public class PayinMethodDetailsMobile {
     PayinMethodDetailsMobile payinMethodDetailsMobile = (PayinMethodDetailsMobile) o;
     return Objects.equals(this.phoneNumber, payinMethodDetailsMobile.phoneNumber) &&
         Objects.equals(this.mobileProvider, payinMethodDetailsMobile.mobileProvider) &&
+        Objects.equals(this.country, payinMethodDetailsMobile.country) &&
         Objects.equals(this.otp, payinMethodDetailsMobile.otp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(phoneNumber, mobileProvider, otp);
+    return Objects.hash(phoneNumber, mobileProvider, country, otp);
   }
 
 
@@ -124,6 +148,7 @@ public class PayinMethodDetailsMobile {
     sb.append("class PayinMethodDetailsMobile {\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
+    sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    otp: ").append(toIndentedString(otp)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayinMethodDetailsBTC;
 import com.transferzero.sdk.model.PayinMethodDetailsMobile;
 import com.transferzero.sdk.model.PayinMethodDetailsNGNBank;
+import com.transferzero.sdk.model.PayoutMethodCountryEnum;
 import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -49,6 +50,10 @@ public class PayinMethodDetails {
   public static final String SERIALIZED_NAME_MOBILE_PROVIDER = "mobile_provider";
   @SerializedName(SERIALIZED_NAME_MOBILE_PROVIDER)
   private PayoutMethodMobileProviderEnum mobileProvider;
+
+  public static final String SERIALIZED_NAME_COUNTRY = "country";
+  @SerializedName(SERIALIZED_NAME_COUNTRY)
+  private PayoutMethodCountryEnum country;
 
   public static final String SERIALIZED_NAME_OTP = "otp";
   @SerializedName(SERIALIZED_NAME_OTP)
@@ -130,6 +135,24 @@ public class PayinMethodDetails {
     this.mobileProvider = mobileProvider;
   }
 
+  public PayinMethodDetails country(PayoutMethodCountryEnum country) {
+    this.country = country;
+    return this;
+  }
+
+   /**
+   * Get country
+   * @return country
+  **/
+  @ApiModelProperty(value = "")
+  public PayoutMethodCountryEnum getCountry() {
+    return country;
+  }
+
+  public void setCountry(PayoutMethodCountryEnum country) {
+    this.country = country;
+  }
+
   public PayinMethodDetails otp(String otp) {
     this.otp = otp;
     return this;
@@ -180,13 +203,14 @@ public class PayinMethodDetails {
         Objects.equals(this.redirectUrl, payinMethodDetails.redirectUrl) &&
         Objects.equals(this.phoneNumber, payinMethodDetails.phoneNumber) &&
         Objects.equals(this.mobileProvider, payinMethodDetails.mobileProvider) &&
+        Objects.equals(this.country, payinMethodDetails.country) &&
         Objects.equals(this.otp, payinMethodDetails.otp) &&
         Objects.equals(this.refundAddress, payinMethodDetails.refundAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentMethod, redirectUrl, phoneNumber, mobileProvider, otp, refundAddress);
+    return Objects.hash(paymentMethod, redirectUrl, phoneNumber, mobileProvider, country, otp, refundAddress);
   }
 
 
@@ -198,6 +222,7 @@ public class PayinMethodDetails {
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
+    sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    otp: ").append(toIndentedString(otp)).append("\n");
     sb.append("    refundAddress: ").append(toIndentedString(refundAddress)).append("\n");
     sb.append("}");
