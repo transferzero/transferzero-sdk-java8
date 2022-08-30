@@ -45,7 +45,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.transferzero.sdk</groupId>
   <artifactId>transferzero-sdk-java8</artifactId>
-  <version>1.21.0-SNAPSHOT</version>
+  <version>1.22.0-SNAPSHOT</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -55,7 +55,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.transferzero.sdk:transferzero-sdk-java8:1.21.0-SNAPSHOT"
+compile "com.transferzero.sdk:transferzero-sdk-java8:1.22.0-SNAPSHOT"
 ```
 
 ### Others
@@ -68,7 +68,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/transferzero-sdk-java8-1.21.0-SNAPSHOT.jar`
+* `target/transferzero-sdk-java8-1.22.0-SNAPSHOT.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -234,6 +234,7 @@ Class | Method | HTTP request | Description
  - [PayoutMethodDetailsNGNBank](docs/PayoutMethodDetailsNGNBank.md)
  - [PayoutMethodDetailsUSDBank](docs/PayoutMethodDetailsUSDBank.md)
  - [PayoutMethodDetailsUSDCash](docs/PayoutMethodDetailsUSDCash.md)
+ - [PayoutMethodDetailsXAFBank](docs/PayoutMethodDetailsXAFBank.md)
  - [PayoutMethodDetailsXAFMobile](docs/PayoutMethodDetailsXAFMobile.md)
  - [PayoutMethodDetailsXOFBank](docs/PayoutMethodDetailsXOFBank.md)
  - [PayoutMethodDetailsXOFCash](docs/PayoutMethodDetailsXOFCash.md)
