@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayoutMethodBankAccountTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodCashProviderEnum;
 import com.transferzero.sdk.model.PayoutMethodCountryEnum;
+import com.transferzero.sdk.model.PayoutMethodDetailsBRLBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsBTC;
 import com.transferzero.sdk.model.PayoutMethodDetailsBalance;
 import com.transferzero.sdk.model.PayoutMethodDetailsGBPBank;
@@ -291,7 +292,7 @@ public class PayoutMethodDetails {
    * Get bankAccountType
    * @return bankAccountType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public PayoutMethodBankAccountTypeEnum getBankAccountType() {
     return bankAccountType;
   }
@@ -363,7 +364,7 @@ public class PayoutMethodDetails {
    * Get transferReason
    * @return transferReason
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public PayoutMethodTransferReasonEnum getTransferReason() {
     return transferReason;
   }
@@ -867,7 +868,7 @@ public class PayoutMethodDetails {
    * Get branchCode
    * @return branchCode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getBranchCode() {
     return branchCode;
   }

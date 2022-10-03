@@ -10,11 +10,11 @@ Name | Type | Description | Notes
 **lastName** | **String** |  | 
 **bankCode** | **String** |  | 
 **bankAccount** | **String** |  | 
-**bankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  |  [optional]
+**bankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  | 
 **phoneNumber** | **String** |  | 
 **mobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
 **country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  | 
-**transferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  |  [optional]
+**transferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | 
 **iban** | **String** |  | 
 **bankName** | **String** |  | 
 **bankCountry** | **String** |  |  [optional]
@@ -42,7 +42,7 @@ Name | Type | Description | Notes
 **registrationNumber** | **String** |  |  [optional]
 **natureOfBusiness** | [**PayoutMethodNatureOfBusinessEnum**](PayoutMethodNatureOfBusinessEnum.md) |  |  [optional]
 **legalEntityType** | [**PayoutMethodLegalEntityTypeEnum**](PayoutMethodLegalEntityTypeEnum.md) |  |  [optional]
-**branchCode** | **String** |  |  [optional]
+**branchCode** | **String** |  | 
 **swiftCode** | **String** |  | 
 
 
