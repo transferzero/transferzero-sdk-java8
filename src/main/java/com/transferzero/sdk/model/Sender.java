@@ -227,7 +227,7 @@ public class Sender {
   private String nationality;
 
   /**
-   * Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations &amp; Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution   - mto: Money Transfer Operator (MTO) / Other Licensed Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select &#x60;financial_institution&#x60; then the fields &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60; and &#x60;regulatory_licence_number&#x60; will be mandatory as well.
+   * Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations &amp; Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution   - mto: Money Transfer Operator (MTO) / Other Licensed Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select &#x60;financial_institution&#x60; then the fields &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60; and &#x60;regulatory_licence_number&#x60; will be mandatory as well.  Note that if you select &#x60;mto&#x60; then following fields will be mandatory as well: &#x60;regulatory_licence_number&#x60;, &#x60;company_office_number&#x60;, &#x60;company_office_number_country&#x60;, &#x60;aml_officer_email&#x60;, &#x60;aml_officer_phone&#x60;, &#x60;aml_officer_phone_country&#x60;, &#x60;company_website_url&#x60;, &#x60;tax_identification_no&#x60;, &#x60;number_of_employees_in_company&#x60;, &#x60;list_of_countries_of_operation&#x60;, &#x60;estimated_annual_revenue_turnover&#x60;, &#x60;declaration&#x60;.
    */
   @JsonAdapter(LegalEntityTypeEnum.Adapter.class)
   public enum LegalEntityTypeEnum {
@@ -572,6 +572,50 @@ public class Sender {
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private String createdAt;
+
+  public static final String SERIALIZED_NAME_COMPANY_OFFICE_NUMBER = "company_office_number";
+  @SerializedName(SERIALIZED_NAME_COMPANY_OFFICE_NUMBER)
+  private String companyOfficeNumber;
+
+  public static final String SERIALIZED_NAME_COMPANY_OFFICE_NUMBER_COUNTRY = "company_office_number_country";
+  @SerializedName(SERIALIZED_NAME_COMPANY_OFFICE_NUMBER_COUNTRY)
+  private String companyOfficeNumberCountry;
+
+  public static final String SERIALIZED_NAME_AML_OFFICER_EMAIL = "aml_officer_email";
+  @SerializedName(SERIALIZED_NAME_AML_OFFICER_EMAIL)
+  private String amlOfficerEmail;
+
+  public static final String SERIALIZED_NAME_AML_OFFICER_PHONE = "aml_officer_phone";
+  @SerializedName(SERIALIZED_NAME_AML_OFFICER_PHONE)
+  private String amlOfficerPhone;
+
+  public static final String SERIALIZED_NAME_AML_OFFICER_PHONE_COUNTRY = "aml_officer_phone_country";
+  @SerializedName(SERIALIZED_NAME_AML_OFFICER_PHONE_COUNTRY)
+  private String amlOfficerPhoneCountry;
+
+  public static final String SERIALIZED_NAME_COMPANY_WEBSITE_URL = "company_website_url";
+  @SerializedName(SERIALIZED_NAME_COMPANY_WEBSITE_URL)
+  private String companyWebsiteUrl;
+
+  public static final String SERIALIZED_NAME_TAX_IDENTIFICATION_NO = "tax_identification_no";
+  @SerializedName(SERIALIZED_NAME_TAX_IDENTIFICATION_NO)
+  private String taxIdentificationNo;
+
+  public static final String SERIALIZED_NAME_NUMBER_OF_EMPLOYEES_IN_COMPANY = "number_of_employees_in_company";
+  @SerializedName(SERIALIZED_NAME_NUMBER_OF_EMPLOYEES_IN_COMPANY)
+  private String numberOfEmployeesInCompany;
+
+  public static final String SERIALIZED_NAME_LIST_OF_COUNTRIES_OF_OPERATION = "list_of_countries_of_operation";
+  @SerializedName(SERIALIZED_NAME_LIST_OF_COUNTRIES_OF_OPERATION)
+  private List<String> listOfCountriesOfOperation = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_ESTIMATED_ANNUAL_REVENUE_TURNOVER = "estimated_annual_revenue_turnover";
+  @SerializedName(SERIALIZED_NAME_ESTIMATED_ANNUAL_REVENUE_TURNOVER)
+  private String estimatedAnnualRevenueTurnover;
+
+  public static final String SERIALIZED_NAME_DECLARATION = "declaration";
+  @SerializedName(SERIALIZED_NAME_DECLARATION)
+  private String declaration;
 
   public Sender id(UUID id) {
     this.id = id;
@@ -975,10 +1019,10 @@ public class Sender {
   }
 
    /**
-   * Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations &amp; Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution   - mto: Money Transfer Operator (MTO) / Other Licensed Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select &#x60;financial_institution&#x60; then the fields &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60; and &#x60;regulatory_licence_number&#x60; will be mandatory as well.
+   * Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations &amp; Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution   - mto: Money Transfer Operator (MTO) / Other Licensed Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select &#x60;financial_institution&#x60; then the fields &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60; and &#x60;regulatory_licence_number&#x60; will be mandatory as well.  Note that if you select &#x60;mto&#x60; then following fields will be mandatory as well: &#x60;regulatory_licence_number&#x60;, &#x60;company_office_number&#x60;, &#x60;company_office_number_country&#x60;, &#x60;aml_officer_email&#x60;, &#x60;aml_officer_phone&#x60;, &#x60;aml_officer_phone_country&#x60;, &#x60;company_website_url&#x60;, &#x60;tax_identification_no&#x60;, &#x60;number_of_employees_in_company&#x60;, &#x60;list_of_countries_of_operation&#x60;, &#x60;estimated_annual_revenue_turnover&#x60;, &#x60;declaration&#x60;.
    * @return legalEntityType
   **/
-  @ApiModelProperty(example = "privately_owned_company", value = "Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations & Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution   - mto: Money Transfer Operator (MTO) / Other Licensed Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select `financial_institution` then the fields `vat_registration_number`, `financial_regulator` and `regulatory_licence_number` will be mandatory as well.")
+  @ApiModelProperty(example = "privately_owned_company", value = "Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations & Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution   - mto: Money Transfer Operator (MTO) / Other Licensed Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select `financial_institution` then the fields `vat_registration_number`, `financial_regulator` and `regulatory_licence_number` will be mandatory as well.  Note that if you select `mto` then following fields will be mandatory as well: `regulatory_licence_number`, `company_office_number`, `company_office_number_country`, `aml_officer_email`, `aml_officer_phone`, `aml_officer_phone_country`, `company_website_url`, `tax_identification_no`, `number_of_employees_in_company`, `list_of_countries_of_operation`, `estimated_annual_revenue_turnover`, `declaration`.")
   public LegalEntityTypeEnum getLegalEntityType() {
     return legalEntityType;
   }
@@ -1486,6 +1530,212 @@ public class Sender {
     return createdAt;
   }
 
+  public Sender companyOfficeNumber(String companyOfficeNumber) {
+    this.companyOfficeNumber = companyOfficeNumber;
+    return this;
+  }
+
+   /**
+   * Phone number of company office (without country callcode, used only with a Business sender)
+   * @return companyOfficeNumber
+  **/
+  @ApiModelProperty(example = "123123123", value = "Phone number of company office (without country callcode, used only with a Business sender)")
+  public String getCompanyOfficeNumber() {
+    return companyOfficeNumber;
+  }
+
+  public void setCompanyOfficeNumber(String companyOfficeNumber) {
+    this.companyOfficeNumber = companyOfficeNumber;
+  }
+
+  public Sender companyOfficeNumberCountry(String companyOfficeNumberCountry) {
+    this.companyOfficeNumberCountry = companyOfficeNumberCountry;
+    return this;
+  }
+
+   /**
+   * Phone number country of company office in 2-character alpha ISO 3166-2 country format (used only with a Business sender)
+   * @return companyOfficeNumberCountry
+  **/
+  @ApiModelProperty(example = "GB", value = "Phone number country of company office in 2-character alpha ISO 3166-2 country format (used only with a Business sender)")
+  public String getCompanyOfficeNumberCountry() {
+    return companyOfficeNumberCountry;
+  }
+
+  public void setCompanyOfficeNumberCountry(String companyOfficeNumberCountry) {
+    this.companyOfficeNumberCountry = companyOfficeNumberCountry;
+  }
+
+  public Sender amlOfficerEmail(String amlOfficerEmail) {
+    this.amlOfficerEmail = amlOfficerEmail;
+    return this;
+  }
+
+   /**
+   * Email address of AML Officer (used only with a Business sender)
+   * @return amlOfficerEmail
+  **/
+  @ApiModelProperty(value = "Email address of AML Officer (used only with a Business sender)")
+  public String getAmlOfficerEmail() {
+    return amlOfficerEmail;
+  }
+
+  public void setAmlOfficerEmail(String amlOfficerEmail) {
+    this.amlOfficerEmail = amlOfficerEmail;
+  }
+
+  public Sender amlOfficerPhone(String amlOfficerPhone) {
+    this.amlOfficerPhone = amlOfficerPhone;
+    return this;
+  }
+
+   /**
+   * Phone number of AML Officer (without country callcode, used only with a Business sender)
+   * @return amlOfficerPhone
+  **/
+  @ApiModelProperty(example = "123123123", value = "Phone number of AML Officer (without country callcode, used only with a Business sender)")
+  public String getAmlOfficerPhone() {
+    return amlOfficerPhone;
+  }
+
+  public void setAmlOfficerPhone(String amlOfficerPhone) {
+    this.amlOfficerPhone = amlOfficerPhone;
+  }
+
+  public Sender amlOfficerPhoneCountry(String amlOfficerPhoneCountry) {
+    this.amlOfficerPhoneCountry = amlOfficerPhoneCountry;
+    return this;
+  }
+
+   /**
+   * Phone number country of AML Officer in 2-character alpha ISO 3166-2 country format (used only with a Business sender)
+   * @return amlOfficerPhoneCountry
+  **/
+  @ApiModelProperty(example = "GB", value = "Phone number country of AML Officer in 2-character alpha ISO 3166-2 country format (used only with a Business sender)")
+  public String getAmlOfficerPhoneCountry() {
+    return amlOfficerPhoneCountry;
+  }
+
+  public void setAmlOfficerPhoneCountry(String amlOfficerPhoneCountry) {
+    this.amlOfficerPhoneCountry = amlOfficerPhoneCountry;
+  }
+
+  public Sender companyWebsiteUrl(String companyWebsiteUrl) {
+    this.companyWebsiteUrl = companyWebsiteUrl;
+    return this;
+  }
+
+   /**
+   * Company website URL (used only with a Business sender)
+   * @return companyWebsiteUrl
+  **/
+  @ApiModelProperty(example = "www.azafinance.com", value = "Company website URL (used only with a Business sender)")
+  public String getCompanyWebsiteUrl() {
+    return companyWebsiteUrl;
+  }
+
+  public void setCompanyWebsiteUrl(String companyWebsiteUrl) {
+    this.companyWebsiteUrl = companyWebsiteUrl;
+  }
+
+  public Sender taxIdentificationNo(String taxIdentificationNo) {
+    this.taxIdentificationNo = taxIdentificationNo;
+    return this;
+  }
+
+   /**
+   * Tax Identification Number (used only with a Business sender)
+   * @return taxIdentificationNo
+  **/
+  @ApiModelProperty(value = "Tax Identification Number (used only with a Business sender)")
+  public String getTaxIdentificationNo() {
+    return taxIdentificationNo;
+  }
+
+  public void setTaxIdentificationNo(String taxIdentificationNo) {
+    this.taxIdentificationNo = taxIdentificationNo;
+  }
+
+  public Sender numberOfEmployeesInCompany(String numberOfEmployeesInCompany) {
+    this.numberOfEmployeesInCompany = numberOfEmployeesInCompany;
+    return this;
+  }
+
+   /**
+   * Number of employees in company (used only with a Business sender)
+   * @return numberOfEmployeesInCompany
+  **/
+  @ApiModelProperty(example = "250+", value = "Number of employees in company (used only with a Business sender)")
+  public String getNumberOfEmployeesInCompany() {
+    return numberOfEmployeesInCompany;
+  }
+
+  public void setNumberOfEmployeesInCompany(String numberOfEmployeesInCompany) {
+    this.numberOfEmployeesInCompany = numberOfEmployeesInCompany;
+  }
+
+  public Sender listOfCountriesOfOperation(List<String> listOfCountriesOfOperation) {
+    this.listOfCountriesOfOperation = listOfCountriesOfOperation;
+    return this;
+  }
+
+  public Sender addListOfCountriesOfOperationItem(String listOfCountriesOfOperationItem) {
+    if (this.listOfCountriesOfOperation == null) {
+      this.listOfCountriesOfOperation = new ArrayList<>();
+    }
+    this.listOfCountriesOfOperation.add(listOfCountriesOfOperationItem);
+    return this;
+  }
+
+   /**
+   * List of countries of operation (used only with a Business sender)
+   * @return listOfCountriesOfOperation
+  **/
+  @ApiModelProperty(example = "[\"Spain\",\"Germany\",\"Poland\"]", value = "List of countries of operation (used only with a Business sender)")
+  public List<String> getListOfCountriesOfOperation() {
+    return listOfCountriesOfOperation;
+  }
+
+  public void setListOfCountriesOfOperation(List<String> listOfCountriesOfOperation) {
+    this.listOfCountriesOfOperation = listOfCountriesOfOperation;
+  }
+
+  public Sender estimatedAnnualRevenueTurnover(String estimatedAnnualRevenueTurnover) {
+    this.estimatedAnnualRevenueTurnover = estimatedAnnualRevenueTurnover;
+    return this;
+  }
+
+   /**
+   * Estimated annual turnover (in USD or equivalent, used only with a Business sender)
+   * @return estimatedAnnualRevenueTurnover
+  **/
+  @ApiModelProperty(value = "Estimated annual turnover (in USD or equivalent, used only with a Business sender)")
+  public String getEstimatedAnnualRevenueTurnover() {
+    return estimatedAnnualRevenueTurnover;
+  }
+
+  public void setEstimatedAnnualRevenueTurnover(String estimatedAnnualRevenueTurnover) {
+    this.estimatedAnnualRevenueTurnover = estimatedAnnualRevenueTurnover;
+  }
+
+  public Sender declaration(String declaration) {
+    this.declaration = declaration;
+    return this;
+  }
+
+   /**
+   * Declaration that the signatory is authorised (used only with a Business sender)
+   * @return declaration
+  **/
+  @ApiModelProperty(example = "Yes", value = "Declaration that the signatory is authorised (used only with a Business sender)")
+  public String getDeclaration() {
+    return declaration;
+  }
+
+  public void setDeclaration(String declaration) {
+    this.declaration = declaration;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -1546,12 +1796,23 @@ public class Sender {
         Objects.equals(this.countryOfBirth, sender.countryOfBirth) &&
         Objects.equals(this.gender, sender.gender) &&
         Objects.equals(this.salesLeadId, sender.salesLeadId) &&
-        Objects.equals(this.createdAt, sender.createdAt);
+        Objects.equals(this.createdAt, sender.createdAt) &&
+        Objects.equals(this.companyOfficeNumber, sender.companyOfficeNumber) &&
+        Objects.equals(this.companyOfficeNumberCountry, sender.companyOfficeNumberCountry) &&
+        Objects.equals(this.amlOfficerEmail, sender.amlOfficerEmail) &&
+        Objects.equals(this.amlOfficerPhone, sender.amlOfficerPhone) &&
+        Objects.equals(this.amlOfficerPhoneCountry, sender.amlOfficerPhoneCountry) &&
+        Objects.equals(this.companyWebsiteUrl, sender.companyWebsiteUrl) &&
+        Objects.equals(this.taxIdentificationNo, sender.taxIdentificationNo) &&
+        Objects.equals(this.numberOfEmployeesInCompany, sender.numberOfEmployeesInCompany) &&
+        Objects.equals(this.listOfCountriesOfOperation, sender.listOfCountriesOfOperation) &&
+        Objects.equals(this.estimatedAnnualRevenueTurnover, sender.estimatedAnnualRevenueTurnover) &&
+        Objects.equals(this.declaration, sender.declaration);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, lang, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, customSourceOfFunds, coreBusinessActivity, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, tradingName, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId, cityOfBirth, countryOfBirth, gender, salesLeadId, createdAt);
+    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, lang, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, customSourceOfFunds, coreBusinessActivity, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, tradingName, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId, cityOfBirth, countryOfBirth, gender, salesLeadId, createdAt, companyOfficeNumber, companyOfficeNumberCountry, amlOfficerEmail, amlOfficerPhone, amlOfficerPhoneCountry, companyWebsiteUrl, taxIdentificationNo, numberOfEmployeesInCompany, listOfCountriesOfOperation, estimatedAnnualRevenueTurnover, declaration);
   }
 
 
@@ -1610,6 +1871,17 @@ public class Sender {
     sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
     sb.append("    salesLeadId: ").append(toIndentedString(salesLeadId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    companyOfficeNumber: ").append(toIndentedString(companyOfficeNumber)).append("\n");
+    sb.append("    companyOfficeNumberCountry: ").append(toIndentedString(companyOfficeNumberCountry)).append("\n");
+    sb.append("    amlOfficerEmail: ").append(toIndentedString(amlOfficerEmail)).append("\n");
+    sb.append("    amlOfficerPhone: ").append(toIndentedString(amlOfficerPhone)).append("\n");
+    sb.append("    amlOfficerPhoneCountry: ").append(toIndentedString(amlOfficerPhoneCountry)).append("\n");
+    sb.append("    companyWebsiteUrl: ").append(toIndentedString(companyWebsiteUrl)).append("\n");
+    sb.append("    taxIdentificationNo: ").append(toIndentedString(taxIdentificationNo)).append("\n");
+    sb.append("    numberOfEmployeesInCompany: ").append(toIndentedString(numberOfEmployeesInCompany)).append("\n");
+    sb.append("    listOfCountriesOfOperation: ").append(toIndentedString(listOfCountriesOfOperation)).append("\n");
+    sb.append("    estimatedAnnualRevenueTurnover: ").append(toIndentedString(estimatedAnnualRevenueTurnover)).append("\n");
+    sb.append("    declaration: ").append(toIndentedString(declaration)).append("\n");
     sb.append("}");
     return sb.toString();
   }
