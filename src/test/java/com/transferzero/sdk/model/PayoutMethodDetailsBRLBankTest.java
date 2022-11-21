@@ -60,6 +60,14 @@ public class PayoutMethodDetailsBRLBankTest {
     }
 
     /**
+     * Test the property 'phoneNumber'
+     */
+    @Test
+    public void phoneNumberTest() {
+        // TODO: test phoneNumber
+    }
+
+    /**
      * Test the property 'bankCode'
      */
     @Test
