@@ -458,4 +458,92 @@ public class SenderTest {
         // TODO: test createdAt
     }
 
+    /**
+     * Test the property 'companyOfficeNumber'
+     */
+    @Test
+    public void companyOfficeNumberTest() {
+        // TODO: test companyOfficeNumber
+    }
+
+    /**
+     * Test the property 'companyOfficeNumberCountry'
+     */
+    @Test
+    public void companyOfficeNumberCountryTest() {
+        // TODO: test companyOfficeNumberCountry
+    }
+
+    /**
+     * Test the property 'amlOfficerEmail'
+     */
+    @Test
+    public void amlOfficerEmailTest() {
+        // TODO: test amlOfficerEmail
+    }
+
+    /**
+     * Test the property 'amlOfficerPhone'
+     */
+    @Test
+    public void amlOfficerPhoneTest() {
+        // TODO: test amlOfficerPhone
+    }
+
+    /**
+     * Test the property 'amlOfficerPhoneCountry'
+     */
+    @Test
+    public void amlOfficerPhoneCountryTest() {
+        // TODO: test amlOfficerPhoneCountry
+    }
+
+    /**
+     * Test the property 'companyWebsiteUrl'
+     */
+    @Test
+    public void companyWebsiteUrlTest() {
+        // TODO: test companyWebsiteUrl
+    }
+
+    /**
+     * Test the property 'taxIdentificationNo'
+     */
+    @Test
+    public void taxIdentificationNoTest() {
+        // TODO: test taxIdentificationNo
+    }
+
+    /**
+     * Test the property 'numberOfEmployeesInCompany'
+     */
+    @Test
+    public void numberOfEmployeesInCompanyTest() {
+        // TODO: test numberOfEmployeesInCompany
+    }
+
+    /**
+     * Test the property 'listOfCountriesOfOperation'
+     */
+    @Test
+    public void listOfCountriesOfOperationTest() {
+        // TODO: test listOfCountriesOfOperation
+    }
+
+    /**
+     * Test the property 'estimatedAnnualRevenueTurnover'
+     */
+    @Test
+    public void estimatedAnnualRevenueTurnoverTest() {
+        // TODO: test estimatedAnnualRevenueTurnover
+    }
+
+    /**
+     * Test the property 'declaration'
+     */
+    @Test
+    public void declarationTest() {
+        // TODO: test declaration
+    }
+
 }
