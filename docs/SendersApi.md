@@ -310,8 +310,7 @@ SendersApi apiInstance = new SendersApi(apiClient);
 SenderRequest senderRequest = {
   "sender": {
     "country": "UG",
-    "phone_country": "UG",
-    "phone_number": "752403639",
+    "phone_number": "+256752403639",
     "email": "example@home.org",
     "first_name": "Johnny",
     "last_name": "English",

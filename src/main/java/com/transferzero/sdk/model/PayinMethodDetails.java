@@ -108,7 +108,7 @@ public class PayinMethodDetails {
    * The phone number where the funds should be collected from
    * @return phoneNumber
   **/
-  @ApiModelProperty(example = "+2569999999", value = "The phone number where the funds should be collected from")
+  @ApiModelProperty(example = "+256129999999", value = "The phone number where the funds should be collected from")
   public String getPhoneNumber() {
     return phoneNumber;
   }

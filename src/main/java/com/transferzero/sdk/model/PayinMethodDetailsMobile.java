@@ -27,9 +27,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;phone_number\&quot;: \&quot;+2569999999\&quot;, } &#x60;&#x60;&#x60;
+ * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;phone_number\&quot;: \&quot;+256129999999\&quot;, } &#x60;&#x60;&#x60;
  */
-@ApiModel(description = "```JSON \"details\": {   \"phone_number\": \"+2569999999\", } ```")
+@ApiModel(description = "```JSON \"details\": {   \"phone_number\": \"+256129999999\", } ```")
 
 public class PayinMethodDetailsMobile {
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
@@ -57,7 +57,7 @@ public class PayinMethodDetailsMobile {
    * The phone number where the funds should be collected from
    * @return phoneNumber
   **/
-  @ApiModelProperty(example = "+2569999999", value = "The phone number where the funds should be collected from")
+  @ApiModelProperty(example = "+256129999999", value = "The phone number where the funds should be collected from")
   public String getPhoneNumber() {
     return phoneNumber;
   }

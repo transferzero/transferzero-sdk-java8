@@ -269,10 +269,10 @@ public class AccountValidationRequest {
   }
 
    /**
-   * Phone number to query
+   * Phone number to query in E.164 format
    * @return phoneNumber
   **/
-  @ApiModelProperty(example = "+233000000000", value = "Phone number to query")
+  @ApiModelProperty(example = "+233000000000", value = "Phone number to query in E.164 format")
   public String getPhoneNumber() {
     return phoneNumber;
   }
