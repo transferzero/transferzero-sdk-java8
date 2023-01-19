@@ -54,6 +54,8 @@ public enum PayoutMethodCountryEnum {
   
   AW("AW"),
   
+  AX("AX"),
+  
   AU("AU"),
   
   AT("AT"),

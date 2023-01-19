@@ -29,6 +29,8 @@
 
 * `AW` (value: `"AW"`)
 
+* `AX` (value: `"AX"`)
+
 * `AU` (value: `"AU"`)
 
 * `AT` (value: `"AT"`)
