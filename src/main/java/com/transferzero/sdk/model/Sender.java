@@ -227,7 +227,7 @@ public class Sender {
   private String nationality;
 
   /**
-   * Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations &amp; Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution   - mto: Money Transfer Operator (MTO) / Other Licensed Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select &#x60;financial_institution&#x60; then the fields &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60; and &#x60;regulatory_licence_number&#x60; will be mandatory as well.  Note that if you select &#x60;mto&#x60; then following fields will be mandatory as well: &#x60;regulatory_licence_number&#x60;, &#x60;company_office_number&#x60;, &#x60;company_office_number_country&#x60;, &#x60;aml_officer_email&#x60;, &#x60;aml_officer_phone&#x60;, &#x60;aml_officer_phone_country&#x60;, &#x60;company_website_url&#x60;, &#x60;tax_identification_no&#x60;, &#x60;number_of_employees_in_company&#x60;, &#x60;list_of_countries_of_operation&#x60;, &#x60;estimated_annual_revenue_turnover&#x60;, &#x60;declaration&#x60;.
+   * Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations &amp; Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution   - mto: Money Transfer Operator (MTO) / Other Licensed Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select &#x60;financial_institution&#x60; then the fields &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60; and &#x60;regulatory_licence_number&#x60; will be mandatory as well.  Note that if you select &#x60;mto&#x60; then following fields will be mandatory as well: &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60;, &#x60;regulatory_licence_number&#x60;, &#x60;company_office_number&#x60;, &#x60;company_office_number_country&#x60;, &#x60;aml_officer_email&#x60;, &#x60;aml_officer_phone&#x60;, &#x60;aml_officer_phone_country&#x60;, &#x60;company_website_url&#x60;, &#x60;number_of_employees_in_company&#x60;, &#x60;list_of_countries_of_operation&#x60;, &#x60;estimated_annual_revenue_turnover&#x60;, &#x60;declaration&#x60;.
    */
   @JsonAdapter(LegalEntityTypeEnum.Adapter.class)
   public enum LegalEntityTypeEnum {
@@ -596,10 +596,6 @@ public class Sender {
   public static final String SERIALIZED_NAME_COMPANY_WEBSITE_URL = "company_website_url";
   @SerializedName(SERIALIZED_NAME_COMPANY_WEBSITE_URL)
   private String companyWebsiteUrl;
-
-  public static final String SERIALIZED_NAME_TAX_IDENTIFICATION_NO = "tax_identification_no";
-  @SerializedName(SERIALIZED_NAME_TAX_IDENTIFICATION_NO)
-  private String taxIdentificationNo;
 
   public static final String SERIALIZED_NAME_NUMBER_OF_EMPLOYEES_IN_COMPANY = "number_of_employees_in_company";
   @SerializedName(SERIALIZED_NAME_NUMBER_OF_EMPLOYEES_IN_COMPANY)
@@ -1019,10 +1015,10 @@ public class Sender {
   }
 
    /**
-   * Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations &amp; Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution   - mto: Money Transfer Operator (MTO) / Other Licensed Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select &#x60;financial_institution&#x60; then the fields &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60; and &#x60;regulatory_licence_number&#x60; will be mandatory as well.  Note that if you select &#x60;mto&#x60; then following fields will be mandatory as well: &#x60;regulatory_licence_number&#x60;, &#x60;company_office_number&#x60;, &#x60;company_office_number_country&#x60;, &#x60;aml_officer_email&#x60;, &#x60;aml_officer_phone&#x60;, &#x60;aml_officer_phone_country&#x60;, &#x60;company_website_url&#x60;, &#x60;tax_identification_no&#x60;, &#x60;number_of_employees_in_company&#x60;, &#x60;list_of_countries_of_operation&#x60;, &#x60;estimated_annual_revenue_turnover&#x60;, &#x60;declaration&#x60;.
+   * Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations &amp; Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution   - mto: Money Transfer Operator (MTO) / Other Licensed Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select &#x60;financial_institution&#x60; then the fields &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60; and &#x60;regulatory_licence_number&#x60; will be mandatory as well.  Note that if you select &#x60;mto&#x60; then following fields will be mandatory as well: &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60;, &#x60;regulatory_licence_number&#x60;, &#x60;company_office_number&#x60;, &#x60;company_office_number_country&#x60;, &#x60;aml_officer_email&#x60;, &#x60;aml_officer_phone&#x60;, &#x60;aml_officer_phone_country&#x60;, &#x60;company_website_url&#x60;, &#x60;number_of_employees_in_company&#x60;, &#x60;list_of_countries_of_operation&#x60;, &#x60;estimated_annual_revenue_turnover&#x60;, &#x60;declaration&#x60;.
    * @return legalEntityType
   **/
-  @ApiModelProperty(example = "privately_owned_company", value = "Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations & Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution   - mto: Money Transfer Operator (MTO) / Other Licensed Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select `financial_institution` then the fields `vat_registration_number`, `financial_regulator` and `regulatory_licence_number` will be mandatory as well.  Note that if you select `mto` then following fields will be mandatory as well: `regulatory_licence_number`, `company_office_number`, `company_office_number_country`, `aml_officer_email`, `aml_officer_phone`, `aml_officer_phone_country`, `company_website_url`, `tax_identification_no`, `number_of_employees_in_company`, `list_of_countries_of_operation`, `estimated_annual_revenue_turnover`, `declaration`.")
+  @ApiModelProperty(example = "privately_owned_company", value = "Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations & Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution   - mto: Money Transfer Operator (MTO) / Other Licensed Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select `financial_institution` then the fields `vat_registration_number`, `financial_regulator` and `regulatory_licence_number` will be mandatory as well.  Note that if you select `mto` then following fields will be mandatory as well: `vat_registration_number`, `financial_regulator`, `regulatory_licence_number`, `company_office_number`, `company_office_number_country`, `aml_officer_email`, `aml_officer_phone`, `aml_officer_phone_country`, `company_website_url`, `number_of_employees_in_company`, `list_of_countries_of_operation`, `estimated_annual_revenue_turnover`, `declaration`.")
   public LegalEntityTypeEnum getLegalEntityType() {
     return legalEntityType;
   }
@@ -1638,24 +1634,6 @@ public class Sender {
     this.companyWebsiteUrl = companyWebsiteUrl;
   }
 
-  public Sender taxIdentificationNo(String taxIdentificationNo) {
-    this.taxIdentificationNo = taxIdentificationNo;
-    return this;
-  }
-
-   /**
-   * Tax Identification Number (used only with a Business sender)
-   * @return taxIdentificationNo
-  **/
-  @ApiModelProperty(value = "Tax Identification Number (used only with a Business sender)")
-  public String getTaxIdentificationNo() {
-    return taxIdentificationNo;
-  }
-
-  public void setTaxIdentificationNo(String taxIdentificationNo) {
-    this.taxIdentificationNo = taxIdentificationNo;
-  }
-
   public Sender numberOfEmployeesInCompany(String numberOfEmployeesInCompany) {
     this.numberOfEmployeesInCompany = numberOfEmployeesInCompany;
     return this;
@@ -1803,7 +1781,6 @@ public class Sender {
         Objects.equals(this.amlOfficerPhone, sender.amlOfficerPhone) &&
         Objects.equals(this.amlOfficerPhoneCountry, sender.amlOfficerPhoneCountry) &&
         Objects.equals(this.companyWebsiteUrl, sender.companyWebsiteUrl) &&
-        Objects.equals(this.taxIdentificationNo, sender.taxIdentificationNo) &&
         Objects.equals(this.numberOfEmployeesInCompany, sender.numberOfEmployeesInCompany) &&
         Objects.equals(this.listOfCountriesOfOperation, sender.listOfCountriesOfOperation) &&
         Objects.equals(this.estimatedAnnualRevenueTurnover, sender.estimatedAnnualRevenueTurnover) &&
@@ -1812,7 +1789,7 @@ public class Sender {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, lang, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, customSourceOfFunds, coreBusinessActivity, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, tradingName, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId, cityOfBirth, countryOfBirth, gender, salesLeadId, createdAt, companyOfficeNumber, companyOfficeNumberCountry, amlOfficerEmail, amlOfficerPhone, amlOfficerPhoneCountry, companyWebsiteUrl, taxIdentificationNo, numberOfEmployeesInCompany, listOfCountriesOfOperation, estimatedAnnualRevenueTurnover, declaration);
+    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, lang, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, customSourceOfFunds, coreBusinessActivity, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, tradingName, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId, cityOfBirth, countryOfBirth, gender, salesLeadId, createdAt, companyOfficeNumber, companyOfficeNumberCountry, amlOfficerEmail, amlOfficerPhone, amlOfficerPhoneCountry, companyWebsiteUrl, numberOfEmployeesInCompany, listOfCountriesOfOperation, estimatedAnnualRevenueTurnover, declaration);
   }
 
 
@@ -1877,7 +1854,6 @@ public class Sender {
     sb.append("    amlOfficerPhone: ").append(toIndentedString(amlOfficerPhone)).append("\n");
     sb.append("    amlOfficerPhoneCountry: ").append(toIndentedString(amlOfficerPhoneCountry)).append("\n");
     sb.append("    companyWebsiteUrl: ").append(toIndentedString(companyWebsiteUrl)).append("\n");
-    sb.append("    taxIdentificationNo: ").append(toIndentedString(taxIdentificationNo)).append("\n");
     sb.append("    numberOfEmployeesInCompany: ").append(toIndentedString(numberOfEmployeesInCompany)).append("\n");
     sb.append("    listOfCountriesOfOperation: ").append(toIndentedString(listOfCountriesOfOperation)).append("\n");
     sb.append("    estimatedAnnualRevenueTurnover: ").append(toIndentedString(estimatedAnnualRevenueTurnover)).append("\n");
