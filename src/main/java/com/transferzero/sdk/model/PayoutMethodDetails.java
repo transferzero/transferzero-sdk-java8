@@ -36,6 +36,7 @@ import com.transferzero.sdk.model.PayoutMethodDetailsKESMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsMADCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsNGNBank;
+import com.transferzero.sdk.model.PayoutMethodDetailsNZDBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsUSDBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsUSDCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsXAFBank;
