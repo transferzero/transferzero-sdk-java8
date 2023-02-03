@@ -507,14 +507,6 @@ public class SenderTest {
     }
 
     /**
-     * Test the property 'taxIdentificationNo'
-     */
-    @Test
-    public void taxIdentificationNoTest() {
-        // TODO: test taxIdentificationNo
-    }
-
-    /**
      * Test the property 'numberOfEmployeesInCompany'
      */
     @Test
