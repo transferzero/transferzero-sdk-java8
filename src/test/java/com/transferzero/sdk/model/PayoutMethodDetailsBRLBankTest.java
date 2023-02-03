@@ -61,6 +61,22 @@ public class PayoutMethodDetailsBRLBankTest {
     }
 
     /**
+     * Test the property 'city'
+     */
+    @Test
+    public void cityTest() {
+        // TODO: test city
+    }
+
+    /**
+     * Test the property 'postalCode'
+     */
+    @Test
+    public void postalCodeTest() {
+        // TODO: test postalCode
+    }
+
+    /**
      * Test the property 'phoneNumber'
      */
     @Test
