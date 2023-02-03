@@ -46,6 +46,7 @@ Name | Type | Description | Notes
 **swiftCode** | **String** |  | 
 **pixKeyType** | [**PayoutMethodPixKeyTypeEnum**](PayoutMethodPixKeyTypeEnum.md) |  |  [optional]
 **pixKeyValue** | **String** |  |  [optional]
+**ifscCode** | **String** |  | 
 
 
 

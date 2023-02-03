@@ -31,6 +31,7 @@ import com.transferzero.sdk.model.PayoutMethodDetailsGHSBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsGHSCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsGNFMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsIBAN;
+import com.transferzero.sdk.model.PayoutMethodDetailsINRBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsKESBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsKESMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsMADCash;
@@ -220,6 +221,10 @@ public class PayoutMethodDetails {
   public static final String SERIALIZED_NAME_PIX_KEY_VALUE = "pix_key_value";
   @SerializedName(SERIALIZED_NAME_PIX_KEY_VALUE)
   private String pixKeyValue;
+
+  public static final String SERIALIZED_NAME_IFSC_CODE = "ifsc_code";
+  @SerializedName(SERIALIZED_NAME_IFSC_CODE)
+  private String ifscCode;
 
   public PayoutMethodDetails firstName(String firstName) {
     this.firstName = firstName;
@@ -941,6 +946,24 @@ public class PayoutMethodDetails {
     this.pixKeyValue = pixKeyValue;
   }
 
+  public PayoutMethodDetails ifscCode(String ifscCode) {
+    this.ifscCode = ifscCode;
+    return this;
+  }
+
+   /**
+   * Get ifscCode
+   * @return ifscCode
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getIfscCode() {
+    return ifscCode;
+  }
+
+  public void setIfscCode(String ifscCode) {
+    this.ifscCode = ifscCode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -990,12 +1013,13 @@ public class PayoutMethodDetails {
         Objects.equals(this.branchCode, payoutMethodDetails.branchCode) &&
         Objects.equals(this.swiftCode, payoutMethodDetails.swiftCode) &&
         Objects.equals(this.pixKeyType, payoutMethodDetails.pixKeyType) &&
-        Objects.equals(this.pixKeyValue, payoutMethodDetails.pixKeyValue);
+        Objects.equals(this.pixKeyValue, payoutMethodDetails.pixKeyValue) &&
+        Objects.equals(this.ifscCode, payoutMethodDetails.ifscCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, branchCode, swiftCode, pixKeyType, pixKeyValue);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, branchCode, swiftCode, pixKeyType, pixKeyValue, ifscCode);
   }
 
 
@@ -1043,6 +1067,7 @@ public class PayoutMethodDetails {
     sb.append("    swiftCode: ").append(toIndentedString(swiftCode)).append("\n");
     sb.append("    pixKeyType: ").append(toIndentedString(pixKeyType)).append("\n");
     sb.append("    pixKeyValue: ").append(toIndentedString(pixKeyValue)).append("\n");
+    sb.append("    ifscCode: ").append(toIndentedString(ifscCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
