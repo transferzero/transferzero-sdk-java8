@@ -1,6 +1,6 @@
 # AccountValidationApi
 
-All URIs are relative to *https://api-sandbox.transferzero.com/v1*
+All URIs are relative to *https://api-sandbox.bitpesa.co/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,7 +27,7 @@ Validates the existence of a bank account or mobile phone number and returns the
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 AccountValidationApi apiInstance = new AccountValidationApi(apiClient);
 AccountValidationRequest accountValidationRequest = {"bank_account":"12345678","bank_code":"050","country":"NG","currency":"NGN","method":"bank"}; // AccountValidationRequest | 
@@ -64,7 +64,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
