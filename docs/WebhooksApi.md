@@ -1,6 +1,6 @@
 # WebhooksApi
 
-All URIs are relative to *https://api-sandbox.transferzero.com/v1*
+All URIs are relative to *https://api-sandbox.bitpesa.co/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,7 +31,7 @@ Unsubscribes from a webhook specified
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 WebhooksApi apiInstance = new WebhooksApi(apiClient);
 String webhookID = "webhookID_example"; // String | The ID of webhook to cancel.  Example: `/v1/webhooks/9d4d7b73-a94c-4979-ab57-09074fd55d33`
@@ -68,7 +68,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
@@ -95,7 +95,7 @@ Look up a webhook&#39;s details with its ID
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 WebhooksApi apiInstance = new WebhooksApi(apiClient);
 UUID webhookID = new UUID(); // UUID | The ID of the Webhook to look up  Example: `/v1/webhooks/9d4d7b73-a94c-4979-ab57-09074fd55d33`
@@ -133,7 +133,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
@@ -160,7 +160,7 @@ Fetching possible webhook events
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 WebhooksApi apiInstance = new WebhooksApi(apiClient);
 try {
@@ -194,7 +194,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
@@ -221,7 +221,7 @@ Get a list of created webhooks
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 WebhooksApi apiInstance = new WebhooksApi(apiClient);
 Integer page = 1; // Integer | The page number to request (defaults to 1)
@@ -263,7 +263,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
@@ -290,7 +290,7 @@ Creates a new webhook, subscribing the provided endpoint to the specified event(
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 WebhooksApi apiInstance = new WebhooksApi(apiClient);
 WebhookDefinitionRequest webhookDefinitionRequest = {"webhook":{"url":"http://myhost.com/for/transaction.paid_in","events":["transaction.paid_in"],"metadata":{"my":"data"}}}; // WebhookDefinitionRequest | 
@@ -327,7 +327,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 

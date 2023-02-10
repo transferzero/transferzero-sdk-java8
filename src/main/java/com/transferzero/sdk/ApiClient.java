@@ -1,6 +1,6 @@
 /*
- * TransferZero API
- * Reference documentation for the TransferZero API V1
+ * BitPesa Private API
+ * API specification used for internal BitPesa endpoints
  *
  * OpenAPI spec version: 1.0
  * 
@@ -57,7 +57,7 @@ public class ApiClient {
         Response handlePostResponse(Response response);
     }
 
-    private String basePath = "https://api-sandbox.transferzero.com/v1";
+    private String basePath = "https://api-sandbox.bitpesa.co/v1";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -129,7 +129,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://api-sandbox.transferzero.com/v1
+     * @param basePath Base path of the URL (e.g https://api-sandbox.bitpesa.co/v1
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {
