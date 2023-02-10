@@ -25,11 +25,11 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_account\&quot;: \&quot;1212341234567123\&quot;,   \&quot;bank_name\&quot;: \&quot;ASB Bank\&quot; } &#x60;&#x60;&#x60;  See [NZD Bank](https://docs.transferzero.com/docs/payout-details/#nzdbank) documentation for the bank_name list
+ * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_name\&quot;: \&quot;Banc ABC\&quot;,   \&quot;bank_account\&quot;: \&quot;12345678912345678\&quot;,   \&quot;branch_code\&quot;: \&quot;550067\&quot;, } &#x60;&#x60;&#x60; See [BWP Bank](https://docs.transferzero.com/docs/payout-details/#bwpbank) documentation for the bank_name &amp; branch_code list
  */
-@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"bank_account\": \"1212341234567123\",   \"bank_name\": \"ASB Bank\" } ```  See [NZD Bank](https://docs.transferzero.com/docs/payout-details/#nzdbank) documentation for the bank_name list")
+@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"bank_name\": \"Banc ABC\",   \"bank_account\": \"12345678912345678\",   \"branch_code\": \"550067\", } ``` See [BWP Bank](https://docs.transferzero.com/docs/payout-details/#bwpbank) documentation for the bank_name & branch_code list")
 
-public class PayoutMethodDetailsNZDBank {
+public class PayoutMethodDetailsBWPBank {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
@@ -38,15 +38,19 @@ public class PayoutMethodDetailsNZDBank {
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
   private String lastName;
 
-  public static final String SERIALIZED_NAME_BANK_ACCOUNT = "bank_account";
-  @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT)
-  private String bankAccount;
-
   public static final String SERIALIZED_NAME_BANK_NAME = "bank_name";
   @SerializedName(SERIALIZED_NAME_BANK_NAME)
   private String bankName;
 
-  public PayoutMethodDetailsNZDBank firstName(String firstName) {
+  public static final String SERIALIZED_NAME_BANK_ACCOUNT = "bank_account";
+  @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT)
+  private String bankAccount;
+
+  public static final String SERIALIZED_NAME_BRANCH_CODE = "branch_code";
+  @SerializedName(SERIALIZED_NAME_BRANCH_CODE)
+  private String branchCode;
+
+  public PayoutMethodDetailsBWPBank firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -64,7 +68,7 @@ public class PayoutMethodDetailsNZDBank {
     this.firstName = firstName;
   }
 
-  public PayoutMethodDetailsNZDBank lastName(String lastName) {
+  public PayoutMethodDetailsBWPBank lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -82,25 +86,7 @@ public class PayoutMethodDetailsNZDBank {
     this.lastName = lastName;
   }
 
-  public PayoutMethodDetailsNZDBank bankAccount(String bankAccount) {
-    this.bankAccount = bankAccount;
-    return this;
-  }
-
-   /**
-   * Get bankAccount
-   * @return bankAccount
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public String getBankAccount() {
-    return bankAccount;
-  }
-
-  public void setBankAccount(String bankAccount) {
-    this.bankAccount = bankAccount;
-  }
-
-  public PayoutMethodDetailsNZDBank bankName(String bankName) {
+  public PayoutMethodDetailsBWPBank bankName(String bankName) {
     this.bankName = bankName;
     return this;
   }
@@ -118,6 +104,42 @@ public class PayoutMethodDetailsNZDBank {
     this.bankName = bankName;
   }
 
+  public PayoutMethodDetailsBWPBank bankAccount(String bankAccount) {
+    this.bankAccount = bankAccount;
+    return this;
+  }
+
+   /**
+   * Get bankAccount
+   * @return bankAccount
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getBankAccount() {
+    return bankAccount;
+  }
+
+  public void setBankAccount(String bankAccount) {
+    this.bankAccount = bankAccount;
+  }
+
+  public PayoutMethodDetailsBWPBank branchCode(String branchCode) {
+    this.branchCode = branchCode;
+    return this;
+  }
+
+   /**
+   * Get branchCode
+   * @return branchCode
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getBranchCode() {
+    return branchCode;
+  }
+
+  public void setBranchCode(String branchCode) {
+    this.branchCode = branchCode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,27 +149,29 @@ public class PayoutMethodDetailsNZDBank {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PayoutMethodDetailsNZDBank payoutMethodDetailsNZDBank = (PayoutMethodDetailsNZDBank) o;
-    return Objects.equals(this.firstName, payoutMethodDetailsNZDBank.firstName) &&
-        Objects.equals(this.lastName, payoutMethodDetailsNZDBank.lastName) &&
-        Objects.equals(this.bankAccount, payoutMethodDetailsNZDBank.bankAccount) &&
-        Objects.equals(this.bankName, payoutMethodDetailsNZDBank.bankName);
+    PayoutMethodDetailsBWPBank payoutMethodDetailsBWPBank = (PayoutMethodDetailsBWPBank) o;
+    return Objects.equals(this.firstName, payoutMethodDetailsBWPBank.firstName) &&
+        Objects.equals(this.lastName, payoutMethodDetailsBWPBank.lastName) &&
+        Objects.equals(this.bankName, payoutMethodDetailsBWPBank.bankName) &&
+        Objects.equals(this.bankAccount, payoutMethodDetailsBWPBank.bankAccount) &&
+        Objects.equals(this.branchCode, payoutMethodDetailsBWPBank.branchCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankAccount, bankName);
+    return Objects.hash(firstName, lastName, bankName, bankAccount, branchCode);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PayoutMethodDetailsNZDBank {\n");
+    sb.append("class PayoutMethodDetailsBWPBank {\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
+    sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
+    sb.append("    branchCode: ").append(toIndentedString(branchCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

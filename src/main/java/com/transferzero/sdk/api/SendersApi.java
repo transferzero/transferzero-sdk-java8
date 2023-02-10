@@ -1,6 +1,6 @@
 /*
- * BitPesa Private API
- * API specification used for internal BitPesa endpoints
+ * TransferZero API
+ * Reference documentation for the TransferZero API V1
  *
  * OpenAPI spec version: 1.0
  * 
@@ -57,96 +57,6 @@ public class SendersApi {
         this.localVarApiClient = apiClient;
     }
 
-    /**
-     * Build call for confirmSenderVerification
-     * @param senderID ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670/confirm_verification&#x60; (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call confirmSenderVerificationCall(UUID senderID, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
-
-        // create path and map variables
-        String localVarPath = "/senders/{Sender ID}/confirm_verification"
-            .replaceAll("\\{" + "Sender ID" + "\\}", localVarApiClient.escapeString(senderID.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] { "AuthorizationKey", "AuthorizationNonce", "AuthorizationSecret", "AuthorizationSignature" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call confirmSenderVerificationValidateBeforeCall(UUID senderID, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'senderID' is set
-        if (senderID == null) {
-            throw new ApiException("Missing the required parameter 'senderID' when calling confirmSenderVerification(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = confirmSenderVerificationCall(senderID, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * Change sender onboarding state to &#39;profile_completed&#39;
-     * Transition sender to the &#39;profile_completed&#39; onboarding state. This will only work if the sender has all the required documents uploaded and profile information present. 
-     * @param senderID ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670/confirm_verification&#x60; (required)
-     * @return SenderResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public SenderResponse confirmSenderVerification(UUID senderID) throws ApiException {
-        ApiResponse<SenderResponse> localVarResp = confirmSenderVerificationWithHttpInfo(senderID);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Change sender onboarding state to &#39;profile_completed&#39;
-     * Transition sender to the &#39;profile_completed&#39; onboarding state. This will only work if the sender has all the required documents uploaded and profile information present. 
-     * @param senderID ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670/confirm_verification&#x60; (required)
-     * @return ApiResponse&lt;SenderResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<SenderResponse> confirmSenderVerificationWithHttpInfo(UUID senderID) throws ApiException {
-        okhttp3.Call localVarCall = confirmSenderVerificationValidateBeforeCall(senderID, null);
-        Type localVarReturnType = new TypeToken<SenderResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Change sender onboarding state to &#39;profile_completed&#39; (asynchronously)
-     * Transition sender to the &#39;profile_completed&#39; onboarding state. This will only work if the sender has all the required documents uploaded and profile information present. 
-     * @param senderID ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670/confirm_verification&#x60; (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call confirmSenderVerificationAsync(UUID senderID, final ApiCallback<SenderResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = confirmSenderVerificationValidateBeforeCall(senderID, _callback);
-        Type localVarReturnType = new TypeToken<SenderResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
     /**
      * Build call for deleteSender
      * @param senderID ID of the sender to delete.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; (required)

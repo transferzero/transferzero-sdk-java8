@@ -1,6 +1,6 @@
 /*
- * BitPesa Private API
- * API specification used for internal BitPesa endpoints
+ * TransferZero API
+ * Reference documentation for the TransferZero API V1
  *
  * OpenAPI spec version: 1.0
  * 
@@ -25,6 +25,7 @@ import com.transferzero.sdk.model.PayoutMethodCashProviderEnum;
 import com.transferzero.sdk.model.PayoutMethodCountryEnum;
 import com.transferzero.sdk.model.PayoutMethodDetailsBRLBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsBTC;
+import com.transferzero.sdk.model.PayoutMethodDetailsBWPBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsBalance;
 import com.transferzero.sdk.model.PayoutMethodDetailsGBPBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsGHSBank;
@@ -883,7 +884,7 @@ public class PayoutMethodDetails {
    * Get branchCode
    * @return branchCode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getBranchCode() {
     return branchCode;
   }
