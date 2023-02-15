@@ -1,6 +1,6 @@
 # RecipientsApi
 
-All URIs are relative to *https://api-sandbox.transferzero.com/v1*
+All URIs are relative to *https://api-sandbox.bitpesa.co/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,7 +30,7 @@ Cancels the payment to the recipient specified in the URL path.  Please note rec
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 RecipientsApi apiInstance = new RecipientsApi(apiClient);
 UUID recipientID = new UUID(); // UUID | ID of recipient to cancel.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33`
@@ -67,7 +67,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
@@ -94,7 +94,7 @@ Fetches details of all recipients.
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 RecipientsApi apiInstance = new RecipientsApi(apiClient);
 Integer page = 1; // Integer | The page number to request (defaults to 1)
@@ -154,7 +154,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
@@ -181,7 +181,7 @@ Updates the recipient specified in the URL path.  Please note that only recipien
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 RecipientsApi apiInstance = new RecipientsApi(apiClient);
 UUID recipientID = new UUID(); // UUID | ID of recipient to update.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33`
@@ -220,7 +220,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
@@ -247,7 +247,7 @@ Returns a list of uploaded proof of payment files for a transaction recipient
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 RecipientsApi apiInstance = new RecipientsApi(apiClient);
 UUID recipientID = new UUID(); // UUID | ID of the recipient for whom the proof of payments will be returned.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments`
@@ -284,7 +284,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
