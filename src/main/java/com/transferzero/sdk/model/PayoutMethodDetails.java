@@ -1,6 +1,6 @@
 /*
- * BitPesa Private API
- * API specification used for internal BitPesa endpoints
+ * TransferZero API
+ * Reference documentation for the TransferZero API V1
  *
  * OpenAPI spec version: 1.0
  * 
@@ -47,6 +47,7 @@ import com.transferzero.sdk.model.PayoutMethodDetailsXOFBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsZARBank;
+import com.transferzero.sdk.model.PayoutMethodDetailsZMWBank;
 import com.transferzero.sdk.model.PayoutMethodGenderEnum;
 import com.transferzero.sdk.model.PayoutMethodIdentityCardTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodLegalEntityTypeEnum;

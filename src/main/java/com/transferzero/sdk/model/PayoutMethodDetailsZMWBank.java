@@ -20,17 +20,16 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.transferzero.sdk.model.PayoutMethodCountryEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;phone_number\&quot;: \&quot;+2341234567\&quot;, // E.164 international format     \&quot;country\&quot;: \&quot;NG\&quot;   } &#x60;&#x60;&#x60; See [USD Cash](https://docs.transferzero.com/docs/payout-details/#usdcash) documentation for the country list
+ * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,   \&quot;branch_code\&quot;: \&quot;ZM210003\&quot;, } &#x60;&#x60;&#x60; See [ZMW Bank](https://docs.transferzero.com/docs/payout-details/#zmwbank) documentation for the branch_code list
  */
-@ApiModel(description = "```JSON   \"details\": {     \"first_name\": \"Jane\",     \"last_name\": \"Doe\",     \"phone_number\": \"+2341234567\", // E.164 international format     \"country\": \"NG\"   } ``` See [USD Cash](https://docs.transferzero.com/docs/payout-details/#usdcash) documentation for the country list")
+@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"bank_account\": \"1234567890\",   \"branch_code\": \"ZM210003\", } ``` See [ZMW Bank](https://docs.transferzero.com/docs/payout-details/#zmwbank) documentation for the branch_code list")
 
-public class PayoutMethodDetailsUSDCash {
+public class PayoutMethodDetailsZMWBank {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
@@ -39,15 +38,15 @@ public class PayoutMethodDetailsUSDCash {
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
   private String lastName;
 
-  public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
-  @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
-  private String phoneNumber;
+  public static final String SERIALIZED_NAME_BANK_ACCOUNT = "bank_account";
+  @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT)
+  private String bankAccount;
 
-  public static final String SERIALIZED_NAME_COUNTRY = "country";
-  @SerializedName(SERIALIZED_NAME_COUNTRY)
-  private PayoutMethodCountryEnum country;
+  public static final String SERIALIZED_NAME_BRANCH_CODE = "branch_code";
+  @SerializedName(SERIALIZED_NAME_BRANCH_CODE)
+  private String branchCode;
 
-  public PayoutMethodDetailsUSDCash firstName(String firstName) {
+  public PayoutMethodDetailsZMWBank firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -65,7 +64,7 @@ public class PayoutMethodDetailsUSDCash {
     this.firstName = firstName;
   }
 
-  public PayoutMethodDetailsUSDCash lastName(String lastName) {
+  public PayoutMethodDetailsZMWBank lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -83,40 +82,40 @@ public class PayoutMethodDetailsUSDCash {
     this.lastName = lastName;
   }
 
-  public PayoutMethodDetailsUSDCash phoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
+  public PayoutMethodDetailsZMWBank bankAccount(String bankAccount) {
+    this.bankAccount = bankAccount;
     return this;
   }
 
    /**
-   * Get phoneNumber
-   * @return phoneNumber
+   * Get bankAccount
+   * @return bankAccount
   **/
   @ApiModelProperty(required = true, value = "")
-  public String getPhoneNumber() {
-    return phoneNumber;
+  public String getBankAccount() {
+    return bankAccount;
   }
 
-  public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
+  public void setBankAccount(String bankAccount) {
+    this.bankAccount = bankAccount;
   }
 
-  public PayoutMethodDetailsUSDCash country(PayoutMethodCountryEnum country) {
-    this.country = country;
+  public PayoutMethodDetailsZMWBank branchCode(String branchCode) {
+    this.branchCode = branchCode;
     return this;
   }
 
    /**
-   * Get country
-   * @return country
+   * Get branchCode
+   * @return branchCode
   **/
   @ApiModelProperty(required = true, value = "")
-  public PayoutMethodCountryEnum getCountry() {
-    return country;
+  public String getBranchCode() {
+    return branchCode;
   }
 
-  public void setCountry(PayoutMethodCountryEnum country) {
-    this.country = country;
+  public void setBranchCode(String branchCode) {
+    this.branchCode = branchCode;
   }
 
 
@@ -128,27 +127,27 @@ public class PayoutMethodDetailsUSDCash {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PayoutMethodDetailsUSDCash payoutMethodDetailsUSDCash = (PayoutMethodDetailsUSDCash) o;
-    return Objects.equals(this.firstName, payoutMethodDetailsUSDCash.firstName) &&
-        Objects.equals(this.lastName, payoutMethodDetailsUSDCash.lastName) &&
-        Objects.equals(this.phoneNumber, payoutMethodDetailsUSDCash.phoneNumber) &&
-        Objects.equals(this.country, payoutMethodDetailsUSDCash.country);
+    PayoutMethodDetailsZMWBank payoutMethodDetailsZMWBank = (PayoutMethodDetailsZMWBank) o;
+    return Objects.equals(this.firstName, payoutMethodDetailsZMWBank.firstName) &&
+        Objects.equals(this.lastName, payoutMethodDetailsZMWBank.lastName) &&
+        Objects.equals(this.bankAccount, payoutMethodDetailsZMWBank.bankAccount) &&
+        Objects.equals(this.branchCode, payoutMethodDetailsZMWBank.branchCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, phoneNumber, country);
+    return Objects.hash(firstName, lastName, bankAccount, branchCode);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PayoutMethodDetailsUSDCash {\n");
+    sb.append("class PayoutMethodDetailsZMWBank {\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-    sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
+    sb.append("    branchCode: ").append(toIndentedString(branchCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
