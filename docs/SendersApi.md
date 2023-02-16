@@ -1,80 +1,15 @@
 # SendersApi
 
-All URIs are relative to *https://api-sandbox.bitpesa.co/v1*
+All URIs are relative to *https://api-sandbox.transferzero.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**confirmSenderVerification**](SendersApi.md#confirmSenderVerification) | **POST** /senders/{Sender ID}/confirm_verification | Change sender onboarding state to &#39;profile_completed&#39;
 [**deleteSender**](SendersApi.md#deleteSender) | **DELETE** /senders/{Sender ID} | Deleting a sender
 [**getSender**](SendersApi.md#getSender) | **GET** /senders/{Sender ID} | Fetching a sender
 [**getSenders**](SendersApi.md#getSenders) | **GET** /senders | Listing senders
 [**patchSender**](SendersApi.md#patchSender) | **PATCH** /senders/{Sender ID} | Updating a sender
 [**postSenders**](SendersApi.md#postSenders) | **POST** /senders | Creating a sender
 
-
-<a name="confirmSenderVerification"></a>
-# **confirmSenderVerification**
-> SenderResponse confirmSenderVerification(senderID)
-
-Change sender onboarding state to &#39;profile_completed&#39;
-
-Transition sender to the &#39;profile_completed&#39; onboarding state. This will only work if the sender has all the required documents uploaded and profile information present. 
-
-### Example
-```java
-// Import classes:
-//import com.transferzero.sdk.ApiClient;
-//import com.transferzero.sdk.ApiException;
-//import com.transferzero.sdk.Configuration;
-//import com.transferzero.sdk.auth.*;
-//import com.transferzero.sdk.api.SendersApi;
-
-ApiClient apiClient = new ApiClient();
-apiClient.setApiKey("<key>");
-apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
-
-SendersApi apiInstance = new SendersApi(apiClient);
-UUID senderID = new UUID(); // UUID | ID of the sender to get.  Example: `/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670/confirm_verification`
-try {
-    SenderResponse result = apiInstance.confirmSenderVerification(senderID);
-    System.out.println(result);
-} catch (ApiException e) {
-    if (e.isValidationError()) {
-        SenderResponse result = e.getResponseObject(SenderResponse.class);
-        System.out.println(result);
-        System.err.println("WARN: Validation error occurred when calling the endpoint");
-    } else {
-        System.err.println("Exception when calling SendersApi#confirmSenderVerification");
-        e.printStackTrace();
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **senderID** | [**UUID**](.md)| ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670/confirm_verification&#x60; |
-
-### Return type
-
-[**SenderResponse**](SenderResponse.md)
-
-## Authorization
-
-You can set the API Key and Secret on the ApiClient object for authentication:
-
-```java
-ApiClient apiClient = new ApiClient();
-apiClient.setApiKey("<key>");
-apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
-```
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
 
 <a name="deleteSender"></a>
 # **deleteSender**
@@ -96,7 +31,7 @@ Deletes a single sender by the Sender ID
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
+apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 SendersApi apiInstance = new SendersApi(apiClient);
 UUID senderID = new UUID(); // UUID | ID of the sender to delete.  Example: `/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670`
@@ -133,7 +68,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
+apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 ```
 ### HTTP request headers
 
@@ -160,7 +95,7 @@ Returns a single sender by the Sender ID
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
+apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 SendersApi apiInstance = new SendersApi(apiClient);
 UUID senderID = new UUID(); // UUID | ID of the sender to get.  Example: `/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670`
@@ -198,7 +133,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
+apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 ```
 ### HTTP request headers
 
@@ -225,7 +160,7 @@ Get a list of available senders
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
+apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 SendersApi apiInstance = new SendersApi(apiClient);
 Integer page = 1; // Integer | The page number to request (defaults to 1)
@@ -276,7 +211,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
+apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 ```
 ### HTTP request headers
 
@@ -303,7 +238,7 @@ Updates a single sender by the Sender ID
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
+apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 SendersApi apiInstance = new SendersApi(apiClient);
 UUID senderID = new UUID(); // UUID | ID of the sender to get.  Example: `/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670`
@@ -342,7 +277,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
+apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 ```
 ### HTTP request headers
 
@@ -369,7 +304,7 @@ Creates a new sender in our system.
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
+apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 
 SendersApi apiInstance = new SendersApi(apiClient);
 SenderRequest senderRequest = {
@@ -442,7 +377,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
+apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
 ```
 ### HTTP request headers
 
