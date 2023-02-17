@@ -1,6 +1,6 @@
 # TransactionsApi
 
-All URIs are relative to *https://api-sandbox.transferzero.com/v1*
+All URIs are relative to *https://api-sandbox.bitpesa.co/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -34,7 +34,7 @@ Calculates the input, output and fee amounts for the recipients in a transaction
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 TransactionsApi apiInstance = new TransactionsApi(apiClient);
 TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest | 
@@ -71,7 +71,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
@@ -98,7 +98,7 @@ This endpoint creates a transaction and funds it from an account balance. You mu
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 TransactionsApi apiInstance = new TransactionsApi(apiClient);
 TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest | 
@@ -135,7 +135,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
@@ -162,7 +162,7 @@ Finds and returns a Transaction created by the requesting API key, using the pro
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 TransactionsApi apiInstance = new TransactionsApi(apiClient);
 UUID transactionID = new UUID(); // UUID | ID of the transaction.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670`
@@ -200,7 +200,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
@@ -227,7 +227,7 @@ Retrieves a paginated list of the Transactions created by your API key.
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 TransactionsApi apiInstance = new TransactionsApi(apiClient);
 Integer page = 1; // Integer | The page number to request (defaults to 1)
@@ -278,7 +278,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
@@ -305,7 +305,7 @@ This method is available only in sandbox environment and is supposed to be used 
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 TransactionsApi apiInstance = new TransactionsApi(apiClient);
 UUID transactionID = new UUID(); // UUID | ID of the transaction to payin.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670/payin`
@@ -344,7 +344,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
@@ -371,7 +371,7 @@ This method is available only in sandbox environment and is supposed to be used 
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 TransactionsApi apiInstance = new TransactionsApi(apiClient);
 UUID transactionID = new UUID(); // UUID | ID of the transaction to payout.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670/payout`
@@ -408,7 +408,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
@@ -435,7 +435,7 @@ Transactions are the main objects in the TransferZero API, so it&#39;s important
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 TransactionsApi apiInstance = new TransactionsApi(apiClient);
 TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest | 
@@ -472,7 +472,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
@@ -499,7 +499,7 @@ Validates fields in a transaction payload and displays invalid or missing fields
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 TransactionsApi apiInstance = new TransactionsApi(apiClient);
 TransactionRequest transactionRequest = new TransactionRequest(); // TransactionRequest | 
@@ -536,7 +536,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
