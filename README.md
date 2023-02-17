@@ -45,7 +45,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.transferzero.sdk</groupId>
   <artifactId>transferzero-sdk-java8</artifactId>
-  <version>1.24.0-SNAPSHOT</version>
+  <version>1.25.0-SNAPSHOT</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -55,7 +55,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.transferzero.sdk:transferzero-sdk-java8:1.24.0-SNAPSHOT"
+compile "com.transferzero.sdk:transferzero-sdk-java8:1.25.0-SNAPSHOT"
 ```
 
 ### Others
@@ -68,7 +68,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/transferzero-sdk-java8-1.24.0-SNAPSHOT.jar`
+* `target/transferzero-sdk-java8-1.25.0-SNAPSHOT.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -222,6 +222,7 @@ Class | Method | HTTP request | Description
  - [PayoutMethodDetails](docs/PayoutMethodDetails.md)
  - [PayoutMethodDetailsBRLBank](docs/PayoutMethodDetailsBRLBank.md)
  - [PayoutMethodDetailsBTC](docs/PayoutMethodDetailsBTC.md)
+ - [PayoutMethodDetailsBWPBank](docs/PayoutMethodDetailsBWPBank.md)
  - [PayoutMethodDetailsBalance](docs/PayoutMethodDetailsBalance.md)
  - [PayoutMethodDetailsGBPBank](docs/PayoutMethodDetailsGBPBank.md)
  - [PayoutMethodDetailsGHSBank](docs/PayoutMethodDetailsGHSBank.md)
@@ -243,6 +244,7 @@ Class | Method | HTTP request | Description
  - [PayoutMethodDetailsXOFCash](docs/PayoutMethodDetailsXOFCash.md)
  - [PayoutMethodDetailsXOFMobile](docs/PayoutMethodDetailsXOFMobile.md)
  - [PayoutMethodDetailsZARBank](docs/PayoutMethodDetailsZARBank.md)
+ - [PayoutMethodDetailsZMWBank](docs/PayoutMethodDetailsZMWBank.md)
  - [PayoutMethodGenderEnum](docs/PayoutMethodGenderEnum.md)
  - [PayoutMethodIdentityCardTypeEnum](docs/PayoutMethodIdentityCardTypeEnum.md)
  - [PayoutMethodLegalEntityTypeEnum](docs/PayoutMethodLegalEntityTypeEnum.md)
