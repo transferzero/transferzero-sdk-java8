@@ -25,7 +25,6 @@ import com.transferzero.sdk.model.PayoutMethodCashProviderEnum;
 import com.transferzero.sdk.model.PayoutMethodCountryEnum;
 import com.transferzero.sdk.model.PayoutMethodDetailsBRLBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsBTC;
-import com.transferzero.sdk.model.PayoutMethodDetailsBWPBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsBalance;
 import com.transferzero.sdk.model.PayoutMethodDetailsGBPBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsGHSBank;
@@ -47,7 +46,6 @@ import com.transferzero.sdk.model.PayoutMethodDetailsXOFBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsZARBank;
-import com.transferzero.sdk.model.PayoutMethodDetailsZMWBank;
 import com.transferzero.sdk.model.PayoutMethodGenderEnum;
 import com.transferzero.sdk.model.PayoutMethodIdentityCardTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodLegalEntityTypeEnum;
@@ -885,7 +883,7 @@ public class PayoutMethodDetails {
    * Get branchCode
    * @return branchCode
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getBranchCode() {
     return branchCode;
   }
