@@ -1,6 +1,6 @@
 # AccountDebitsApi
 
-All URIs are relative to *https://api-sandbox.transferzero.com/v1*
+All URIs are relative to *https://api-sandbox.bitpesa.co/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,7 +29,7 @@ Returns a single account debit by the account debit ID
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 AccountDebitsApi apiInstance = new AccountDebitsApi(apiClient);
 UUID accountDebitID = new UUID(); // UUID | ID of the account debit to get.  Example: `/v1/accounts/debits/9170c890-1a45-46bd-9b79-3deeb8b4ff3d`
@@ -67,7 +67,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
@@ -94,7 +94,7 @@ Get a list of accounts debits
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 AccountDebitsApi apiInstance = new AccountDebitsApi(apiClient);
 Integer page = 1; // Integer | The page number to request (defaults to 1)
@@ -136,7 +136,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
@@ -163,7 +163,7 @@ Creates a new account debit finding transaction through the internal balance  To
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 
 AccountDebitsApi apiInstance = new AccountDebitsApi(apiClient);
 DebitRequestWrapper debitRequestWrapper = {"debit":{"currency":"NGN","amount":"2000.0","to_id":"5f44026b-7904-4c30-87d6-f8972d790ded","to_type":"Transaction"}}; // DebitRequestWrapper | 
@@ -200,7 +200,7 @@ You can set the API Key and Secret on the ApiClient object for authentication:
 ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
-apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+apiClient.setBasePath("https://api-sandbox.bitpesa.co/v1");
 ```
 ### HTTP request headers
 
