@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;ID&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card
+ * The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;ID&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card - &#x60;DL&#x60;: Driving License - &#x60;OT&#x60;: Other type of identity card
  */
 @JsonAdapter(PayoutMethodIdentityCardTypeEnum.Adapter.class)
 public enum PayoutMethodIdentityCardTypeEnum {
@@ -34,7 +34,11 @@ public enum PayoutMethodIdentityCardTypeEnum {
   
   PP("PP"),
   
-  ID("ID");
+  ID("ID"),
+  
+  DL("DL"),
+  
+  OT("OT");
 
   private String value;
 
