@@ -209,13 +209,17 @@ public class PayoutMethodDetails {
   @SerializedName(SERIALIZED_NAME_LEGAL_ENTITY_TYPE)
   private PayoutMethodLegalEntityTypeEnum legalEntityType;
 
-  public static final String SERIALIZED_NAME_BRANCH_CODE = "branch_code";
-  @SerializedName(SERIALIZED_NAME_BRANCH_CODE)
-  private String branchCode;
+  public static final String SERIALIZED_NAME_ROUTING_NUMBER = "routing_number";
+  @SerializedName(SERIALIZED_NAME_ROUTING_NUMBER)
+  private String routingNumber;
 
   public static final String SERIALIZED_NAME_SWIFT_CODE = "swift_code";
   @SerializedName(SERIALIZED_NAME_SWIFT_CODE)
   private String swiftCode;
+
+  public static final String SERIALIZED_NAME_BRANCH_CODE = "branch_code";
+  @SerializedName(SERIALIZED_NAME_BRANCH_CODE)
+  private String branchCode;
 
   public static final String SERIALIZED_NAME_PIX_KEY_TYPE = "pix_key_type";
   @SerializedName(SERIALIZED_NAME_PIX_KEY_TYPE)
@@ -877,22 +881,22 @@ public class PayoutMethodDetails {
     this.legalEntityType = legalEntityType;
   }
 
-  public PayoutMethodDetails branchCode(String branchCode) {
-    this.branchCode = branchCode;
+  public PayoutMethodDetails routingNumber(String routingNumber) {
+    this.routingNumber = routingNumber;
     return this;
   }
 
    /**
-   * Get branchCode
-   * @return branchCode
+   * Get routingNumber
+   * @return routingNumber
   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getBranchCode() {
-    return branchCode;
+  @ApiModelProperty(value = "")
+  public String getRoutingNumber() {
+    return routingNumber;
   }
 
-  public void setBranchCode(String branchCode) {
-    this.branchCode = branchCode;
+  public void setRoutingNumber(String routingNumber) {
+    this.routingNumber = routingNumber;
   }
 
   public PayoutMethodDetails swiftCode(String swiftCode) {
@@ -911,6 +915,24 @@ public class PayoutMethodDetails {
 
   public void setSwiftCode(String swiftCode) {
     this.swiftCode = swiftCode;
+  }
+
+  public PayoutMethodDetails branchCode(String branchCode) {
+    this.branchCode = branchCode;
+    return this;
+  }
+
+   /**
+   * Get branchCode
+   * @return branchCode
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getBranchCode() {
+    return branchCode;
+  }
+
+  public void setBranchCode(String branchCode) {
+    this.branchCode = branchCode;
   }
 
   public PayoutMethodDetails pixKeyType(PayoutMethodPixKeyTypeEnum pixKeyType) {
@@ -1013,8 +1035,9 @@ public class PayoutMethodDetails {
         Objects.equals(this.registrationNumber, payoutMethodDetails.registrationNumber) &&
         Objects.equals(this.natureOfBusiness, payoutMethodDetails.natureOfBusiness) &&
         Objects.equals(this.legalEntityType, payoutMethodDetails.legalEntityType) &&
-        Objects.equals(this.branchCode, payoutMethodDetails.branchCode) &&
+        Objects.equals(this.routingNumber, payoutMethodDetails.routingNumber) &&
         Objects.equals(this.swiftCode, payoutMethodDetails.swiftCode) &&
+        Objects.equals(this.branchCode, payoutMethodDetails.branchCode) &&
         Objects.equals(this.pixKeyType, payoutMethodDetails.pixKeyType) &&
         Objects.equals(this.pixKeyValue, payoutMethodDetails.pixKeyValue) &&
         Objects.equals(this.ifscCode, payoutMethodDetails.ifscCode);
@@ -1022,7 +1045,7 @@ public class PayoutMethodDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, branchCode, swiftCode, pixKeyType, pixKeyValue, ifscCode);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, routingNumber, swiftCode, branchCode, pixKeyType, pixKeyValue, ifscCode);
   }
 
 
@@ -1066,8 +1089,9 @@ public class PayoutMethodDetails {
     sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
     sb.append("    natureOfBusiness: ").append(toIndentedString(natureOfBusiness)).append("\n");
     sb.append("    legalEntityType: ").append(toIndentedString(legalEntityType)).append("\n");
-    sb.append("    branchCode: ").append(toIndentedString(branchCode)).append("\n");
+    sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
     sb.append("    swiftCode: ").append(toIndentedString(swiftCode)).append("\n");
+    sb.append("    branchCode: ").append(toIndentedString(branchCode)).append("\n");
     sb.append("    pixKeyType: ").append(toIndentedString(pixKeyType)).append("\n");
     sb.append("    pixKeyValue: ").append(toIndentedString(pixKeyValue)).append("\n");
     sb.append("    ifscCode: ").append(toIndentedString(ifscCode)).append("\n");
