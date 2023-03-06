@@ -18,6 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.PayoutMethodBankAccountTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodCountryEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -79,6 +80,38 @@ public class PayoutMethodDetailsUSDBankTest {
     @Test
     public void bankAccountTest() {
         // TODO: test bankAccount
+    }
+
+    /**
+     * Test the property 'bankAccountType'
+     */
+    @Test
+    public void bankAccountTypeTest() {
+        // TODO: test bankAccountType
+    }
+
+    /**
+     * Test the property 'bankName'
+     */
+    @Test
+    public void bankNameTest() {
+        // TODO: test bankName
+    }
+
+    /**
+     * Test the property 'routingNumber'
+     */
+    @Test
+    public void routingNumberTest() {
+        // TODO: test routingNumber
+    }
+
+    /**
+     * Test the property 'swiftCode'
+     */
+    @Test
+    public void swiftCodeTest() {
+        // TODO: test swiftCode
     }
 
     /**
