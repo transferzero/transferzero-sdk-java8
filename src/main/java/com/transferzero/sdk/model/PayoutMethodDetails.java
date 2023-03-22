@@ -40,6 +40,7 @@ import com.transferzero.sdk.model.PayoutMethodDetailsMADCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsNGNBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsNZDBank;
+import com.transferzero.sdk.model.PayoutMethodDetailsUGXBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsUSDBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsUSDCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsXAFBank;
@@ -55,7 +56,6 @@ import com.transferzero.sdk.model.PayoutMethodLegalEntityTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
 import com.transferzero.sdk.model.PayoutMethodNatureOfBusinessEnum;
 import com.transferzero.sdk.model.PayoutMethodPixKeyTypeEnum;
-import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -99,7 +99,7 @@ public class PayoutMethodDetails {
 
   public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
   @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
-  private PayoutMethodTransferReasonEnum transferReason;
+  private String transferReason;
 
   public static final String SERIALIZED_NAME_IBAN = "iban";
   @SerializedName(SERIALIZED_NAME_IBAN)
@@ -377,7 +377,7 @@ public class PayoutMethodDetails {
     this.country = country;
   }
 
-  public PayoutMethodDetails transferReason(PayoutMethodTransferReasonEnum transferReason) {
+  public PayoutMethodDetails transferReason(String transferReason) {
     this.transferReason = transferReason;
     return this;
   }
@@ -387,11 +387,11 @@ public class PayoutMethodDetails {
    * @return transferReason
   **/
   @ApiModelProperty(required = true, value = "")
-  public PayoutMethodTransferReasonEnum getTransferReason() {
+  public String getTransferReason() {
     return transferReason;
   }
 
-  public void setTransferReason(PayoutMethodTransferReasonEnum transferReason) {
+  public void setTransferReason(String transferReason) {
     this.transferReason = transferReason;
   }
 

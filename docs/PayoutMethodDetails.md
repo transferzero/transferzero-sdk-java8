@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **phoneNumber** | **String** |  | 
 **mobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
 **country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  | 
-**transferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | 
+**transferReason** | **String** |  | 
 **iban** | **String** |  | 
 **bankName** | **String** |  | 
 **bankCountry** | **String** |  |  [optional]
