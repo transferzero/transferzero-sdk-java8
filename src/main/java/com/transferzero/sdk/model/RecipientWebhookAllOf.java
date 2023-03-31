@@ -21,49 +21,20 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.Recipient;
-import com.transferzero.sdk.model.RecipientWebhookAllOf;
-import com.transferzero.sdk.model.Webhook;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.UUID;
 
 /**
- * RecipientWebhook
+ * RecipientWebhookAllOf
  */
 
-public class RecipientWebhook {
-  public static final String SERIALIZED_NAME_WEBHOOK = "webhook";
-  @SerializedName(SERIALIZED_NAME_WEBHOOK)
-  private UUID webhook;
-
-  public static final String SERIALIZED_NAME_EVENT = "event";
-  @SerializedName(SERIALIZED_NAME_EVENT)
-  private String event;
-
+public class RecipientWebhookAllOf {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private Recipient _object = null;
 
-   /**
-   * The ID of the webhook that was used to send out this callback
-   * @return webhook
-  **/
-  @ApiModelProperty(example = "b2f574ff-7efe-4579-9f16-fcb9097e5ab6", required = true, value = "The ID of the webhook that was used to send out this callback")
-  public UUID getWebhook() {
-    return webhook;
-  }
-
-   /**
-   * The event that triggered this webhook
-   * @return event
-  **/
-  @ApiModelProperty(example = "transaction.paid", required = true, value = "The event that triggered this webhook")
-  public String getEvent() {
-    return event;
-  }
-
-  public RecipientWebhook _object(Recipient _object) {
+  public RecipientWebhookAllOf _object(Recipient _object) {
     this._object = _object;
     return this;
   }
@@ -72,7 +43,7 @@ public class RecipientWebhook {
    * Get _object
    * @return _object
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Recipient getObject() {
     return _object;
   }
@@ -90,24 +61,20 @@ public class RecipientWebhook {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RecipientWebhook recipientWebhook = (RecipientWebhook) o;
-    return Objects.equals(this.webhook, recipientWebhook.webhook) &&
-        Objects.equals(this.event, recipientWebhook.event) &&
-        Objects.equals(this._object, recipientWebhook._object);
+    RecipientWebhookAllOf recipientWebhookAllOf = (RecipientWebhookAllOf) o;
+    return Objects.equals(this._object, recipientWebhookAllOf._object);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(webhook, event, _object);
+    return Objects.hash(_object);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RecipientWebhook {\n");
-    sb.append("    webhook: ").append(toIndentedString(webhook)).append("\n");
-    sb.append("    event: ").append(toIndentedString(event)).append("\n");
+    sb.append("class RecipientWebhookAllOf {\n");
     sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
     sb.append("}");
     return sb.toString();

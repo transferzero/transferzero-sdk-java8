@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.FieldDescription;
 import com.transferzero.sdk.model.PaymentMethod;
+import com.transferzero.sdk.model.PaymentMethodOppositeAllOf;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;

@@ -94,7 +94,7 @@ public class WebhookLog {
    * Date and time of response
    * @return createdAt
   **/
-  @ApiModelProperty(example = "2018-12-31T23:59:50.059+0000", value = "Date and time of response")
+  @ApiModelProperty(example = "2018-12-31T23:59:50.059Z", value = "Date and time of response")
   public String getCreatedAt() {
     return createdAt;
   }

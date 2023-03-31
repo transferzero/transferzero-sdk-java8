@@ -146,7 +146,7 @@ public class ApiLog {
    * Date and time of response
    * @return createdAt
   **/
-  @ApiModelProperty(example = "2019-01-11T00:00:00.001+0000", value = "Date and time of response")
+  @ApiModelProperty(example = "2019-01-11T00:00:00.001Z", value = "Date and time of response")
   public String getCreatedAt() {
     return createdAt;
   }
