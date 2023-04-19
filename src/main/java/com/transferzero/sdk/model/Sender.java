@@ -1521,7 +1521,7 @@ public class Sender {
    * Date and time of sender was created
    * @return createdAt
   **/
-  @ApiModelProperty(example = "2019-01-11T00:00:00.001Z", value = "Date and time of sender was created")
+  @ApiModelProperty(example = "2019-01-11T00:00:00.001+0000", value = "Date and time of sender was created")
   public String getCreatedAt() {
     return createdAt;
   }
