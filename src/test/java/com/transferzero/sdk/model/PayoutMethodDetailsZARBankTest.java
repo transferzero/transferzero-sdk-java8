@@ -100,6 +100,14 @@ public class PayoutMethodDetailsZARBankTest {
     }
 
     /**
+     * Test the property 'branchCode'
+     */
+    @Test
+    public void branchCodeTest() {
+        // TODO: test branchCode
+    }
+
+    /**
      * Test the property 'bankAccount'
      */
     @Test
