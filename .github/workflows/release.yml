@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - master
-      - BTA-11168-deployment
   workflow_dispatch:
     inputs:
       tag_name:
@@ -76,7 +75,7 @@ jobs:
           mvn release:prepare -Dresume=false -Prelease
           mvn release:perform -Prelease
 
-    # - name: Tag the release
-    #   run: |
-    #     git tag ${{ inputs.tag_name }} 
-    #     git push --tags 
+    - name: Tag the release
+      run: |
+        git tag ${{ inputs.tag_name }} 
+        git push --tags 
