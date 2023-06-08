@@ -1,0 +1,82 @@
+name: Publish Package to Maven
+on:
+  push:
+    branches:
+      - master
+      - BTA-11168-deployment
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'The name of the tag to be created.'
+        required: true
+        type: string
+
+jobs:
+  transferzero-java-sdk:
+    runs-on: ubuntu-latest
+    env:
+      MAVEN_OPTS: "-Xms64M -Xmx1600M -Dhttp.keepAlive=false -Dmaven.wagon.httpconnectionManager.ttlSeconds=15 -Dmaven.wagon.http.retryHandler.count=3 -Dmaven.wagon.rto=15000"
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: setup git config
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+
+    - name: Set up JDK 8
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'zulu'
+        java-version: 8
+        cache: 'maven'
+
+    - name: Generate the settings.xml file
+      env:
+        GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        SONATYPE_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+        SONATYPE_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
+        GPG_PVT_KEYNAME: ${{ secrets.GPG_PVT_KEYNAME }}
+      run: |
+          # rm ~/.m2/settings.xml
+          echo " <settings>" >> ~/.m2/settings.xml
+          echo "   <servers>" >> ~/.m2/settings.xml
+          echo "    <server>" >> ~/.m2/settings.xml
+          echo "     <id>ossrh</id>" >> ~/.m2/settings.xml
+          echo "     <username>$SONATYPE_USERNAME</username>" >> ~/.m2/settings.xml
+          echo "     <password>$SONATYPE_PASSWORD</password>" >> ~/.m2/settings.xml
+          echo "    </server>" >> ~/.m2/settings.xml
+          echo "   </servers>" >> ~/.m2/settings.xml
+          echo "   <profiles>" >> ~/.m2/settings.xml
+          echo "     <profile>" >> ~/.m2/settings.xml
+          echo "      <id>release</id>" >> ~/.m2/settings.xml
+          echo "      <properties>" >> ~/.m2/settings.xml
+          echo "        <gpg.keyname>$GPG_PVT_KEYNAME</gpg.keyname>" >> ~/.m2/settings.xml
+          echo "        <gpg.passphrase>$GPG_PASSPHRASE</gpg.passphrase>" >> ~/.m2/settings.xml
+          echo "      </properties>" >> ~/.m2/settings.xml
+          echo "     </profile>" >> ~/.m2/settings.xml
+          echo "   </profiles>" >> ~/.m2/settings.xml
+          echo " </settings>" >> ~/.m2/settings.xml
+
+    - name: SDK Release
+      env:
+        GPG_PVT: ${{ secrets.GPG_PVT }}
+        GPG_PUB: ${{ secrets.GPG_PUB }}
+        GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+      run: |
+          export GPG_TTY=$(tty)
+
+          echo -n '${{ secrets.GPG_PVT }}' > mvn_private_key.asc
+          echo -n '${{ secrets.GPG_PUB }}' > mvn_public_key.asc
+
+          gpg --batch --import mvn_private_key.asc
+          gpg --batch --import mvn_public_key.asc
+
+          mvn release:prepare -Dresume=false -Prelease
+          mvn release:perform -Prelease
+
+    # - name: Tag the release
+    #   run: |
+    #     git tag ${{ inputs.tag_name }} 
+    #     git push --tags 
