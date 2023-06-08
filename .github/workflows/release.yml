@@ -65,6 +65,7 @@ jobs:
         GPG_PUB: ${{ secrets.GPG_PUB }}
         GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
       run: |
+          cat ~/.m2/settings.xml
           export GPG_TTY=$(tty)
 
           echo -n '${{ secrets.GPG_PVT }}' > mvn_private_key.asc
