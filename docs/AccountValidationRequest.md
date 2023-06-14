@@ -25,6 +25,7 @@ NG | &quot;NG&quot;
 GH | &quot;GH&quot;
 SN | &quot;SN&quot;
 CI | &quot;CI&quot;
+UG | &quot;UG&quot;
 
 
 
@@ -35,6 +36,7 @@ Name | Value
 NGN | &quot;NGN&quot;
 GHS | &quot;GHS&quot;
 XOF | &quot;XOF&quot;
+UGX | &quot;UGX&quot;
 
 
 

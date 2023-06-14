@@ -61,7 +61,9 @@ public class AccountValidationRequest {
     
     SN("SN"),
     
-    CI("CI");
+    CI("CI"),
+    
+    UG("UG");
 
     private String value;
 
@@ -114,7 +116,9 @@ public class AccountValidationRequest {
     
     GHS("GHS"),
     
-    XOF("XOF");
+    XOF("XOF"),
+    
+    UGX("UGX");
 
     private String value;
 
