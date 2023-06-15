@@ -59,14 +59,6 @@ public class PayoutMethodDetailsKESBankTest {
     }
 
     /**
-     * Test the property 'bankCode'
-     */
-    @Test
-    public void bankCodeTest() {
-        // TODO: test bankCode
-    }
-
-    /**
      * Test the property 'street'
      */
     @Test
@@ -75,43 +67,27 @@ public class PayoutMethodDetailsKESBankTest {
     }
 
     /**
+     * Test the property 'city'
+     */
+    @Test
+    public void cityTest() {
+        // TODO: test city
+    }
+
+    /**
+     * Test the property 'bankCode'
+     */
+    @Test
+    public void bankCodeTest() {
+        // TODO: test bankCode
+    }
+
+    /**
      * Test the property 'bankAccount'
      */
     @Test
     public void bankAccountTest() {
         // TODO: test bankAccount
-    }
-
-    /**
-     * Test the property 'bankName'
-     */
-    @Test
-    public void bankNameTest() {
-        // TODO: test bankName
-    }
-
-    /**
-     * Test the property 'branchCode'
-     */
-    @Test
-    public void branchCodeTest() {
-        // TODO: test branchCode
-    }
-
-    /**
-     * Test the property 'swiftCode'
-     */
-    @Test
-    public void swiftCodeTest() {
-        // TODO: test swiftCode
-    }
-
-    /**
-     * Test the property 'transferReasonCode'
-     */
-    @Test
-    public void transferReasonCodeTest() {
-        // TODO: test transferReasonCode
     }
 
     /**
@@ -136,6 +112,14 @@ public class PayoutMethodDetailsKESBankTest {
     @Test
     public void identityCardIdTest() {
         // TODO: test identityCardId
+    }
+
+    /**
+     * Test the property 'relationshipToSender'
+     */
+    @Test
+    public void relationshipToSenderTest() {
+        // TODO: test relationshipToSender
     }
 
 }
