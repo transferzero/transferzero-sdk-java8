@@ -44,7 +44,8 @@ Name | Type | Description | Notes
 **natureOfBusiness** | [**PayoutMethodNatureOfBusinessEnum**](PayoutMethodNatureOfBusinessEnum.md) |  |  [optional]
 **legalEntityType** | [**PayoutMethodLegalEntityTypeEnum**](PayoutMethodLegalEntityTypeEnum.md) |  |  [optional]
 **routingNumber** | **String** |  |  [optional]
-**swiftCode** | **String** |  | 
+**swiftCode** | **String** |  |  [optional]
+**relationshipToSender** | **String** |  |  [optional]
 **pixKeyType** | [**PayoutMethodPixKeyTypeEnum**](PayoutMethodPixKeyTypeEnum.md) |  |  [optional]
 **pixKeyValue** | **String** |  |  [optional]
 **ifscCode** | **String** |  | 

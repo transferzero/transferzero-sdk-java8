@@ -221,6 +221,10 @@ public class PayoutMethodDetails {
   @SerializedName(SERIALIZED_NAME_SWIFT_CODE)
   private String swiftCode;
 
+  public static final String SERIALIZED_NAME_RELATIONSHIP_TO_SENDER = "relationship_to_sender";
+  @SerializedName(SERIALIZED_NAME_RELATIONSHIP_TO_SENDER)
+  private String relationshipToSender;
+
   public static final String SERIALIZED_NAME_PIX_KEY_TYPE = "pix_key_type";
   @SerializedName(SERIALIZED_NAME_PIX_KEY_TYPE)
   private PayoutMethodPixKeyTypeEnum pixKeyType;
@@ -926,13 +930,31 @@ public class PayoutMethodDetails {
    * Get swiftCode
    * @return swiftCode
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getSwiftCode() {
     return swiftCode;
   }
 
   public void setSwiftCode(String swiftCode) {
     this.swiftCode = swiftCode;
+  }
+
+  public PayoutMethodDetails relationshipToSender(String relationshipToSender) {
+    this.relationshipToSender = relationshipToSender;
+    return this;
+  }
+
+   /**
+   * Get relationshipToSender
+   * @return relationshipToSender
+  **/
+  @ApiModelProperty(value = "")
+  public String getRelationshipToSender() {
+    return relationshipToSender;
+  }
+
+  public void setRelationshipToSender(String relationshipToSender) {
+    this.relationshipToSender = relationshipToSender;
   }
 
   public PayoutMethodDetails pixKeyType(PayoutMethodPixKeyTypeEnum pixKeyType) {
@@ -1038,6 +1060,7 @@ public class PayoutMethodDetails {
         Objects.equals(this.legalEntityType, payoutMethodDetails.legalEntityType) &&
         Objects.equals(this.routingNumber, payoutMethodDetails.routingNumber) &&
         Objects.equals(this.swiftCode, payoutMethodDetails.swiftCode) &&
+        Objects.equals(this.relationshipToSender, payoutMethodDetails.relationshipToSender) &&
         Objects.equals(this.pixKeyType, payoutMethodDetails.pixKeyType) &&
         Objects.equals(this.pixKeyValue, payoutMethodDetails.pixKeyValue) &&
         Objects.equals(this.ifscCode, payoutMethodDetails.ifscCode);
@@ -1045,7 +1068,7 @@ public class PayoutMethodDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, branchCode, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, routingNumber, swiftCode, pixKeyType, pixKeyValue, ifscCode);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, branchCode, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, routingNumber, swiftCode, relationshipToSender, pixKeyType, pixKeyValue, ifscCode);
   }
 
 
@@ -1092,6 +1115,7 @@ public class PayoutMethodDetails {
     sb.append("    legalEntityType: ").append(toIndentedString(legalEntityType)).append("\n");
     sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
     sb.append("    swiftCode: ").append(toIndentedString(swiftCode)).append("\n");
+    sb.append("    relationshipToSender: ").append(toIndentedString(relationshipToSender)).append("\n");
     sb.append("    pixKeyType: ").append(toIndentedString(pixKeyType)).append("\n");
     sb.append("    pixKeyValue: ").append(toIndentedString(pixKeyValue)).append("\n");
     sb.append("    ifscCode: ").append(toIndentedString(ifscCode)).append("\n");

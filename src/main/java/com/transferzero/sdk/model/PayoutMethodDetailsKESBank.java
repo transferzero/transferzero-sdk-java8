@@ -27,9 +27,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;bank_code\&quot;: \&quot;68\&quot;,     \&quot;bank_account\&quot;: \&quot;12345678\&quot;,     \&quot;bank_name\&quot;: \&quot;Equity Bank Ltd\&quot;,     \&quot;branch_code\&quot;: \&quot;404\&quot;,     \&quot;swift_code\&quot; \&quot;ABCLKENA\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;, // New transfer reason field     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;,     \&quot;identity_card_id\&quot;: \&quot;AB12345678\&quot;   } &#x60;&#x60;&#x60;  The valid bank_code values are:  - Habib Bank Limited: 08 - Trans-National Bank Limited: 26 - Housing Finance Co. Kenya: 61 - UBA Kenya Bank Ltd: 76 - Kenya Commercial Bank: 01000 - Standard Chartered Bank: 02000 - Barclays Bank of Kenya: 03000 - Bank of India: 05000 - Bank of Boroda: 06000 - NCBA Bank: 07000 - Prime Bank: 10000 - Co-operative Bank of Kenya: 11000 - National Bank of Kenya: 12000 - M-Oriental Commercial Bank Limited: 14000 - Citibank: 16000 - Habib Bank A.G. Zurich: 17000 - Middle East Bank: 18000 - Bank of Africa Kenya: 19000 - Consolidated Bank of Kenya: 23000 - Credit Bank Ltd: 25000 - Chase Bank: 30000 - Stanbic Bank Kenya: 31000 - African Banking Corporation: 35000 - Giro Bank Limited: 42000 - ECO Bank Kenya: 43000 - Spire Bank Limited: 49000 - Paramount Universal Bank Limited: 50000 - Jamii Bora Bank: 51000 - Guaranty Trust Bank Kenya: 53000 - Victoria Bank Limited: 54000 - Guardian Bank: 55000 - Investments and Mortgages Bank Limited: 57000 - Development Bank of Kenya: 59000 - Fidelity Commercial Bank: 46000 - Diamond Trust Bank: 63000 - Sidian Bank: 66000 - Equity Bank Limited: 68000 - Family Bank: 70000 - Gulf African Bank: 72000 - First Community Bank: 74000 - KWFT Bank: 78000  See [KES Bank](https://docs.transferzero.com/docs/payout-details/#kesbank) documentation for the transfer_reason list
+ * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;city\&quot;: \&quot;Nairobi\&quot;     \&quot;bank_code\&quot;: \&quot;68\&quot;,     \&quot;bank_account\&quot;: \&quot;12345678\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;, // New transfer reason field     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;,     \&quot;identity_card_id\&quot;: \&quot;AB12345678\&quot;,     \&quot;relationship_to_sender\&quot;: \&quot;Relative\&quot;   } &#x60;&#x60;&#x60;  The valid bank_code values are:  - Absa Bank: 03 - African Banking Corporation: 35 - Bank of Africa Kenya: 19 - Citibank: 16 - Co-operative Bank of Kenya: 11 - Consolidated Bank of Kenya: 23 - Credit Bank Ltd: 25 - Diamond Trust Bank: 63 - DIB Bank: 75 - ECO Bank Kenya: 43 - Equity Bank Limited: 68 - Family Bank: 70 - First Community Bank: 74 - Guaranty Trust Bank Kenya: 53 - Guardian Bank: 55 - Gulf African Bank : 72 - Housing Finance Co. Kenya: 61 - I&amp;M Bank: 57 - Kingdom Bank: 51 - Kenya Commercial Bank: 01 - KWFT Bank: 78 - Mayfair Bank: 65 - M-Oriental Commercial Bank Limited: 14 - Middle East Bank: 18 - National Bank of Kenya: 12 - NCBA Bank: 07 - Paramount Universal Bank Limited: 50 - Prime Bank: 10 - Sidian Bank: 66 - Stanbic Bank Kenya: 31 - Standard Chartered Bank: 02 - UBA Kenya Bank Ltd: 76 - Victoria Bank Limited: 54   See [KES Bank](https://docs.transferzero.com/docs/payout-details/#kesbank) documentation for the transfer_reason list
  */
-@ApiModel(description = "```JSON   \"details\": {     \"first_name\": \"First\",     \"last_name\": \"Last\",     \"street\": \"Main Street\",     \"bank_code\": \"68\",     \"bank_account\": \"12345678\",     \"bank_name\": \"Equity Bank Ltd\",     \"branch_code\": \"404\",     \"swift_code\" \"ABCLKENA\",     \"transfer_reason\": \"personal_account\", // New transfer reason field     \"identity_card_type\": \"ID\",     \"identity_card_id\": \"AB12345678\"   } ```  The valid bank_code values are:  - Habib Bank Limited: 08 - Trans-National Bank Limited: 26 - Housing Finance Co. Kenya: 61 - UBA Kenya Bank Ltd: 76 - Kenya Commercial Bank: 01000 - Standard Chartered Bank: 02000 - Barclays Bank of Kenya: 03000 - Bank of India: 05000 - Bank of Boroda: 06000 - NCBA Bank: 07000 - Prime Bank: 10000 - Co-operative Bank of Kenya: 11000 - National Bank of Kenya: 12000 - M-Oriental Commercial Bank Limited: 14000 - Citibank: 16000 - Habib Bank A.G. Zurich: 17000 - Middle East Bank: 18000 - Bank of Africa Kenya: 19000 - Consolidated Bank of Kenya: 23000 - Credit Bank Ltd: 25000 - Chase Bank: 30000 - Stanbic Bank Kenya: 31000 - African Banking Corporation: 35000 - Giro Bank Limited: 42000 - ECO Bank Kenya: 43000 - Spire Bank Limited: 49000 - Paramount Universal Bank Limited: 50000 - Jamii Bora Bank: 51000 - Guaranty Trust Bank Kenya: 53000 - Victoria Bank Limited: 54000 - Guardian Bank: 55000 - Investments and Mortgages Bank Limited: 57000 - Development Bank of Kenya: 59000 - Fidelity Commercial Bank: 46000 - Diamond Trust Bank: 63000 - Sidian Bank: 66000 - Equity Bank Limited: 68000 - Family Bank: 70000 - Gulf African Bank: 72000 - First Community Bank: 74000 - KWFT Bank: 78000  See [KES Bank](https://docs.transferzero.com/docs/payout-details/#kesbank) documentation for the transfer_reason list")
+@ApiModel(description = "```JSON   \"details\": {     \"first_name\": \"First\",     \"last_name\": \"Last\",     \"street\": \"Main Street\",     \"city\": \"Nairobi\"     \"bank_code\": \"68\",     \"bank_account\": \"12345678\",     \"transfer_reason\": \"personal_account\", // New transfer reason field     \"identity_card_type\": \"ID\",     \"identity_card_id\": \"AB12345678\",     \"relationship_to_sender\": \"Relative\"   } ```  The valid bank_code values are:  - Absa Bank: 03 - African Banking Corporation: 35 - Bank of Africa Kenya: 19 - Citibank: 16 - Co-operative Bank of Kenya: 11 - Consolidated Bank of Kenya: 23 - Credit Bank Ltd: 25 - Diamond Trust Bank: 63 - DIB Bank: 75 - ECO Bank Kenya: 43 - Equity Bank Limited: 68 - Family Bank: 70 - First Community Bank: 74 - Guaranty Trust Bank Kenya: 53 - Guardian Bank: 55 - Gulf African Bank : 72 - Housing Finance Co. Kenya: 61 - I&M Bank: 57 - Kingdom Bank: 51 - Kenya Commercial Bank: 01 - KWFT Bank: 78 - Mayfair Bank: 65 - M-Oriental Commercial Bank Limited: 14 - Middle East Bank: 18 - National Bank of Kenya: 12 - NCBA Bank: 07 - Paramount Universal Bank Limited: 50 - Prime Bank: 10 - Sidian Bank: 66 - Stanbic Bank Kenya: 31 - Standard Chartered Bank: 02 - UBA Kenya Bank Ltd: 76 - Victoria Bank Limited: 54   See [KES Bank](https://docs.transferzero.com/docs/payout-details/#kesbank) documentation for the transfer_reason list")
 
 public class PayoutMethodDetailsKESBank {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
@@ -40,33 +40,21 @@ public class PayoutMethodDetailsKESBank {
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
   private String lastName;
 
-  public static final String SERIALIZED_NAME_BANK_CODE = "bank_code";
-  @SerializedName(SERIALIZED_NAME_BANK_CODE)
-  private String bankCode;
-
   public static final String SERIALIZED_NAME_STREET = "street";
   @SerializedName(SERIALIZED_NAME_STREET)
   private String street;
 
+  public static final String SERIALIZED_NAME_CITY = "city";
+  @SerializedName(SERIALIZED_NAME_CITY)
+  private String city;
+
+  public static final String SERIALIZED_NAME_BANK_CODE = "bank_code";
+  @SerializedName(SERIALIZED_NAME_BANK_CODE)
+  private String bankCode;
+
   public static final String SERIALIZED_NAME_BANK_ACCOUNT = "bank_account";
   @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT)
   private String bankAccount;
-
-  public static final String SERIALIZED_NAME_BANK_NAME = "bank_name";
-  @SerializedName(SERIALIZED_NAME_BANK_NAME)
-  private String bankName;
-
-  public static final String SERIALIZED_NAME_BRANCH_CODE = "branch_code";
-  @SerializedName(SERIALIZED_NAME_BRANCH_CODE)
-  private String branchCode;
-
-  public static final String SERIALIZED_NAME_SWIFT_CODE = "swift_code";
-  @SerializedName(SERIALIZED_NAME_SWIFT_CODE)
-  private String swiftCode;
-
-  public static final String SERIALIZED_NAME_TRANSFER_REASON_CODE = "transfer_reason_code";
-  @SerializedName(SERIALIZED_NAME_TRANSFER_REASON_CODE)
-  private String transferReasonCode;
 
   public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
   @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
@@ -79,6 +67,10 @@ public class PayoutMethodDetailsKESBank {
   public static final String SERIALIZED_NAME_IDENTITY_CARD_ID = "identity_card_id";
   @SerializedName(SERIALIZED_NAME_IDENTITY_CARD_ID)
   private String identityCardId;
+
+  public static final String SERIALIZED_NAME_RELATIONSHIP_TO_SENDER = "relationship_to_sender";
+  @SerializedName(SERIALIZED_NAME_RELATIONSHIP_TO_SENDER)
+  private String relationshipToSender;
 
   public PayoutMethodDetailsKESBank firstName(String firstName) {
     this.firstName = firstName;
@@ -116,24 +108,6 @@ public class PayoutMethodDetailsKESBank {
     this.lastName = lastName;
   }
 
-  public PayoutMethodDetailsKESBank bankCode(String bankCode) {
-    this.bankCode = bankCode;
-    return this;
-  }
-
-   /**
-   * Get bankCode
-   * @return bankCode
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public String getBankCode() {
-    return bankCode;
-  }
-
-  public void setBankCode(String bankCode) {
-    this.bankCode = bankCode;
-  }
-
   public PayoutMethodDetailsKESBank street(String street) {
     this.street = street;
     return this;
@@ -150,6 +124,42 @@ public class PayoutMethodDetailsKESBank {
 
   public void setStreet(String street) {
     this.street = street;
+  }
+
+  public PayoutMethodDetailsKESBank city(String city) {
+    this.city = city;
+    return this;
+  }
+
+   /**
+   * Get city
+   * @return city
+  **/
+  @ApiModelProperty(value = "")
+  public String getCity() {
+    return city;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+  public PayoutMethodDetailsKESBank bankCode(String bankCode) {
+    this.bankCode = bankCode;
+    return this;
+  }
+
+   /**
+   * Get bankCode
+   * @return bankCode
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getBankCode() {
+    return bankCode;
+  }
+
+  public void setBankCode(String bankCode) {
+    this.bankCode = bankCode;
   }
 
   public PayoutMethodDetailsKESBank bankAccount(String bankAccount) {
@@ -170,78 +180,6 @@ public class PayoutMethodDetailsKESBank {
     this.bankAccount = bankAccount;
   }
 
-  public PayoutMethodDetailsKESBank bankName(String bankName) {
-    this.bankName = bankName;
-    return this;
-  }
-
-   /**
-   * Get bankName
-   * @return bankName
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public String getBankName() {
-    return bankName;
-  }
-
-  public void setBankName(String bankName) {
-    this.bankName = bankName;
-  }
-
-  public PayoutMethodDetailsKESBank branchCode(String branchCode) {
-    this.branchCode = branchCode;
-    return this;
-  }
-
-   /**
-   * Get branchCode
-   * @return branchCode
-  **/
-  @ApiModelProperty(value = "")
-  public String getBranchCode() {
-    return branchCode;
-  }
-
-  public void setBranchCode(String branchCode) {
-    this.branchCode = branchCode;
-  }
-
-  public PayoutMethodDetailsKESBank swiftCode(String swiftCode) {
-    this.swiftCode = swiftCode;
-    return this;
-  }
-
-   /**
-   * Get swiftCode
-   * @return swiftCode
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public String getSwiftCode() {
-    return swiftCode;
-  }
-
-  public void setSwiftCode(String swiftCode) {
-    this.swiftCode = swiftCode;
-  }
-
-  public PayoutMethodDetailsKESBank transferReasonCode(String transferReasonCode) {
-    this.transferReasonCode = transferReasonCode;
-    return this;
-  }
-
-   /**
-   * Get transferReasonCode
-   * @return transferReasonCode
-  **/
-  @ApiModelProperty(value = "")
-  public String getTransferReasonCode() {
-    return transferReasonCode;
-  }
-
-  public void setTransferReasonCode(String transferReasonCode) {
-    this.transferReasonCode = transferReasonCode;
-  }
-
   public PayoutMethodDetailsKESBank transferReason(PayoutMethodTransferReasonEnum transferReason) {
     this.transferReason = transferReason;
     return this;
@@ -251,7 +189,7 @@ public class PayoutMethodDetailsKESBank {
    * Get transferReason
    * @return transferReason
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public PayoutMethodTransferReasonEnum getTransferReason() {
     return transferReason;
   }
@@ -296,6 +234,24 @@ public class PayoutMethodDetailsKESBank {
     this.identityCardId = identityCardId;
   }
 
+  public PayoutMethodDetailsKESBank relationshipToSender(String relationshipToSender) {
+    this.relationshipToSender = relationshipToSender;
+    return this;
+  }
+
+   /**
+   * Get relationshipToSender
+   * @return relationshipToSender
+  **/
+  @ApiModelProperty(value = "")
+  public String getRelationshipToSender() {
+    return relationshipToSender;
+  }
+
+  public void setRelationshipToSender(String relationshipToSender) {
+    this.relationshipToSender = relationshipToSender;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -308,21 +264,19 @@ public class PayoutMethodDetailsKESBank {
     PayoutMethodDetailsKESBank payoutMethodDetailsKESBank = (PayoutMethodDetailsKESBank) o;
     return Objects.equals(this.firstName, payoutMethodDetailsKESBank.firstName) &&
         Objects.equals(this.lastName, payoutMethodDetailsKESBank.lastName) &&
-        Objects.equals(this.bankCode, payoutMethodDetailsKESBank.bankCode) &&
         Objects.equals(this.street, payoutMethodDetailsKESBank.street) &&
+        Objects.equals(this.city, payoutMethodDetailsKESBank.city) &&
+        Objects.equals(this.bankCode, payoutMethodDetailsKESBank.bankCode) &&
         Objects.equals(this.bankAccount, payoutMethodDetailsKESBank.bankAccount) &&
-        Objects.equals(this.bankName, payoutMethodDetailsKESBank.bankName) &&
-        Objects.equals(this.branchCode, payoutMethodDetailsKESBank.branchCode) &&
-        Objects.equals(this.swiftCode, payoutMethodDetailsKESBank.swiftCode) &&
-        Objects.equals(this.transferReasonCode, payoutMethodDetailsKESBank.transferReasonCode) &&
         Objects.equals(this.transferReason, payoutMethodDetailsKESBank.transferReason) &&
         Objects.equals(this.identityCardType, payoutMethodDetailsKESBank.identityCardType) &&
-        Objects.equals(this.identityCardId, payoutMethodDetailsKESBank.identityCardId);
+        Objects.equals(this.identityCardId, payoutMethodDetailsKESBank.identityCardId) &&
+        Objects.equals(this.relationshipToSender, payoutMethodDetailsKESBank.relationshipToSender);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, street, bankAccount, bankName, branchCode, swiftCode, transferReasonCode, transferReason, identityCardType, identityCardId);
+    return Objects.hash(firstName, lastName, street, city, bankCode, bankAccount, transferReason, identityCardType, identityCardId, relationshipToSender);
   }
 
 
@@ -332,16 +286,14 @@ public class PayoutMethodDetailsKESBank {
     sb.append("class PayoutMethodDetailsKESBank {\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
     sb.append("    street: ").append(toIndentedString(street)).append("\n");
+    sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
-    sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
-    sb.append("    branchCode: ").append(toIndentedString(branchCode)).append("\n");
-    sb.append("    swiftCode: ").append(toIndentedString(swiftCode)).append("\n");
-    sb.append("    transferReasonCode: ").append(toIndentedString(transferReasonCode)).append("\n");
     sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
     sb.append("    identityCardType: ").append(toIndentedString(identityCardType)).append("\n");
     sb.append("    identityCardId: ").append(toIndentedString(identityCardId)).append("\n");
+    sb.append("    relationshipToSender: ").append(toIndentedString(relationshipToSender)).append("\n");
     sb.append("}");
     return sb.toString();
   }
