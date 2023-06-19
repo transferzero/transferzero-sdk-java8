@@ -206,6 +206,14 @@
                   <goals>
                     <goal>sign</goal>
                   </goals>
+                  <configuration>
+                    <!-- Prevent `gpg` from using pinentry programs -->
+                    <gpgArguments>
+                      <arg>--pinentry-mode</arg>
+                      <arg>loopback</arg>
+                    </gpgArguments>
+                    <arguments>-Dgpg.passphrase=${env.GPG_PASSPHRASE}</arguments>
+                  </configuration>
                 </execution>
               </executions>
             </plugin>
