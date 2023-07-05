@@ -115,4 +115,12 @@ public class PayoutMethodDetailsKESMobileTest {
         // TODO: test identityCardId
     }
 
+    /**
+     * Test the property 'relationshipToSender'
+     */
+    @Test
+    public void relationshipToSenderTest() {
+        // TODO: test relationshipToSender
+    }
+
 }
