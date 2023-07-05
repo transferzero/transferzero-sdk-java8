@@ -28,9 +28,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;phone_number\&quot;: \&quot;+254997853134\&quot;, // E.164 international format     \&quot;mobile_provider\&quot;: \&quot;mpesa\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;, // New transfer reason field     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;,     \&quot;identity_card_id\&quot;: \&quot;AB12345678\&quot;   } &#x60;&#x60;&#x60;  See [KES Mobile](https://docs.transferzero.com/docs/payout-details/#kesmobile) documentation for transfer_reason lists
+ * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;1 Linford Street\&quot;,     \&quot;phone_number\&quot;: \&quot;+254123456789\&quot;, // E.164 international format     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;, // refers to the recipient&#39;s ID details; Values: \&quot;PP\&quot;: Passport, \&quot;ID\&quot;: National ID or \&quot;O\&quot;: Other     \&quot;identity_card_id\&quot;: &#39;AB12345678&#39;, // refers to the recipient&#39;s ID details     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;,     \&quot;mobile_provider\&quot;: \&quot;mpesa\&quot;,     \&quot;relationship_to_sender\&quot;: \&quot;Aunt\&quot; // Optional   } &#x60;&#x60;&#x60;  See [KES Mobile](https://docs.transferzero.com/docs/payout-details/#kesmobile) documentation for transfer_reason lists
  */
-@ApiModel(description = "```JSON   \"details\": {     \"first_name\": \"First\",     \"last_name\": \"Last\",     \"street\": \"Main Street\",     \"phone_number\": \"+254997853134\", // E.164 international format     \"mobile_provider\": \"mpesa\",     \"transfer_reason\": \"personal_account\", // New transfer reason field     \"identity_card_type\": \"ID\",     \"identity_card_id\": \"AB12345678\"   } ```  See [KES Mobile](https://docs.transferzero.com/docs/payout-details/#kesmobile) documentation for transfer_reason lists")
+@ApiModel(description = "```JSON   \"details\": {     \"first_name\": \"First\",     \"last_name\": \"Last\",     \"street\": \"1 Linford Street\",     \"phone_number\": \"+254123456789\", // E.164 international format     \"identity_card_type\": \"ID\", // refers to the recipient's ID details; Values: \"PP\": Passport, \"ID\": National ID or \"O\": Other     \"identity_card_id\": 'AB12345678', // refers to the recipient's ID details     \"transfer_reason\": \"personal_account\",     \"mobile_provider\": \"mpesa\",     \"relationship_to_sender\": \"Aunt\" // Optional   } ```  See [KES Mobile](https://docs.transferzero.com/docs/payout-details/#kesmobile) documentation for transfer_reason lists")
 
 public class PayoutMethodDetailsKESMobile {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
@@ -68,6 +68,10 @@ public class PayoutMethodDetailsKESMobile {
   public static final String SERIALIZED_NAME_IDENTITY_CARD_ID = "identity_card_id";
   @SerializedName(SERIALIZED_NAME_IDENTITY_CARD_ID)
   private String identityCardId;
+
+  public static final String SERIALIZED_NAME_RELATIONSHIP_TO_SENDER = "relationship_to_sender";
+  @SerializedName(SERIALIZED_NAME_RELATIONSHIP_TO_SENDER)
+  private String relationshipToSender;
 
   public PayoutMethodDetailsKESMobile firstName(String firstName) {
     this.firstName = firstName;
@@ -186,7 +190,7 @@ public class PayoutMethodDetailsKESMobile {
    * Get transferReason
    * @return transferReason
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public PayoutMethodTransferReasonEnum getTransferReason() {
     return transferReason;
   }
@@ -231,6 +235,24 @@ public class PayoutMethodDetailsKESMobile {
     this.identityCardId = identityCardId;
   }
 
+  public PayoutMethodDetailsKESMobile relationshipToSender(String relationshipToSender) {
+    this.relationshipToSender = relationshipToSender;
+    return this;
+  }
+
+   /**
+   * Get relationshipToSender
+   * @return relationshipToSender
+  **/
+  @ApiModelProperty(value = "")
+  public String getRelationshipToSender() {
+    return relationshipToSender;
+  }
+
+  public void setRelationshipToSender(String relationshipToSender) {
+    this.relationshipToSender = relationshipToSender;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -249,12 +271,13 @@ public class PayoutMethodDetailsKESMobile {
         Objects.equals(this.transferReasonCode, payoutMethodDetailsKESMobile.transferReasonCode) &&
         Objects.equals(this.transferReason, payoutMethodDetailsKESMobile.transferReason) &&
         Objects.equals(this.identityCardType, payoutMethodDetailsKESMobile.identityCardType) &&
-        Objects.equals(this.identityCardId, payoutMethodDetailsKESMobile.identityCardId);
+        Objects.equals(this.identityCardId, payoutMethodDetailsKESMobile.identityCardId) &&
+        Objects.equals(this.relationshipToSender, payoutMethodDetailsKESMobile.relationshipToSender);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, street, phoneNumber, mobileProvider, transferReasonCode, transferReason, identityCardType, identityCardId);
+    return Objects.hash(firstName, lastName, street, phoneNumber, mobileProvider, transferReasonCode, transferReason, identityCardType, identityCardId, relationshipToSender);
   }
 
 
@@ -271,6 +294,7 @@ public class PayoutMethodDetailsKESMobile {
     sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
     sb.append("    identityCardType: ").append(toIndentedString(identityCardType)).append("\n");
     sb.append("    identityCardId: ").append(toIndentedString(identityCardId)).append("\n");
+    sb.append("    relationshipToSender: ").append(toIndentedString(relationshipToSender)).append("\n");
     sb.append("}");
     return sb.toString();
   }
