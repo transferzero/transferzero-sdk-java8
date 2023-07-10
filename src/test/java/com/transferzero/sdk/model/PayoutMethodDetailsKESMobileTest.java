@@ -68,6 +68,14 @@ public class PayoutMethodDetailsKESMobileTest {
     }
 
     /**
+     * Test the property 'city'
+     */
+    @Test
+    public void cityTest() {
+        // TODO: test city
+    }
+
+    /**
      * Test the property 'phoneNumber'
      */
     @Test
