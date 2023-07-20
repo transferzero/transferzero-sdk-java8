@@ -21,7 +21,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayoutMethodBankAccountTypeEnum;
-import com.transferzero.sdk.model.PayoutMethodIdentityCardTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodPixKeyTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
@@ -29,9 +28,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * PIX Payment: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;city\&quot;: \&quot;Brasilia\&quot;,     \&quot;postal_code\&quot;: \&quot;70070\&quot;,     \&quot;phone_number\&quot;: \&quot;+552112345678\&quot;, // E.164 international format     \&quot;pix_key_type\&quot;: \&quot;email\&quot;,     \&quot;pix_key_value\&quot;: \&quot;person@example.com\&quot;,     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;,     \&quot;identity_card_id\&quot;: \&quot;01234567890\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;   } &#x60;&#x60;&#x60;  TED Payment: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;city\&quot;: \&quot;Brasilia\&quot;,     \&quot;postal_code\&quot;: \&quot;70070\&quot;,     \&quot;phone_number\&quot;: \&quot;+552112345678\&quot;, // E.164 international format     \&quot;bank_code\&quot;: \&quot;104\&quot;,     \&quot;branch_code\&quot;: \&quot;00001\&quot;,     \&quot;bank_account\&quot;: \&quot;0009795493\&quot;,     \&quot;bank_account_type\&quot;: \&quot;10\&quot;,     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;,     \&quot;identity_card_id\&quot;: \&quot;01234567890\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;   } &#x60;&#x60;&#x60;  See [BRL Bank](https://docs.transferzero.com/docs/payout-details/#brlbank) documentation for the bank_code and transfer_reason lists
+ * PIX Payment: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;city\&quot;: \&quot;Brasilia\&quot;,     \&quot;postal_code\&quot;: \&quot;70070\&quot;,     \&quot;phone_number\&quot;: \&quot;+552112345678\&quot;, // E.164 international format     \&quot;pix_key_type\&quot;: \&quot;email\&quot;,     \&quot;pix_key_value\&quot;: \&quot;person@example.com\&quot;,     \&quot;identity_card_id\&quot;: \&quot;01234567890\&quot;, // CPF or CNPJ     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;   } &#x60;&#x60;&#x60;  TED Payment: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;city\&quot;: \&quot;Brasilia\&quot;,     \&quot;postal_code\&quot;: \&quot;70070\&quot;,     \&quot;phone_number\&quot;: \&quot;+552112345678\&quot;, // E.164 international format     \&quot;bank_code\&quot;: \&quot;104\&quot;,     \&quot;branch_code\&quot;: \&quot;00001\&quot;,     \&quot;bank_account\&quot;: \&quot;0009795493\&quot;,     \&quot;bank_account_type\&quot;: \&quot;10\&quot;,     \&quot;identity_card_id\&quot;: \&quot;01234567890\&quot;, // CPF or CNPJ     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;   } &#x60;&#x60;&#x60;  See [BRL Bank](https://docs.transferzero.com/docs/payout-details/#brlbank) documentation for the bank_code and transfer_reason lists
  */
-@ApiModel(description = "PIX Payment: ```JSON   \"details\": {     \"first_name\": \"First\",     \"last_name\": \"Last\",     \"city\": \"Brasilia\",     \"postal_code\": \"70070\",     \"phone_number\": \"+552112345678\", // E.164 international format     \"pix_key_type\": \"email\",     \"pix_key_value\": \"person@example.com\",     \"identity_card_type\": \"ID\",     \"identity_card_id\": \"01234567890\",     \"transfer_reason\": \"personal_account\"   } ```  TED Payment: ```JSON   \"details\": {     \"first_name\": \"First\",     \"last_name\": \"Last\",     \"city\": \"Brasilia\",     \"postal_code\": \"70070\",     \"phone_number\": \"+552112345678\", // E.164 international format     \"bank_code\": \"104\",     \"branch_code\": \"00001\",     \"bank_account\": \"0009795493\",     \"bank_account_type\": \"10\",     \"identity_card_type\": \"ID\",     \"identity_card_id\": \"01234567890\",     \"transfer_reason\": \"personal_account\"   } ```  See [BRL Bank](https://docs.transferzero.com/docs/payout-details/#brlbank) documentation for the bank_code and transfer_reason lists")
+@ApiModel(description = "PIX Payment: ```JSON   \"details\": {     \"first_name\": \"First\",     \"last_name\": \"Last\",     \"city\": \"Brasilia\",     \"postal_code\": \"70070\",     \"phone_number\": \"+552112345678\", // E.164 international format     \"pix_key_type\": \"email\",     \"pix_key_value\": \"person@example.com\",     \"identity_card_id\": \"01234567890\", // CPF or CNPJ     \"transfer_reason\": \"personal_account\"   } ```  TED Payment: ```JSON   \"details\": {     \"first_name\": \"First\",     \"last_name\": \"Last\",     \"city\": \"Brasilia\",     \"postal_code\": \"70070\",     \"phone_number\": \"+552112345678\", // E.164 international format     \"bank_code\": \"104\",     \"branch_code\": \"00001\",     \"bank_account\": \"0009795493\",     \"bank_account_type\": \"10\",     \"identity_card_id\": \"01234567890\", // CPF or CNPJ     \"transfer_reason\": \"personal_account\"   } ```  See [BRL Bank](https://docs.transferzero.com/docs/payout-details/#brlbank) documentation for the bank_code and transfer_reason lists")
 
 public class PayoutMethodDetailsBRLBank {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
@@ -77,10 +76,6 @@ public class PayoutMethodDetailsBRLBank {
   public static final String SERIALIZED_NAME_PIX_KEY_VALUE = "pix_key_value";
   @SerializedName(SERIALIZED_NAME_PIX_KEY_VALUE)
   private String pixKeyValue;
-
-  public static final String SERIALIZED_NAME_IDENTITY_CARD_TYPE = "identity_card_type";
-  @SerializedName(SERIALIZED_NAME_IDENTITY_CARD_TYPE)
-  private PayoutMethodIdentityCardTypeEnum identityCardType;
 
   public static final String SERIALIZED_NAME_IDENTITY_CARD_ID = "identity_card_id";
   @SerializedName(SERIALIZED_NAME_IDENTITY_CARD_ID)
@@ -288,24 +283,6 @@ public class PayoutMethodDetailsBRLBank {
     this.pixKeyValue = pixKeyValue;
   }
 
-  public PayoutMethodDetailsBRLBank identityCardType(PayoutMethodIdentityCardTypeEnum identityCardType) {
-    this.identityCardType = identityCardType;
-    return this;
-  }
-
-   /**
-   * Get identityCardType
-   * @return identityCardType
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public PayoutMethodIdentityCardTypeEnum getIdentityCardType() {
-    return identityCardType;
-  }
-
-  public void setIdentityCardType(PayoutMethodIdentityCardTypeEnum identityCardType) {
-    this.identityCardType = identityCardType;
-  }
-
   public PayoutMethodDetailsBRLBank identityCardId(String identityCardId) {
     this.identityCardId = identityCardId;
     return this;
@@ -363,14 +340,13 @@ public class PayoutMethodDetailsBRLBank {
         Objects.equals(this.bankAccountType, payoutMethodDetailsBRLBank.bankAccountType) &&
         Objects.equals(this.pixKeyType, payoutMethodDetailsBRLBank.pixKeyType) &&
         Objects.equals(this.pixKeyValue, payoutMethodDetailsBRLBank.pixKeyValue) &&
-        Objects.equals(this.identityCardType, payoutMethodDetailsBRLBank.identityCardType) &&
         Objects.equals(this.identityCardId, payoutMethodDetailsBRLBank.identityCardId) &&
         Objects.equals(this.transferReason, payoutMethodDetailsBRLBank.transferReason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, city, postalCode, phoneNumber, bankCode, branchCode, bankAccount, bankAccountType, pixKeyType, pixKeyValue, identityCardType, identityCardId, transferReason);
+    return Objects.hash(firstName, lastName, city, postalCode, phoneNumber, bankCode, branchCode, bankAccount, bankAccountType, pixKeyType, pixKeyValue, identityCardId, transferReason);
   }
 
 
@@ -389,7 +365,6 @@ public class PayoutMethodDetailsBRLBank {
     sb.append("    bankAccountType: ").append(toIndentedString(bankAccountType)).append("\n");
     sb.append("    pixKeyType: ").append(toIndentedString(pixKeyType)).append("\n");
     sb.append("    pixKeyValue: ").append(toIndentedString(pixKeyValue)).append("\n");
-    sb.append("    identityCardType: ").append(toIndentedString(identityCardType)).append("\n");
     sb.append("    identityCardId: ").append(toIndentedString(identityCardId)).append("\n");
     sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
     sb.append("}");
