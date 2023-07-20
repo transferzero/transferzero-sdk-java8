@@ -19,7 +19,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayoutMethodBankAccountTypeEnum;
-import com.transferzero.sdk.model.PayoutMethodIdentityCardTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodPixKeyTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
@@ -130,14 +129,6 @@ public class PayoutMethodDetailsBRLBankTest {
     @Test
     public void pixKeyValueTest() {
         // TODO: test pixKeyValue
-    }
-
-    /**
-     * Test the property 'identityCardType'
-     */
-    @Test
-    public void identityCardTypeTest() {
-        // TODO: test identityCardType
     }
 
     /**
