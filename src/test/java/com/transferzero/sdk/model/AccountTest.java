@@ -57,4 +57,12 @@ public class AccountTest {
         // TODO: test currency
     }
 
+    /**
+     * Test the property 'amountAfterPending'
+     */
+    @Test
+    public void amountAfterPendingTest() {
+        // TODO: test amountAfterPending
+    }
+
 }
