@@ -38,6 +38,10 @@ public class Account {
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
 
+  public static final String SERIALIZED_NAME_AMOUNT_AFTER_PENDING = "amount_after_pending";
+  @SerializedName(SERIALIZED_NAME_AMOUNT_AFTER_PENDING)
+  private BigDecimal amountAfterPending;
+
    /**
    * The account balance for the given currency
    * @return amount
@@ -56,6 +60,15 @@ public class Account {
     return currency;
   }
 
+   /**
+   * Represents the account balance after deducting pending transactions from the last 7 days. It provides a more accurate depiction of available funds.
+   * @return amountAfterPending
+  **/
+  @ApiModelProperty(example = "1000.0", value = "Represents the account balance after deducting pending transactions from the last 7 days. It provides a more accurate depiction of available funds.")
+  public BigDecimal getAmountAfterPending() {
+    return amountAfterPending;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -67,12 +80,13 @@ public class Account {
     }
     Account account = (Account) o;
     return Objects.equals(this.amount, account.amount) &&
-        Objects.equals(this.currency, account.currency);
+        Objects.equals(this.currency, account.currency) &&
+        Objects.equals(this.amountAfterPending, account.amountAfterPending);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, currency);
+    return Objects.hash(amount, currency, amountAfterPending);
   }
 
 
@@ -82,6 +96,7 @@ public class Account {
     sb.append("class Account {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    amountAfterPending: ").append(toIndentedString(amountAfterPending)).append("\n");
     sb.append("}");
     return sb.toString();
   }
