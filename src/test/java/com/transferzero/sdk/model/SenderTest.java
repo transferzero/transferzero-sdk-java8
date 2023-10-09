@@ -139,6 +139,14 @@ public class SenderTest {
     }
 
     /**
+     * Test the property 'fingerprint'
+     */
+    @Test
+    public void fingerprintTest() {
+        // TODO: test fingerprint
+    }
+
+    /**
      * Test the property 'addressDescription'
      */
     @Test
