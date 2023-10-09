@@ -131,6 +131,10 @@ public class Sender {
   @SerializedName(SERIALIZED_NAME_IP)
   private String ip;
 
+  public static final String SERIALIZED_NAME_FINGERPRINT = "fingerprint";
+  @SerializedName(SERIALIZED_NAME_FINGERPRINT)
+  private String fingerprint;
+
   public static final String SERIALIZED_NAME_ADDRESS_DESCRIPTION = "address_description";
   @SerializedName(SERIALIZED_NAME_ADDRESS_DESCRIPTION)
   private String addressDescription;
@@ -809,6 +813,24 @@ public class Sender {
 
   public void setIp(String ip) {
     this.ip = ip;
+  }
+
+  public Sender fingerprint(String fingerprint) {
+    this.fingerprint = fingerprint;
+    return this;
+  }
+
+   /**
+   * Fingerprint of sender
+   * @return fingerprint
+  **/
+  @ApiModelProperty(example = "fingerprint", value = "Fingerprint of sender")
+  public String getFingerprint() {
+    return fingerprint;
+  }
+
+  public void setFingerprint(String fingerprint) {
+    this.fingerprint = fingerprint;
   }
 
   public Sender addressDescription(String addressDescription) {
@@ -1735,6 +1757,7 @@ public class Sender {
         Objects.equals(this.phoneNumber, sender.phoneNumber) &&
         Objects.equals(this.email, sender.email) &&
         Objects.equals(this.ip, sender.ip) &&
+        Objects.equals(this.fingerprint, sender.fingerprint) &&
         Objects.equals(this.addressDescription, sender.addressDescription) &&
         Objects.equals(this.identificationNumber, sender.identificationNumber) &&
         Objects.equals(this.identificationType, sender.identificationType) &&
@@ -1789,7 +1812,7 @@ public class Sender {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, addressDescription, identificationNumber, identificationType, lang, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, customSourceOfFunds, coreBusinessActivity, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, tradingName, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId, cityOfBirth, countryOfBirth, gender, salesLeadId, createdAt, companyOfficeNumber, companyOfficeNumberCountry, amlOfficerEmail, amlOfficerPhone, amlOfficerPhoneCountry, companyWebsiteUrl, numberOfEmployeesInCompany, listOfCountriesOfOperation, estimatedAnnualRevenueTurnover, declaration);
+    return Objects.hash(id, type, state, country, street, postalCode, city, phoneCountry, phoneNumber, email, ip, fingerprint, addressDescription, identificationNumber, identificationType, lang, name, firstName, middleName, lastName, birthDate, occupation, nationality, legalEntityType, registrationDate, registrationNumber, natureOfBusiness, sourceOfFunds, customSourceOfFunds, coreBusinessActivity, purposeOfOpeningAccount, officePhone, vatRegistrationNumber, financialRegulator, regulatoryLicenceNumber, contactPersonEmail, tradingCountry, tradingAddress, tradingName, numberMonthlyTransactions, amountMonthlyTransactions, documents, metadata, errors, onboardingStatus, politicallyExposedPeople, externalId, cityOfBirth, countryOfBirth, gender, salesLeadId, createdAt, companyOfficeNumber, companyOfficeNumberCountry, amlOfficerEmail, amlOfficerPhone, amlOfficerPhoneCountry, companyWebsiteUrl, numberOfEmployeesInCompany, listOfCountriesOfOperation, estimatedAnnualRevenueTurnover, declaration);
   }
 
 
@@ -1808,6 +1831,7 @@ public class Sender {
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
+    sb.append("    fingerprint: ").append(toIndentedString(fingerprint)).append("\n");
     sb.append("    addressDescription: ").append(toIndentedString(addressDescription)).append("\n");
     sb.append("    identificationNumber: ").append(toIndentedString(identificationNumber)).append("\n");
     sb.append("    identificationType: ").append(toIndentedString(identificationType)).append("\n");
