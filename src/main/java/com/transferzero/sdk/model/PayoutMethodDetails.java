@@ -57,6 +57,7 @@ import com.transferzero.sdk.model.PayoutMethodLegalEntityTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
 import com.transferzero.sdk.model.PayoutMethodNatureOfBusinessEnum;
 import com.transferzero.sdk.model.PayoutMethodPixKeyTypeEnum;
+import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -100,7 +101,7 @@ public class PayoutMethodDetails {
 
   public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
   @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
-  private String transferReason;
+  private PayoutMethodTransferReasonEnum transferReason;
 
   public static final String SERIALIZED_NAME_IBAN = "iban";
   @SerializedName(SERIALIZED_NAME_IBAN)
@@ -382,7 +383,7 @@ public class PayoutMethodDetails {
     this.country = country;
   }
 
-  public PayoutMethodDetails transferReason(String transferReason) {
+  public PayoutMethodDetails transferReason(PayoutMethodTransferReasonEnum transferReason) {
     this.transferReason = transferReason;
     return this;
   }
@@ -392,11 +393,11 @@ public class PayoutMethodDetails {
    * @return transferReason
   **/
   @ApiModelProperty(required = true, value = "")
-  public String getTransferReason() {
+  public PayoutMethodTransferReasonEnum getTransferReason() {
     return transferReason;
   }
 
-  public void setTransferReason(String transferReason) {
+  public void setTransferReason(PayoutMethodTransferReasonEnum transferReason) {
     this.transferReason = transferReason;
   }
 

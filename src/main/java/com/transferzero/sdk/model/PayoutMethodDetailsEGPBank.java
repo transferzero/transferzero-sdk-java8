@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -56,7 +57,7 @@ public class PayoutMethodDetailsEGPBank {
 
   public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
   @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
-  private String transferReason;
+  private PayoutMethodTransferReasonEnum transferReason;
 
   public PayoutMethodDetailsEGPBank firstName(String firstName) {
     this.firstName = firstName;
@@ -166,7 +167,7 @@ public class PayoutMethodDetailsEGPBank {
     this.bankCode = bankCode;
   }
 
-  public PayoutMethodDetailsEGPBank transferReason(String transferReason) {
+  public PayoutMethodDetailsEGPBank transferReason(PayoutMethodTransferReasonEnum transferReason) {
     this.transferReason = transferReason;
     return this;
   }
@@ -176,11 +177,11 @@ public class PayoutMethodDetailsEGPBank {
    * @return transferReason
   **/
   @ApiModelProperty(required = true, value = "")
-  public String getTransferReason() {
+  public PayoutMethodTransferReasonEnum getTransferReason() {
     return transferReason;
   }
 
-  public void setTransferReason(String transferReason) {
+  public void setTransferReason(PayoutMethodTransferReasonEnum transferReason) {
     this.transferReason = transferReason;
   }
 

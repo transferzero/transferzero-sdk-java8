@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **identityCardId** | **String** |  | 
 **bankAccount** | **String** |  | 
 **branchCode** | **String** |  | 
-**transferReason** | **String** |  | 
+**transferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | 
 
 
 
