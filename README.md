@@ -45,7 +45,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.transferzero.sdk</groupId>
   <artifactId>transferzero-sdk-java8</artifactId>
-  <version>1.30.3-SNAPSHOT</version>
+  <version>1.31.0-SNAPSHOT</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -55,7 +55,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.transferzero.sdk:transferzero-sdk-java8:1.30.3-SNAPSHOT"
+compile "com.transferzero.sdk:transferzero-sdk-java8:1.31.0-SNAPSHOT"
 ```
 
 ### Others
@@ -68,7 +68,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/transferzero-sdk-java8-1.30.3-SNAPSHOT.jar`
+* `target/transferzero-sdk-java8-1.31.0-SNAPSHOT.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -117,8 +117,6 @@ All URIs are relative to *https://api-sandbox.transferzero.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountDebitsApi* | [**getAccountsDebit**](docs/AccountDebitsApi.md#getAccountsDebit) | **GET** /accounts/debits/{Account Debit ID} | Fetching an account debit
-*AccountDebitsApi* | [**getAccountsDebits**](docs/AccountDebitsApi.md#getAccountsDebits) | **GET** /accounts/debits | Listing Accounts debits
 *AccountDebitsApi* | [**postAccountsDebits**](docs/AccountDebitsApi.md#postAccountsDebits) | **POST** /accounts/debits | Creating an account debit
 *AccountValidationApi* | [**postAccountValidations**](docs/AccountValidationApi.md#postAccountValidations) | **POST** /account_validations | Validates the existence of a bank account or a mobile phone number
 *AccountsApi* | [**getAccount**](docs/AccountsApi.md#getAccount) | **GET** /accounts/{Currency} | Fetches account balance for specified currrency
@@ -191,7 +189,6 @@ Class | Method | HTTP request | Description
  - [DebitListResponse](docs/DebitListResponse.md)
  - [DebitRequest](docs/DebitRequest.md)
  - [DebitRequestWrapper](docs/DebitRequestWrapper.md)
- - [DebitResponse](docs/DebitResponse.md)
  - [Document](docs/Document.md)
  - [DocumentListResponse](docs/DocumentListResponse.md)
  - [DocumentRequest](docs/DocumentRequest.md)
