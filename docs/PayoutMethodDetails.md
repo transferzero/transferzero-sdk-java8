@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **cashProvider** | [**PayoutMethodCashProviderEnum**](PayoutMethodCashProviderEnum.md) |  | 
 **sortCode** | **String** |  |  [optional]
 **bic** | **String** |  |  [optional]
+**narration** | **String** |  |  [optional]
 **senderIdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **senderIdentityCardId** | **String** |  | 
 **senderCityOfBirth** | **String** |  |  [optional]

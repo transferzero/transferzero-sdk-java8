@@ -127,6 +127,10 @@ public class PayoutMethodDetails {
   @SerializedName(SERIALIZED_NAME_BIC)
   private String bic;
 
+  public static final String SERIALIZED_NAME_NARRATION = "narration";
+  @SerializedName(SERIALIZED_NAME_NARRATION)
+  private String narration;
+
   public static final String SERIALIZED_NAME_SENDER_IDENTITY_CARD_TYPE = "sender_identity_card_type";
   @SerializedName(SERIALIZED_NAME_SENDER_IDENTITY_CARD_TYPE)
   private PayoutMethodIdentityCardTypeEnum senderIdentityCardType;
@@ -507,6 +511,24 @@ public class PayoutMethodDetails {
 
   public void setBic(String bic) {
     this.bic = bic;
+  }
+
+  public PayoutMethodDetails narration(String narration) {
+    this.narration = narration;
+    return this;
+  }
+
+   /**
+   * Get narration
+   * @return narration
+  **/
+  @ApiModelProperty(value = "")
+  public String getNarration() {
+    return narration;
+  }
+
+  public void setNarration(String narration) {
+    this.narration = narration;
   }
 
   public PayoutMethodDetails senderIdentityCardType(PayoutMethodIdentityCardTypeEnum senderIdentityCardType) {
@@ -1038,6 +1060,7 @@ public class PayoutMethodDetails {
         Objects.equals(this.cashProvider, payoutMethodDetails.cashProvider) &&
         Objects.equals(this.sortCode, payoutMethodDetails.sortCode) &&
         Objects.equals(this.bic, payoutMethodDetails.bic) &&
+        Objects.equals(this.narration, payoutMethodDetails.narration) &&
         Objects.equals(this.senderIdentityCardType, payoutMethodDetails.senderIdentityCardType) &&
         Objects.equals(this.senderIdentityCardId, payoutMethodDetails.senderIdentityCardId) &&
         Objects.equals(this.senderCityOfBirth, payoutMethodDetails.senderCityOfBirth) &&
@@ -1070,7 +1093,7 @@ public class PayoutMethodDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, branchCode, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, routingNumber, swiftCode, relationshipToSender, pixKeyType, pixKeyValue, ifscCode);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, narration, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, branchCode, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, routingNumber, swiftCode, relationshipToSender, pixKeyType, pixKeyValue, ifscCode);
   }
 
 
@@ -1093,6 +1116,7 @@ public class PayoutMethodDetails {
     sb.append("    cashProvider: ").append(toIndentedString(cashProvider)).append("\n");
     sb.append("    sortCode: ").append(toIndentedString(sortCode)).append("\n");
     sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
+    sb.append("    narration: ").append(toIndentedString(narration)).append("\n");
     sb.append("    senderIdentityCardType: ").append(toIndentedString(senderIdentityCardType)).append("\n");
     sb.append("    senderIdentityCardId: ").append(toIndentedString(senderIdentityCardId)).append("\n");
     sb.append("    senderCityOfBirth: ").append(toIndentedString(senderCityOfBirth)).append("\n");
