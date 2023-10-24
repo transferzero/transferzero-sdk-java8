@@ -57,11 +57,11 @@ public class PayoutMethodDetailsGBPBankTest {
     }
 
     /**
-     * Test the property 'bankName'
+     * Test the property 'iban'
      */
     @Test
-    public void bankNameTest() {
-        // TODO: test bankName
+    public void ibanTest() {
+        // TODO: test iban
     }
 
     /**
@@ -81,19 +81,27 @@ public class PayoutMethodDetailsGBPBankTest {
     }
 
     /**
-     * Test the property 'iban'
-     */
-    @Test
-    public void ibanTest() {
-        // TODO: test iban
-    }
-
-    /**
      * Test the property 'bic'
      */
     @Test
     public void bicTest() {
         // TODO: test bic
+    }
+
+    /**
+     * Test the property 'bankName'
+     */
+    @Test
+    public void bankNameTest() {
+        // TODO: test bankName
+    }
+
+    /**
+     * Test the property 'narration'
+     */
+    @Test
+    public void narrationTest() {
+        // TODO: test narration
     }
 
 }
