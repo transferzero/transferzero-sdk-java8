@@ -26,14 +26,18 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;street\&quot;: \&quot;1 Main Street\&quot;,   \&quot;phone_number\&quot;: \&quot;+201023456789\&quot;,   \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,   \&quot;bank_code\&quot;: \&quot;0030\&quot;,   \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot; } &#x60;&#x60;&#x60; See [EGP Bank](https://docs.transferzero.com/docs/payout-details/#egpbank) documentation for the bank_code list
+ * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;middle_name\&quot;: \&quot;Middle\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;street\&quot;: \&quot;1 Main Street\&quot;,   \&quot;phone_number\&quot;: \&quot;+201023456789\&quot;,   \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,   \&quot;bank_code\&quot;: \&quot;0030\&quot;,   \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot; } &#x60;&#x60;&#x60; See [EGP Bank](https://docs.transferzero.com/docs/payout-details/#egpbank) documentation for the bank_code list
  */
-@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"street\": \"1 Main Street\",   \"phone_number\": \"+201023456789\",   \"bank_account\": \"1234567890\",   \"bank_code\": \"0030\",   \"transfer_reason\": \"personal_account\" } ``` See [EGP Bank](https://docs.transferzero.com/docs/payout-details/#egpbank) documentation for the bank_code list")
+@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"middle_name\": \"Middle\",   \"last_name\": \"Last\",   \"street\": \"1 Main Street\",   \"phone_number\": \"+201023456789\",   \"bank_account\": \"1234567890\",   \"bank_code\": \"0030\",   \"transfer_reason\": \"personal_account\" } ``` See [EGP Bank](https://docs.transferzero.com/docs/payout-details/#egpbank) documentation for the bank_code list")
 
 public class PayoutMethodDetailsEGPBank {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
+
+  public static final String SERIALIZED_NAME_MIDDLE_NAME = "middle_name";
+  @SerializedName(SERIALIZED_NAME_MIDDLE_NAME)
+  private String middleName;
 
   public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
@@ -75,6 +79,24 @@ public class PayoutMethodDetailsEGPBank {
 
   public void setFirstName(String firstName) {
     this.firstName = firstName;
+  }
+
+  public PayoutMethodDetailsEGPBank middleName(String middleName) {
+    this.middleName = middleName;
+    return this;
+  }
+
+   /**
+   * Get middleName
+   * @return middleName
+  **/
+  @ApiModelProperty(value = "")
+  public String getMiddleName() {
+    return middleName;
+  }
+
+  public void setMiddleName(String middleName) {
+    this.middleName = middleName;
   }
 
   public PayoutMethodDetailsEGPBank lastName(String lastName) {
@@ -196,6 +218,7 @@ public class PayoutMethodDetailsEGPBank {
     }
     PayoutMethodDetailsEGPBank payoutMethodDetailsEGPBank = (PayoutMethodDetailsEGPBank) o;
     return Objects.equals(this.firstName, payoutMethodDetailsEGPBank.firstName) &&
+        Objects.equals(this.middleName, payoutMethodDetailsEGPBank.middleName) &&
         Objects.equals(this.lastName, payoutMethodDetailsEGPBank.lastName) &&
         Objects.equals(this.street, payoutMethodDetailsEGPBank.street) &&
         Objects.equals(this.phoneNumber, payoutMethodDetailsEGPBank.phoneNumber) &&
@@ -206,7 +229,7 @@ public class PayoutMethodDetailsEGPBank {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, street, phoneNumber, bankAccount, bankCode, transferReason);
+    return Objects.hash(firstName, middleName, lastName, street, phoneNumber, bankAccount, bankCode, transferReason);
   }
 
 
@@ -215,6 +238,7 @@ public class PayoutMethodDetailsEGPBank {
     StringBuilder sb = new StringBuilder();
     sb.append("class PayoutMethodDetailsEGPBank {\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    street: ").append(toIndentedString(street)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");

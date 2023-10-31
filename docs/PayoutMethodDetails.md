@@ -50,6 +50,7 @@ Name | Type | Description | Notes
 **pixKeyType** | [**PayoutMethodPixKeyTypeEnum**](PayoutMethodPixKeyTypeEnum.md) |  |  [optional]
 **pixKeyValue** | **String** |  |  [optional]
 **ifscCode** | **String** |  | 
+**middleName** | **String** |  |  [optional]
 
 
 

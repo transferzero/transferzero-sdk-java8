@@ -243,6 +243,10 @@ public class PayoutMethodDetails {
   @SerializedName(SERIALIZED_NAME_IFSC_CODE)
   private String ifscCode;
 
+  public static final String SERIALIZED_NAME_MIDDLE_NAME = "middle_name";
+  @SerializedName(SERIALIZED_NAME_MIDDLE_NAME)
+  private String middleName;
+
   public PayoutMethodDetails firstName(String firstName) {
     this.firstName = firstName;
     return this;
@@ -1035,6 +1039,24 @@ public class PayoutMethodDetails {
     this.ifscCode = ifscCode;
   }
 
+  public PayoutMethodDetails middleName(String middleName) {
+    this.middleName = middleName;
+    return this;
+  }
+
+   /**
+   * Get middleName
+   * @return middleName
+  **/
+  @ApiModelProperty(value = "")
+  public String getMiddleName() {
+    return middleName;
+  }
+
+  public void setMiddleName(String middleName) {
+    this.middleName = middleName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -1088,12 +1110,13 @@ public class PayoutMethodDetails {
         Objects.equals(this.relationshipToSender, payoutMethodDetails.relationshipToSender) &&
         Objects.equals(this.pixKeyType, payoutMethodDetails.pixKeyType) &&
         Objects.equals(this.pixKeyValue, payoutMethodDetails.pixKeyValue) &&
-        Objects.equals(this.ifscCode, payoutMethodDetails.ifscCode);
+        Objects.equals(this.ifscCode, payoutMethodDetails.ifscCode) &&
+        Objects.equals(this.middleName, payoutMethodDetails.middleName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, narration, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, branchCode, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, routingNumber, swiftCode, relationshipToSender, pixKeyType, pixKeyValue, ifscCode);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, narration, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, branchCode, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, routingNumber, swiftCode, relationshipToSender, pixKeyType, pixKeyValue, ifscCode, middleName);
   }
 
 
@@ -1145,6 +1168,7 @@ public class PayoutMethodDetails {
     sb.append("    pixKeyType: ").append(toIndentedString(pixKeyType)).append("\n");
     sb.append("    pixKeyValue: ").append(toIndentedString(pixKeyValue)).append("\n");
     sb.append("    ifscCode: ").append(toIndentedString(ifscCode)).append("\n");
+    sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
