@@ -50,6 +50,14 @@ public class PayoutMethodDetailsEGPBankTest {
     }
 
     /**
+     * Test the property 'middleName'
+     */
+    @Test
+    public void middleNameTest() {
+        // TODO: test middleName
+    }
+
+    /**
      * Test the property 'lastName'
      */
     @Test
