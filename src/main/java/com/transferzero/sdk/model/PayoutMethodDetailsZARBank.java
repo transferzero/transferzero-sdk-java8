@@ -28,9 +28,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;, //  Mandatory for personal payouts;     \&quot;last_name\&quot;: \&quot;Last\&quot;, //  Mandatory for personal payouts;     \&quot;name\&quot; \&quot;First Ltd\&quot;, // Mandatory for business payouts;     \&quot;contact_first_name\&quot; \&quot;Business\&quot;,     \&quot;contact_last_name\&quot; \&quot;Contact\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;postal_code\&quot;: \&quot;AB0001\&quot;,     \&quot;city\&quot;: \&quot;Cape Town\&quot;,     \&quot;email\&quot;: \&quot;recipient@email.com\&quot;,     \&quot;bank_name\&quot; &#39;Bank Zero&#39;, // Optional     \&quot;bank_code\&quot;: \&quot;334810\&quot;,  // Optional; Required if branch_code is empty     \&quot;branch_code\&quot;: \&quot;630067\&quot;, // Optional; Required if bank_code is empty     \&quot;bank_account\&quot;: \&quot;12345678\&quot;,     \&quot;phone_number\&quot;: \&quot;+27119785313\&quot;, // E.164 international format     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;, // New transfer reason field     \&quot;legal_entity_type\&quot;: \&quot;sole_proprietorship\&quot;, // Optional; Default value is \&quot;person\&quot;;     \&quot;nature_of_business\&quot;: \&quot;mining\&quot;, // Optional for business payouts;     \&quot;registration_number\&quot;: \&quot;17364BGC\&quot; // Optional for business payouts;   } &#x60;&#x60;&#x60;  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason lists
+ * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;, //  Mandatory for personal payouts;     \&quot;last_name\&quot;: \&quot;Last\&quot;, //  Mandatory for personal payouts;     \&quot;name\&quot; \&quot;First Ltd\&quot;, // Mandatory for business payouts;     \&quot;contact_first_name\&quot; \&quot;Business\&quot;,     \&quot;contact_last_name\&quot; \&quot;Contact\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;postal_code\&quot;: \&quot;AB0001\&quot;,     \&quot;city\&quot;: \&quot;Cape Town\&quot;,     \&quot;email\&quot;: \&quot;recipient@email.com\&quot;,     \&quot;bank_name\&quot; &#39;Bank Zero&#39;, // Optional     \&quot;bank_code\&quot;: \&quot;334810\&quot;,  // Optional; Required if branch_code is empty     \&quot;branch_code\&quot;: \&quot;630067\&quot;, // Optional; Required if bank_code is empty     \&quot;bank_account\&quot;: \&quot;12345678\&quot;,     \&quot;phone_number\&quot;: \&quot;+27119785313\&quot;, // E.164 international format     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;, // New transfer reason field     \&quot;narration\&quot;: \&quot;Birthday Gift\&quot;, // Optional     \&quot;legal_entity_type\&quot;: \&quot;sole_proprietorship\&quot;, // Optional; Default value is \&quot;person\&quot;;     \&quot;nature_of_business\&quot;: \&quot;mining\&quot;, // Optional for business payouts;     \&quot;registration_number\&quot;: \&quot;17364BGC\&quot; // Optional for business payouts;   } &#x60;&#x60;&#x60;  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason lists
  */
-@ApiModel(description = "```JSON   \"details\": {     \"first_name\": \"First\", //  Mandatory for personal payouts;     \"last_name\": \"Last\", //  Mandatory for personal payouts;     \"name\" \"First Ltd\", // Mandatory for business payouts;     \"contact_first_name\" \"Business\",     \"contact_last_name\" \"Contact\",     \"street\": \"Main Street\",     \"postal_code\": \"AB0001\",     \"city\": \"Cape Town\",     \"email\": \"recipient@email.com\",     \"bank_name\" 'Bank Zero', // Optional     \"bank_code\": \"334810\",  // Optional; Required if branch_code is empty     \"branch_code\": \"630067\", // Optional; Required if bank_code is empty     \"bank_account\": \"12345678\",     \"phone_number\": \"+27119785313\", // E.164 international format     \"transfer_reason\": \"personal_account\", // New transfer reason field     \"legal_entity_type\": \"sole_proprietorship\", // Optional; Default value is \"person\";     \"nature_of_business\": \"mining\", // Optional for business payouts;     \"registration_number\": \"17364BGC\" // Optional for business payouts;   } ```  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason lists")
+@ApiModel(description = "```JSON   \"details\": {     \"first_name\": \"First\", //  Mandatory for personal payouts;     \"last_name\": \"Last\", //  Mandatory for personal payouts;     \"name\" \"First Ltd\", // Mandatory for business payouts;     \"contact_first_name\" \"Business\",     \"contact_last_name\" \"Contact\",     \"street\": \"Main Street\",     \"postal_code\": \"AB0001\",     \"city\": \"Cape Town\",     \"email\": \"recipient@email.com\",     \"bank_name\" 'Bank Zero', // Optional     \"bank_code\": \"334810\",  // Optional; Required if branch_code is empty     \"branch_code\": \"630067\", // Optional; Required if bank_code is empty     \"bank_account\": \"12345678\",     \"phone_number\": \"+27119785313\", // E.164 international format     \"transfer_reason\": \"personal_account\", // New transfer reason field     \"narration\": \"Birthday Gift\", // Optional     \"legal_entity_type\": \"sole_proprietorship\", // Optional; Default value is \"person\";     \"nature_of_business\": \"mining\", // Optional for business payouts;     \"registration_number\": \"17364BGC\" // Optional for business payouts;   } ```  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason lists")
 
 public class PayoutMethodDetailsZARBank {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
@@ -80,6 +80,10 @@ public class PayoutMethodDetailsZARBank {
   public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
   @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
   private PayoutMethodTransferReasonEnum transferReason;
+
+  public static final String SERIALIZED_NAME_NARRATION = "narration";
+  @SerializedName(SERIALIZED_NAME_NARRATION)
+  private String narration;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -321,6 +325,24 @@ public class PayoutMethodDetailsZARBank {
     this.transferReason = transferReason;
   }
 
+  public PayoutMethodDetailsZARBank narration(String narration) {
+    this.narration = narration;
+    return this;
+  }
+
+   /**
+   * Get narration
+   * @return narration
+  **/
+  @ApiModelProperty(value = "")
+  public String getNarration() {
+    return narration;
+  }
+
+  public void setNarration(String narration) {
+    this.narration = narration;
+  }
+
   public PayoutMethodDetailsZARBank name(String name) {
     this.name = name;
     return this;
@@ -451,6 +473,7 @@ public class PayoutMethodDetailsZARBank {
         Objects.equals(this.phoneNumber, payoutMethodDetailsZARBank.phoneNumber) &&
         Objects.equals(this.transferReasonCode, payoutMethodDetailsZARBank.transferReasonCode) &&
         Objects.equals(this.transferReason, payoutMethodDetailsZARBank.transferReason) &&
+        Objects.equals(this.narration, payoutMethodDetailsZARBank.narration) &&
         Objects.equals(this.name, payoutMethodDetailsZARBank.name) &&
         Objects.equals(this.contactFirstName, payoutMethodDetailsZARBank.contactFirstName) &&
         Objects.equals(this.contactLastName, payoutMethodDetailsZARBank.contactLastName) &&
@@ -461,7 +484,7 @@ public class PayoutMethodDetailsZARBank {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, street, postalCode, city, email, bankCode, branchCode, bankAccount, phoneNumber, transferReasonCode, transferReason, name, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType);
+    return Objects.hash(firstName, lastName, street, postalCode, city, email, bankCode, branchCode, bankAccount, phoneNumber, transferReasonCode, transferReason, narration, name, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType);
   }
 
 
@@ -481,6 +504,7 @@ public class PayoutMethodDetailsZARBank {
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    transferReasonCode: ").append(toIndentedString(transferReasonCode)).append("\n");
     sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
+    sb.append("    narration: ").append(toIndentedString(narration)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    contactFirstName: ").append(toIndentedString(contactFirstName)).append("\n");
     sb.append("    contactLastName: ").append(toIndentedString(contactLastName)).append("\n");
