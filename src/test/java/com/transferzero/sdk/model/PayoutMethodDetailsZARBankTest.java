@@ -140,6 +140,14 @@ public class PayoutMethodDetailsZARBankTest {
     }
 
     /**
+     * Test the property 'narration'
+     */
+    @Test
+    public void narrationTest() {
+        // TODO: test narration
+    }
+
+    /**
      * Test the property 'name'
      */
     @Test
