@@ -20,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayoutMethodBankAccountTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodCountryEnum;
+import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -48,6 +49,14 @@ public class PayoutMethodDetailsUSDBankTest {
     @Test
     public void firstNameTest() {
         // TODO: test firstName
+    }
+
+    /**
+     * Test the property 'middleName'
+     */
+    @Test
+    public void middleNameTest() {
+        // TODO: test middleName
     }
 
     /**
@@ -112,6 +121,30 @@ public class PayoutMethodDetailsUSDBankTest {
     @Test
     public void swiftCodeTest() {
         // TODO: test swiftCode
+    }
+
+    /**
+     * Test the property 'iban'
+     */
+    @Test
+    public void ibanTest() {
+        // TODO: test iban
+    }
+
+    /**
+     * Test the property 'street'
+     */
+    @Test
+    public void streetTest() {
+        // TODO: test street
+    }
+
+    /**
+     * Test the property 'transferReason'
+     */
+    @Test
+    public void transferReasonTest() {
+        // TODO: test transferReason
     }
 
     /**
