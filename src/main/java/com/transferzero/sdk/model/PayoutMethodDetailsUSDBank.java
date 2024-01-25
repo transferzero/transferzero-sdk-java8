@@ -22,19 +22,24 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.transferzero.sdk.model.PayoutMethodBankAccountTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodCountryEnum;
+import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Nigeria: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;phone_number\&quot;: \&quot;+2341234567\&quot;, // E.164 international format     \&quot;bank_code\&quot;: \&quot;057\&quot;,     \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,     \&quot;country\&quot;: \&quot;NG\&quot;   } &#x60;&#x60;&#x60; See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank) documentation for the bank_code and country lists  United States: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,     \&quot;bank_account_type\&quot;: \&quot;20\&quot;, // 10 for Savings, 20 for Checking     \&quot;bank_name\&quot;: \&quot;US Bank\&quot;,     \&quot;routing_number\&quot;: \&quot;091000022\&quot;,     \&quot;swift_code\&quot;: \&quot;USBKUS44IMT\&quot;,     \&quot;country\&quot;: \&quot;US\&quot;   } See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank-1) documentation
+ * Nigeria: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;phone_number\&quot;: \&quot;+2341234567\&quot;, // E.164 international format     \&quot;bank_code\&quot;: \&quot;057\&quot;,     \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,     \&quot;country\&quot;: \&quot;NG\&quot;   } &#x60;&#x60;&#x60; See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank) documentation for the bank_code and country lists  United States: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,     \&quot;bank_account_type\&quot;: \&quot;20\&quot;, // 10 for Savings, 20 for Checking     \&quot;bank_name\&quot;: \&quot;US Bank\&quot;,     \&quot;routing_number\&quot;: \&quot;091000022\&quot;,     \&quot;swift_code\&quot;: \&quot;USBKUS44IMT\&quot;,     \&quot;country\&quot;: \&quot;US\&quot;   } See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank-1) documentation  Egypt: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;middle_name\&quot;: \&quot;Jill\&quot;, // optional     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;street\&quot;: \&quot;1 Main Street\&quot;,     \&quot;phone_number\&quot;: \&quot;+201023456789\&quot;,     \&quot;iban\&quot;: \&quot;EG380019000500000000263180002\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;,   } &#x60;&#x60;&#x60; See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank-2) documentation
  */
-@ApiModel(description = "Nigeria: ```JSON   \"details\": {     \"first_name\": \"Jane\",     \"last_name\": \"Doe\",     \"phone_number\": \"+2341234567\", // E.164 international format     \"bank_code\": \"057\",     \"bank_account\": \"1234567890\",     \"country\": \"NG\"   } ``` See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank) documentation for the bank_code and country lists  United States: ```JSON   \"details\": {     \"first_name\": \"Jane\",     \"last_name\": \"Doe\",     \"bank_account\": \"1234567890\",     \"bank_account_type\": \"20\", // 10 for Savings, 20 for Checking     \"bank_name\": \"US Bank\",     \"routing_number\": \"091000022\",     \"swift_code\": \"USBKUS44IMT\",     \"country\": \"US\"   } See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank-1) documentation")
+@ApiModel(description = "Nigeria: ```JSON   \"details\": {     \"first_name\": \"Jane\",     \"last_name\": \"Doe\",     \"phone_number\": \"+2341234567\", // E.164 international format     \"bank_code\": \"057\",     \"bank_account\": \"1234567890\",     \"country\": \"NG\"   } ``` See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank) documentation for the bank_code and country lists  United States: ```JSON   \"details\": {     \"first_name\": \"Jane\",     \"last_name\": \"Doe\",     \"bank_account\": \"1234567890\",     \"bank_account_type\": \"20\", // 10 for Savings, 20 for Checking     \"bank_name\": \"US Bank\",     \"routing_number\": \"091000022\",     \"swift_code\": \"USBKUS44IMT\",     \"country\": \"US\"   } See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank-1) documentation  Egypt: ```JSON   \"details\": {     \"first_name\": \"Jane\",     \"middle_name\": \"Jill\", // optional     \"last_name\": \"Doe\",     \"street\": \"1 Main Street\",     \"phone_number\": \"+201023456789\",     \"iban\": \"EG380019000500000000263180002\",     \"transfer_reason\": \"personal_account\",   } ``` See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank-2) documentation")
 
 public class PayoutMethodDetailsUSDBank {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
+
+  public static final String SERIALIZED_NAME_MIDDLE_NAME = "middle_name";
+  @SerializedName(SERIALIZED_NAME_MIDDLE_NAME)
+  private String middleName;
 
   public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
@@ -68,6 +73,18 @@ public class PayoutMethodDetailsUSDBank {
   @SerializedName(SERIALIZED_NAME_SWIFT_CODE)
   private String swiftCode;
 
+  public static final String SERIALIZED_NAME_IBAN = "iban";
+  @SerializedName(SERIALIZED_NAME_IBAN)
+  private String iban;
+
+  public static final String SERIALIZED_NAME_STREET = "street";
+  @SerializedName(SERIALIZED_NAME_STREET)
+  private String street;
+
+  public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
+  @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
+  private PayoutMethodTransferReasonEnum transferReason;
+
   public static final String SERIALIZED_NAME_COUNTRY = "country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private PayoutMethodCountryEnum country;
@@ -88,6 +105,24 @@ public class PayoutMethodDetailsUSDBank {
 
   public void setFirstName(String firstName) {
     this.firstName = firstName;
+  }
+
+  public PayoutMethodDetailsUSDBank middleName(String middleName) {
+    this.middleName = middleName;
+    return this;
+  }
+
+   /**
+   * Get middleName
+   * @return middleName
+  **/
+  @ApiModelProperty(value = "")
+  public String getMiddleName() {
+    return middleName;
+  }
+
+  public void setMiddleName(String middleName) {
+    this.middleName = middleName;
   }
 
   public PayoutMethodDetailsUSDBank lastName(String lastName) {
@@ -153,7 +188,7 @@ public class PayoutMethodDetailsUSDBank {
    * Get bankAccount
    * @return bankAccount
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getBankAccount() {
     return bankAccount;
   }
@@ -234,6 +269,60 @@ public class PayoutMethodDetailsUSDBank {
     this.swiftCode = swiftCode;
   }
 
+  public PayoutMethodDetailsUSDBank iban(String iban) {
+    this.iban = iban;
+    return this;
+  }
+
+   /**
+   * Get iban
+   * @return iban
+  **/
+  @ApiModelProperty(value = "")
+  public String getIban() {
+    return iban;
+  }
+
+  public void setIban(String iban) {
+    this.iban = iban;
+  }
+
+  public PayoutMethodDetailsUSDBank street(String street) {
+    this.street = street;
+    return this;
+  }
+
+   /**
+   * Get street
+   * @return street
+  **/
+  @ApiModelProperty(value = "")
+  public String getStreet() {
+    return street;
+  }
+
+  public void setStreet(String street) {
+    this.street = street;
+  }
+
+  public PayoutMethodDetailsUSDBank transferReason(PayoutMethodTransferReasonEnum transferReason) {
+    this.transferReason = transferReason;
+    return this;
+  }
+
+   /**
+   * Get transferReason
+   * @return transferReason
+  **/
+  @ApiModelProperty(value = "")
+  public PayoutMethodTransferReasonEnum getTransferReason() {
+    return transferReason;
+  }
+
+  public void setTransferReason(PayoutMethodTransferReasonEnum transferReason) {
+    this.transferReason = transferReason;
+  }
+
   public PayoutMethodDetailsUSDBank country(PayoutMethodCountryEnum country) {
     this.country = country;
     return this;
@@ -263,6 +352,7 @@ public class PayoutMethodDetailsUSDBank {
     }
     PayoutMethodDetailsUSDBank payoutMethodDetailsUSDBank = (PayoutMethodDetailsUSDBank) o;
     return Objects.equals(this.firstName, payoutMethodDetailsUSDBank.firstName) &&
+        Objects.equals(this.middleName, payoutMethodDetailsUSDBank.middleName) &&
         Objects.equals(this.lastName, payoutMethodDetailsUSDBank.lastName) &&
         Objects.equals(this.phoneNumber, payoutMethodDetailsUSDBank.phoneNumber) &&
         Objects.equals(this.bankCode, payoutMethodDetailsUSDBank.bankCode) &&
@@ -271,12 +361,15 @@ public class PayoutMethodDetailsUSDBank {
         Objects.equals(this.bankName, payoutMethodDetailsUSDBank.bankName) &&
         Objects.equals(this.routingNumber, payoutMethodDetailsUSDBank.routingNumber) &&
         Objects.equals(this.swiftCode, payoutMethodDetailsUSDBank.swiftCode) &&
+        Objects.equals(this.iban, payoutMethodDetailsUSDBank.iban) &&
+        Objects.equals(this.street, payoutMethodDetailsUSDBank.street) &&
+        Objects.equals(this.transferReason, payoutMethodDetailsUSDBank.transferReason) &&
         Objects.equals(this.country, payoutMethodDetailsUSDBank.country);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, phoneNumber, bankCode, bankAccount, bankAccountType, bankName, routingNumber, swiftCode, country);
+    return Objects.hash(firstName, middleName, lastName, phoneNumber, bankCode, bankAccount, bankAccountType, bankName, routingNumber, swiftCode, iban, street, transferReason, country);
   }
 
 
@@ -285,6 +378,7 @@ public class PayoutMethodDetailsUSDBank {
     StringBuilder sb = new StringBuilder();
     sb.append("class PayoutMethodDetailsUSDBank {\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
@@ -293,6 +387,9 @@ public class PayoutMethodDetailsUSDBank {
     sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
     sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
     sb.append("    swiftCode: ").append(toIndentedString(swiftCode)).append("\n");
+    sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
+    sb.append("    street: ").append(toIndentedString(street)).append("\n");
+    sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("}");
     return sb.toString();

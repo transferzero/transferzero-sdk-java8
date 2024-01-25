@@ -219,6 +219,10 @@ public class PayoutMethodDetails {
   @SerializedName(SERIALIZED_NAME_LEGAL_ENTITY_TYPE)
   private PayoutMethodLegalEntityTypeEnum legalEntityType;
 
+  public static final String SERIALIZED_NAME_MIDDLE_NAME = "middle_name";
+  @SerializedName(SERIALIZED_NAME_MIDDLE_NAME)
+  private String middleName;
+
   public static final String SERIALIZED_NAME_ROUTING_NUMBER = "routing_number";
   @SerializedName(SERIALIZED_NAME_ROUTING_NUMBER)
   private String routingNumber;
@@ -242,10 +246,6 @@ public class PayoutMethodDetails {
   public static final String SERIALIZED_NAME_IFSC_CODE = "ifsc_code";
   @SerializedName(SERIALIZED_NAME_IFSC_CODE)
   private String ifscCode;
-
-  public static final String SERIALIZED_NAME_MIDDLE_NAME = "middle_name";
-  @SerializedName(SERIALIZED_NAME_MIDDLE_NAME)
-  private String middleName;
 
   public PayoutMethodDetails firstName(String firstName) {
     this.firstName = firstName;
@@ -931,6 +931,24 @@ public class PayoutMethodDetails {
     this.legalEntityType = legalEntityType;
   }
 
+  public PayoutMethodDetails middleName(String middleName) {
+    this.middleName = middleName;
+    return this;
+  }
+
+   /**
+   * Get middleName
+   * @return middleName
+  **/
+  @ApiModelProperty(value = "")
+  public String getMiddleName() {
+    return middleName;
+  }
+
+  public void setMiddleName(String middleName) {
+    this.middleName = middleName;
+  }
+
   public PayoutMethodDetails routingNumber(String routingNumber) {
     this.routingNumber = routingNumber;
     return this;
@@ -1039,24 +1057,6 @@ public class PayoutMethodDetails {
     this.ifscCode = ifscCode;
   }
 
-  public PayoutMethodDetails middleName(String middleName) {
-    this.middleName = middleName;
-    return this;
-  }
-
-   /**
-   * Get middleName
-   * @return middleName
-  **/
-  @ApiModelProperty(value = "")
-  public String getMiddleName() {
-    return middleName;
-  }
-
-  public void setMiddleName(String middleName) {
-    this.middleName = middleName;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -1105,18 +1105,18 @@ public class PayoutMethodDetails {
         Objects.equals(this.registrationNumber, payoutMethodDetails.registrationNumber) &&
         Objects.equals(this.natureOfBusiness, payoutMethodDetails.natureOfBusiness) &&
         Objects.equals(this.legalEntityType, payoutMethodDetails.legalEntityType) &&
+        Objects.equals(this.middleName, payoutMethodDetails.middleName) &&
         Objects.equals(this.routingNumber, payoutMethodDetails.routingNumber) &&
         Objects.equals(this.swiftCode, payoutMethodDetails.swiftCode) &&
         Objects.equals(this.relationshipToSender, payoutMethodDetails.relationshipToSender) &&
         Objects.equals(this.pixKeyType, payoutMethodDetails.pixKeyType) &&
         Objects.equals(this.pixKeyValue, payoutMethodDetails.pixKeyValue) &&
-        Objects.equals(this.ifscCode, payoutMethodDetails.ifscCode) &&
-        Objects.equals(this.middleName, payoutMethodDetails.middleName);
+        Objects.equals(this.ifscCode, payoutMethodDetails.ifscCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, narration, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, branchCode, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, routingNumber, swiftCode, relationshipToSender, pixKeyType, pixKeyValue, ifscCode, middleName);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, narration, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, branchCode, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, middleName, routingNumber, swiftCode, relationshipToSender, pixKeyType, pixKeyValue, ifscCode);
   }
 
 
@@ -1162,13 +1162,13 @@ public class PayoutMethodDetails {
     sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
     sb.append("    natureOfBusiness: ").append(toIndentedString(natureOfBusiness)).append("\n");
     sb.append("    legalEntityType: ").append(toIndentedString(legalEntityType)).append("\n");
+    sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
     sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
     sb.append("    swiftCode: ").append(toIndentedString(swiftCode)).append("\n");
     sb.append("    relationshipToSender: ").append(toIndentedString(relationshipToSender)).append("\n");
     sb.append("    pixKeyType: ").append(toIndentedString(pixKeyType)).append("\n");
     sb.append("    pixKeyValue: ").append(toIndentedString(pixKeyValue)).append("\n");
     sb.append("    ifscCode: ").append(toIndentedString(ifscCode)).append("\n");
-    sb.append("    middleName: ").append(toIndentedString(middleName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

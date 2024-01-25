@@ -44,13 +44,13 @@ Name | Type | Description | Notes
 **registrationNumber** | **String** |  |  [optional]
 **natureOfBusiness** | [**PayoutMethodNatureOfBusinessEnum**](PayoutMethodNatureOfBusinessEnum.md) |  |  [optional]
 **legalEntityType** | [**PayoutMethodLegalEntityTypeEnum**](PayoutMethodLegalEntityTypeEnum.md) |  |  [optional]
+**middleName** | **String** |  |  [optional]
 **routingNumber** | **String** |  |  [optional]
 **swiftCode** | **String** |  |  [optional]
 **relationshipToSender** | **String** |  |  [optional]
 **pixKeyType** | [**PayoutMethodPixKeyTypeEnum**](PayoutMethodPixKeyTypeEnum.md) |  |  [optional]
 **pixKeyValue** | **String** |  |  [optional]
 **ifscCode** | **String** |  | 
-**middleName** | **String** |  |  [optional]
 
 
 
