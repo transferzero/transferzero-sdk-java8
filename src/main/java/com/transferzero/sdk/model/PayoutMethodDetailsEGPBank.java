@@ -144,7 +144,7 @@ public class PayoutMethodDetailsEGPBank {
    * Get phoneNumber
    * @return phoneNumber
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getPhoneNumber() {
     return phoneNumber;
   }
