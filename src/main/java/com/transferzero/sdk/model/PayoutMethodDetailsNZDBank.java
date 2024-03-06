@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_account\&quot;: \&quot;1212341234567123\&quot;,   \&quot;bank_name\&quot;: \&quot;ASB Bank\&quot; } &#x60;&#x60;&#x60;  See [NZD Bank](https://docs.transferzero.com/docs/payout-details/#nzdbank) documentation for the bank_name list
@@ -45,6 +46,10 @@ public class PayoutMethodDetailsNZDBank {
   public static final String SERIALIZED_NAME_BANK_NAME = "bank_name";
   @SerializedName(SERIALIZED_NAME_BANK_NAME)
   private String bankName;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsNZDBank firstName(String firstName) {
     this.firstName = firstName;
@@ -118,6 +123,24 @@ public class PayoutMethodDetailsNZDBank {
     this.bankName = bankName;
   }
 
+  public PayoutMethodDetailsNZDBank birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -131,12 +154,13 @@ public class PayoutMethodDetailsNZDBank {
     return Objects.equals(this.firstName, payoutMethodDetailsNZDBank.firstName) &&
         Objects.equals(this.lastName, payoutMethodDetailsNZDBank.lastName) &&
         Objects.equals(this.bankAccount, payoutMethodDetailsNZDBank.bankAccount) &&
-        Objects.equals(this.bankName, payoutMethodDetailsNZDBank.bankName);
+        Objects.equals(this.bankName, payoutMethodDetailsNZDBank.bankName) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsNZDBank.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankAccount, bankName);
+    return Objects.hash(firstName, lastName, bankAccount, bankName, birthDate);
   }
 
 
@@ -148,6 +172,7 @@ public class PayoutMethodDetailsNZDBank {
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **identityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **identityCardId** | **String** |  | 
 **relationshipToSender** | **String** |  |  [optional]
+**birthDate** | [**LocalDate**](LocalDate.md) | Date of birth of recipient |  [optional]
 
 
 

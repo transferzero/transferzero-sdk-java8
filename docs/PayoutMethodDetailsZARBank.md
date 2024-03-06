@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **registrationNumber** | **String** |  |  [optional]
 **natureOfBusiness** | [**PayoutMethodNatureOfBusinessEnum**](PayoutMethodNatureOfBusinessEnum.md) |  |  [optional]
 **legalEntityType** | [**PayoutMethodLegalEntityTypeEnum**](PayoutMethodLegalEntityTypeEnum.md) |  |  [optional]
+**birthDate** | [**LocalDate**](LocalDate.md) | Date of birth of recipient |  [optional]
 
 
 

@@ -24,6 +24,7 @@ import com.transferzero.sdk.model.PayoutMethodCountryEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;phone_number\&quot;: \&quot;+2341234567\&quot;, // E.164 international format     \&quot;country\&quot;: \&quot;NG\&quot;   } &#x60;&#x60;&#x60; See [USD Cash](https://docs.transferzero.com/docs/payout-details/#usdcash) documentation for the country list
@@ -46,6 +47,10 @@ public class PayoutMethodDetailsUSDCash {
   public static final String SERIALIZED_NAME_COUNTRY = "country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private PayoutMethodCountryEnum country;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsUSDCash firstName(String firstName) {
     this.firstName = firstName;
@@ -119,6 +124,24 @@ public class PayoutMethodDetailsUSDCash {
     this.country = country;
   }
 
+  public PayoutMethodDetailsUSDCash birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -132,12 +155,13 @@ public class PayoutMethodDetailsUSDCash {
     return Objects.equals(this.firstName, payoutMethodDetailsUSDCash.firstName) &&
         Objects.equals(this.lastName, payoutMethodDetailsUSDCash.lastName) &&
         Objects.equals(this.phoneNumber, payoutMethodDetailsUSDCash.phoneNumber) &&
-        Objects.equals(this.country, payoutMethodDetailsUSDCash.country);
+        Objects.equals(this.country, payoutMethodDetailsUSDCash.country) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsUSDCash.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, phoneNumber, country);
+    return Objects.hash(firstName, lastName, phoneNumber, country, birthDate);
   }
 
 
@@ -149,6 +173,7 @@ public class PayoutMethodDetailsUSDCash {
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

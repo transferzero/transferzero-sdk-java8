@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;name\&quot;: \&quot;Full Name\&quot;   \&quot;address\&quot;: \&quot;n4VQ5YdHf7hLQ2gWQYYrcxoE5B7nWuDFNF\&quot; }
@@ -45,6 +46,10 @@ public class PayoutMethodDetailsBTC {
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private String address;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsBTC firstName(String firstName) {
     this.firstName = firstName;
@@ -118,6 +123,24 @@ public class PayoutMethodDetailsBTC {
     this.address = address;
   }
 
+  public PayoutMethodDetailsBTC birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -131,12 +154,13 @@ public class PayoutMethodDetailsBTC {
     return Objects.equals(this.firstName, payoutMethodDetailsBTC.firstName) &&
         Objects.equals(this.lastName, payoutMethodDetailsBTC.lastName) &&
         Objects.equals(this.name, payoutMethodDetailsBTC.name) &&
-        Objects.equals(this.address, payoutMethodDetailsBTC.address);
+        Objects.equals(this.address, payoutMethodDetailsBTC.address) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsBTC.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, name, address);
+    return Objects.hash(firstName, lastName, name, address, birthDate);
   }
 
 
@@ -148,6 +172,7 @@ public class PayoutMethodDetailsBTC {
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **bankCode** | **String** |  | 
 **bankAccount** | **String** |  | 
 **bankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  |  [optional]
+**birthDate** | [**LocalDate**](LocalDate.md) | Date of birth of recipient |  [optional]
 
 
 

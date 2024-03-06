@@ -25,6 +25,7 @@ import com.transferzero.sdk.model.PayoutMethodCountryEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;+221774044436\&quot;, // E.164 international format   \&quot;cash_provider\&quot;: \&quot;wizall\&quot; // Mandatory; Values: \&quot;wizall\&quot;;   \&quot;country\&quot;: \&quot;SN\&quot; // Optional; Values: \&quot;CI\&quot;, \&quot;ML\&quot; or \&quot;SN\&quot;; Default value is \&quot;SN\&quot;; } &#x60;&#x60;&#x60;  Please note all senders trying to create Wizall cash pickup requests must have &#x60;identity_type&#x60; and &#x60;identity_number&#x60; present. The fields above are generally considered optional for senders for other payment corridors. If you wish to use an existing sender who has some of these fields missing you can provide them alongside the &#x60;id&#x60; or &#x60;external_id&#x60; field in the sender details. For example -  &#x60;&#x60;&#x60;JSON {   \&quot;transaction\&quot;: {       \&quot;sender\&quot;: {         \&quot;external_id\&quot;: \&quot;&lt;id of sender&gt;\&quot;,         \&quot;identity_type\&quot;: \&quot;ID\&quot;,         \&quot;identity_number\&quot;: \&quot;AB12345678\&quot;,         (...)       },       (...)     } } &#x60;&#x60;&#x60;
@@ -51,6 +52,10 @@ public class PayoutMethodDetailsXOFCash {
   public static final String SERIALIZED_NAME_COUNTRY = "country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private PayoutMethodCountryEnum country;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsXOFCash firstName(String firstName) {
     this.firstName = firstName;
@@ -142,6 +147,24 @@ public class PayoutMethodDetailsXOFCash {
     this.country = country;
   }
 
+  public PayoutMethodDetailsXOFCash birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -156,12 +179,13 @@ public class PayoutMethodDetailsXOFCash {
         Objects.equals(this.lastName, payoutMethodDetailsXOFCash.lastName) &&
         Objects.equals(this.phoneNumber, payoutMethodDetailsXOFCash.phoneNumber) &&
         Objects.equals(this.cashProvider, payoutMethodDetailsXOFCash.cashProvider) &&
-        Objects.equals(this.country, payoutMethodDetailsXOFCash.country);
+        Objects.equals(this.country, payoutMethodDetailsXOFCash.country) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsXOFCash.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, phoneNumber, cashProvider, country);
+    return Objects.hash(firstName, lastName, phoneNumber, cashProvider, country, birthDate);
   }
 
 
@@ -174,6 +198,7 @@ public class PayoutMethodDetailsXOFCash {
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    cashProvider: ").append(toIndentedString(cashProvider)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

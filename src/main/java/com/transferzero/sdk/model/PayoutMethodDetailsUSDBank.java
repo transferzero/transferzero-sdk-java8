@@ -26,6 +26,7 @@ import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * Nigeria: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;phone_number\&quot;: \&quot;+2341234567\&quot;, // E.164 international format     \&quot;bank_code\&quot;: \&quot;057\&quot;,     \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,     \&quot;country\&quot;: \&quot;NG\&quot;   } &#x60;&#x60;&#x60; See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank) documentation for the bank_code and country lists  United States: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,     \&quot;bank_account_type\&quot;: \&quot;20\&quot;, // 10 for Savings, 20 for Checking     \&quot;bank_name\&quot;: \&quot;US Bank\&quot;,     \&quot;routing_number\&quot;: \&quot;091000022\&quot;,     \&quot;swift_code\&quot;: \&quot;USBKUS44IMT\&quot;,     \&quot;country\&quot;: \&quot;US\&quot;   } See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank-1) documentation  Egypt: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;middle_name\&quot;: \&quot;Jill\&quot;, // optional     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;street\&quot;: \&quot;1 Main Street\&quot;,     \&quot;phone_number\&quot;: \&quot;+201023456789\&quot;,     \&quot;iban\&quot;: \&quot;EG380019000500000000263180002\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;,   } &#x60;&#x60;&#x60; See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank-2) documentation
@@ -88,6 +89,10 @@ public class PayoutMethodDetailsUSDBank {
   public static final String SERIALIZED_NAME_COUNTRY = "country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private PayoutMethodCountryEnum country;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsUSDBank firstName(String firstName) {
     this.firstName = firstName;
@@ -341,6 +346,24 @@ public class PayoutMethodDetailsUSDBank {
     this.country = country;
   }
 
+  public PayoutMethodDetailsUSDBank birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -364,12 +387,13 @@ public class PayoutMethodDetailsUSDBank {
         Objects.equals(this.iban, payoutMethodDetailsUSDBank.iban) &&
         Objects.equals(this.street, payoutMethodDetailsUSDBank.street) &&
         Objects.equals(this.transferReason, payoutMethodDetailsUSDBank.transferReason) &&
-        Objects.equals(this.country, payoutMethodDetailsUSDBank.country);
+        Objects.equals(this.country, payoutMethodDetailsUSDBank.country) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsUSDBank.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, middleName, lastName, phoneNumber, bankCode, bankAccount, bankAccountType, bankName, routingNumber, swiftCode, iban, street, transferReason, country);
+    return Objects.hash(firstName, middleName, lastName, phoneNumber, bankCode, bankAccount, bankAccountType, bankName, routingNumber, swiftCode, iban, street, transferReason, country, birthDate);
   }
 
 
@@ -391,6 +415,7 @@ public class PayoutMethodDetailsUSDBank {
     sb.append("    street: ").append(toIndentedString(street)).append("\n");
     sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

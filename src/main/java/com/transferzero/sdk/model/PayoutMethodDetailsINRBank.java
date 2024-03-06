@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;city\&quot;: \&quot;New Delhi\&quot;,   \&quot;street\&quot;: \&quot;1, Akbar Road\&quot;,   \&quot;postal_code\&quot;: \&quot;110016\&quot;,   \&quot;phone_number\&quot;: \&quot;+919876543210\&quot;,   \&quot;bank_name\&quot;: \&quot;Bank of India\&quot;   \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,   \&quot;ifsc_code\&quot;: \&quot;BKID0006005\&quot; } &#x60;&#x60;&#x60; See [INR Bank](https://docs.transferzero.com/docs/payout-details/#inrbank) documentation for the bank_name list
@@ -65,6 +66,10 @@ public class PayoutMethodDetailsINRBank {
   public static final String SERIALIZED_NAME_IFSC_CODE = "ifsc_code";
   @SerializedName(SERIALIZED_NAME_IFSC_CODE)
   private String ifscCode;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsINRBank firstName(String firstName) {
     this.firstName = firstName;
@@ -228,6 +233,24 @@ public class PayoutMethodDetailsINRBank {
     this.ifscCode = ifscCode;
   }
 
+  public PayoutMethodDetailsINRBank birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -246,12 +269,13 @@ public class PayoutMethodDetailsINRBank {
         Objects.equals(this.phoneNumber, payoutMethodDetailsINRBank.phoneNumber) &&
         Objects.equals(this.bankName, payoutMethodDetailsINRBank.bankName) &&
         Objects.equals(this.bankAccount, payoutMethodDetailsINRBank.bankAccount) &&
-        Objects.equals(this.ifscCode, payoutMethodDetailsINRBank.ifscCode);
+        Objects.equals(this.ifscCode, payoutMethodDetailsINRBank.ifscCode) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsINRBank.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, city, street, postalCode, phoneNumber, bankName, bankAccount, ifscCode);
+    return Objects.hash(firstName, lastName, city, street, postalCode, phoneNumber, bankName, bankAccount, ifscCode, birthDate);
   }
 
 
@@ -268,6 +292,7 @@ public class PayoutMethodDetailsINRBank {
     sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    ifscCode: ").append(toIndentedString(ifscCode)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **lastName** | **String** |  | 
 **phoneNumber** | **String** |  | 
 **mobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
+**birthDate** | [**LocalDate**](LocalDate.md) | Date of birth of recipient |  [optional]
 
 
 

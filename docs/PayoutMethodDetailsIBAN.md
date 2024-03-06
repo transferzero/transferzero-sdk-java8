@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **bic** | **String** |  |  [optional]
 **bankName** | **String** |  |  [optional]
 **narration** | **String** |  |  [optional]
+**birthDate** | [**LocalDate**](LocalDate.md) | Date of birth of recipient |  [optional]
 
 
 

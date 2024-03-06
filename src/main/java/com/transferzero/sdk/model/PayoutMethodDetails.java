@@ -61,6 +61,7 @@ import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * PayoutMethodDetails
@@ -86,6 +87,10 @@ public class PayoutMethodDetails {
   public static final String SERIALIZED_NAME_BANK_ACCOUNT_TYPE = "bank_account_type";
   @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT_TYPE)
   private PayoutMethodBankAccountTypeEnum bankAccountType;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
@@ -335,6 +340,24 @@ public class PayoutMethodDetails {
 
   public void setBankAccountType(PayoutMethodBankAccountTypeEnum bankAccountType) {
     this.bankAccountType = bankAccountType;
+  }
+
+  public PayoutMethodDetails birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
   }
 
   public PayoutMethodDetails phoneNumber(String phoneNumber) {
@@ -1072,6 +1095,7 @@ public class PayoutMethodDetails {
         Objects.equals(this.bankCode, payoutMethodDetails.bankCode) &&
         Objects.equals(this.bankAccount, payoutMethodDetails.bankAccount) &&
         Objects.equals(this.bankAccountType, payoutMethodDetails.bankAccountType) &&
+        Objects.equals(this.birthDate, payoutMethodDetails.birthDate) &&
         Objects.equals(this.phoneNumber, payoutMethodDetails.phoneNumber) &&
         Objects.equals(this.mobileProvider, payoutMethodDetails.mobileProvider) &&
         Objects.equals(this.country, payoutMethodDetails.country) &&
@@ -1116,7 +1140,7 @@ public class PayoutMethodDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, narration, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, branchCode, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, middleName, routingNumber, swiftCode, relationshipToSender, pixKeyType, pixKeyValue, ifscCode);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, birthDate, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, narration, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, branchCode, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, middleName, routingNumber, swiftCode, relationshipToSender, pixKeyType, pixKeyValue, ifscCode);
   }
 
 
@@ -1129,6 +1153,7 @@ public class PayoutMethodDetails {
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    bankAccountType: ").append(toIndentedString(bankAccountType)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");

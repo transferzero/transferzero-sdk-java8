@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **street** | **String** |  |  [optional]
 **transferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  |  [optional]
 **country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  | 
+**birthDate** | [**LocalDate**](LocalDate.md) | Date of birth of recipient |  [optional]
 
 
 

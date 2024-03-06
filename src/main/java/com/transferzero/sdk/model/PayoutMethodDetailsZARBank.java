@@ -26,6 +26,7 @@ import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;, //  Mandatory for personal payouts;     \&quot;last_name\&quot;: \&quot;Last\&quot;, //  Mandatory for personal payouts;     \&quot;name\&quot; \&quot;First Ltd\&quot;, // Mandatory for business payouts;     \&quot;contact_first_name\&quot; \&quot;Business\&quot;,     \&quot;contact_last_name\&quot; \&quot;Contact\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;postal_code\&quot;: \&quot;AB0001\&quot;,     \&quot;city\&quot;: \&quot;Cape Town\&quot;,     \&quot;email\&quot;: \&quot;recipient@email.com\&quot;,     \&quot;bank_name\&quot; &#39;Bank Zero&#39;, // Optional     \&quot;bank_code\&quot;: \&quot;334810\&quot;,  // Optional; Required if branch_code is empty     \&quot;branch_code\&quot;: \&quot;630067\&quot;, // Optional; Required if bank_code is empty     \&quot;bank_account\&quot;: \&quot;12345678\&quot;,     \&quot;phone_number\&quot;: \&quot;+27119785313\&quot;, // E.164 international format     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;, // New transfer reason field     \&quot;narration\&quot;: \&quot;Birthday Gift\&quot;, // Optional     \&quot;legal_entity_type\&quot;: \&quot;sole_proprietorship\&quot;, // Optional; Default value is \&quot;person\&quot;;     \&quot;nature_of_business\&quot;: \&quot;mining\&quot;, // Optional for business payouts;     \&quot;registration_number\&quot;: \&quot;17364BGC\&quot; // Optional for business payouts;   } &#x60;&#x60;&#x60;  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason lists
@@ -108,6 +109,10 @@ public class PayoutMethodDetailsZARBank {
   public static final String SERIALIZED_NAME_LEGAL_ENTITY_TYPE = "legal_entity_type";
   @SerializedName(SERIALIZED_NAME_LEGAL_ENTITY_TYPE)
   private PayoutMethodLegalEntityTypeEnum legalEntityType;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsZARBank firstName(String firstName) {
     this.firstName = firstName;
@@ -451,6 +456,24 @@ public class PayoutMethodDetailsZARBank {
     this.legalEntityType = legalEntityType;
   }
 
+  public PayoutMethodDetailsZARBank birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -479,12 +502,13 @@ public class PayoutMethodDetailsZARBank {
         Objects.equals(this.contactLastName, payoutMethodDetailsZARBank.contactLastName) &&
         Objects.equals(this.registrationNumber, payoutMethodDetailsZARBank.registrationNumber) &&
         Objects.equals(this.natureOfBusiness, payoutMethodDetailsZARBank.natureOfBusiness) &&
-        Objects.equals(this.legalEntityType, payoutMethodDetailsZARBank.legalEntityType);
+        Objects.equals(this.legalEntityType, payoutMethodDetailsZARBank.legalEntityType) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsZARBank.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, street, postalCode, city, email, bankCode, branchCode, bankAccount, phoneNumber, transferReasonCode, transferReason, narration, name, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType);
+    return Objects.hash(firstName, lastName, street, postalCode, city, email, bankCode, branchCode, bankAccount, phoneNumber, transferReasonCode, transferReason, narration, name, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, birthDate);
   }
 
 
@@ -511,6 +535,7 @@ public class PayoutMethodDetailsZARBank {
     sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
     sb.append("    natureOfBusiness: ").append(toIndentedString(natureOfBusiness)).append("\n");
     sb.append("    legalEntityType: ").append(toIndentedString(legalEntityType)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

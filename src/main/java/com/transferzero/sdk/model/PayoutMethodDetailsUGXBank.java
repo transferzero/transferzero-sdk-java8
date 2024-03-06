@@ -24,6 +24,7 @@ import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;street\&quot;: \&quot;1, Old Taxi Park\&quot;,   \&quot;city\&quot;: \&quot;Kampala\&quot;,   \&quot;postal_code\&quot;: \&quot;10102\&quot;,   \&quot;identity_card_id\&quot;: \&quot;3081900101123411\&quot;,   \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,   \&quot;branch_code\&quot;: \&quot;130547\&quot;,   \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot; } &#x60;&#x60;&#x60; See [UGX Bank](https://docs.transferzero.com/docs/payout-details/#ugxbank) documentation for the branch_code list
@@ -66,6 +67,10 @@ public class PayoutMethodDetailsUGXBank {
   public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
   @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
   private PayoutMethodTransferReasonEnum transferReason;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsUGXBank firstName(String firstName) {
     this.firstName = firstName;
@@ -229,6 +234,24 @@ public class PayoutMethodDetailsUGXBank {
     this.transferReason = transferReason;
   }
 
+  public PayoutMethodDetailsUGXBank birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -247,12 +270,13 @@ public class PayoutMethodDetailsUGXBank {
         Objects.equals(this.identityCardId, payoutMethodDetailsUGXBank.identityCardId) &&
         Objects.equals(this.bankAccount, payoutMethodDetailsUGXBank.bankAccount) &&
         Objects.equals(this.branchCode, payoutMethodDetailsUGXBank.branchCode) &&
-        Objects.equals(this.transferReason, payoutMethodDetailsUGXBank.transferReason);
+        Objects.equals(this.transferReason, payoutMethodDetailsUGXBank.transferReason) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsUGXBank.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, street, city, postalCode, identityCardId, bankAccount, branchCode, transferReason);
+    return Objects.hash(firstName, lastName, street, city, postalCode, identityCardId, bankAccount, branchCode, transferReason, birthDate);
   }
 
 
@@ -269,6 +293,7 @@ public class PayoutMethodDetailsUGXBank {
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    branchCode: ").append(toIndentedString(branchCode)).append("\n");
     sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

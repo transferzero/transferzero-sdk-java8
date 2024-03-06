@@ -24,6 +24,7 @@ import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;middle_name\&quot;: \&quot;Middle\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;street\&quot;: \&quot;1 Main Street\&quot;,   \&quot;phone_number\&quot;: \&quot;+201023456789\&quot;,   \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,   \&quot;bank_code\&quot;: \&quot;0030\&quot;,   \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot; } &#x60;&#x60;&#x60; See [EGP Bank](https://docs.transferzero.com/docs/payout-details/#egpbank) documentation for the bank_code list
@@ -62,6 +63,10 @@ public class PayoutMethodDetailsEGPBank {
   public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
   @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
   private PayoutMethodTransferReasonEnum transferReason;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsEGPBank firstName(String firstName) {
     this.firstName = firstName;
@@ -207,6 +212,24 @@ public class PayoutMethodDetailsEGPBank {
     this.transferReason = transferReason;
   }
 
+  public PayoutMethodDetailsEGPBank birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -224,12 +247,13 @@ public class PayoutMethodDetailsEGPBank {
         Objects.equals(this.phoneNumber, payoutMethodDetailsEGPBank.phoneNumber) &&
         Objects.equals(this.bankAccount, payoutMethodDetailsEGPBank.bankAccount) &&
         Objects.equals(this.bankCode, payoutMethodDetailsEGPBank.bankCode) &&
-        Objects.equals(this.transferReason, payoutMethodDetailsEGPBank.transferReason);
+        Objects.equals(this.transferReason, payoutMethodDetailsEGPBank.transferReason) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsEGPBank.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, middleName, lastName, street, phoneNumber, bankAccount, bankCode, transferReason);
+    return Objects.hash(firstName, middleName, lastName, street, phoneNumber, bankAccount, bankCode, transferReason, birthDate);
   }
 
 
@@ -245,6 +269,7 @@ public class PayoutMethodDetailsEGPBank {
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
     sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

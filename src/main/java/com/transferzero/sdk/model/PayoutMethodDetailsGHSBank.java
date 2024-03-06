@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_code\&quot;: \&quot;030100\&quot;,   \&quot;bank_account\&quot;: \&quot;123456789\&quot; } &#x60;&#x60;&#x60;  The current banks supported and their bank_codes values are:  - Access Bank: 280100 - Barclays Bank: 030100 - GCB Bank: 040100 - Ecobank: 130100 - First National Bank: 330100 - Heritage Bank: 370100 - Prudential Bank: 180100 - Stanbic Bank: 190100 - Standard Chartered Bank: 020100 - United Bank for Africa: 060100 - Zenith Bank: 120100
@@ -45,6 +46,10 @@ public class PayoutMethodDetailsGHSBank {
   public static final String SERIALIZED_NAME_BANK_ACCOUNT = "bank_account";
   @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT)
   private String bankAccount;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsGHSBank firstName(String firstName) {
     this.firstName = firstName;
@@ -118,6 +123,24 @@ public class PayoutMethodDetailsGHSBank {
     this.bankAccount = bankAccount;
   }
 
+  public PayoutMethodDetailsGHSBank birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -131,12 +154,13 @@ public class PayoutMethodDetailsGHSBank {
     return Objects.equals(this.firstName, payoutMethodDetailsGHSBank.firstName) &&
         Objects.equals(this.lastName, payoutMethodDetailsGHSBank.lastName) &&
         Objects.equals(this.bankCode, payoutMethodDetailsGHSBank.bankCode) &&
-        Objects.equals(this.bankAccount, payoutMethodDetailsGHSBank.bankAccount);
+        Objects.equals(this.bankAccount, payoutMethodDetailsGHSBank.bankAccount) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsGHSBank.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, birthDate);
   }
 
 
@@ -148,6 +172,7 @@ public class PayoutMethodDetailsGHSBank {
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

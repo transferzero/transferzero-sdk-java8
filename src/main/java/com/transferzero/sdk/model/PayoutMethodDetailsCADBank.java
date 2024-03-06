@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_account\&quot;: \&quot;123456789\&quot;,   \&quot;bank_code\&quot;: \&quot;003\&quot;,   \&quot;branch_code\&quot;: \&quot;12345\&quot; } &#x60;&#x60;&#x60; See [CAD Bank](https://docs.transferzero.com/docs/payout-details/#cadbank) documentation for the bank_code list
@@ -49,6 +50,10 @@ public class PayoutMethodDetailsCADBank {
   public static final String SERIALIZED_NAME_BRANCH_CODE = "branch_code";
   @SerializedName(SERIALIZED_NAME_BRANCH_CODE)
   private String branchCode;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsCADBank firstName(String firstName) {
     this.firstName = firstName;
@@ -140,6 +145,24 @@ public class PayoutMethodDetailsCADBank {
     this.branchCode = branchCode;
   }
 
+  public PayoutMethodDetailsCADBank birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -154,12 +177,13 @@ public class PayoutMethodDetailsCADBank {
         Objects.equals(this.lastName, payoutMethodDetailsCADBank.lastName) &&
         Objects.equals(this.bankAccount, payoutMethodDetailsCADBank.bankAccount) &&
         Objects.equals(this.bankCode, payoutMethodDetailsCADBank.bankCode) &&
-        Objects.equals(this.branchCode, payoutMethodDetailsCADBank.branchCode);
+        Objects.equals(this.branchCode, payoutMethodDetailsCADBank.branchCode) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsCADBank.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankAccount, bankCode, branchCode);
+    return Objects.hash(firstName, lastName, bankAccount, bankCode, branchCode, birthDate);
   }
 
 
@@ -172,6 +196,7 @@ public class PayoutMethodDetailsCADBank {
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
     sb.append("    branchCode: ").append(toIndentedString(branchCode)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;iban\&quot;: \&quot;GB45LOYD60161331926819\&quot;, // Required if no &#x60;bank_account&#x60; and &#x60;sort_code&#x60;   \&quot;bank_account\&quot;: \&quot;12345678\&quot;, // Required if &#x60;iban&#x60; is not present   \&quot;sort_code\&quot;: \&quot;123456\&quot;, // Required if &#x60;bank_account&#x60; is present   \&quot;bic\&quot;: \&quot;CHASUS33XXX\&quot; // Optional   \&quot;bank_name\&quot;: \&quot;JPMorgan Chase Bank\&quot;, // Optional   \&quot;narration\&quot;: \&quot;Birthday Gift\&quot; // Optional } &#x60;&#x60;&#x60;
@@ -61,6 +62,10 @@ public class PayoutMethodDetailsGBPBank {
   public static final String SERIALIZED_NAME_NARRATION = "narration";
   @SerializedName(SERIALIZED_NAME_NARRATION)
   private String narration;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsGBPBank firstName(String firstName) {
     this.firstName = firstName;
@@ -206,6 +211,24 @@ public class PayoutMethodDetailsGBPBank {
     this.narration = narration;
   }
 
+  public PayoutMethodDetailsGBPBank birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -223,12 +246,13 @@ public class PayoutMethodDetailsGBPBank {
         Objects.equals(this.sortCode, payoutMethodDetailsGBPBank.sortCode) &&
         Objects.equals(this.bic, payoutMethodDetailsGBPBank.bic) &&
         Objects.equals(this.bankName, payoutMethodDetailsGBPBank.bankName) &&
-        Objects.equals(this.narration, payoutMethodDetailsGBPBank.narration);
+        Objects.equals(this.narration, payoutMethodDetailsGBPBank.narration) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsGBPBank.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, iban, bankAccount, sortCode, bic, bankName, narration);
+    return Objects.hash(firstName, lastName, iban, bankAccount, sortCode, bic, bankName, narration, birthDate);
   }
 
 
@@ -244,6 +268,7 @@ public class PayoutMethodDetailsGBPBank {
     sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
     sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
     sb.append("    narration: ").append(toIndentedString(narration)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

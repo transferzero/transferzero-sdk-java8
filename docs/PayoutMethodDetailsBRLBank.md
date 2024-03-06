@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **pixKeyValue** | **String** |  |  [optional]
 **identityCardId** | **String** |  | 
 **transferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | 
+**birthDate** | [**LocalDate**](LocalDate.md) | Date of birth of recipient |  [optional]
 
 
 

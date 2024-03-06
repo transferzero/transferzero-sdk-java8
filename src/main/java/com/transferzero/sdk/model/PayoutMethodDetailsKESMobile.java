@@ -26,6 +26,7 @@ import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;1 Linford Street\&quot;,     \&quot;city\&quot;: \&quot;Nairobi\&quot;,     \&quot;phone_number\&quot;: \&quot;+254123456789\&quot;, // E.164 international format     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;, // refers to the recipient&#39;s ID details; Values: \&quot;PP\&quot;: Passport, \&quot;ID\&quot;: National ID or \&quot;O\&quot;: Other     \&quot;identity_card_id\&quot;: &#39;AB12345678&#39;, // refers to the recipient&#39;s ID details     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;,     \&quot;mobile_provider\&quot;: \&quot;mpesa\&quot;,     \&quot;relationship_to_sender\&quot;: \&quot;Aunt\&quot; // Optional   } &#x60;&#x60;&#x60;  See [KES Mobile](https://docs.transferzero.com/docs/payout-details/#kesmobile) documentation for transfer_reason lists
@@ -76,6 +77,10 @@ public class PayoutMethodDetailsKESMobile {
   public static final String SERIALIZED_NAME_RELATIONSHIP_TO_SENDER = "relationship_to_sender";
   @SerializedName(SERIALIZED_NAME_RELATIONSHIP_TO_SENDER)
   private String relationshipToSender;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsKESMobile firstName(String firstName) {
     this.firstName = firstName;
@@ -275,6 +280,24 @@ public class PayoutMethodDetailsKESMobile {
     this.relationshipToSender = relationshipToSender;
   }
 
+  public PayoutMethodDetailsKESMobile birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -295,12 +318,13 @@ public class PayoutMethodDetailsKESMobile {
         Objects.equals(this.transferReason, payoutMethodDetailsKESMobile.transferReason) &&
         Objects.equals(this.identityCardType, payoutMethodDetailsKESMobile.identityCardType) &&
         Objects.equals(this.identityCardId, payoutMethodDetailsKESMobile.identityCardId) &&
-        Objects.equals(this.relationshipToSender, payoutMethodDetailsKESMobile.relationshipToSender);
+        Objects.equals(this.relationshipToSender, payoutMethodDetailsKESMobile.relationshipToSender) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsKESMobile.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, street, city, phoneNumber, mobileProvider, transferReasonCode, transferReason, identityCardType, identityCardId, relationshipToSender);
+    return Objects.hash(firstName, lastName, street, city, phoneNumber, mobileProvider, transferReasonCode, transferReason, identityCardType, identityCardId, relationshipToSender, birthDate);
   }
 
 
@@ -319,6 +343,7 @@ public class PayoutMethodDetailsKESMobile {
     sb.append("    identityCardType: ").append(toIndentedString(identityCardType)).append("\n");
     sb.append("    identityCardId: ").append(toIndentedString(identityCardId)).append("\n");
     sb.append("    relationshipToSender: ").append(toIndentedString(relationshipToSender)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

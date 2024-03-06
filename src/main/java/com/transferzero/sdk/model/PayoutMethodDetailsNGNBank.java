@@ -24,6 +24,7 @@ import com.transferzero.sdk.model.PayoutMethodBankAccountTypeEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;bank_code\&quot;: \&quot;058\&quot;,     \&quot;bank_account\&quot;: \&quot;123456789\&quot;,     \&quot;bank_account_type\&quot;: \&quot;10\&quot;       # 10 for saving       # 20 for current accounts   } &#x60;&#x60;&#x60;  See [NGN Bank](https://docs.azafinance.com/docs/individual-payments/#ngnbank) documentation for the bank_code
@@ -50,6 +51,10 @@ public class PayoutMethodDetailsNGNBank {
   public static final String SERIALIZED_NAME_BANK_ACCOUNT_TYPE = "bank_account_type";
   @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT_TYPE)
   private PayoutMethodBankAccountTypeEnum bankAccountType;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsNGNBank firstName(String firstName) {
     this.firstName = firstName;
@@ -141,6 +146,24 @@ public class PayoutMethodDetailsNGNBank {
     this.bankAccountType = bankAccountType;
   }
 
+  public PayoutMethodDetailsNGNBank birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -155,12 +178,13 @@ public class PayoutMethodDetailsNGNBank {
         Objects.equals(this.lastName, payoutMethodDetailsNGNBank.lastName) &&
         Objects.equals(this.bankCode, payoutMethodDetailsNGNBank.bankCode) &&
         Objects.equals(this.bankAccount, payoutMethodDetailsNGNBank.bankAccount) &&
-        Objects.equals(this.bankAccountType, payoutMethodDetailsNGNBank.bankAccountType);
+        Objects.equals(this.bankAccountType, payoutMethodDetailsNGNBank.bankAccountType) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsNGNBank.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, birthDate);
   }
 
 
@@ -173,6 +197,7 @@ public class PayoutMethodDetailsNGNBank {
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    bankAccountType: ").append(toIndentedString(bankAccountType)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

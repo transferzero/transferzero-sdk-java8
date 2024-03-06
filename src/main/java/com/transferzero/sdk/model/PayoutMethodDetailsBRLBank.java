@@ -26,6 +26,7 @@ import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * PIX Payment: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;city\&quot;: \&quot;Brasilia\&quot;,     \&quot;postal_code\&quot;: \&quot;70070\&quot;,     \&quot;phone_number\&quot;: \&quot;+552112345678\&quot;, // E.164 international format     \&quot;pix_key_type\&quot;: \&quot;email\&quot;,     \&quot;pix_key_value\&quot;: \&quot;person@example.com\&quot;,     \&quot;identity_card_id\&quot;: \&quot;01234567890\&quot;, // CPF or CNPJ     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;   } &#x60;&#x60;&#x60;  TED Payment: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;city\&quot;: \&quot;Brasilia\&quot;,     \&quot;postal_code\&quot;: \&quot;70070\&quot;,     \&quot;phone_number\&quot;: \&quot;+552112345678\&quot;, // E.164 international format     \&quot;bank_code\&quot;: \&quot;104\&quot;,     \&quot;branch_code\&quot;: \&quot;00001\&quot;,     \&quot;bank_account\&quot;: \&quot;0009795493\&quot;,     \&quot;bank_account_type\&quot;: \&quot;10\&quot;,     \&quot;identity_card_id\&quot;: \&quot;01234567890\&quot;, // CPF or CNPJ     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;   } &#x60;&#x60;&#x60;  See [BRL Bank](https://docs.transferzero.com/docs/payout-details/#brlbank) documentation for the bank_code and transfer_reason lists
@@ -84,6 +85,10 @@ public class PayoutMethodDetailsBRLBank {
   public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
   @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
   private PayoutMethodTransferReasonEnum transferReason;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsBRLBank firstName(String firstName) {
     this.firstName = firstName;
@@ -319,6 +324,24 @@ public class PayoutMethodDetailsBRLBank {
     this.transferReason = transferReason;
   }
 
+  public PayoutMethodDetailsBRLBank birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -341,12 +364,13 @@ public class PayoutMethodDetailsBRLBank {
         Objects.equals(this.pixKeyType, payoutMethodDetailsBRLBank.pixKeyType) &&
         Objects.equals(this.pixKeyValue, payoutMethodDetailsBRLBank.pixKeyValue) &&
         Objects.equals(this.identityCardId, payoutMethodDetailsBRLBank.identityCardId) &&
-        Objects.equals(this.transferReason, payoutMethodDetailsBRLBank.transferReason);
+        Objects.equals(this.transferReason, payoutMethodDetailsBRLBank.transferReason) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsBRLBank.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, city, postalCode, phoneNumber, bankCode, branchCode, bankAccount, bankAccountType, pixKeyType, pixKeyValue, identityCardId, transferReason);
+    return Objects.hash(firstName, lastName, city, postalCode, phoneNumber, bankCode, branchCode, bankAccount, bankAccountType, pixKeyType, pixKeyValue, identityCardId, transferReason, birthDate);
   }
 
 
@@ -367,6 +391,7 @@ public class PayoutMethodDetailsBRLBank {
     sb.append("    pixKeyValue: ").append(toIndentedString(pixKeyValue)).append("\n");
     sb.append("    identityCardId: ").append(toIndentedString(identityCardId)).append("\n");
     sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **bankAccount** | **String** |  | 
 **bankCode** | **String** |  | 
 **branchCode** | **String** |  | 
+**birthDate** | [**LocalDate**](LocalDate.md) | Date of birth of recipient |  [optional]
 
 
 
