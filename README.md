@@ -45,7 +45,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.transferzero.sdk</groupId>
   <artifactId>transferzero-sdk-java8</artifactId>
-  <version>1.34.2-SNAPSHOT</version>
+  <version>1.34.3-SNAPSHOT</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -55,7 +55,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.transferzero.sdk:transferzero-sdk-java8:1.34.2-SNAPSHOT"
+compile "com.transferzero.sdk:transferzero-sdk-java8:1.34.3-SNAPSHOT"
 ```
 
 ### Others
