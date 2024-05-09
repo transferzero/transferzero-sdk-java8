@@ -21,15 +21,19 @@ Name | Type | Description | Notes
 
 Name | Value
 ---- | -----
-BJ | &quot;BJ&quot;
 BF | &quot;BF&quot;
-NG | &quot;NG&quot;
-GH | &quot;GH&quot;
-SN | &quot;SN&quot;
+BJ | &quot;BJ&quot;
+CF | &quot;CF&quot;
+CG | &quot;CG&quot;
 CI | &quot;CI&quot;
 CM | &quot;CM&quot;
-UG | &quot;UG&quot;
+GA | &quot;GA&quot;
+GH | &quot;GH&quot;
+NG | &quot;NG&quot;
+SN | &quot;SN&quot;
+TD | &quot;TD&quot;
 TG | &quot;TG&quot;
+UG | &quot;UG&quot;
 
 
 
