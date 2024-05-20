@@ -23,6 +23,7 @@ import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -80,6 +81,14 @@ public class PayoutMethodDetailsXAFMobileTest {
     @Test
     public void countryTest() {
         // TODO: test country
+    }
+
+    /**
+     * Test the property 'birthDate'
+     */
+    @Test
+    public void birthDateTest() {
+        // TODO: test birthDate
     }
 
 }

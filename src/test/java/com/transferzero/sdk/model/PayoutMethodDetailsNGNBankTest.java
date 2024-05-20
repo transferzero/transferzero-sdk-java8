@@ -22,6 +22,7 @@ import com.transferzero.sdk.model.PayoutMethodBankAccountTypeEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -79,6 +80,14 @@ public class PayoutMethodDetailsNGNBankTest {
     @Test
     public void bankAccountTypeTest() {
         // TODO: test bankAccountType
+    }
+
+    /**
+     * Test the property 'birthDate'
+     */
+    @Test
+    public void birthDateTest() {
+        // TODO: test birthDate
     }
 
 }
