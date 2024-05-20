@@ -23,7 +23,6 @@ Name | Value
 ---- | -----
 BF | &quot;BF&quot;
 BJ | &quot;BJ&quot;
-CF | &quot;CF&quot;
 CG | &quot;CG&quot;
 CI | &quot;CI&quot;
 CM | &quot;CM&quot;

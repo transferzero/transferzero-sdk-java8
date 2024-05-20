@@ -59,8 +59,6 @@ public class AccountValidationRequest {
     
     BJ("BJ"),
     
-    CF("CF"),
-    
     CG("CG"),
     
     CI("CI"),
