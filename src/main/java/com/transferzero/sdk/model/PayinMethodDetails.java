@@ -35,14 +35,6 @@ import java.io.IOException;
 @ApiModel(description = "Fields needed by the payment processor. Depends on the chose payin type.  See the appropriate model details for more info:  - `NGN::Bank`: see [`PayinMethodDetailsNGNBank`](#model-PayinMethodDetailsNGNBank) - `GHS::Mobile`: see [`PayinMethodDetailsMobile`](#model-PayinMethodDetailsMobile) - `UGX::Mobile`: see [`PayinMethodDetailsMobile`](#model-PayinMethodDetailsMobile)  Note that some payin processors don't require additional input, these include `lhv` through `EUR::Bank` and `GBP::Bank`. Some providers like `providus` also have all of their fields set as optional, so you might not want to set any values. To use these providers please set this value to `{}` (an empty hash) ")
 
 public class PayinMethodDetails {
-  public static final String SERIALIZED_NAME_PAYMENT_METHOD = "payment_method";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD)
-  private String paymentMethod;
-
-  public static final String SERIALIZED_NAME_REDIRECT_URL = "redirect_url";
-  @SerializedName(SERIALIZED_NAME_REDIRECT_URL)
-  private String redirectUrl;
-
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
   private String phoneNumber;
@@ -62,42 +54,6 @@ public class PayinMethodDetails {
   public static final String SERIALIZED_NAME_REFUND_ADDRESS = "refund_address";
   @SerializedName(SERIALIZED_NAME_REFUND_ADDRESS)
   private String refundAddress;
-
-  public PayinMethodDetails paymentMethod(String paymentMethod) {
-    this.paymentMethod = paymentMethod;
-    return this;
-  }
-
-   /**
-   * The payment method which the sender will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.
-   * @return paymentMethod
-  **/
-  @ApiModelProperty(value = "The payment method which the sender will use to make the payments. Options are `bank`, `card` or you can leave empty to support both.")
-  public String getPaymentMethod() {
-    return paymentMethod;
-  }
-
-  public void setPaymentMethod(String paymentMethod) {
-    this.paymentMethod = paymentMethod;
-  }
-
-  public PayinMethodDetails redirectUrl(String redirectUrl) {
-    this.redirectUrl = redirectUrl;
-    return this;
-  }
-
-   /**
-   * This is where the sender should be redirected back when the payment has been finished
-   * @return redirectUrl
-  **/
-  @ApiModelProperty(value = "This is where the sender should be redirected back when the payment has been finished")
-  public String getRedirectUrl() {
-    return redirectUrl;
-  }
-
-  public void setRedirectUrl(String redirectUrl) {
-    this.redirectUrl = redirectUrl;
-  }
 
   public PayinMethodDetails phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
@@ -199,9 +155,7 @@ public class PayinMethodDetails {
       return false;
     }
     PayinMethodDetails payinMethodDetails = (PayinMethodDetails) o;
-    return Objects.equals(this.paymentMethod, payinMethodDetails.paymentMethod) &&
-        Objects.equals(this.redirectUrl, payinMethodDetails.redirectUrl) &&
-        Objects.equals(this.phoneNumber, payinMethodDetails.phoneNumber) &&
+    return Objects.equals(this.phoneNumber, payinMethodDetails.phoneNumber) &&
         Objects.equals(this.mobileProvider, payinMethodDetails.mobileProvider) &&
         Objects.equals(this.country, payinMethodDetails.country) &&
         Objects.equals(this.otp, payinMethodDetails.otp) &&
@@ -210,7 +164,7 @@ public class PayinMethodDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentMethod, redirectUrl, phoneNumber, mobileProvider, country, otp, refundAddress);
+    return Objects.hash(phoneNumber, mobileProvider, country, otp, refundAddress);
   }
 
 
@@ -218,8 +172,6 @@ public class PayinMethodDetails {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PayinMethodDetails {\n");
-    sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
-    sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");

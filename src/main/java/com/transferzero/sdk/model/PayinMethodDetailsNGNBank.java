@@ -25,53 +25,31 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;redirect_url\&quot;: \&quot;http://redirect.back.to\&quot;   } &#x60;&#x60;&#x60;
+ * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;phone_number\&quot;: \&quot;+2347087661211\&quot;   } &#x60;&#x60;&#x60;
  */
-@ApiModel(description = "```JSON   \"details\": {     \"redirect_url\": \"http://redirect.back.to\"   } ```")
+@ApiModel(description = "```JSON   \"details\": {     \"phone_number\": \"+2347087661211\"   } ```")
 
 public class PayinMethodDetailsNGNBank {
-  public static final String SERIALIZED_NAME_PAYMENT_METHOD = "payment_method";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD)
-  private String paymentMethod;
+  public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
+  @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
+  private String phoneNumber;
 
-  public static final String SERIALIZED_NAME_REDIRECT_URL = "redirect_url";
-  @SerializedName(SERIALIZED_NAME_REDIRECT_URL)
-  private String redirectUrl;
-
-  public PayinMethodDetailsNGNBank paymentMethod(String paymentMethod) {
-    this.paymentMethod = paymentMethod;
+  public PayinMethodDetailsNGNBank phoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
     return this;
   }
 
    /**
-   * The payment method which the sender will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.
-   * @return paymentMethod
+   * Sender&#39;s phone number
+   * @return phoneNumber
   **/
-  @ApiModelProperty(value = "The payment method which the sender will use to make the payments. Options are `bank`, `card` or you can leave empty to support both.")
-  public String getPaymentMethod() {
-    return paymentMethod;
+  @ApiModelProperty(example = "+2347087661211", value = "Sender's phone number")
+  public String getPhoneNumber() {
+    return phoneNumber;
   }
 
-  public void setPaymentMethod(String paymentMethod) {
-    this.paymentMethod = paymentMethod;
-  }
-
-  public PayinMethodDetailsNGNBank redirectUrl(String redirectUrl) {
-    this.redirectUrl = redirectUrl;
-    return this;
-  }
-
-   /**
-   * This is where the sender should be redirected back when the payment has been finished
-   * @return redirectUrl
-  **/
-  @ApiModelProperty(value = "This is where the sender should be redirected back when the payment has been finished")
-  public String getRedirectUrl() {
-    return redirectUrl;
-  }
-
-  public void setRedirectUrl(String redirectUrl) {
-    this.redirectUrl = redirectUrl;
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
   }
 
 
@@ -84,13 +62,12 @@ public class PayinMethodDetailsNGNBank {
       return false;
     }
     PayinMethodDetailsNGNBank payinMethodDetailsNGNBank = (PayinMethodDetailsNGNBank) o;
-    return Objects.equals(this.paymentMethod, payinMethodDetailsNGNBank.paymentMethod) &&
-        Objects.equals(this.redirectUrl, payinMethodDetailsNGNBank.redirectUrl);
+    return Objects.equals(this.phoneNumber, payinMethodDetailsNGNBank.phoneNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentMethod, redirectUrl);
+    return Objects.hash(phoneNumber);
   }
 
 
@@ -98,8 +75,7 @@ public class PayinMethodDetailsNGNBank {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PayinMethodDetailsNGNBank {\n");
-    sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
-    sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }
