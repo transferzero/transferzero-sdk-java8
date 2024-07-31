@@ -29,6 +29,7 @@ import com.transferzero.sdk.model.PayoutMethodDetailsBWPBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsBalance;
 import com.transferzero.sdk.model.PayoutMethodDetailsCADBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsEGPBank;
+import com.transferzero.sdk.model.PayoutMethodDetailsEGPCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsGBPBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsGHSBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsGHSCash;
