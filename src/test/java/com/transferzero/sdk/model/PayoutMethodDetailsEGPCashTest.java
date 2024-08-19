@@ -89,4 +89,20 @@ public class PayoutMethodDetailsEGPCashTest {
         // TODO: test transferReason
     }
 
+    /**
+     * Test the property 'email'
+     */
+    @Test
+    public void emailTest() {
+        // TODO: test email
+    }
+
+    /**
+     * Test the property 'reference'
+     */
+    @Test
+    public void referenceTest() {
+        // TODO: test reference
+    }
+
 }
