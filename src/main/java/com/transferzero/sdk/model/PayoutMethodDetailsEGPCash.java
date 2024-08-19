@@ -26,9 +26,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;middle_name\&quot;: \&quot;Middle\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;+201023456789\&quot;,   \&quot;street\&quot;: \&quot;1 Main Street\&quot;,   \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot; }
+ * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;middle_name\&quot;: \&quot;Middle\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;+201023456789\&quot;,   \&quot;street\&quot;: \&quot;1 Main Street\&quot;,   \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;,   \&quot;email\&quot;: \&quot;recipient@email.com\&quot;, // Optional   \&quot;reference\&quot;: \&quot;3414006608\&quot; // Optional reference that&#39;ll appear on the recipient pickup notification (if provided must be unique and exactly 10 digits long) }
  */
-@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"middle_name\": \"Middle\",   \"last_name\": \"Last\",   \"phone_number\": \"+201023456789\",   \"street\": \"1 Main Street\",   \"transfer_reason\": \"personal_account\" }")
+@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"middle_name\": \"Middle\",   \"last_name\": \"Last\",   \"phone_number\": \"+201023456789\",   \"street\": \"1 Main Street\",   \"transfer_reason\": \"personal_account\",   \"email\": \"recipient@email.com\", // Optional   \"reference\": \"3414006608\" // Optional reference that'll appear on the recipient pickup notification (if provided must be unique and exactly 10 digits long) }")
 
 public class PayoutMethodDetailsEGPCash {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
@@ -54,6 +54,14 @@ public class PayoutMethodDetailsEGPCash {
   public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
   @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
   private PayoutMethodTransferReasonEnum transferReason;
+
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
+
+  public static final String SERIALIZED_NAME_REFERENCE = "reference";
+  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  private String reference;
 
   public PayoutMethodDetailsEGPCash firstName(String firstName) {
     this.firstName = firstName;
@@ -163,6 +171,42 @@ public class PayoutMethodDetailsEGPCash {
     this.transferReason = transferReason;
   }
 
+  public PayoutMethodDetailsEGPCash email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @ApiModelProperty(value = "")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public PayoutMethodDetailsEGPCash reference(String reference) {
+    this.reference = reference;
+    return this;
+  }
+
+   /**
+   * Get reference
+   * @return reference
+  **/
+  @ApiModelProperty(value = "")
+  public String getReference() {
+    return reference;
+  }
+
+  public void setReference(String reference) {
+    this.reference = reference;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -178,12 +222,14 @@ public class PayoutMethodDetailsEGPCash {
         Objects.equals(this.lastName, payoutMethodDetailsEGPCash.lastName) &&
         Objects.equals(this.phoneNumber, payoutMethodDetailsEGPCash.phoneNumber) &&
         Objects.equals(this.street, payoutMethodDetailsEGPCash.street) &&
-        Objects.equals(this.transferReason, payoutMethodDetailsEGPCash.transferReason);
+        Objects.equals(this.transferReason, payoutMethodDetailsEGPCash.transferReason) &&
+        Objects.equals(this.email, payoutMethodDetailsEGPCash.email) &&
+        Objects.equals(this.reference, payoutMethodDetailsEGPCash.reference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, middleName, lastName, phoneNumber, street, transferReason);
+    return Objects.hash(firstName, middleName, lastName, phoneNumber, street, transferReason, email, reference);
   }
 
 
@@ -197,6 +243,8 @@ public class PayoutMethodDetailsEGPCash {
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    street: ").append(toIndentedString(street)).append("\n");
     sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("}");
     return sb.toString();
   }
