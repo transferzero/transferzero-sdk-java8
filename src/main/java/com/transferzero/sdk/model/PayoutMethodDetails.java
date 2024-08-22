@@ -964,7 +964,7 @@ public class PayoutMethodDetails {
    * Get middleName
    * @return middleName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getMiddleName() {
     return middleName;
   }
