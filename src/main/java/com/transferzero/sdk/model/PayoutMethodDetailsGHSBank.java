@@ -20,15 +20,16 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.LocalDate;
 
 /**
- * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_code\&quot;: \&quot;030100\&quot;,   \&quot;bank_account\&quot;: \&quot;123456789\&quot; } &#x60;&#x60;&#x60;  The current banks supported and their bank_codes values are:  - Access Bank: 280100 - Barclays Bank: 030100 - GCB Bank: 040100 - Ecobank: 130100 - First National Bank: 330100 - Heritage Bank: 370100 - Prudential Bank: 180100 - Stanbic Bank: 190100 - Standard Chartered Bank: 020100 - United Bank for Africa: 060100 - Zenith Bank: 120100
+ * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_code\&quot;: \&quot;030100\&quot;,   \&quot;bank_account\&quot;: \&quot;123456789\&quot;,   \&quot;transfer_reason\&quot;: \&quot;third_party_person_account\&quot; } &#x60;&#x60;&#x60;  The current banks supported and their bank_codes values are:  - Access Bank: 280100 - Barclays Bank: 030100 - GCB Bank: 040100 - Ecobank: 130100 - First National Bank: 330100 - Heritage Bank: 370100 - Prudential Bank: 180100 - Stanbic Bank: 190100 - Standard Chartered Bank: 020100 - United Bank for Africa: 060100 - Zenith Bank: 120100
  */
-@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"bank_code\": \"030100\",   \"bank_account\": \"123456789\" } ```  The current banks supported and their bank_codes values are:  - Access Bank: 280100 - Barclays Bank: 030100 - GCB Bank: 040100 - Ecobank: 130100 - First National Bank: 330100 - Heritage Bank: 370100 - Prudential Bank: 180100 - Stanbic Bank: 190100 - Standard Chartered Bank: 020100 - United Bank for Africa: 060100 - Zenith Bank: 120100")
+@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"bank_code\": \"030100\",   \"bank_account\": \"123456789\",   \"transfer_reason\": \"third_party_person_account\" } ```  The current banks supported and their bank_codes values are:  - Access Bank: 280100 - Barclays Bank: 030100 - GCB Bank: 040100 - Ecobank: 130100 - First National Bank: 330100 - Heritage Bank: 370100 - Prudential Bank: 180100 - Stanbic Bank: 190100 - Standard Chartered Bank: 020100 - United Bank for Africa: 060100 - Zenith Bank: 120100")
 
 public class PayoutMethodDetailsGHSBank {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
@@ -50,6 +51,10 @@ public class PayoutMethodDetailsGHSBank {
   public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
   @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
   private LocalDate birthDate;
+
+  public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
+  @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
+  private PayoutMethodTransferReasonEnum transferReason;
 
   public PayoutMethodDetailsGHSBank firstName(String firstName) {
     this.firstName = firstName;
@@ -141,6 +146,24 @@ public class PayoutMethodDetailsGHSBank {
     this.birthDate = birthDate;
   }
 
+  public PayoutMethodDetailsGHSBank transferReason(PayoutMethodTransferReasonEnum transferReason) {
+    this.transferReason = transferReason;
+    return this;
+  }
+
+   /**
+   * Get transferReason
+   * @return transferReason
+  **/
+  @ApiModelProperty(value = "")
+  public PayoutMethodTransferReasonEnum getTransferReason() {
+    return transferReason;
+  }
+
+  public void setTransferReason(PayoutMethodTransferReasonEnum transferReason) {
+    this.transferReason = transferReason;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -155,12 +178,13 @@ public class PayoutMethodDetailsGHSBank {
         Objects.equals(this.lastName, payoutMethodDetailsGHSBank.lastName) &&
         Objects.equals(this.bankCode, payoutMethodDetailsGHSBank.bankCode) &&
         Objects.equals(this.bankAccount, payoutMethodDetailsGHSBank.bankAccount) &&
-        Objects.equals(this.birthDate, payoutMethodDetailsGHSBank.birthDate);
+        Objects.equals(this.birthDate, payoutMethodDetailsGHSBank.birthDate) &&
+        Objects.equals(this.transferReason, payoutMethodDetailsGHSBank.transferReason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, birthDate);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, birthDate, transferReason);
   }
 
 
@@ -173,6 +197,7 @@ public class PayoutMethodDetailsGHSBank {
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
+    sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
     sb.append("}");
     return sb.toString();
   }

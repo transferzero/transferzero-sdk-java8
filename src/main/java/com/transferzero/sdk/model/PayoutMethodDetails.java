@@ -33,6 +33,7 @@ import com.transferzero.sdk.model.PayoutMethodDetailsEGPCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsGBPBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsGHSBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsGHSCash;
+import com.transferzero.sdk.model.PayoutMethodDetailsGHSMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsGNFMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsIBAN;
 import com.transferzero.sdk.model.PayoutMethodDetailsINRBank;
