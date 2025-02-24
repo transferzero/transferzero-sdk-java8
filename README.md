@@ -45,7 +45,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.transferzero.sdk</groupId>
   <artifactId>transferzero-sdk-java8</artifactId>
-  <version>1.36.4-SNAPSHOT</version>
+  <version>1.36.6-SNAPSHOT</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -68,7 +68,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/transferzero-sdk-java8-1.36.4-SNAPSHOT.jar`
+* `target/transferzero-sdk-java8-1.36.6-SNAPSHOT.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
