@@ -69,6 +69,8 @@ public class AccountValidationRequest {
     
     GH("GH"),
     
+    KE("KE"),
+    
     NG("NG"),
     
     SN("SN"),
@@ -129,6 +131,8 @@ public class AccountValidationRequest {
     NGN("NGN"),
     
     GHS("GHS"),
+    
+    KES("KES"),
     
     XOF("XOF"),
     

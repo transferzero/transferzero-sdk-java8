@@ -28,6 +28,7 @@ CI | &quot;CI&quot;
 CM | &quot;CM&quot;
 GA | &quot;GA&quot;
 GH | &quot;GH&quot;
+KE | &quot;KE&quot;
 NG | &quot;NG&quot;
 SN | &quot;SN&quot;
 TD | &quot;TD&quot;
@@ -42,6 +43,7 @@ Name | Value
 ---- | -----
 NGN | &quot;NGN&quot;
 GHS | &quot;GHS&quot;
+KES | &quot;KES&quot;
 XOF | &quot;XOF&quot;
 UGX | &quot;UGX&quot;
 XAF | &quot;XAF&quot;
