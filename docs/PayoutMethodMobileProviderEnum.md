@@ -5,35 +5,37 @@
 ## Enum
 
 
-* `ORANGE` (value: `"orange"`)
-
-* `TIGO` (value: `"tigo"`)
-
-* `MOOV` (value: `"moov"`)
-
-* `MTN` (value: `"mtn"`)
+* `AFRICELL` (value: `"africell"`)
 
 * `AIRTEL` (value: `"airtel"`)
 
 * `AIRTELTIGO` (value: `"airteltigo"`)
 
-* `VODAFONE` (value: `"vodafone"`)
-
-* `MPESA` (value: `"mpesa"`)
-
-* `AFRICELL` (value: `"africell"`)
-
-* `TELECOM` (value: `"telecom"`)
-
-* `MOBICASH` (value: `"mobicash"`)
-
 * `EMONEY` (value: `"emoney"`)
-
-* `FREE` (value: `"free"`)
 
 * `EXPRESSO` (value: `"expresso"`)
 
+* `FREE` (value: `"free"`)
+
+* `MOBICASH` (value: `"mobicash"`)
+
+* `MOOV` (value: `"moov"`)
+
+* `MPESA` (value: `"mpesa"`)
+
+* `MTN` (value: `"mtn"`)
+
+* `ORANGE` (value: `"orange"`)
+
+* `TELECOM` (value: `"telecom"`)
+
+* `TIGO` (value: `"tigo"`)
+
 * `TMONEY` (value: `"tmoney"`)
+
+* `VODAFONE` (value: `"vodafone"`)
+
+* `WAVE` (value: `"wave"`)
 
 
 
