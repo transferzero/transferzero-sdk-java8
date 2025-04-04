@@ -45,7 +45,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.transferzero.sdk</groupId>
   <artifactId>transferzero-sdk-java8</artifactId>
-  <version>1.36.7-SNAPSHOT</version>
+  <version>1.36.8-SNAPSHOT</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -55,7 +55,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.transferzero.sdk:transferzero-sdk-java8:1.36.7-SNAPSHOT"
+compile "com.transferzero.sdk:transferzero-sdk-java8:1.36.8-SNAPSHOT"
 ```
 
 ### Others
@@ -68,7 +68,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/transferzero-sdk-java8-1.36.7-SNAPSHOT.jar`
+* `target/transferzero-sdk-java8-1.36.8-SNAPSHOT.jar`
 * `target/lib/*.jar`
 
 ## Getting Started

@@ -56,4 +56,12 @@ public class AccountValidationResultTest {
         // TODO: test mappedMobileProvider
     }
 
+    /**
+     * Test the property 'accountStatus'
+     */
+    @Test
+    public void accountStatusTest() {
+        // TODO: test accountStatus
+    }
+
 }
