@@ -11,16 +11,18 @@ Name | Type | Description | Notes
 **bankCode** | **String** |  | 
 **bankAccount** | **String** |  | 
 **bankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  |  [optional]
+**birthDate** | [**LocalDate**](LocalDate.md) | Date of birth of recipient |  [optional]
 **phoneNumber** | **String** |  | 
 **mobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
 **country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  | 
-**transferReason** | **String** |  | 
+**transferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | 
 **iban** | **String** |  | 
 **bankName** | **String** |  | 
 **bankCountry** | **String** |  |  [optional]
 **cashProvider** | [**PayoutMethodCashProviderEnum**](PayoutMethodCashProviderEnum.md) |  | 
 **sortCode** | **String** |  |  [optional]
 **bic** | **String** |  |  [optional]
+**narration** | **String** |  |  [optional]
 **senderIdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **senderIdentityCardId** | **String** |  | 
 **senderCityOfBirth** | **String** |  |  [optional]
@@ -36,15 +38,17 @@ Name | Type | Description | Notes
 **postalCode** | **String** |  | 
 **city** | **String** |  | 
 **email** | **String** |  |  [optional]
+**branchCode** | **String** |  | 
 **transferReasonCode** | **String** |  |  [optional]
 **contactFirstName** | **String** |  |  [optional]
 **contactLastName** | **String** |  |  [optional]
 **registrationNumber** | **String** |  |  [optional]
 **natureOfBusiness** | [**PayoutMethodNatureOfBusinessEnum**](PayoutMethodNatureOfBusinessEnum.md) |  |  [optional]
 **legalEntityType** | [**PayoutMethodLegalEntityTypeEnum**](PayoutMethodLegalEntityTypeEnum.md) |  |  [optional]
+**middleName** | **String** |  | 
 **routingNumber** | **String** |  |  [optional]
-**swiftCode** | **String** |  | 
-**branchCode** | **String** |  | 
+**swiftCode** | **String** |  |  [optional]
+**relationshipToSender** | **String** |  |  [optional]
 **pixKeyType** | [**PayoutMethodPixKeyTypeEnum**](PayoutMethodPixKeyTypeEnum.md) |  |  [optional]
 **pixKeyValue** | **String** |  |  [optional]
 **ifscCode** | **String** |  | 

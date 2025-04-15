@@ -25,11 +25,12 @@ import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
- * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;+237674044436\&quot;, // E.164 international format   \&quot;mobile_provider\&quot;: \&quot;orange\&quot;, // or mtn\&quot;   \&quot;country\&quot; // Optional; Values: \&quot;CM\&quot; } &#x60;&#x60;&#x60;
+ * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;+237674044436\&quot;, // E.164 international format   \&quot;mobile_provider\&quot;: \&quot;orange\&quot;,   \&quot;country\&quot;: \&quot;CM\&quot; } &#x60;&#x60;&#x60;
  */
-@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"phone_number\": \"+237674044436\", // E.164 international format   \"mobile_provider\": \"orange\", // or mtn\"   \"country\" // Optional; Values: \"CM\" } ```")
+@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"phone_number\": \"+237674044436\", // E.164 international format   \"mobile_provider\": \"orange\",   \"country\": \"CM\" } ```")
 
 public class PayoutMethodDetailsXAFMobile {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
@@ -51,6 +52,10 @@ public class PayoutMethodDetailsXAFMobile {
   public static final String SERIALIZED_NAME_COUNTRY = "country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private PayoutMethodCountryEnum country;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsXAFMobile firstName(String firstName) {
     this.firstName = firstName;
@@ -142,6 +147,24 @@ public class PayoutMethodDetailsXAFMobile {
     this.country = country;
   }
 
+  public PayoutMethodDetailsXAFMobile birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -156,12 +179,13 @@ public class PayoutMethodDetailsXAFMobile {
         Objects.equals(this.lastName, payoutMethodDetailsXAFMobile.lastName) &&
         Objects.equals(this.phoneNumber, payoutMethodDetailsXAFMobile.phoneNumber) &&
         Objects.equals(this.mobileProvider, payoutMethodDetailsXAFMobile.mobileProvider) &&
-        Objects.equals(this.country, payoutMethodDetailsXAFMobile.country);
+        Objects.equals(this.country, payoutMethodDetailsXAFMobile.country) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsXAFMobile.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, phoneNumber, mobileProvider, country);
+    return Objects.hash(firstName, lastName, phoneNumber, mobileProvider, country, birthDate);
   }
 
 
@@ -174,6 +198,7 @@ public class PayoutMethodDetailsXAFMobile {
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

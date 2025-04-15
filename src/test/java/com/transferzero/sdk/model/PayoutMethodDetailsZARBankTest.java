@@ -24,6 +24,7 @@ import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -100,6 +101,14 @@ public class PayoutMethodDetailsZARBankTest {
     }
 
     /**
+     * Test the property 'branchCode'
+     */
+    @Test
+    public void branchCodeTest() {
+        // TODO: test branchCode
+    }
+
+    /**
      * Test the property 'bankAccount'
      */
     @Test
@@ -129,6 +138,14 @@ public class PayoutMethodDetailsZARBankTest {
     @Test
     public void transferReasonTest() {
         // TODO: test transferReason
+    }
+
+    /**
+     * Test the property 'narration'
+     */
+    @Test
+    public void narrationTest() {
+        // TODO: test narration
     }
 
     /**
@@ -177,6 +194,14 @@ public class PayoutMethodDetailsZARBankTest {
     @Test
     public void legalEntityTypeTest() {
         // TODO: test legalEntityType
+    }
+
+    /**
+     * Test the property 'birthDate'
+     */
+    @Test
+    public void birthDateTest() {
+        // TODO: test birthDate
     }
 
 }

@@ -24,6 +24,7 @@ import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;+224444044436\&quot;, // E.164 international format   \&quot;mobile_provider\&quot;: \&quot;mtn\&quot; } &#x60;&#x60;&#x60;
@@ -46,6 +47,10 @@ public class PayoutMethodDetailsGNFMobile {
   public static final String SERIALIZED_NAME_MOBILE_PROVIDER = "mobile_provider";
   @SerializedName(SERIALIZED_NAME_MOBILE_PROVIDER)
   private PayoutMethodMobileProviderEnum mobileProvider;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsGNFMobile firstName(String firstName) {
     this.firstName = firstName;
@@ -119,6 +124,24 @@ public class PayoutMethodDetailsGNFMobile {
     this.mobileProvider = mobileProvider;
   }
 
+  public PayoutMethodDetailsGNFMobile birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -132,12 +155,13 @@ public class PayoutMethodDetailsGNFMobile {
     return Objects.equals(this.firstName, payoutMethodDetailsGNFMobile.firstName) &&
         Objects.equals(this.lastName, payoutMethodDetailsGNFMobile.lastName) &&
         Objects.equals(this.phoneNumber, payoutMethodDetailsGNFMobile.phoneNumber) &&
-        Objects.equals(this.mobileProvider, payoutMethodDetailsGNFMobile.mobileProvider);
+        Objects.equals(this.mobileProvider, payoutMethodDetailsGNFMobile.mobileProvider) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsGNFMobile.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, phoneNumber, mobileProvider);
+    return Objects.hash(firstName, lastName, phoneNumber, mobileProvider, birthDate);
   }
 
 
@@ -149,6 +173,7 @@ public class PayoutMethodDetailsGNFMobile {
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

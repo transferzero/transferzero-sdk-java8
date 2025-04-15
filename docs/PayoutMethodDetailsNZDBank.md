@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **lastName** | **String** |  | 
 **bankAccount** | **String** |  | 
 **bankName** | **String** |  | 
+**birthDate** | [**LocalDate**](LocalDate.md) | Date of birth of recipient |  [optional]
 
 
 

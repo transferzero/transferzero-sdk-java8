@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -57,11 +58,11 @@ public class PayoutMethodDetailsGBPBankTest {
     }
 
     /**
-     * Test the property 'bankName'
+     * Test the property 'iban'
      */
     @Test
-    public void bankNameTest() {
-        // TODO: test bankName
+    public void ibanTest() {
+        // TODO: test iban
     }
 
     /**
@@ -81,19 +82,35 @@ public class PayoutMethodDetailsGBPBankTest {
     }
 
     /**
-     * Test the property 'iban'
-     */
-    @Test
-    public void ibanTest() {
-        // TODO: test iban
-    }
-
-    /**
      * Test the property 'bic'
      */
     @Test
     public void bicTest() {
         // TODO: test bic
+    }
+
+    /**
+     * Test the property 'bankName'
+     */
+    @Test
+    public void bankNameTest() {
+        // TODO: test bankName
+    }
+
+    /**
+     * Test the property 'narration'
+     */
+    @Test
+    public void narrationTest() {
+        // TODO: test narration
+    }
+
+    /**
+     * Test the property 'birthDate'
+     */
+    @Test
+    public void birthDateTest() {
+        // TODO: test birthDate
     }
 
 }

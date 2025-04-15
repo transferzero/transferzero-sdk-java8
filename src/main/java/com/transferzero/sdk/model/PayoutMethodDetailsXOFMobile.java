@@ -26,11 +26,12 @@ import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
- * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;+221708766123\&quot;, // E.164 international format   \&quot;mobile_provider\&quot;: \&quot;orange\&quot;, // \&quot;orange\&quot;, \&quot;tigo\&quot;, \&quot;emoney\&quot;, \&quot;free\&quot; or \&quot;wave\&quot; for Senegal; \&quot;orange\&quot;, \&quot;mtn\&quot; or \&quot;moov\&quot; for Ivory Coast; \&quot;orange\&quot; or \&quot;mobicash\&quot; for Burkina Faso and Mali   \&quot;country\&quot; // Optional; Values: \&quot;SN\&quot; for Senegal; \&quot;CI\&quot; for Ivory Coast; \&quot;ML\&quot; for Mali; \&quot;BF\&quot; for Burkina Faso; Default value is \&quot;SN\&quot;   \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot; // mandatory for Mali payouts, optional otherwise } &#x60;&#x60;&#x60;
+ * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;+221708766123\&quot;, // E.164 international format   \&quot;mobile_provider\&quot;: \&quot;orange\&quot;, // \&quot;orange\&quot;, \&quot;tigo\&quot;, \&quot;emoney\&quot; or \&quot;free\&quot; for Senegal; \&quot;orange\&quot;, \&quot;mtn\&quot; or \&quot;moov\&quot; for Ivory Coast; \&quot;orange\&quot; or \&quot;mobicash\&quot; for Burkina Faso and Mali   \&quot;country\&quot; // Optional; Values: \&quot;SN\&quot; for Senegal; \&quot;CI\&quot; for Ivory Coast; \&quot;ML\&quot; for Mali; \&quot;BF\&quot; for Burkina Faso; Default value is \&quot;SN\&quot;   \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot; // mandatory for Mali payouts, optional otherwise } &#x60;&#x60;&#x60;
  */
-@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"phone_number\": \"+221708766123\", // E.164 international format   \"mobile_provider\": \"orange\", // \"orange\", \"tigo\", \"emoney\", \"free\" or \"wave\" for Senegal; \"orange\", \"mtn\" or \"moov\" for Ivory Coast; \"orange\" or \"mobicash\" for Burkina Faso and Mali   \"country\" // Optional; Values: \"SN\" for Senegal; \"CI\" for Ivory Coast; \"ML\" for Mali; \"BF\" for Burkina Faso; Default value is \"SN\"   \"transfer_reason\": \"personal_account\" // mandatory for Mali payouts, optional otherwise } ```")
+@ApiModel(description = "```JSON \"details\": {   \"first_name\": \"First\",   \"last_name\": \"Last\",   \"phone_number\": \"+221708766123\", // E.164 international format   \"mobile_provider\": \"orange\", // \"orange\", \"tigo\", \"emoney\" or \"free\" for Senegal; \"orange\", \"mtn\" or \"moov\" for Ivory Coast; \"orange\" or \"mobicash\" for Burkina Faso and Mali   \"country\" // Optional; Values: \"SN\" for Senegal; \"CI\" for Ivory Coast; \"ML\" for Mali; \"BF\" for Burkina Faso; Default value is \"SN\"   \"transfer_reason\": \"personal_account\" // mandatory for Mali payouts, optional otherwise } ```")
 
 public class PayoutMethodDetailsXOFMobile {
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
@@ -56,6 +57,10 @@ public class PayoutMethodDetailsXOFMobile {
   public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
   @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
   private PayoutMethodTransferReasonEnum transferReason;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsXOFMobile firstName(String firstName) {
     this.firstName = firstName;
@@ -165,6 +170,24 @@ public class PayoutMethodDetailsXOFMobile {
     this.transferReason = transferReason;
   }
 
+  public PayoutMethodDetailsXOFMobile birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -180,12 +203,13 @@ public class PayoutMethodDetailsXOFMobile {
         Objects.equals(this.phoneNumber, payoutMethodDetailsXOFMobile.phoneNumber) &&
         Objects.equals(this.mobileProvider, payoutMethodDetailsXOFMobile.mobileProvider) &&
         Objects.equals(this.country, payoutMethodDetailsXOFMobile.country) &&
-        Objects.equals(this.transferReason, payoutMethodDetailsXOFMobile.transferReason);
+        Objects.equals(this.transferReason, payoutMethodDetailsXOFMobile.transferReason) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsXOFMobile.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, phoneNumber, mobileProvider, country, transferReason);
+    return Objects.hash(firstName, lastName, phoneNumber, mobileProvider, country, transferReason, birthDate);
   }
 
 
@@ -199,6 +223,7 @@ public class PayoutMethodDetailsXOFMobile {
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

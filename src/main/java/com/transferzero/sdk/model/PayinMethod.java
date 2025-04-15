@@ -81,10 +81,10 @@ public class PayinMethod {
   }
 
    /**
-   * Describes how the payment should be requested from the sender.  Possible values: - &#x60;GHS::Mobile&#x60;: GHS mobile collections - &#x60;UGX::Mobile&#x60;: UGX mobile collections - &#x60;XOF::Mobile&#x60;: XOF mobile collections - &#x60;EUR::Bank&#x60;: EUR IBAN collections - &#x60;GBP::Bank&#x60;: GBP IBAN collections 
+   * Describes how the payment should be requested from the sender.  Possible values: - &#x60;GHS::Mobile&#x60;: GHS mobile collections - &#x60;UGX::Mobile&#x60;: UGX mobile collections - &#x60;XOF::Mobile&#x60;: XOF mobile collections - &#x60;NGN::Bank&#x60;: NGN bank collections - &#x60;EUR::Bank&#x60;: EUR IBAN collections - &#x60;GBP::Bank&#x60;: GBP IBAN collections 
    * @return type
   **/
-  @ApiModelProperty(example = "GHS::Mobile", value = "Describes how the payment should be requested from the sender.  Possible values: - `GHS::Mobile`: GHS mobile collections - `UGX::Mobile`: UGX mobile collections - `XOF::Mobile`: XOF mobile collections - `EUR::Bank`: EUR IBAN collections - `GBP::Bank`: GBP IBAN collections ")
+  @ApiModelProperty(example = "GHS::Mobile", value = "Describes how the payment should be requested from the sender.  Possible values: - `GHS::Mobile`: GHS mobile collections - `UGX::Mobile`: UGX mobile collections - `XOF::Mobile`: XOF mobile collections - `NGN::Bank`: NGN bank collections - `EUR::Bank`: EUR IBAN collections - `GBP::Bank`: GBP IBAN collections ")
   public String getType() {
     return type;
   }

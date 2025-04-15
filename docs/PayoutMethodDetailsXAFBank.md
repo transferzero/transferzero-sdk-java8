@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **bankCode** | **String** |  |  [optional]
 **sortCode** | **String** |  |  [optional]
 **transferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  |  [optional]
+**birthDate** | [**LocalDate**](LocalDate.md) | Date of birth of recipient |  [optional]
 
 
 

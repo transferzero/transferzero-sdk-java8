@@ -21,10 +21,19 @@ Name | Type | Description | Notes
 
 Name | Value
 ---- | -----
-NG | &quot;NG&quot;
-GH | &quot;GH&quot;
-SN | &quot;SN&quot;
+BF | &quot;BF&quot;
+BJ | &quot;BJ&quot;
+CG | &quot;CG&quot;
 CI | &quot;CI&quot;
+CM | &quot;CM&quot;
+GA | &quot;GA&quot;
+GH | &quot;GH&quot;
+KE | &quot;KE&quot;
+NG | &quot;NG&quot;
+SN | &quot;SN&quot;
+TD | &quot;TD&quot;
+TG | &quot;TG&quot;
+UG | &quot;UG&quot;
 
 
 
@@ -34,7 +43,10 @@ Name | Value
 ---- | -----
 NGN | &quot;NGN&quot;
 GHS | &quot;GHS&quot;
+KES | &quot;KES&quot;
 XOF | &quot;XOF&quot;
+UGX | &quot;UGX&quot;
+XAF | &quot;XAF&quot;
 
 
 

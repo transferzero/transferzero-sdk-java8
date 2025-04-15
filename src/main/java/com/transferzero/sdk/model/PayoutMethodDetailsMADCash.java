@@ -25,6 +25,7 @@ import com.transferzero.sdk.model.PayoutMethodIdentityCardTypeEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;+212537718685\&quot;     # Mandatory; E.164 international format   \&quot;sender_identity_card_type\&quot; &#x3D;&gt; \&quot;O\&quot;,     # Mandatory; Values: \&quot;O\&quot;: Other, \&quot;PP\&quot;: Passport, \&quot;ID\&quot;: National ID   \&quot;sender_identity_card_id\&quot; &#x3D;&gt; &#39;AB12345678&#39;,     # Mandatory   \&quot;sender_city_of_birth\&quot; &#x3D;&gt; \&quot;London\&quot;,     # Optional   \&quot;sender_country_of_birth\&quot; &#x3D;&gt; \&quot;GB\&quot;,     # Optional; ISO 2-letter format   \&quot;sender_gender\&quot; &#x3D;&gt; \&quot;M\&quot;,     # Optional; Values: \&quot;M\&quot;: Male, \&quot;F\&quot;: Female   \&quot;reason\&quot; &#x3D;&gt; \&quot;Remittance payment\&quot;,     # Optional; Default value is &#39;Remittance payment&#39;   \&quot;identity_card_type\&quot; &#x3D;&gt; \&quot;ID\&quot;,     # Optional; Values: \&quot;PP\&quot;: Passport, \&quot;ID\&quot;: National ID   \&quot;identity_card_id\&quot; &#x3D;&gt; &#39;AB12345678&#39;     # Optional } &#x60;&#x60;&#x60;  Please note when sending MAD::Cash payments you should subscribe to the recipient.pending webhook, as that will broadcast the payment reference ID the customer need to use to obtain the funds. Example webhook response excerpt -  &#x60;&#x60;&#x60;JSON {   (...)   \&quot;state\&quot;:\&quot;pending\&quot;,   \&quot;metadata\&quot;: {     \&quot;payment_reference\&quot;:\&quot;9M5GJRJUBCY\&quot;   },   (...) } &#x60;&#x60;&#x60;  The reference can also be provided optionally for MAD::Cash, but if you want to use this functionality please contact us for more details.
@@ -75,6 +76,10 @@ public class PayoutMethodDetailsMADCash {
   public static final String SERIALIZED_NAME_IDENTITY_CARD_ID = "identity_card_id";
   @SerializedName(SERIALIZED_NAME_IDENTITY_CARD_ID)
   private String identityCardId;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsMADCash firstName(String firstName) {
     this.firstName = firstName;
@@ -274,6 +279,24 @@ public class PayoutMethodDetailsMADCash {
     this.identityCardId = identityCardId;
   }
 
+  public PayoutMethodDetailsMADCash birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -294,12 +317,13 @@ public class PayoutMethodDetailsMADCash {
         Objects.equals(this.senderGender, payoutMethodDetailsMADCash.senderGender) &&
         Objects.equals(this.reason, payoutMethodDetailsMADCash.reason) &&
         Objects.equals(this.identityCardType, payoutMethodDetailsMADCash.identityCardType) &&
-        Objects.equals(this.identityCardId, payoutMethodDetailsMADCash.identityCardId);
+        Objects.equals(this.identityCardId, payoutMethodDetailsMADCash.identityCardId) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsMADCash.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, phoneNumber, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId);
+    return Objects.hash(firstName, lastName, phoneNumber, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, birthDate);
   }
 
 
@@ -318,6 +342,7 @@ public class PayoutMethodDetailsMADCash {
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    identityCardType: ").append(toIndentedString(identityCardType)).append("\n");
     sb.append("    identityCardId: ").append(toIndentedString(identityCardId)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

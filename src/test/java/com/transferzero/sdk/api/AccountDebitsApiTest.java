@@ -16,8 +16,6 @@ package com.transferzero.sdk.api;
 import com.transferzero.sdk.ApiException;
 import com.transferzero.sdk.model.DebitListResponse;
 import com.transferzero.sdk.model.DebitRequestWrapper;
-import com.transferzero.sdk.model.DebitResponse;
-import java.util.UUID;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -34,43 +32,6 @@ public class AccountDebitsApiTest {
 
     private final AccountDebitsApi api = new AccountDebitsApi();
 
-    
-    /**
-     * Fetching an account debit
-     *
-     * Returns a single account debit by the account debit ID
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getAccountsDebitTest() throws ApiException {
-        UUID accountDebitID = null;
-        DebitResponse response = api.getAccountsDebit(accountDebitID)
-                .execute();
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Listing Accounts debits
-     *
-     * Get a list of accounts debits
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getAccountsDebitsTest() throws ApiException {
-        Integer page = null;
-        Integer per = null;
-        DebitListResponse response = api.getAccountsDebits()
-                .page(page)
-                .per(per)
-                .execute();
-
-        // TODO: test validations
-    }
     
     /**
      * Creating an account debit

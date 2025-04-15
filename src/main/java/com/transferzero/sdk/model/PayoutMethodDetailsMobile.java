@@ -24,6 +24,7 @@ import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;+221708766123\&quot; // E.164 international format } &#x60;&#x60;&#x60;  Please note when sending XOF::Cash payments you should subscribe to the recipient.pending webhook, as that will broadcast the payment reference ID the customer need to use to obtain the funds. Example webhook response excerpt -  &#x60;&#x60;&#x60;JSON {   (...)   \&quot;state\&quot;:\&quot;pending\&quot;,   \&quot;metadata\&quot;: {     \&quot;payment_reference\&quot;:\&quot;9M5GJRJUBCY\&quot;   },   (...) } &#x60;&#x60;&#x60;
@@ -46,6 +47,10 @@ public class PayoutMethodDetailsMobile {
   public static final String SERIALIZED_NAME_MOBILE_PROVIDER = "mobile_provider";
   @SerializedName(SERIALIZED_NAME_MOBILE_PROVIDER)
   private PayoutMethodMobileProviderEnum mobileProvider;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsMobile firstName(String firstName) {
     this.firstName = firstName;
@@ -119,6 +124,24 @@ public class PayoutMethodDetailsMobile {
     this.mobileProvider = mobileProvider;
   }
 
+  public PayoutMethodDetailsMobile birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -132,12 +155,13 @@ public class PayoutMethodDetailsMobile {
     return Objects.equals(this.firstName, payoutMethodDetailsMobile.firstName) &&
         Objects.equals(this.lastName, payoutMethodDetailsMobile.lastName) &&
         Objects.equals(this.phoneNumber, payoutMethodDetailsMobile.phoneNumber) &&
-        Objects.equals(this.mobileProvider, payoutMethodDetailsMobile.mobileProvider);
+        Objects.equals(this.mobileProvider, payoutMethodDetailsMobile.mobileProvider) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsMobile.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, phoneNumber, mobileProvider);
+    return Objects.hash(firstName, lastName, phoneNumber, mobileProvider, birthDate);
   }
 
 
@@ -149,6 +173,7 @@ public class PayoutMethodDetailsMobile {
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

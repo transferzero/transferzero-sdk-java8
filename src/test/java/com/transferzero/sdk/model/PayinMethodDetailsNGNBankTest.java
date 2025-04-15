@@ -41,19 +41,11 @@ public class PayinMethodDetailsNGNBankTest {
     }
 
     /**
-     * Test the property 'paymentMethod'
+     * Test the property 'phoneNumber'
      */
     @Test
-    public void paymentMethodTest() {
-        // TODO: test paymentMethod
-    }
-
-    /**
-     * Test the property 'redirectUrl'
-     */
-    @Test
-    public void redirectUrlTest() {
-        // TODO: test redirectUrl
+    public void phoneNumberTest() {
+        // TODO: test phoneNumber
     }
 
 }

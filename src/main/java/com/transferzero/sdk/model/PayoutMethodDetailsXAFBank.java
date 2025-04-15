@@ -24,6 +24,7 @@ import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;iban\&quot;: \&quot;CM2110033052090901100045910\&quot;, # IBAN format   \&quot;bank_account\&quot;: \&quot;09011000459\&quot;,   \&quot;bank_name\&quot;: \&quot;United Bank for Africa - Cameroon\&quot;,   \&quot;bank_country\&quot;: \&quot;CM\&quot;, # ISO country code for Cameroon   \&quot;bank_code\&quot;: \&quot;10033\&quot;,   \&quot;sort_code\&quot;: \&quot;10\&quot;,   \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot; } &#x60;&#x60;&#x60;  See [XAF Bank](https://docs.transferzero.com/docs/payout-details/#xafbank) documentation for the bank_code and transfer_reason lists
@@ -66,6 +67,10 @@ public class PayoutMethodDetailsXAFBank {
   public static final String SERIALIZED_NAME_TRANSFER_REASON = "transfer_reason";
   @SerializedName(SERIALIZED_NAME_TRANSFER_REASON)
   private PayoutMethodTransferReasonEnum transferReason;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private LocalDate birthDate;
 
   public PayoutMethodDetailsXAFBank firstName(String firstName) {
     this.firstName = firstName;
@@ -229,6 +234,24 @@ public class PayoutMethodDetailsXAFBank {
     this.transferReason = transferReason;
   }
 
+  public PayoutMethodDetailsXAFBank birthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Date of birth of recipient
+   * @return birthDate
+  **/
+  @ApiModelProperty(value = "Date of birth of recipient")
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -247,12 +270,13 @@ public class PayoutMethodDetailsXAFBank {
         Objects.equals(this.bankCountry, payoutMethodDetailsXAFBank.bankCountry) &&
         Objects.equals(this.bankCode, payoutMethodDetailsXAFBank.bankCode) &&
         Objects.equals(this.sortCode, payoutMethodDetailsXAFBank.sortCode) &&
-        Objects.equals(this.transferReason, payoutMethodDetailsXAFBank.transferReason);
+        Objects.equals(this.transferReason, payoutMethodDetailsXAFBank.transferReason) &&
+        Objects.equals(this.birthDate, payoutMethodDetailsXAFBank.birthDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, iban, bankAccount, bankName, bankCountry, bankCode, sortCode, transferReason);
+    return Objects.hash(firstName, lastName, iban, bankAccount, bankName, bankCountry, bankCode, sortCode, transferReason, birthDate);
   }
 
 
@@ -269,6 +293,7 @@ public class PayoutMethodDetailsXAFBank {
     sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
     sb.append("    sortCode: ").append(toIndentedString(sortCode)).append("\n");
     sb.append("    transferReason: ").append(toIndentedString(transferReason)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

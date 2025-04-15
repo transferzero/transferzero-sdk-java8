@@ -34,6 +34,14 @@ public class AccountValidationResult {
   @SerializedName(SERIALIZED_NAME_ACCOUNT_NAME)
   private String accountName;
 
+  public static final String SERIALIZED_NAME_MAPPED_MOBILE_PROVIDER = "mapped_mobile_provider";
+  @SerializedName(SERIALIZED_NAME_MAPPED_MOBILE_PROVIDER)
+  private String mappedMobileProvider;
+
+  public static final String SERIALIZED_NAME_ACCOUNT_STATUS = "account_status";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_STATUS)
+  private String accountStatus;
+
    /**
    * Get accountName
    * @return accountName
@@ -41,6 +49,24 @@ public class AccountValidationResult {
   @ApiModelProperty(example = "John Smith", value = "")
   public String getAccountName() {
     return accountName;
+  }
+
+   /**
+   * Get mappedMobileProvider
+   * @return mappedMobileProvider
+  **/
+  @ApiModelProperty(example = "mtn", value = "")
+  public String getMappedMobileProvider() {
+    return mappedMobileProvider;
+  }
+
+   /**
+   * Get accountStatus
+   * @return accountStatus
+  **/
+  @ApiModelProperty(example = "active", value = "")
+  public String getAccountStatus() {
+    return accountStatus;
   }
 
 
@@ -53,12 +79,14 @@ public class AccountValidationResult {
       return false;
     }
     AccountValidationResult accountValidationResult = (AccountValidationResult) o;
-    return Objects.equals(this.accountName, accountValidationResult.accountName);
+    return Objects.equals(this.accountName, accountValidationResult.accountName) &&
+        Objects.equals(this.mappedMobileProvider, accountValidationResult.mappedMobileProvider) &&
+        Objects.equals(this.accountStatus, accountValidationResult.accountStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName);
+    return Objects.hash(accountName, mappedMobileProvider, accountStatus);
   }
 
 
@@ -67,6 +95,8 @@ public class AccountValidationResult {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountValidationResult {\n");
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
+    sb.append("    mappedMobileProvider: ").append(toIndentedString(mappedMobileProvider)).append("\n");
+    sb.append("    accountStatus: ").append(toIndentedString(accountStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }

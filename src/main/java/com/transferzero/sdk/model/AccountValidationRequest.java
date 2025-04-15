@@ -55,13 +55,31 @@ public class AccountValidationRequest {
    */
   @JsonAdapter(CountryEnum.Adapter.class)
   public enum CountryEnum {
-    NG("NG"),
+    BF("BF"),
+    
+    BJ("BJ"),
+    
+    CG("CG"),
+    
+    CI("CI"),
+    
+    CM("CM"),
+    
+    GA("GA"),
     
     GH("GH"),
     
+    KE("KE"),
+    
+    NG("NG"),
+    
     SN("SN"),
     
-    CI("CI");
+    TD("TD"),
+    
+    TG("TG"),
+    
+    UG("UG");
 
     private String value;
 
@@ -114,7 +132,13 @@ public class AccountValidationRequest {
     
     GHS("GHS"),
     
-    XOF("XOF");
+    KES("KES"),
+    
+    XOF("XOF"),
+    
+    UGX("UGX"),
+    
+    XAF("XAF");
 
     private String value;
 

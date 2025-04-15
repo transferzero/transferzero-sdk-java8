@@ -25,14 +25,18 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The type of the bank account:  - &#x60;10&#x60;: Savings account - &#x60;20&#x60;: Current account
+ * The type of the bank account:  - &#x60;10&#x60;: Savings account - &#x60;20&#x60;: Current account - &#x60;30&#x60;: Payment account - &#x60;40&#x60;: Salary account
  */
 @JsonAdapter(PayoutMethodBankAccountTypeEnum.Adapter.class)
 public enum PayoutMethodBankAccountTypeEnum {
   
   _10("10"),
   
-  _20("20");
+  _20("20"),
+  
+  _30("30"),
+  
+  _40("40");
 
   private String value;
 

@@ -25,34 +25,40 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The Mobile Wallet provider of the recipient:  For XOF (Senegal) valid options are: - &#x60;orange&#x60;: Orange - &#x60;tigo&#x60;: Tigo - &#x60;emoney&#x60;: Emoney - &#x60;free&#x60;: Free - &#x60;wave&#x60;: Wave  For XOF (Ivory Coast) valid options are: - &#x60;orange&#x60;: Orange - &#x60;moov&#x60;: Moov - &#x60;mtn&#x60;: MTN  For XOF (Burkina Faso) valid options are: - &#x60;orange&#x60;: Orange - &#x60;mobicash&#x60;: Mobicash  For XOF (Mali) valid options are: - &#x60;orange&#x60;: Orange - &#x60;mobicash&#x60;: Mobicash  For GHS valid options are: - &#x60;mtn&#x60;: MTN - &#x60;airtel&#x60;: Airtel - &#x60;tigo&#x60;: Tigo - &#x60;vodafone&#x60;: Vodafone  For KES valid options are: - &#x60;mpesa&#x60;: MPESA  For UGX valid options are: - &#x60;africell&#x60;: Africell - &#x60;airtel&#x60;: Airtel - &#x60;mtn&#x60;: MTN - &#x60;telecom&#x60;: Telecom  For XAF (Cameroon) valid options are: - &#x60;orange&#x60;: Orange - &#x60;mtn&#x60;: MTN  For GNF (Guinea) valid options are: - &#x60;mtn&#x60;: MTN
+ * The Mobile Wallet provider of the recipient:  For XOF (Senegal) valid options are: - &#x60;orange&#x60;: Orange - &#x60;tigo&#x60;: Tigo - &#x60;emoney&#x60;: Emoney - &#x60;free&#x60;: Free - &#x60;expresso&#x60; : Expresso - &#x60;wave&#x60;: Wave  For XOF (Ivory Coast) valid options are: - &#x60;orange&#x60;: Orange - &#x60;moov&#x60;: Moov - &#x60;mtn&#x60;: MTN - &#x60;wave&#x60;: Wave  For XOF (Burkina Faso) valid options are: - &#x60;orange&#x60;: Orange - &#x60;mobicash&#x60;: Mobicash - &#x60;moov&#x60; : Moov  For XOF (Togo) valid options are: - &#x60;moov&#x60;: Moov - &#x60;tmoney&#x60;: Tmoney  For XOF (Benin) valid options are: - &#x60;moov&#x60;: Moov - &#x60;mtn&#x60;: Mtn  For XOF (Mali) valid options are: - &#x60;orange&#x60;: Orange - &#x60;mobicash&#x60;: Mobicash - &#x60;tigo&#x60; : Tigo  For GHS valid options are: - &#x60;airteltigo&#x60;: AirtelTigo - &#x60;mtn&#x60;: MTN - &#x60;vodafone&#x60;: Vodafone  For KES valid options are: - &#x60;mpesa&#x60;: MPESA  For UGX valid options are: - &#x60;africell&#x60;: Africell - &#x60;airtel&#x60;: Airtel - &#x60;mtn&#x60;: MTN - &#x60;telecom&#x60;: Telecom  For XAF (Chad) valid options are: - &#x60;moov&#x60;: Moov  For XAF (Cameroon) valid options are: - &#x60;orange&#x60;: Orange - &#x60;mtn&#x60;: MTN  For XAF (Congo) valid options are: - &#x60;airtel&#x60;: Airtel - &#x60;mtn&#x60;: MTN  For XAF (Gabon) valid options are: - &#x60;airtel&#x60;: Airtel - &#x60;moov&#x60;: Moov  For GNF (Guinea) valid options are: - &#x60;orange&#x60;: Orange - &#x60;mtn&#x60;: MTN
  */
 @JsonAdapter(PayoutMethodMobileProviderEnum.Adapter.class)
 public enum PayoutMethodMobileProviderEnum {
   
-  ORANGE("orange"),
-  
-  TIGO("tigo"),
-  
-  MOOV("moov"),
-  
-  MTN("mtn"),
+  AFRICELL("africell"),
   
   AIRTEL("airtel"),
   
-  VODAFONE("vodafone"),
-  
-  MPESA("mpesa"),
-  
-  AFRICELL("africell"),
-  
-  TELECOM("telecom"),
-  
-  MOBICASH("mobicash"),
+  AIRTELTIGO("airteltigo"),
   
   EMONEY("emoney"),
   
+  EXPRESSO("expresso"),
+  
   FREE("free"),
+  
+  MOBICASH("mobicash"),
+  
+  MOOV("moov"),
+  
+  MPESA("mpesa"),
+  
+  MTN("mtn"),
+  
+  ORANGE("orange"),
+  
+  TELECOM("telecom"),
+  
+  TIGO("tigo"),
+  
+  TMONEY("tmoney"),
+  
+  VODAFONE("vodafone"),
   
   WAVE("wave");
 

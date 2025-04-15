@@ -8,11 +8,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **firstName** | **String** |  | 
 **lastName** | **String** |  | 
-**bankName** | **String** |  |  [optional]
+**iban** | **String** |  |  [optional]
 **bankAccount** | **String** |  |  [optional]
 **sortCode** | **String** |  |  [optional]
-**iban** | **String** |  |  [optional]
 **bic** | **String** |  |  [optional]
+**bankName** | **String** |  |  [optional]
+**narration** | **String** |  |  [optional]
+**birthDate** | [**LocalDate**](LocalDate.md) | Date of birth of recipient |  [optional]
 
 
 

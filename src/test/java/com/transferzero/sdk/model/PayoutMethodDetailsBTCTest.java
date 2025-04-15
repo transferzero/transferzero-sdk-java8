@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -70,6 +71,14 @@ public class PayoutMethodDetailsBTCTest {
     @Test
     public void addressTest() {
         // TODO: test address
+    }
+
+    /**
+     * Test the property 'birthDate'
+     */
+    @Test
+    public void birthDateTest() {
+        // TODO: test birthDate
     }
 
 }
