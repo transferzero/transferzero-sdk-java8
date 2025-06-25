@@ -94,6 +94,10 @@ public class PayoutMethodDetails {
   @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
   private LocalDate birthDate;
 
+  public static final String SERIALIZED_NAME_STREET_DOUBLE_QUOTE = "street&quot;";
+  @SerializedName(SERIALIZED_NAME_STREET_DOUBLE_QUOTE)
+  private String streetDoubleQuote;
+
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
   private String phoneNumber;
@@ -360,6 +364,24 @@ public class PayoutMethodDetails {
 
   public void setBirthDate(LocalDate birthDate) {
     this.birthDate = birthDate;
+  }
+
+  public PayoutMethodDetails streetDoubleQuote(String streetDoubleQuote) {
+    this.streetDoubleQuote = streetDoubleQuote;
+    return this;
+  }
+
+   /**
+   * Get streetDoubleQuote
+   * @return streetDoubleQuote
+  **/
+  @ApiModelProperty(value = "")
+  public String getStreetDoubleQuote() {
+    return streetDoubleQuote;
+  }
+
+  public void setStreetDoubleQuote(String streetDoubleQuote) {
+    this.streetDoubleQuote = streetDoubleQuote;
   }
 
   public PayoutMethodDetails phoneNumber(String phoneNumber) {
@@ -1098,6 +1120,7 @@ public class PayoutMethodDetails {
         Objects.equals(this.bankAccount, payoutMethodDetails.bankAccount) &&
         Objects.equals(this.bankAccountType, payoutMethodDetails.bankAccountType) &&
         Objects.equals(this.birthDate, payoutMethodDetails.birthDate) &&
+        Objects.equals(this.streetDoubleQuote, payoutMethodDetails.streetDoubleQuote) &&
         Objects.equals(this.phoneNumber, payoutMethodDetails.phoneNumber) &&
         Objects.equals(this.mobileProvider, payoutMethodDetails.mobileProvider) &&
         Objects.equals(this.country, payoutMethodDetails.country) &&
@@ -1142,7 +1165,7 @@ public class PayoutMethodDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, birthDate, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, narration, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, branchCode, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, middleName, routingNumber, swiftCode, relationshipToSender, pixKeyType, pixKeyValue, ifscCode);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, birthDate, streetDoubleQuote, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, narration, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, branchCode, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, middleName, routingNumber, swiftCode, relationshipToSender, pixKeyType, pixKeyValue, ifscCode);
   }
 
 
@@ -1156,6 +1179,7 @@ public class PayoutMethodDetails {
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    bankAccountType: ").append(toIndentedString(bankAccountType)).append("\n");
     sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
+    sb.append("    streetDoubleQuote: ").append(toIndentedString(streetDoubleQuote)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
