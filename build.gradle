@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'java'
 
 group = 'com.transferzero.sdk'
-version = '1.36.8-SNAPSHOT'
+version = '1.37.0-SNAPSHOT'
 
 buildscript {
     repositories {
