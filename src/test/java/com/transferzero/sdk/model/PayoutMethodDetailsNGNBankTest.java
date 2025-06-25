@@ -90,4 +90,12 @@ public class PayoutMethodDetailsNGNBankTest {
         // TODO: test birthDate
     }
 
+    /**
+     * Test the property 'street'
+     */
+    @Test
+    public void streetTest() {
+        // TODO: test street
+    }
+
 }
