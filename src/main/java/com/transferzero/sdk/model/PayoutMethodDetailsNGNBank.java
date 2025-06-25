@@ -56,9 +56,9 @@ public class PayoutMethodDetailsNGNBank {
   @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
   private LocalDate birthDate;
 
-  public static final String SERIALIZED_NAME_STREET_DOUBLE_QUOTE = "street&quot;";
-  @SerializedName(SERIALIZED_NAME_STREET_DOUBLE_QUOTE)
-  private String streetDoubleQuote;
+  public static final String SERIALIZED_NAME_STREET = "street";
+  @SerializedName(SERIALIZED_NAME_STREET)
+  private String street;
 
   public PayoutMethodDetailsNGNBank firstName(String firstName) {
     this.firstName = firstName;
@@ -168,22 +168,22 @@ public class PayoutMethodDetailsNGNBank {
     this.birthDate = birthDate;
   }
 
-  public PayoutMethodDetailsNGNBank streetDoubleQuote(String streetDoubleQuote) {
-    this.streetDoubleQuote = streetDoubleQuote;
+  public PayoutMethodDetailsNGNBank street(String street) {
+    this.street = street;
     return this;
   }
 
    /**
-   * Get streetDoubleQuote
-   * @return streetDoubleQuote
+   * Get street
+   * @return street
   **/
   @ApiModelProperty(value = "")
-  public String getStreetDoubleQuote() {
-    return streetDoubleQuote;
+  public String getStreet() {
+    return street;
   }
 
-  public void setStreetDoubleQuote(String streetDoubleQuote) {
-    this.streetDoubleQuote = streetDoubleQuote;
+  public void setStreet(String street) {
+    this.street = street;
   }
 
 
@@ -202,12 +202,12 @@ public class PayoutMethodDetailsNGNBank {
         Objects.equals(this.bankAccount, payoutMethodDetailsNGNBank.bankAccount) &&
         Objects.equals(this.bankAccountType, payoutMethodDetailsNGNBank.bankAccountType) &&
         Objects.equals(this.birthDate, payoutMethodDetailsNGNBank.birthDate) &&
-        Objects.equals(this.streetDoubleQuote, payoutMethodDetailsNGNBank.streetDoubleQuote);
+        Objects.equals(this.street, payoutMethodDetailsNGNBank.street);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, birthDate, streetDoubleQuote);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, birthDate, street);
   }
 
 
@@ -221,7 +221,7 @@ public class PayoutMethodDetailsNGNBank {
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    bankAccountType: ").append(toIndentedString(bankAccountType)).append("\n");
     sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
-    sb.append("    streetDoubleQuote: ").append(toIndentedString(streetDoubleQuote)).append("\n");
+    sb.append("    street: ").append(toIndentedString(street)).append("\n");
     sb.append("}");
     return sb.toString();
   }

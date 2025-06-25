@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **bankAccount** | **String** |  | 
 **bankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  |  [optional]
 **birthDate** | [**LocalDate**](LocalDate.md) | Date of birth of recipient |  [optional]
-**streetDoubleQuote** | **String** |  |  [optional]
+**street** | **String** |  | 
 **phoneNumber** | **String** |  | 
 **mobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
 **country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  | 
@@ -35,7 +35,6 @@ Name | Type | Description | Notes
 **reference** | **String** |  |  [optional]
 **name** | **String** |  | 
 **address** | **String** |  | 
-**street** | **String** |  | 
 **postalCode** | **String** |  | 
 **city** | **String** |  | 
 **email** | **String** |  |  [optional]

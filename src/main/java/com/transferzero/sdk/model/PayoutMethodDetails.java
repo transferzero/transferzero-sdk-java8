@@ -94,9 +94,9 @@ public class PayoutMethodDetails {
   @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
   private LocalDate birthDate;
 
-  public static final String SERIALIZED_NAME_STREET_DOUBLE_QUOTE = "street&quot;";
-  @SerializedName(SERIALIZED_NAME_STREET_DOUBLE_QUOTE)
-  private String streetDoubleQuote;
+  public static final String SERIALIZED_NAME_STREET = "street";
+  @SerializedName(SERIALIZED_NAME_STREET)
+  private String street;
 
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
@@ -185,10 +185,6 @@ public class PayoutMethodDetails {
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private String address;
-
-  public static final String SERIALIZED_NAME_STREET = "street";
-  @SerializedName(SERIALIZED_NAME_STREET)
-  private String street;
 
   public static final String SERIALIZED_NAME_POSTAL_CODE = "postal_code";
   @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
@@ -366,22 +362,22 @@ public class PayoutMethodDetails {
     this.birthDate = birthDate;
   }
 
-  public PayoutMethodDetails streetDoubleQuote(String streetDoubleQuote) {
-    this.streetDoubleQuote = streetDoubleQuote;
+  public PayoutMethodDetails street(String street) {
+    this.street = street;
     return this;
   }
 
    /**
-   * Get streetDoubleQuote
-   * @return streetDoubleQuote
+   * Get street
+   * @return street
   **/
-  @ApiModelProperty(value = "")
-  public String getStreetDoubleQuote() {
-    return streetDoubleQuote;
+  @ApiModelProperty(required = true, value = "")
+  public String getStreet() {
+    return street;
   }
 
-  public void setStreetDoubleQuote(String streetDoubleQuote) {
-    this.streetDoubleQuote = streetDoubleQuote;
+  public void setStreet(String street) {
+    this.street = street;
   }
 
   public PayoutMethodDetails phoneNumber(String phoneNumber) {
@@ -780,24 +776,6 @@ public class PayoutMethodDetails {
     this.address = address;
   }
 
-  public PayoutMethodDetails street(String street) {
-    this.street = street;
-    return this;
-  }
-
-   /**
-   * Get street
-   * @return street
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public String getStreet() {
-    return street;
-  }
-
-  public void setStreet(String street) {
-    this.street = street;
-  }
-
   public PayoutMethodDetails postalCode(String postalCode) {
     this.postalCode = postalCode;
     return this;
@@ -1120,7 +1098,7 @@ public class PayoutMethodDetails {
         Objects.equals(this.bankAccount, payoutMethodDetails.bankAccount) &&
         Objects.equals(this.bankAccountType, payoutMethodDetails.bankAccountType) &&
         Objects.equals(this.birthDate, payoutMethodDetails.birthDate) &&
-        Objects.equals(this.streetDoubleQuote, payoutMethodDetails.streetDoubleQuote) &&
+        Objects.equals(this.street, payoutMethodDetails.street) &&
         Objects.equals(this.phoneNumber, payoutMethodDetails.phoneNumber) &&
         Objects.equals(this.mobileProvider, payoutMethodDetails.mobileProvider) &&
         Objects.equals(this.country, payoutMethodDetails.country) &&
@@ -1143,7 +1121,6 @@ public class PayoutMethodDetails {
         Objects.equals(this.reference, payoutMethodDetails.reference) &&
         Objects.equals(this.name, payoutMethodDetails.name) &&
         Objects.equals(this.address, payoutMethodDetails.address) &&
-        Objects.equals(this.street, payoutMethodDetails.street) &&
         Objects.equals(this.postalCode, payoutMethodDetails.postalCode) &&
         Objects.equals(this.city, payoutMethodDetails.city) &&
         Objects.equals(this.email, payoutMethodDetails.email) &&
@@ -1165,7 +1142,7 @@ public class PayoutMethodDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, birthDate, streetDoubleQuote, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, narration, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, street, postalCode, city, email, branchCode, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, middleName, routingNumber, swiftCode, relationshipToSender, pixKeyType, pixKeyValue, ifscCode);
+    return Objects.hash(firstName, lastName, bankCode, bankAccount, bankAccountType, birthDate, street, phoneNumber, mobileProvider, country, transferReason, iban, bankName, bankCountry, cashProvider, sortCode, bic, narration, senderIdentityCardType, senderIdentityCardId, senderCityOfBirth, senderCountryOfBirth, senderGender, reason, identityCardType, identityCardId, reference, name, address, postalCode, city, email, branchCode, transferReasonCode, contactFirstName, contactLastName, registrationNumber, natureOfBusiness, legalEntityType, middleName, routingNumber, swiftCode, relationshipToSender, pixKeyType, pixKeyValue, ifscCode);
   }
 
 
@@ -1179,7 +1156,7 @@ public class PayoutMethodDetails {
     sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    bankAccountType: ").append(toIndentedString(bankAccountType)).append("\n");
     sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
-    sb.append("    streetDoubleQuote: ").append(toIndentedString(streetDoubleQuote)).append("\n");
+    sb.append("    street: ").append(toIndentedString(street)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
@@ -1202,7 +1179,6 @@ public class PayoutMethodDetails {
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    street: ").append(toIndentedString(street)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
