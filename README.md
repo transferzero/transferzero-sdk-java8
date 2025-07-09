@@ -310,6 +310,8 @@ ApiClient apiClient = new ApiClient();
 apiClient.setApiKey("<key>");
 apiClient.setApiSecret("<secret>");
 apiClient.setBasePath("https://api-sandbox.transferzero.com/v1");
+// Optional: Set Timeout
+apiClient.setReadTimeout(30000); // In milliseconds
 ```
 
 ## Recommendation
