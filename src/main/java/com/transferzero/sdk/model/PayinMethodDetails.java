@@ -39,6 +39,14 @@ public class PayinMethodDetails {
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
   private String phoneNumber;
 
+  public static final String SERIALIZED_NAME_ACCOUNT_NAME = "account_name";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_NAME)
+  private String accountName;
+
+  public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "account_number";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
+  private String accountNumber;
+
   public static final String SERIALIZED_NAME_MOBILE_PROVIDER = "mobile_provider";
   @SerializedName(SERIALIZED_NAME_MOBILE_PROVIDER)
   private PayoutMethodMobileProviderEnum mobileProvider;
@@ -71,6 +79,42 @@ public class PayinMethodDetails {
 
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+  }
+
+  public PayinMethodDetails accountName(String accountName) {
+    this.accountName = accountName;
+    return this;
+  }
+
+   /**
+   * Merchant&#39;s virtual account name
+   * @return accountName
+  **/
+  @ApiModelProperty(example = "Test Merchant", value = "Merchant's virtual account name")
+  public String getAccountName() {
+    return accountName;
+  }
+
+  public void setAccountName(String accountName) {
+    this.accountName = accountName;
+  }
+
+  public PayinMethodDetails accountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+    return this;
+  }
+
+   /**
+   * Merchant&#39;s virtual account number
+   * @return accountNumber
+  **/
+  @ApiModelProperty(example = "1234567890", value = "Merchant's virtual account number")
+  public String getAccountNumber() {
+    return accountNumber;
+  }
+
+  public void setAccountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
   }
 
   public PayinMethodDetails mobileProvider(PayoutMethodMobileProviderEnum mobileProvider) {
@@ -156,6 +200,8 @@ public class PayinMethodDetails {
     }
     PayinMethodDetails payinMethodDetails = (PayinMethodDetails) o;
     return Objects.equals(this.phoneNumber, payinMethodDetails.phoneNumber) &&
+        Objects.equals(this.accountName, payinMethodDetails.accountName) &&
+        Objects.equals(this.accountNumber, payinMethodDetails.accountNumber) &&
         Objects.equals(this.mobileProvider, payinMethodDetails.mobileProvider) &&
         Objects.equals(this.country, payinMethodDetails.country) &&
         Objects.equals(this.otp, payinMethodDetails.otp) &&
@@ -164,7 +210,7 @@ public class PayinMethodDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(phoneNumber, mobileProvider, country, otp, refundAddress);
+    return Objects.hash(phoneNumber, accountName, accountNumber, mobileProvider, country, otp, refundAddress);
   }
 
 
@@ -173,6 +219,8 @@ public class PayinMethodDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class PayinMethodDetails {\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
+    sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    mobileProvider: ").append(toIndentedString(mobileProvider)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    otp: ").append(toIndentedString(otp)).append("\n");

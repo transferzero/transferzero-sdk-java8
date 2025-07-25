@@ -25,14 +25,22 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;phone_number\&quot;: \&quot;+2347087661211\&quot;   } &#x60;&#x60;&#x60;
+ * &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;phone_number\&quot;: \&quot;+2348187221236\&quot;,     \&quot;account_name\&quot;: \&quot;Test Merchant\&quot;,     \&quot;account_number\&quot;: \&quot;1234567890\&quot;   } &#x60;&#x60;&#x60;
  */
-@ApiModel(description = "```JSON   \"details\": {     \"phone_number\": \"+2347087661211\"   } ```")
+@ApiModel(description = "```JSON   \"details\": {     \"phone_number\": \"+2348187221236\",     \"account_name\": \"Test Merchant\",     \"account_number\": \"1234567890\"   } ```")
 
 public class PayinMethodDetailsNGNBank {
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
   private String phoneNumber;
+
+  public static final String SERIALIZED_NAME_ACCOUNT_NAME = "account_name";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_NAME)
+  private String accountName;
+
+  public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "account_number";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
+  private String accountNumber;
 
   public PayinMethodDetailsNGNBank phoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
@@ -43,13 +51,49 @@ public class PayinMethodDetailsNGNBank {
    * Sender&#39;s phone number
    * @return phoneNumber
   **/
-  @ApiModelProperty(example = "+2347087661211", value = "Sender's phone number")
+  @ApiModelProperty(example = "+2348187221236", value = "Sender's phone number")
   public String getPhoneNumber() {
     return phoneNumber;
   }
 
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+  }
+
+  public PayinMethodDetailsNGNBank accountName(String accountName) {
+    this.accountName = accountName;
+    return this;
+  }
+
+   /**
+   * Merchant&#39;s virtual account name
+   * @return accountName
+  **/
+  @ApiModelProperty(example = "Test Merchant", value = "Merchant's virtual account name")
+  public String getAccountName() {
+    return accountName;
+  }
+
+  public void setAccountName(String accountName) {
+    this.accountName = accountName;
+  }
+
+  public PayinMethodDetailsNGNBank accountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+    return this;
+  }
+
+   /**
+   * Merchant&#39;s virtual account number
+   * @return accountNumber
+  **/
+  @ApiModelProperty(example = "1234567890", value = "Merchant's virtual account number")
+  public String getAccountNumber() {
+    return accountNumber;
+  }
+
+  public void setAccountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
   }
 
 
@@ -62,12 +106,14 @@ public class PayinMethodDetailsNGNBank {
       return false;
     }
     PayinMethodDetailsNGNBank payinMethodDetailsNGNBank = (PayinMethodDetailsNGNBank) o;
-    return Objects.equals(this.phoneNumber, payinMethodDetailsNGNBank.phoneNumber);
+    return Objects.equals(this.phoneNumber, payinMethodDetailsNGNBank.phoneNumber) &&
+        Objects.equals(this.accountName, payinMethodDetailsNGNBank.accountName) &&
+        Objects.equals(this.accountNumber, payinMethodDetailsNGNBank.accountNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(phoneNumber);
+    return Objects.hash(phoneNumber, accountName, accountNumber);
   }
 
 
@@ -76,6 +122,8 @@ public class PayinMethodDetailsNGNBank {
     StringBuilder sb = new StringBuilder();
     sb.append("class PayinMethodDetailsNGNBank {\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
+    sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }
