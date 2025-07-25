@@ -48,4 +48,20 @@ public class PayinMethodDetailsNGNBankTest {
         // TODO: test phoneNumber
     }
 
+    /**
+     * Test the property 'accountName'
+     */
+    @Test
+    public void accountNameTest() {
+        // TODO: test accountName
+    }
+
+    /**
+     * Test the property 'accountNumber'
+     */
+    @Test
+    public void accountNumberTest() {
+        // TODO: test accountNumber
+    }
+
 }
