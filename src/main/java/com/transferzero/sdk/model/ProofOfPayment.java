@@ -90,7 +90,7 @@ public class ProofOfPayment {
    * URL to thumbnail image of the uploaded file
    * @return thumbnail
   **/
-  @ApiModelProperty(example = "https://bitpesa-development.s3.eu-west-1.amazonaws.com/my_file_thumb.jpg", value = "URL to thumbnail image of the uploaded file")
+  @ApiModelProperty(example = "https://bitpesa-development-reports.s3.eu-west-1.amazonaws.com/my_file_thumb.jpg", value = "URL to thumbnail image of the uploaded file")
   public String getThumbnail() {
     return thumbnail;
   }
@@ -108,7 +108,7 @@ public class ProofOfPayment {
    * URL to uploaded file
    * @return url
   **/
-  @ApiModelProperty(example = "https://bitpesa-development.s3.eu-west-1.amazonaws.com/my_file.jpg", value = "URL to uploaded file")
+  @ApiModelProperty(example = "https://bitpesa-development-reports.s3.eu-west-1.amazonaws.com/my_file.jpg", value = "URL to uploaded file")
   public String getUrl() {
     return url;
   }
