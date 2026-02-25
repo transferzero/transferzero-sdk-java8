@@ -45,7 +45,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.transferzero.sdk</groupId>
   <artifactId>transferzero-sdk-java8</artifactId>
-  <version>1.37.1-SNAPSHOT</version>
+  <version>1.37.4-SNAPSHOT</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -55,7 +55,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.transferzero.sdk:transferzero-sdk-java8:1.37.1-SNAPSHOT"
+compile "com.transferzero.sdk:transferzero-sdk-java8:1.37.4-SNAPSHOT"
 ```
 
 ### Others
@@ -68,7 +68,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/transferzero-sdk-java8-1.37.1-SNAPSHOT.jar`
+* `target/transferzero-sdk-java8-1.37.4-SNAPSHOT.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -126,6 +126,7 @@ Class | Method | HTTP request | Description
 *CurrencyInfoApi* | [**infoCurrencies**](docs/CurrencyInfoApi.md#infoCurrencies) | **GET** /info/currencies | Getting a list of possible requested currencies
 *CurrencyInfoApi* | [**infoCurrenciesIn**](docs/CurrencyInfoApi.md#infoCurrenciesIn) | **GET** /info/currencies/in | Getting a list of possible input currencies
 *CurrencyInfoApi* | [**infoCurrenciesOut**](docs/CurrencyInfoApi.md#infoCurrenciesOut) | **GET** /info/currencies/out | Getting a list of possible output currencies
+*DlocalBalanceApi* | [**getBalance**](docs/DlocalBalanceApi.md#getBalance) | **GET** /dlocal/balance | Get dlocal balances
 *DocumentsApi* | [**getDocument**](docs/DocumentsApi.md#getDocument) | **GET** /documents/{Document ID} | Fetching a document
 *DocumentsApi* | [**getDocuments**](docs/DocumentsApi.md#getDocuments) | **GET** /documents | Getting a list of documents
 *DocumentsApi* | [**postDocuments**](docs/DocumentsApi.md#postDocuments) | **POST** /documents | Creating a document
@@ -189,6 +190,8 @@ Class | Method | HTTP request | Description
  - [DebitListResponse](docs/DebitListResponse.md)
  - [DebitRequest](docs/DebitRequest.md)
  - [DebitRequestWrapper](docs/DebitRequestWrapper.md)
+ - [DlocalBalance](docs/DlocalBalance.md)
+ - [DlocalBalanceResponse](docs/DlocalBalanceResponse.md)
  - [Document](docs/Document.md)
  - [DocumentListResponse](docs/DocumentListResponse.md)
  - [DocumentRequest](docs/DocumentRequest.md)
@@ -226,11 +229,9 @@ Class | Method | HTTP request | Description
  - [PayoutMethodDetailsEGPCash](docs/PayoutMethodDetailsEGPCash.md)
  - [PayoutMethodDetailsGBPBank](docs/PayoutMethodDetailsGBPBank.md)
  - [PayoutMethodDetailsGHSBank](docs/PayoutMethodDetailsGHSBank.md)
- - [PayoutMethodDetailsGHSCash](docs/PayoutMethodDetailsGHSCash.md)
  - [PayoutMethodDetailsGHSMobile](docs/PayoutMethodDetailsGHSMobile.md)
  - [PayoutMethodDetailsGNFMobile](docs/PayoutMethodDetailsGNFMobile.md)
  - [PayoutMethodDetailsIBAN](docs/PayoutMethodDetailsIBAN.md)
- - [PayoutMethodDetailsINRBank](docs/PayoutMethodDetailsINRBank.md)
  - [PayoutMethodDetailsKESBank](docs/PayoutMethodDetailsKESBank.md)
  - [PayoutMethodDetailsKESMobile](docs/PayoutMethodDetailsKESMobile.md)
  - [PayoutMethodDetailsMADCash](docs/PayoutMethodDetailsMADCash.md)
