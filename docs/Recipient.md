@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **id** | [**UUID**](UUID.md) |  |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) | Type of recipient to create - either person or business (defaults to person)  |  [optional]
 **errors** | [**Map&lt;String, List&lt;ValidationErrorDescription&gt;&gt;**](List.md) | The fields that have some problems and don&#39;t pass validation |  [optional]
+**mandateId** | [**UUID**](UUID.md) | The ID of the mandate that is related to this recipient. This field is present when a ZAR bank mandate signing is required or has been completed. |  [optional]
 
 
 

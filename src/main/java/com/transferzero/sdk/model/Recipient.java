@@ -184,6 +184,10 @@ public class Recipient {
   @SerializedName(SERIALIZED_NAME_ERRORS)
   private Map<String, List<ValidationErrorDescription>> errors = new HashMap<>();
 
+  public static final String SERIALIZED_NAME_MANDATE_ID = "mandate_id";
+  @SerializedName(SERIALIZED_NAME_MANDATE_ID)
+  private UUID mandateId;
+
   public Recipient requestedAmount(BigDecimal requestedAmount) {
     this.requestedAmount = requestedAmount;
     return this;
@@ -481,6 +485,15 @@ public class Recipient {
     return errors;
   }
 
+   /**
+   * The ID of the mandate that is related to this recipient. This field is present when a ZAR bank mandate signing is required or has been completed.
+   * @return mandateId
+  **/
+  @ApiModelProperty(example = "97e79719-06e4-4794-aeeb-d2d9415d983a", value = "The ID of the mandate that is related to this recipient. This field is present when a ZAR bank mandate signing is required or has been completed.")
+  public UUID getMandateId() {
+    return mandateId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -514,12 +527,13 @@ public class Recipient {
         Objects.equals(this.outputCurrency, recipient.outputCurrency) &&
         Objects.equals(this.id, recipient.id) &&
         Objects.equals(this.type, recipient.type) &&
-        Objects.equals(this.errors, recipient.errors);
+        Objects.equals(this.errors, recipient.errors) &&
+        Objects.equals(this.mandateId, recipient.mandateId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestedAmount, requestedCurrency, payoutMethod, metadata, createdAt, editable, retriable, inputUsdAmount, mayCancel, stateReason, stateReasonDetails, state, transactionId, transactionExternalId, transactionState, exchangeRate, feeFractional, inputAmount, inputCurrency, outputAmount, outputCurrency, id, type, errors);
+    return Objects.hash(requestedAmount, requestedCurrency, payoutMethod, metadata, createdAt, editable, retriable, inputUsdAmount, mayCancel, stateReason, stateReasonDetails, state, transactionId, transactionExternalId, transactionState, exchangeRate, feeFractional, inputAmount, inputCurrency, outputAmount, outputCurrency, id, type, errors, mandateId);
   }
 
 
@@ -551,6 +565,7 @@ public class Recipient {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    mandateId: ").append(toIndentedString(mandateId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
