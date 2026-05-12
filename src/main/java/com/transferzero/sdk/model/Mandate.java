@@ -25,8 +25,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -34,7 +32,7 @@ import java.util.UUID;
  */
 @ApiModel(description = "A Mandate authorises payouts to a Recipient. Mandates are issued per calendar year and must be in a `signed` (or `bypassed`) state before the linked Recipient can receive a payout.")
 
-public class Mandate extends HashMap<String, Object> {
+public class Mandate {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
@@ -151,13 +149,12 @@ public class Mandate extends HashMap<String, Object> {
         Objects.equals(this.reference, mandate.reference) &&
         Objects.equals(this.signedAt, mandate.signedAt) &&
         Objects.equals(this.createdAt, mandate.createdAt) &&
-        Objects.equals(this.updatedAt, mandate.updatedAt) &&
-        super.equals(o);
+        Objects.equals(this.updatedAt, mandate.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, status, typeId, reference, signedAt, createdAt, updatedAt, super.hashCode());
+    return Objects.hash(id, status, typeId, reference, signedAt, createdAt, updatedAt);
   }
 
 
@@ -165,7 +162,6 @@ public class Mandate extends HashMap<String, Object> {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Mandate {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    typeId: ").append(toIndentedString(typeId)).append("\n");

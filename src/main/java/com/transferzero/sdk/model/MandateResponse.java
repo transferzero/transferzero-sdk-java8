@@ -32,7 +32,7 @@ import java.io.IOException;
 public class MandateResponse {
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
-  private Mandate _object = new HashMap<>();
+  private Mandate _object = null;
 
   public MandateResponse _object(Mandate _object) {
     this._object = _object;
