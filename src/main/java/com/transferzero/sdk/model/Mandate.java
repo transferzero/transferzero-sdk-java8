@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.transferzero.sdk.model.MandateStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -38,62 +39,9 @@ public class Mandate extends HashMap<String, Object> {
   @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
-  /**
-   * Current state of the mandate.  - &#x60;pending&#x60; — created, awaiting signing flow - &#x60;notified&#x60; — recipient has been notified to sign - &#x60;signed&#x60; — recipient signed; mandate is active - &#x60;failed&#x60; — signing flow failed (e.g. AVS/CDV rejection) - &#x60;bypassed&#x60; — administratively bypassed for an inward AZA payment
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    PENDING("pending"),
-    
-    NOTIFIED("notified"),
-    
-    SIGNED("signed"),
-    
-    FAILED("failed"),
-    
-    BYPASSED("bypassed");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return StatusEnum.fromValue(value);
-      }
-    }
-  }
-
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  private StatusEnum status;
+  private MandateStatus status;
 
   public static final String SERIALIZED_NAME_TYPE_ID = "type_id";
   @SerializedName(SERIALIZED_NAME_TYPE_ID)
@@ -124,13 +72,22 @@ public class Mandate extends HashMap<String, Object> {
     return id;
   }
 
+  public Mandate status(MandateStatus status) {
+    this.status = status;
+    return this;
+  }
+
    /**
-   * Current state of the mandate.  - &#x60;pending&#x60; — created, awaiting signing flow - &#x60;notified&#x60; — recipient has been notified to sign - &#x60;signed&#x60; — recipient signed; mandate is active - &#x60;failed&#x60; — signing flow failed (e.g. AVS/CDV rejection) - &#x60;bypassed&#x60; — administratively bypassed for an inward AZA payment
+   * Get status
    * @return status
   **/
-  @ApiModelProperty(example = "signed", value = "Current state of the mandate.  - `pending` — created, awaiting signing flow - `notified` — recipient has been notified to sign - `signed` — recipient signed; mandate is active - `failed` — signing flow failed (e.g. AVS/CDV rejection) - `bypassed` — administratively bypassed for an inward AZA payment")
-  public StatusEnum getStatus() {
+  @ApiModelProperty(value = "")
+  public MandateStatus getStatus() {
     return status;
+  }
+
+  public void setStatus(MandateStatus status) {
+    this.status = status;
   }
 
    /**
