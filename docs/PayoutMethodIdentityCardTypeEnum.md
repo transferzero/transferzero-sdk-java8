@@ -15,5 +15,19 @@
 
 * `OT` (value: `"OT"`)
 
+* `DNI` (value: `"DNI"`)
+
+* `RUC` (value: `"RUC"`)
+
+* `CE` (value: `"CE"`)
+
+* `PASS` (value: `"PASS"`)
+
+* `CI` (value: `"CI"`)
+
+* `CJ` (value: `"CJ"`)
+
+* `CR` (value: `"CR"`)
+
 
 

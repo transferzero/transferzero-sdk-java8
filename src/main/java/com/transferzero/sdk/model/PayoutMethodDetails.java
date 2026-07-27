@@ -28,22 +28,28 @@ import com.transferzero.sdk.model.PayoutMethodDetailsBTC;
 import com.transferzero.sdk.model.PayoutMethodDetailsBWPBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsBalance;
 import com.transferzero.sdk.model.PayoutMethodDetailsCADBank;
+import com.transferzero.sdk.model.PayoutMethodDetailsCRCBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsEGPBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsEGPCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsGBPBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsGHSBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsGHSMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsGNFMobile;
+import com.transferzero.sdk.model.PayoutMethodDetailsGTQBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsIBAN;
 import com.transferzero.sdk.model.PayoutMethodDetailsKESBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsKESMobile;
+import com.transferzero.sdk.model.PayoutMethodDetailsMADBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsMADCash;
 import com.transferzero.sdk.model.PayoutMethodDetailsMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsNGNBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsNZDBank;
+import com.transferzero.sdk.model.PayoutMethodDetailsPENBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsUGXBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsUSDBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsUSDCash;
+import com.transferzero.sdk.model.PayoutMethodDetailsVNDBank;
+import com.transferzero.sdk.model.PayoutMethodDetailsVNDMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsXAFBank;
 import com.transferzero.sdk.model.PayoutMethodDetailsXAFMobile;
 import com.transferzero.sdk.model.PayoutMethodDetailsXOFBank;
@@ -54,7 +60,6 @@ import com.transferzero.sdk.model.PayoutMethodDetailsZMWBank;
 import com.transferzero.sdk.model.PayoutMethodGenderEnum;
 import com.transferzero.sdk.model.PayoutMethodIdentityCardTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodLegalEntityTypeEnum;
-import com.transferzero.sdk.model.PayoutMethodMobileProviderEnum;
 import com.transferzero.sdk.model.PayoutMethodNatureOfBusinessEnum;
 import com.transferzero.sdk.model.PayoutMethodPixKeyTypeEnum;
 import com.transferzero.sdk.model.PayoutMethodTransferReasonEnum;
@@ -102,7 +107,7 @@ public class PayoutMethodDetails {
 
   public static final String SERIALIZED_NAME_MOBILE_PROVIDER = "mobile_provider";
   @SerializedName(SERIALIZED_NAME_MOBILE_PROVIDER)
-  private PayoutMethodMobileProviderEnum mobileProvider;
+  private String mobileProvider;
 
   public static final String SERIALIZED_NAME_COUNTRY = "country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
@@ -329,7 +334,7 @@ public class PayoutMethodDetails {
    * Get bankAccountType
    * @return bankAccountType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public PayoutMethodBankAccountTypeEnum getBankAccountType() {
     return bankAccountType;
   }
@@ -392,7 +397,7 @@ public class PayoutMethodDetails {
     this.phoneNumber = phoneNumber;
   }
 
-  public PayoutMethodDetails mobileProvider(PayoutMethodMobileProviderEnum mobileProvider) {
+  public PayoutMethodDetails mobileProvider(String mobileProvider) {
     this.mobileProvider = mobileProvider;
     return this;
   }
@@ -402,11 +407,11 @@ public class PayoutMethodDetails {
    * @return mobileProvider
   **/
   @ApiModelProperty(required = true, value = "")
-  public PayoutMethodMobileProviderEnum getMobileProvider() {
+  public String getMobileProvider() {
     return mobileProvider;
   }
 
-  public void setMobileProvider(PayoutMethodMobileProviderEnum mobileProvider) {
+  public void setMobileProvider(String mobileProvider) {
     this.mobileProvider = mobileProvider;
   }
 

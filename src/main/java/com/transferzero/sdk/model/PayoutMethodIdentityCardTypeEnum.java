@@ -25,7 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;ID&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card - &#x60;DL&#x60;: Driving License - &#x60;OT&#x60;: Other type of identity card
+ * The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;ID&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card - &#x60;DL&#x60;: Driving License - &#x60;OT&#x60;: Other type of identity card - &#x60;DNI&#x60;: Documento Nacional de Identidad (Peru) - &#x60;RUC&#x60;: Registro Único de Contribuyentes (Peru, business) - &#x60;CE&#x60;: Carnet de Extranjería (Peru, foreign national) - &#x60;PASS&#x60;: Passport (Peru) - &#x60;CI&#x60;: Cédula de Identidad (Costa Rica, individual) - &#x60;CJ&#x60;: Cédula Jurídica (Costa Rica, business) - &#x60;CR&#x60;: Cédula de Residencia (Costa Rica, resident)
  */
 @JsonAdapter(PayoutMethodIdentityCardTypeEnum.Adapter.class)
 public enum PayoutMethodIdentityCardTypeEnum {
@@ -38,7 +38,21 @@ public enum PayoutMethodIdentityCardTypeEnum {
   
   DL("DL"),
   
-  OT("OT");
+  OT("OT"),
+  
+  DNI("DNI"),
+  
+  RUC("RUC"),
+  
+  CE("CE"),
+  
+  PASS("PASS"),
+  
+  CI("CI"),
+  
+  CJ("CJ"),
+  
+  CR("CR");
 
   private String value;
 
